@@ -2,3 +2,9 @@
   package:
     name: neovim
     state: latest
+
+- name: software | terminal text editor | vim symlink
+  file:
+    src: /usr/bin/nvim
+    path: /usr/bin/vim
+    state: link
