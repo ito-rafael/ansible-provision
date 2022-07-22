@@ -14,3 +14,4 @@
   - import_tasks: users/rafael.yml
 
   # system setup
+  - import_tasks: software/neovim.yml   # Neovim

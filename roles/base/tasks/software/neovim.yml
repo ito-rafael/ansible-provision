@@ -1,0 +1,4 @@
+- name: software | terminal text editor | neovim
+  package:
+    name: neovim
+    state: latest
