@@ -1,9 +1,11 @@
 - name: users | ansible | create group
+  tags: ansible,groups,users
   group:
     name: ansible
     state: present
 
 - name: users | ansible | create user
+  tags: ansible,users
   user:
     name: ansible
     group: ansible
@@ -14,6 +16,7 @@
     shell: /bin/bash
 
 - name: users | ansible | add sudoers file
+  tags: ansible,users,sudo
   copy:
     src: files/users/sudoers_ansible
     dest: /etc/sudoers.d/ansible

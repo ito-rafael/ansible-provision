@@ -1,15 +1,18 @@
 - name: system | fcron | install package
+  tags: ansible,fcron
   package:
     name: "{{ cron_package }}"
     state: latest
 
 - name: system | fcron | disable sendmail
+  tags: ansible,fcron
   replace:
     path: /etc/fcron/fcron.conf
     regexp: '^(sendmail.*=.*/usr/bin/sendmail)$'
     replace: '#\g<1>'
 
 - name: system | fcron | start daemon
+  tags: ansible,fcron
   systemd:
     name: fcron
     state: started
@@ -17,6 +20,7 @@
   when: ansible_distribution == "Archlinux"
 
 - name: system | fcron | crontab symlink
+  tags: ansible,fcron
   file:
     src: /usr/bin/fcrontab
     path: /usr/bin/crontab

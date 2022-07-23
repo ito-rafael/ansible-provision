@@ -1,9 +1,11 @@
 - name: system | networking | NetworkManager install
+  tags: system,network
   package:
     name: networkmanager
     state: latest
 
 - name: system | NetworkManager | start daemon
+  tags: system,network
   systemd:
     name: NetworkManager
     state: started

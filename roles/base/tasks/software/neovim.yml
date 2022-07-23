@@ -1,9 +1,11 @@
 - name: software | terminal text editor | neovim
+  tags: vim
   package:
     name: neovim
     state: latest
 
 - name: software | terminal text editor | vim symlink
+  tags: vim
   file:
     src: /usr/bin/nvim
     path: /usr/bin/vim

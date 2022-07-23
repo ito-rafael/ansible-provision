@@ -5,13 +5,13 @@
       - seatd
       - sway
 
-- name: users | rafael | add to seat group
+- name: software | window-manager | add user to seat group
   user:
     name: rafael
     groups: seat
     append: yes
 
-- name: service | seatd | start
+- name: software | window-manager | start seatd daemon
   systemd:
     name: seatd
     enabled: yes

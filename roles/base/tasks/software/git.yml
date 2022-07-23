@@ -1,9 +1,11 @@
 - name: system | git | install git
+  tags: git
   package:
     name: git
     state: latest
 
 - name: software | git | create git directory
+  tags: git
   file:
     path: /home/rafael/git
     state: directory

@@ -1,10 +1,12 @@
 - name: software | openssh | installation [Arch]
+  tags: ansible,openssh
   package:
     name: openssh
     state: latest
   when: ansible_distribution == "Archlinux"
 
 - name: software | openssh | installation [Debian]
+  tags: ansible,openssh
   package:
     name: 
       - openssh-server
@@ -13,6 +15,7 @@
   when: ansible_distribution == "Debian"
 
 - name: software | openssh | start daemon [Arch]
+  tags: ansible,openssh
   systemd:
     name: sshd
     state: started
@@ -20,6 +23,7 @@
   when: ansible_distribution == "Archlinux"
 
 - name: software | openssh | start daemon [Debian]
+  tags: ansible,openssh
   systemd:
     name: ssh
     state: started

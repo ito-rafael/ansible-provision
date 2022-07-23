@@ -1,9 +1,11 @@
 - name: users | aurman | create group
+  tags: aur,aurman,groups,users
   group:
     name: aurman
     state: present
 
 - name: users | aurman | create user
+  tags: aur,aurman,users
   user:
     name: aurman
     group: aurman
@@ -15,6 +17,7 @@
     shell: /usr/bin/nologin
 
 - name: users | aurman | add sudoers file
+  tags: aur,aurman,users,sudo
   copy:
     src: files/users/sudoers_aurman
     dest: /etc/sudoers.d/aurman

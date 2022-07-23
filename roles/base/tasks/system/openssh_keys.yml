@@ -1,4 +1,5 @@
 - name: init | ssh keys | create dir
+  tags: ansible,openssh,ssh-keys
   file:
     path: /home/ansible/.ssh
     state: directory
@@ -7,6 +8,7 @@
     mode: 0700
 
 - name: init | ssh keys | generate keys
+  tags: ansible,openssh,ssh-keys
   openssh_keypair:
     path: /home/ansible/.ssh/id_ed25519
     type: ed25519
@@ -16,6 +18,7 @@
     comment: "Ansible"
 
 - name: init | ssh keys | create known_hosts & authorized_keys dirs
+  tags: ansible,openssh,ssh-keys
   copy:
     content: ""
     dest: "{{ item }}"
@@ -28,6 +31,7 @@
     - /home/ansible/.ssh/authorized_keys
 
 - name: init | ssh keys | copy pub ssh key
+  tags: ansible,openssh,ssh-keys
   authorized_key:
     key: "{{ lookup('file', '/home/ansible/.ssh/id_ed25519.pub') }}"
     user: ansible
