@@ -3,3 +3,9 @@
     name:
       - pacman-contrib    # paccache, pactree, etc
       - base-devel        # prerequisite to paru
+
+- name: software | package-manager | git clone paru repo
+  git:
+    clone: yes
+    repo: https://github.com/ito-rafael/ansible-provision.git
+    dest: /home/rafael/git/ansible-provision
