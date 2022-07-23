@@ -2,3 +2,13 @@
   group:
     name: aurman
     state: present
+
+- name: users | aurman | create user
+  user:
+    name: aurman
+    group: aurman
+    groups: "{{ sudo_group }}"
+    state: present
+    comment: "AUR manager"
+    system: yes
+    shell: /usr/bin/nologin
