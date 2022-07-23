@@ -1,3 +1,11 @@
 - name: software | package-manager | pacman-contrib install
+  tags: pacman
   package:
     name: pacman-contrib
+
+- name: software | package-manager | force pacman-key refresh keys
+  tags: pacman,pacman-key
+  pacman:
+    name: archlinux-keyring
+    state: latest
+    force: yes

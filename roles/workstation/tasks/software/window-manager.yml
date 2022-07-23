@@ -1,4 +1,5 @@
 - name: software | window-manager | sway
+  tags: wayland,sway
   package:
     name:
       - gnu-free-fonts
@@ -6,12 +7,14 @@
       - sway
 
 - name: software | window-manager | add user to seat group
+  tags: wayland,sway,users,rafael
   user:
     name: rafael
     groups: seat
     append: yes
 
 - name: software | window-manager | start seatd daemon
+  tags: wayland,sway
   systemd:
     name: seatd
     enabled: yes
