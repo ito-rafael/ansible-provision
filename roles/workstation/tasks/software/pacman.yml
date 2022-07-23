@@ -1,5 +1,5 @@
-- name: software | pacman | install pacman-contrib
+- name: software | package-manager | install pacman-contrib
   package:
-    names:
-      - pacman-contrib  # paccache, pactree, etc
-      - base-devel      # prerequisite to paru
+    name:
+      - pacman-contrib    # paccache, pactree, etc
+      - base-devel        # prerequisite to paru
