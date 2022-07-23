@@ -2,3 +2,11 @@
   package:
     name: git
     state: latest
+
+- name: software | git | create git directory
+  file:
+    path: /home/rafael/git
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
