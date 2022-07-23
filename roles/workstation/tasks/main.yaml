@@ -6,4 +6,9 @@
   - import_tasks: system/networking.yml           # NetworkManager
   - import_tasks: software/shell.yml              # Zsh
   - import_tasks: software/terminal.yml           # kitty
+
+  # Arch Linux exclusive
+  - include_tasks: software/pacman.yml
+    when: ansible_distribution == "Archlinux"
+
   - import_tasks: software/window-manager.yml     # Sway
