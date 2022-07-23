@@ -5,8 +5,8 @@
 
   # set up ansible environment
   - import_tasks: users/ansible.yml           # create ansible user
+  - import_tasks: software/fcron.yml          # install & setup fcron
   - import_tasks: software/openssh.yml        # install OpenSSH
-  - import_tasks: software/fcron.yml          # install fcron
   - import_tasks: system/openssh_keys.yml     # setup ssh keys
   - import_tasks: system/auto-provision.yml   # ansible auto-provision
 
@@ -14,4 +14,5 @@
   - import_tasks: users/rafael.yml            # create rafael user
 
   # system setup
+  - import_tasks: software/git.yml            # install & setup git
   - import_tasks: software/neovim.yml         # install Neovim

@@ -1,0 +1,4 @@
+- name: system | git | install git
+  package:
+    name: git
+    state: latest
