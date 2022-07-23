@@ -1,0 +1,4 @@
+- name: system | networking | NetworkManager install
+  package:
+    name: networkmanager
+    state: latest
