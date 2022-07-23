@@ -8,6 +8,7 @@
     name: aurman
     group: aurman
     groups: "{{ sudo_group }}"
+    createhome: yes
     state: present
     comment: "AUR manager"
     system: yes

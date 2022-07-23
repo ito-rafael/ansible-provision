@@ -5,13 +5,15 @@
       - rust
 
 - name: software | package-manager | paru repo git clone
+  become_user: aurman
   git:
     clone: yes
     repo: https://aur.archlinux.org/paru.git
-    dest: /home/rafael/git/paru
+    dest: /home/aurman/git/paru
 
 - name: software | package-manager | paru install
-  command: makepkg -si
+  become_user: aurman
+  command: makepkg -si --noconfirm
   args:
-    chdir: /home/rafael/git/paru
+    chdir: /home/aurman/git/paru
     creates: /usr/bin/paru
