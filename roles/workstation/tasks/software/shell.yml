@@ -1,3 +1,4 @@
 - name: software | shell | zsh
+  tags: shell,zsh
   package:
     name: zsh

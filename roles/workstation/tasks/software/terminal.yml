@@ -1,3 +1,4 @@
 - name: software | terminal | kitty
+  tags: terminal,kitty
   package:
     name: kitty
