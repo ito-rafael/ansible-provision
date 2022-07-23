@@ -1,0 +1,17 @@
+- name: software | package-manager | paru prerequisites
+  package:
+    name:
+      - base-devel
+      - rust
+
+- name: software | package-manager | paru repo git clone
+  git:
+    clone: yes
+    repo: https://aur.archlinux.org/paru.git
+    dest: /home/rafael/git/paru
+
+- name: software | package-manager | paru install
+  command: makepkg -si
+  args:
+    chdir: /home/rafael/git/paru
+    creates: /usr/bin/paru

@@ -8,7 +8,8 @@
   - import_tasks: software/terminal.yml           # kitty
 
   # Arch Linux exclusive
-  - include_tasks: software/pacman.yml
+  - include_tasks: software/pacman.yml            # pacman-contrib
+  - include_tasks: software/paru.yml              # paru (AUR helper)
     when: ansible_distribution == "Archlinux"
 
   - import_tasks: software/window-manager.yml     # Sway
