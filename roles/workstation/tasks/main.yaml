@@ -9,6 +9,7 @@
 
   # Arch Linux exclusive
   - include_tasks: software/pacman.yml            # pacman-contrib
+  - include_tasks: users/aurman.yml               # AUR user
   - include_tasks: software/paru.yml              # paru (AUR helper)
     when: ansible_distribution == "Archlinux"
 

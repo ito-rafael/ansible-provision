@@ -1,0 +1,4 @@
+- name: users | aurman | create group
+  group:
+    name: aurman
+    state: present
