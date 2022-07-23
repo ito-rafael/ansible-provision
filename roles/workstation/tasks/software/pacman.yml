@@ -1,11 +1,15 @@
-- name: software | package-manager | install pacman-contrib
+- name: software | package-manager | pacman-contrib install
+  package:
+    name: pacman-contrib    # paccache, pactree, etc
+
+- name: software | package-manager | paru prerequisites
   package:
     name:
-      - pacman-contrib    # paccache, pactree, etc
-      - base-devel        # prerequisite to paru
+      - base-devel
+      - rust
 
-- name: software | package-manager | git clone paru repo
+- name: software | package-manager | paru repo git clone
   git:
     clone: yes
-    repo: https://github.com/ito-rafael/ansible-provision.git
-    dest: /home/rafael/git/ansible-provision
+    repo: https://aur.archlinux.org/paru.git
+    dest: /home/rafael/git/paru
