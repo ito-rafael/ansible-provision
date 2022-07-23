@@ -12,3 +12,12 @@
     comment: "AUR manager"
     system: yes
     shell: /usr/bin/nologin
+
+- name: users | aurman | add sudoers file
+  copy:
+    src: files/users/sudoers_aurman
+    dest: /etc/sudoers.d/aurman
+    owner: root
+    group: root
+    mode: 0440
+    validate: "/usr/bin/visudo -cf %s"
