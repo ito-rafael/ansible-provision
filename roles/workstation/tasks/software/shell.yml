@@ -5,3 +5,10 @@
       - zsh
       - zsh-autosuggestions
       - zsh-syntax-highlighting
+
+- name: software | shell | zsh
+  tags: shell,zsh
+  become_user: aurman
+  aur:
+    name:
+      - zsh-vi-mode
