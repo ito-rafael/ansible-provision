@@ -1,0 +1,7 @@
+- name: users | rafael | clone dotfiles repo
+  tags: dotfiles,rafael
+  become_user: rafael
+  git:
+    clone: yes
+    repo: https://github.com/ito-rafael/pc-general-config.git
+    dest: /home/rafael/git/pc-general-config
