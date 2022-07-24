@@ -12,3 +12,11 @@
   aur:
     name:
       - zsh-vi-mode
+
+- name: software | shell | Oh My Zsh
+  tags: shell,zsh,oh-my-zsh
+  become_user: rafael
+  shell: "curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh | sh"
+  args:
+    chdir: /home/rafael
+    creates: /home/rafael/.oh-my-zsh
