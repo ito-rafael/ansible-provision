@@ -20,6 +20,15 @@
     regexp: '^.*(logind-check-graphical=).*$'
     replace: '\g<1>true'
 
+- name: software | display-manager | LightDM setup "sessions-directory"
+  tags: display-manager,lightdm
+  replace:
+    path: /etc/lightdm/lightdm.conf
+    after: '\[LightDM\]'
+    before: '\[Seat:\*\]'
+    regexp: '^.*(sessions-directory=.*/usr/share/wayland-sessions)$'
+    replace: '\g<1>'
+
 - name: software | display-manager | LightDM setup "greeter-session"
   tags: display-manager,lightdm
   replace:
