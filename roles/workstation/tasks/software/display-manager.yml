@@ -2,8 +2,14 @@
   tags: display-manager,lightdm
   package:
     name:
-      - lightdm                   # display manager
-      - lightdm-webkit2-greeter   # greeter
+      - lightdm                             # display manager
+      - lightdm-webkit2-greeter             # greeter
+
+- name: software | display-manager | LightDM install greeter
+  tags: display-manager,lightdm
+  become_user: aurman
+  aur:
+    name: lightdm-webkit-theme-aether-git   # greeter theme
 
 - name: software | display-manager | LightDM start daemon
   tags: display-manager,lightdm
