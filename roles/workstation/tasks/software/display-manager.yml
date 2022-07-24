@@ -11,6 +11,15 @@
   aur:
     name: lightdm-webkit-theme-aether-git   # greeter theme
 
+- name: software | display-manager | LightDM setup "greeter-session"
+  tags: display-manager,lightdm
+  replace:
+    path: /etc/lightdm/lightdm.conf
+    after: '\[Seat:\*\]'
+    before: '\[XDMCPServer\]'
+    regexp: '.*(greeter-session=).*'
+    replace: '\g<1>lightdm-webkit2-greeter'
+
 - name: software | display-manager | LightDM start daemon
   tags: display-manager,lightdm
   systemd:
