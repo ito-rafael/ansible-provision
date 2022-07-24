@@ -1,0 +1,6 @@
+- name: software | statusline | Powerline install
+  tags: statusline,powerline
+  package:
+    name:
+      - powerline
+      - powerline-fonts
