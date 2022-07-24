@@ -5,3 +5,16 @@
     clone: yes
     repo: https://github.com/ito-rafael/pc-general-config.git
     dest: /home/rafael/git/pc-general-config
+
+- name: users | rafael | copy dotfiles
+  tags: dotfiles,rafael
+  become_user: rafael
+  copy:
+    remote_src: yes
+    src: /home/rafael/git/pc-general-config/{{ item.src }}
+    dest: /home/rafael/{{ item.dest }}
+    owner: rafael
+    group: rafael
+    mode: 0600
+  with_items:
+    - { src: 'zsh/.zshrc', dest: '.zshrc' }
