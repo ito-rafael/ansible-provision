@@ -1,14 +1,22 @@
 - name: users | rafael | clone dotfiles repo
-  tags: dotfiles,rafael
+  tags: rafael,dotfiles
   become_user: rafael
   git:
     clone: yes
     repo: https://github.com/ito-rafael/pc-general-config.git
     dest: /home/rafael/git/pc-general-config
 
+- name: users | rafael | create dotfiles dir
+  tags: rafael,dotfiles
+  file:
+    path: /home/rafael/.config
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
+
 - name: users | rafael | copy dotfiles
-  tags: dotfiles,rafael
-  become_user: rafael
+  tags: rafael,dotfiles
   copy:
     remote_src: yes
     src: /home/rafael/git/pc-general-config/{{ item.src }}
