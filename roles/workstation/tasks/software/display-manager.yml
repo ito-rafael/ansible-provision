@@ -29,6 +29,15 @@
     regexp: '.*(greeter-session=).*'
     replace: '\g<1>lightdm-webkit2-greeter'
 
+- name: software | display-manager | LightDM setup "webkit_theme"
+  tags: display-manager,lightdm
+  replace:
+    path: /etc/lightdm/lightdm-webkit2-greeter.conf
+    after: '\[greeter\]'
+    before: '\[branding\]'
+    regexp: '(^webkit_theme.*= ).*$'
+    replace: '\g<1>Aether'
+
 - name: software | display-manager | LightDM start daemon
   tags: display-manager,lightdm
   systemd:
