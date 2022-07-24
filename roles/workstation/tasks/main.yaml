@@ -12,6 +12,7 @@
     when: ansible_distribution == "Archlinux"
 
   - import_tasks: system/networking.yml           # NetworkManager
+  - import_tasks: software/ssh-agent.yml          # Keychain
   - import_tasks: software/shell.yml              # Zsh
   - import_tasks: software/terminal.yml           # kitty
   - import_tasks: software/window-manager.yml     # Sway
