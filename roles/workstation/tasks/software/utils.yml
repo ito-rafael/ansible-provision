@@ -3,3 +3,9 @@
   package:
   name:
     - wget
+
+- name: software | utils | modern-unix
+  tags: modern-unix
+  package:
+    name:
+      - bat
