@@ -1,0 +1,5 @@
+- name: software | utils | general
+  tags: utils
+  package:
+  name:
+    - wget
