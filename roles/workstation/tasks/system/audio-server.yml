@@ -1,0 +1,6 @@
+- name: system | audio | PipeWire install
+  tags: audio,pipewire
+  package:
+    name: 
+      - pipewire
+      - pipewire-docs

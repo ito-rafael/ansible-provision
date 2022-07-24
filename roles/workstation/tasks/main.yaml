@@ -11,7 +11,11 @@
   - include_tasks: software/ansible-aur.yml       # ansible-aur module
     when: ansible_distribution == "Archlinux"
 
+  # System settings
   - import_tasks: system/networking.yml           # NetworkManager
+  - import_tasks: system/audio-server.yml         # PipeWire
+
+  # Applications
   - import_tasks: software/ssh-agent.yml          # Keychain
   - import_tasks: software/shell.yml              # Zsh
   - import_tasks: software/terminal.yml           # kitty
