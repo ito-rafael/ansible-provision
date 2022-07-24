@@ -3,6 +3,7 @@
   package:
     name:
       - wget
+      - curl
 
 - name: software | utils | modern-unix
   tags: utils,modern-unix
