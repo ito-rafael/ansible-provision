@@ -1,7 +1,9 @@
 - name: software | display-manager | LightDM install
   tags: display-manager,lightdm
   package:
-    name: lightdm
+    name:
+      - lightdm                   # display manager
+      - lightdm-webkit2-greeter   # greeter
 
 - name: software | display-manager | LightDM start daemon
   tags: display-manager,lightdm
