@@ -8,6 +8,7 @@
   - include_tasks: software/pacman.yml            # pacman-contrib
   - include_tasks: users/aurman.yml               # AUR user
   - include_tasks: software/paru.yml              # paru (AUR helper)
+  - include_tasks: software/ansible-aur.yml       # ansible-aur module
     when: ansible_distribution == "Archlinux"
 
   - import_tasks: system/networking.yml           # NetworkManager

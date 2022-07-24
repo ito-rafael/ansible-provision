@@ -1,0 +1,6 @@
+- name: software | ansible-galaxy | ansible-aur install
+  tags: ansible-galaxy,ansible-aur
+  become: false
+  command: paru -S ansible-aur-git --noconfirm
+  args:
+    creates: /usr/share/ansible/plugins/modules/aur.py
