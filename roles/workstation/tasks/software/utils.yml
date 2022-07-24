@@ -1,11 +1,11 @@
 - name: software | utils | general
-  tags: utils
+  tags: utils,general
   package:
-  name:
-    - wget
+    name:
+      - wget
 
 - name: software | utils | modern-unix
-  tags: modern-unix
+  tags: utils,modern-unix
   package:
     name:       # replacement for:
       - bat     # cat
