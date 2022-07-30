@@ -9,3 +9,10 @@
     name: archlinux-keyring
     state: latest
     force: yes
+
+- name: software | package-manager | enable ParallelDownloads
+  tags: pacman
+  replace:
+    path: /etc/pacman.conf
+    regexp: '^.*(ParallelDownloads).*$'
+    replace: '\g<1> = 5'
