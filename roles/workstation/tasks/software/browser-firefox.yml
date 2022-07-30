@@ -1,0 +1,4 @@
+- name: software | browser | Firefox Developer Edition install
+  tags: browser,firefox
+  package:
+    name: firefox-developer-edition

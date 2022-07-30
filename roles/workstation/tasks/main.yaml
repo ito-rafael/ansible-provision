@@ -25,5 +25,6 @@
   - import_tasks: software/statusline.yml         # Powerline
   - import_tasks: software/utils.yml              # general packages
   - import_tasks: software/browser-brave.yml      # browser: Brave
+  - import_tasks: software/browser-firefox.yml    # browser: Firefox
 
   - import_tasks: users/rafael-dotfiles.yml       # dotfiles
