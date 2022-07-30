@@ -20,6 +20,11 @@
   package:
     name: wireplumber
 
+- name: system | audio | PipeWire ALSA API
+  tags: audio,pipewire
+  package:
+    name: pipewire-alsa
+
 - name: system | audio | PipeWire JACK support
   tags: audio,pipewire
   package:
