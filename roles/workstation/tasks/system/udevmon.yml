@@ -4,3 +4,19 @@
     name:
       - interception-tools
       - interception-caps2esc
+
+- name: system | udevmon | copy udevmon config file
+  tags: udevmon,interception
+  copy:
+    src: files/udevmon/udevmon.yaml
+    dest: /etc/interception/udevmon.yaml
+    owner: root
+    group: root
+    mode: 0644
+
+- name: system | udevmon | start daemon
+  tags: udevmon,interception
+  systemd:
+    name: udevmon
+    state: started
+    enable: yes
