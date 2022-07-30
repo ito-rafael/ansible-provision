@@ -4,3 +4,8 @@
     name: 
       - pipewire
       - pipewire-docs
+
+- name: system | audio | WirePlumber session manager
+  tags: audio,pipewire
+  package:
+    name: wireplumber
