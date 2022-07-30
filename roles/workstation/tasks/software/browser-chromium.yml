@@ -1,0 +1,4 @@
+- name: software | browser | Chromium install
+  tags: browser,chromium
+  package:
+    name: chromium
