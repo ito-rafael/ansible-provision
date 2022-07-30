@@ -5,6 +5,13 @@
       - interception-tools
       - interception-caps2esc
 
+- name: system | udevmon | interception (space2meta)
+  tags: udevmon,interception
+  become_user: aurman
+  aur:
+    name:
+      - interception-space2meta
+
 - name: system | udevmon | copy udevmon config file
   tags: udevmon,interception
   copy:
@@ -19,4 +26,4 @@
   systemd:
     name: udevmon
     state: started
-    enable: yes
+    enabled: yes
