@@ -1,5 +1,5 @@
 - name: software | browser | Brave install
   tags: browser,brave
   become_user: aurman
-  paru:
+  aur:
     name: brave-bin

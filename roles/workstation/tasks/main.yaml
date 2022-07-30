@@ -15,6 +15,7 @@
   - import_tasks: system/networking.yml           # NetworkManager
   - import_tasks: system/audio.yml                # PipeWire
   - import_tasks: system/bluetooth.yml            # BlueZ
+  - import_tasks: system/udevmon.yml              # keyboard remap
 
   # Applications
   - import_tasks: software/ssh-agent.yml          # Keychain

@@ -1,0 +1,5 @@
+- name: system | udevmon | interception-tools
+  tags: udevmon,interception
+  package:
+    name:
+      - interception-tools
