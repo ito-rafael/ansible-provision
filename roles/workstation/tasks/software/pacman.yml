@@ -10,7 +10,7 @@
     state: latest
     force: yes
 
-- name: software | package-manager | enable ParallelDownloads
+- name: software | package-manager | enable parallel downloads
   tags: pacman
   replace:
     path: /etc/pacman.conf

@@ -9,3 +9,21 @@
   tags: system,bluetooth
   package:
     name: blueman           # blueman (Bluetooth manager)
+
+- name: system | bluetooth | check if btusb kernel module is loaded
+  tags: system,bluetooth,kernel
+  modprobe:
+    name: btusb
+    state: present
+  register: btusb_mod
+
+- name: system | kernel | load Bluetooth kernel module
+  tags: system,bluetooth,kernel
+  copy:
+    src: files/kernel/bluetooth.conf
+    dest: /etc/modules-load.d/bluetooth.conf
+    owner: root
+    group: root
+    mode: 0644
+  when: btusb_mod.changed
+
