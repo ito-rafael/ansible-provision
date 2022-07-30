@@ -9,3 +9,8 @@
   tags: audio,pipewire
   package:
     name: wireplumber
+
+- name: system | audio | PipeWire JACK support
+  tags: audio,pipewire
+  package:
+    name: pipewire-jack
