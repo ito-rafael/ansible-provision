@@ -3,6 +3,11 @@
   package:
     name: sof-firmware        # for drivers built with Sound Open Firmware
 
+- name: system | audio | ALSA utilities install
+  tags: audio,pipewire
+  package:
+    name: alsa-utils          # alsamixer, amixer, etc
+
 - name: system | audio | PipeWire install
   tags: audio,pipewire
   package:
