@@ -13,7 +13,8 @@
 
   # System settings
   - import_tasks: system/networking.yml           # NetworkManager
-  - import_tasks: system/audio-server.yml         # PipeWire
+  - import_tasks: system/audio.yml                # PipeWire
+  - import_tasks: system/bluetooth.yml            # BlueZ
 
   # Applications
   - import_tasks: software/ssh-agent.yml          # Keychain

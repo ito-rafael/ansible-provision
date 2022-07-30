@@ -1,0 +1,5 @@
+- name: system | bluetooth | BlueZ install
+  tags: system,bluetooth
+  package:
+    - bluez               # Bluetooth protocol stack
+    - bluez-utils         # bluetoothctl utility
