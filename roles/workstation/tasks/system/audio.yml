@@ -1,3 +1,8 @@
+- name: system | audio | Sound Open Firmware driver
+  tags: audio,sof
+  package:
+    name: sof-firmware        # for drivers built with Sound Open Firmware
+
 - name: system | audio | PipeWire install
   tags: audio,pipewire
   package:
