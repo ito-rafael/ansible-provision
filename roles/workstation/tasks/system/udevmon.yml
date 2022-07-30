@@ -1,5 +1,6 @@
-- name: system | udevmon | interception-tools
+- name: system | udevmon | interception-tools (caps2esc)
   tags: udevmon,interception
   package:
     name:
       - interception-tools
+      - interception-caps2esc
