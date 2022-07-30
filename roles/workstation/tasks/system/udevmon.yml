@@ -20,8 +20,17 @@
     owner: root
     group: root
     mode: 0644
+  register: udevmon_config
 
-- name: system | udevmon | start daemon
+- name: system | udevmon | restart udevmon daemon
+  tags: udevmon,interception
+  systemd:
+    name: udevmon
+    state: restarted
+    enabled: yes
+  when: udevmon_config.changed
+
+- name: system | udevmon | start udevmon daemon
   tags: udevmon,interception
   systemd:
     name: udevmon
