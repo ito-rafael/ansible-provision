@@ -1,9 +1,10 @@
-- name: system | udevmon | interception-tools (caps2esc)
+- name: system | udevmon | interception-tools (caps2esc / dual-function-keys)
   tags: udevmon,interception
   package:
     name:
       - interception-tools
       - interception-caps2esc
+      - interception-dual-function-keys
 
 - name: system | udevmon | interception (space2meta)
   tags: udevmon,interception
