@@ -24,5 +24,6 @@
   - import_tasks: software/display-manager.yml    # LightDM + theme
   - import_tasks: software/statusline.yml         # Powerline
   - import_tasks: software/utils.yml              # general packages
+  - import_tasks: software/browser-brave.yml      # browser: Brave
 
   - import_tasks: users/rafael-dotfiles.yml       # dotfiles
