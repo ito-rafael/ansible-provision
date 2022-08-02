@@ -23,6 +23,7 @@
     dest: /home/rafael/{{ item.dest }}
     owner: rafael
     group: rafael
-    mode: 0600
+    mode: 0700
   with_items:
     - { src: 'zsh/.zshrc', dest: '.zshrc' }
+    - { src: 'vim/vimrc', dest: '.vimrc' }
