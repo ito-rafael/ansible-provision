@@ -1,0 +1,4 @@
+- name: system | fonts | Font Awesome
+  tags: system,fonts
+  package:
+    name: ttf-font-awesome
