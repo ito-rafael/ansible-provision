@@ -1,0 +1,5 @@
+- name: software | media | Spotify install
+  tags: media,spotify
+  become_user: aurman
+  aur:
+    name: spotify
