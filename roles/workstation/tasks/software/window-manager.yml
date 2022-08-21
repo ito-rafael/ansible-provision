@@ -20,3 +20,9 @@
     name: seatd
     enabled: yes
     state: started
+
+- name: software | window-manager | general packages
+  tags: wayland,sway
+  package:
+    name:
+      - wl-clipboard        # clipboard utils
