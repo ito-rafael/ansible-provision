@@ -34,3 +34,8 @@
   tags: audio,pipewire
   package:
     name: helvum
+
+- name: system | audio | PipeWire replacement for PulseAudio (Bluetooth)
+  tags: audio,pipewire
+  package:
+    name: pipewire-pulse
