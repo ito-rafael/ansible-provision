@@ -4,3 +4,8 @@
     name:
       - powerline
       - powerline-fonts
+
+- name: software | statusline | waybar install
+  tags: statusline,waybar
+  package:
+    name: waybar
