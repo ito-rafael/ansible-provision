@@ -1,0 +1,4 @@
+- name: development | python | install Python
+  tags: dev,python
+  package:
+    name: python
