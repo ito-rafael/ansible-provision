@@ -9,3 +9,8 @@
     name: docker
     state: started
     enabled: yes
+
+- name: development | docker | install Docker Compose
+  tags: dev,docker
+  package:
+    name: docker-compose
