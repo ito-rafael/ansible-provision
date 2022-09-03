@@ -2,3 +2,10 @@
   tags: dev,docker
   package:
     name: docker
+
+- name: development | docker | start & enable Docker daemon
+  tags: dev,docker
+  systemd:
+    name: docker
+    state: started
+    enabled: yes
