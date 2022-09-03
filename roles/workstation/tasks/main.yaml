@@ -32,4 +32,7 @@
   - import_tasks: software/media-spotify.yml      # Spotify
   - import_tasks: software/office-suite.yml       # LibreOffice
 
+  # Development
+  - import_tasks: dev/docker.yml                  # Docker
+
   - import_tasks: users/rafael-dotfiles.yml       # dotfiles

@@ -1,0 +1,4 @@
+- name: development | docker | install Docker Engine
+  tags: dev,docker
+  package:
+    name: docker
