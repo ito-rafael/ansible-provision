@@ -1,0 +1,7 @@
+- name: development | latex | install & config (La)TeX environment
+  tags: dev,latex
+  package:
+    name:
+      - texlive-core
+      - texlive-bin
+      - texlive-latexextra
