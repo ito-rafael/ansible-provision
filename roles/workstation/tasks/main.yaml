@@ -30,5 +30,6 @@
   - import_tasks: software/browser-firefox.yml    # browser: Firefox
   - import_tasks: software/browser-chromium.yml   # browser: Chromium
   - import_tasks: software/media-spotify.yml      # Spotify
+  - import_tasks: software/office-suite.yml       # LibreOffice
 
   - import_tasks: users/rafael-dotfiles.yml       # dotfiles
