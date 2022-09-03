@@ -35,6 +35,7 @@
   # Development
   - import_tasks: dev/docker.yml                  # Docker
   - import_tasks: dev/python.yml                  # Python
+  - import_tasks: dev/jupyter.yml                 # Jupyter
 
   - import_tasks: users/rafael-groups.yml         # groups permissions
   - import_tasks: users/rafael-dotfiles.yml       # dotfiles
