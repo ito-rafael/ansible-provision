@@ -15,3 +15,15 @@
     repo:  https://github.com/hlissner/doom-emacs.git
     depth: 1
     dest: /home/rafael/.emacs.d
+
+- name: development | emacs | Doom Emacs installation
+  tags: dev,emacs
+  become_user: rafael
+  become: yes
+  expect: 
+    command: /home/rafael/.emacs.d/bin/doom install
+    creates: /home/rafael/.config/doom
+    timeout: null
+    responses:
+      "(.*)envvar(.*)": "y"
+      "(.*)fonts(.*)": "y"
