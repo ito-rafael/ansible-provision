@@ -27,3 +27,11 @@
     responses:
       "(.*)envvar(.*)": "y"
       "(.*)fonts(.*)": "y"
+
+- name: development | emacs | move Doom Emacs dotfiles
+  tags: dev,emacs
+  become_user: rafael
+  copy:
+    remote_src: yes
+    src: /home/rafael/.doom.d/
+    dest: /home/rafael/.config/doom
