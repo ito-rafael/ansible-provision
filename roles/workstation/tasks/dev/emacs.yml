@@ -7,8 +7,9 @@
       - fd
       - emacs-nativecomp
 
-- name: development | emacs | Doom Emacs installation
+- name: development | emacs | clone Doom Emacs git repo
   tags: dev,emacs
+  become_user: rafael
   git:
     clone: yes
     repo:  https://github.com/hlissner/doom-emacs.git
