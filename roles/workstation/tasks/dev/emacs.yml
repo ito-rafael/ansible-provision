@@ -2,6 +2,15 @@
   tags: dev,emacs
   package:
     name:
+      - git
       - ripgrep
       - fd
       - emacs-nativecomp
+
+- name: development | emacs | Doom Emacs installation
+  tags: dev,emacs
+  git:
+    clone: yes
+    repo:  https://github.com/hlissner/doom-emacs.git
+    depth: 1
+    dest: /home/rafael/.emacs.d
