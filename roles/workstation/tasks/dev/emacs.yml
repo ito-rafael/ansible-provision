@@ -1,0 +1,7 @@
+- name: development | emacs | Emacs installation
+  tags: dev,emacs
+  package:
+    name:
+      - ripgrep
+      - fd
+      - emacs-nativecomp
