@@ -5,3 +5,4 @@
       - texlive-core
       - texlive-bin
       - texlive-latexextra
+      - texlive-fontsextra
