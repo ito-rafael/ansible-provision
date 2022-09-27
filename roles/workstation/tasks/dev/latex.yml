@@ -6,3 +6,4 @@
       - texlive-bin
       - texlive-latexextra
       - texlive-fontsextra
+      - texlive-publishers
