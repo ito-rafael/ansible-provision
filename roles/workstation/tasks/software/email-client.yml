@@ -1,0 +1,4 @@
+- name: software | email | Thunderbird
+  tags: email,thunderbird
+  package:
+    name: thunderbird
