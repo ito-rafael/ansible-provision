@@ -15,7 +15,8 @@
   - import_tasks: system/networking.yml           # NetworkManager
   - import_tasks: system/audio.yml                # PipeWire
   - import_tasks: system/bluetooth.yml            # BlueZ
-  - import_tasks: system/udevmon.yml              # keyboard remap
+  - import_tasks: system/udevmon.yml              # keyboard remap (interception-tools)
+  - import_tasks: system/xremap.yml               # keyboard remap (xremap)
   - import_tasks: system/fonts.yml                # fonts
 
   # Applications
