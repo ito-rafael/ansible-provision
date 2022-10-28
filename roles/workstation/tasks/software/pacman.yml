@@ -16,3 +16,10 @@
     path: /etc/pacman.conf
     regexp: '^.*(ParallelDownloads).*$'
     replace: '\g<1> = 5'
+
+- name: software | package-manager | enable multilib repository
+  tags: pacman
+  replace:
+    path: /etc/pacman.conf
+    regexp: '^#(\[multilib\]$\n)^#(Include.*)$'
+    replace: '\g<1>\g<2>'
