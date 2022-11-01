@@ -39,3 +39,8 @@
   tags: audio,pipewire
   package:
     name: pipewire-pulse
+
+- name: system | audio | install pavucontrol (PulseAudio Volume Control)
+  tags: audio,pipewire
+  package:
+    name: pavucontrol
