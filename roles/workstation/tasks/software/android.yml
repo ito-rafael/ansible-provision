@@ -1,0 +1,4 @@
+- name: software | android | install ADB
+  tags: android,adb
+  package:
+    name: android-tools

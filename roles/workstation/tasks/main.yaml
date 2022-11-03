@@ -33,6 +33,7 @@
   - import_tasks: software/media-spotify.yml      # Spotify
   - import_tasks: software/office-suite.yml       # LibreOffice
   - import_tasks: software/email-client.yml       # Thunderbird
+  - import_tasks: software/android.yml            # Android
 
   # Development
   - import_tasks: dev/emacs.yml                   # Doom Emacs
