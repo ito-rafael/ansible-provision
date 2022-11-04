@@ -2,3 +2,8 @@
   tags: android,adb
   package:
     name: android-tools
+
+- name: software | android | install scrcpy
+  tags: android,scrcpy
+  package:
+    name: scrcpy
