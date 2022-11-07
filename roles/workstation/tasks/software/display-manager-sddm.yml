@@ -2,3 +2,10 @@
   tags: display-manager,sddm
   package:
     name: sddm
+
+- name: software | display-manager | SDDM start daemon
+  tags: display-manager,sddm
+  systemd:
+    name: sddm
+    enabled: yes
+    state: started
