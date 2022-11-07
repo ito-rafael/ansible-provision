@@ -1,0 +1,4 @@
+- name: software | display-manager | SDDM install
+  tags: display-manager,sddm
+  package:
+    name: sddm
