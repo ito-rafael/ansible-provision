@@ -8,3 +8,9 @@
       - texlive-fontsextra
       - texlive-publishers
       - texlive-bibtexextra
+
+- name: development | latex | install Zotero
+  tags: dev,latex,zotero
+  become_user: aurman
+  aur:
+    name: zotero
