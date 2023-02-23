@@ -8,6 +8,7 @@
       - texlive-fontsextra
       - texlive-publishers
       - texlive-bibtexextra
+      - texlive-science
 
 - name: development | latex | install Zotero
   tags: dev,latex,zotero
