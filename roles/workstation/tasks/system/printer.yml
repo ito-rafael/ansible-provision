@@ -2,3 +2,10 @@
   tags: system,printer
   package:
     name: cups
+
+- name: system | printer | start CUPS daemon
+  tags: system,printer
+  systemd:
+    name: cups
+    state: started
+    enabled: yes
