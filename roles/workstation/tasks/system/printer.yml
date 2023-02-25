@@ -1,0 +1,4 @@
+- name: system | printer | install CUPS
+  tags: system,printer
+  package:
+    name: cups
