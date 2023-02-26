@@ -9,3 +9,8 @@
     name: cups
     state: started
     enabled: yes
+
+- name: system | printer | install GUI for CUPS
+  tags: system,printer
+  package:
+    name: system-config-printer
