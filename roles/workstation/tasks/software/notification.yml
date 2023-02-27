@@ -1,0 +1,4 @@
+- name: software | notification | notification-server
+  tags: notification,dunst
+  package:
+    name: notification-daemon
