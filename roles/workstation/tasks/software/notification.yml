@@ -2,3 +2,8 @@
   tags: notification,dunst
   package:
     name: notification-daemon
+
+- name: software | notification | dunst
+  tags: notification,dunst
+  package:
+    name: dunst
