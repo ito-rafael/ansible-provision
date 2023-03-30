@@ -2,3 +2,8 @@
   tags: keyboard,rust,xremap
   package:
     name: rust
+
+- name: system | keyboard remap | install xremap
+  tags: keyboard,xremap
+  community.general.cargo:
+    name: xremap
