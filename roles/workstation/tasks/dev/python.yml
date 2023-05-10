@@ -2,3 +2,9 @@
   tags: dev,python
   package:
     name: python
+
+- name: development | python | Python packages
+  tags: dev,python
+  package:
+    name:
+      - build       # PyPI build
