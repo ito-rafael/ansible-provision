@@ -7,4 +7,5 @@
   tags: dev,python
   package:
     name:
+      - twine       # PyPI interaction
       - build       # PyPI build
