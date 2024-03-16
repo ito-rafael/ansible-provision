@@ -3,3 +3,14 @@
   group:
     name: rafael
     state: present
+
+- name: users | rafael | create user
+  tags: users,rafael
+  user:
+    name: rafael
+    group: rafael
+    groups: "{{ sudo_group }}"
+    createhome: yes
+    state: present
+    system: yes
+    shell: /usr/bin/zsh
