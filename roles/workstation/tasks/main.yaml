@@ -5,6 +5,7 @@
 - block:
 
   # Initialization
+  - import_tasks: users/rafael.yml                      # create user
   - import_tasks: users/dotfiles.yml                    # clone dotfiles repo
 
   # Arch Linux exclusive

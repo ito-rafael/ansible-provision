@@ -1,0 +1,5 @@
+- name: users | rafael | create group
+  tags: users,rafael
+  group:
+    name: rafael
+    state: present
