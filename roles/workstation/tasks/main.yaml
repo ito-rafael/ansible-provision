@@ -4,6 +4,9 @@
 
 - block:
 
+  # Initialization
+  - import_tasks: users/dotfiles.yml                    # clone dotfiles repo
+
   # Arch Linux exclusive
   - include_tasks: software/pacman.yml                  # pacman-contrib
   - include_tasks: users/aurman.yml                     # AUR user
