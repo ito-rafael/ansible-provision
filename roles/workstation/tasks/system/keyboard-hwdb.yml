@@ -21,3 +21,12 @@
     owner: root
     group: root
     mode: 0644
+
+- name: system | keyboard | enable update on boot (comment line)
+  tags: system,keyboard,hwdb
+  lineinfile:
+    path: /etc/systemd/system/systemd-hwdb-update.service
+    line: '#ConditionNeedsUpdate=/etc'
+    state: present
+    regexp: '^.*(ConditionNeedsUpdate=)/.*$'
+    insertafter: '^\[Unit\]$'
