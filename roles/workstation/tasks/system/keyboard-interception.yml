@@ -12,3 +12,13 @@
   aur:
     name:
       - interception-space2meta
+
+- name: system | udevmon | copy udevmon config file
+  tags: udevmon,interception
+  copy:
+    src: files/udevmon/udevmon.yaml
+    dest: /etc/interception/udevmon.yaml
+    owner: root
+    group: root
+    mode: 0644
+  register: udevmon_config
