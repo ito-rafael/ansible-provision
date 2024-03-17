@@ -7,3 +7,8 @@
     group: root
     mode: 0644
   register: hwdb_config
+
+- name: system | keyboard | rebuild the hardware database index (hwdb.bin)
+  tags: system,keyboard,hwdb
+  command: systemd-hwdb update
+  when: hwdb_config.changed
