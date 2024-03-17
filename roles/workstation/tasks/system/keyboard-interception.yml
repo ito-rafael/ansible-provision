@@ -5,3 +5,10 @@
       #- evtest                         # used to get scan codes of each key
       - interception-caps2esc
       - interception-dual-function-keys
+
+- name: system | udevmon | interception (space2meta)
+  tags: udevmon,interception
+  become_user: aurman
+  aur:
+    name:
+      - interception-space2meta
