@@ -12,3 +12,12 @@
   tags: system,keyboard,hwdb
   command: systemd-hwdb update
   when: hwdb_config.changed
+
+- name: system | keyboard | copy systemd-hwdb-update service
+  tags: system,keyboard,hwdb
+  copy:
+    src: /lib/systemd/system/systemd-hwdb-update.service
+    dest: /etc/systemd/system/systemd-hwdb-update.service
+    owner: root
+    group: root
+    mode: 0644
