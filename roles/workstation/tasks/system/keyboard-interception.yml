@@ -22,3 +22,11 @@
     group: root
     mode: 0644
   register: udevmon_config
+
+- name: system | udevmon | restart udevmon daemon
+  tags: udevmon,interception
+  systemd:
+    name: udevmon
+    state: restarted
+    enabled: yes
+  when: udevmon_config.changed
