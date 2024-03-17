@@ -30,3 +30,7 @@
     state: present
     regexp: '^.*(ConditionNeedsUpdate=)/.*$'
     insertafter: '^\[Unit\]$'
+
+- name: system | keyboard | update udev rules on the fly
+  tags: system,keyboard,hwdb
+  command: udevadm trigger
