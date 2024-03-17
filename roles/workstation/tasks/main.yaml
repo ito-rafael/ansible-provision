@@ -16,6 +16,7 @@
     when: ansible_distribution == "Archlinux"
 
   # System settings
+  - import_tasks: system/keyboard-interception.yml      # keyboard
   - import_tasks: system/networking.yml                 # NetworkManager
   - import_tasks: system/audio.yml                      # PipeWire
   - import_tasks: system/bluetooth.yml                  # BlueZ
