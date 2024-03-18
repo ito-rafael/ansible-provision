@@ -56,6 +56,12 @@
     regexp: '^sleep 1'
     insertbefore: 'exec \$\@'
 
+- name: software | display-manager | LightDM download background image
+  tags: display-manager,lightdm
+  get_url:
+    url: https://github.com/ito-rafael/dotfiles/raw/master/lightdm/San%20Pedro%20de%20Atacama%20-%20Piedras%20Rojas.jpg
+    dest: /usr/share/lightdm-webkit/themes/lightdm-webkit-theme-aether/src/img/wallpapers/San_Pedro_de_Atacama_-_Piedras_Rojas.jpg
+
 - name: software | display-manager | LightDM start daemon
   tags: display-manager,lightdm
   systemd:
