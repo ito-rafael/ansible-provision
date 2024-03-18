@@ -40,12 +40,12 @@
 
 - name: software | display-manager | LightDM setup "webkit_theme"
   tags: display-manager,lightdm
-  replace:
+  lineinfile:
     path: /etc/lightdm/lightdm-webkit2-greeter.conf
-    after: '\[greeter\]'
-    before: '\[branding\]'
+    line: 'webkit_theme        = lightdm-webkit-theme-aether'
+    state: present
     regexp: '(^webkit_theme.*= ).*$'
-    replace: '\g<1>Aether'
+    insertafter: '^\[greeter\]$'
 
 - name: software | display-manager | LightDM start daemon
   tags: display-manager,lightdm
