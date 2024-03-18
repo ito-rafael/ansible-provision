@@ -31,12 +31,12 @@
 
 - name: software | display-manager | LightDM setup "greeter-session"
   tags: display-manager,lightdm
-  replace:
+  lineinfile:
     path: /etc/lightdm/lightdm.conf
-    after: '\[Seat:\*\]'
-    before: '\[XDMCPServer\]'
+    line: 'greeter-session=lightdm-webkit2-greeter'
+    state: present
     regexp: '.*(greeter-session=).*'
-    replace: '\g<1>lightdm-webkit2-greeter'
+    insertafter: '^\[Seat:\*\]$'
 
 - name: software | display-manager | LightDM setup "webkit_theme"
   tags: display-manager,lightdm
