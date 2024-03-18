@@ -13,12 +13,12 @@
 
 - name: software | display-manager | LightDM setup "logind-check-graphical"
   tags: display-manager,lightdm
-  replace:
+  lineinfile:
     path: /etc/lightdm/lightdm.conf
-    after: '\[LightDM\]'
-    before: '\[Seat:\*\]'
+    line: 'logind-check-graphical=true'
+    state: present
     regexp: '^.*(logind-check-graphical=).*$'
-    replace: '\g<1>true'
+    insertafter: '^\[LightDM\]$'
 
 - name: software | display-manager | LightDM setup "sessions-directory"
   tags: display-manager,lightdm
