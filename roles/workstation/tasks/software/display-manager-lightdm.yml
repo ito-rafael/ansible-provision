@@ -47,6 +47,15 @@
     regexp: '(^webkit_theme.*= ).*$'
     insertafter: '^\[greeter\]$'
 
+- name: software | display-manager | LightDM fix session launch script
+  tags: display-manager,lightdm
+  lineinfile:
+    path: /etc/lightdm/Xsession
+    line: 'sleep 1'
+    state: present
+    regexp: '^sleep 1'
+    insertbefore: 'exec \$\@'
+
 - name: software | display-manager | LightDM start daemon
   tags: display-manager,lightdm
   systemd:
