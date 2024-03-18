@@ -22,12 +22,12 @@
 
 - name: software | display-manager | LightDM setup "sessions-directory"
   tags: display-manager,lightdm
-  replace:
+  lineinfile:
     path: /etc/lightdm/lightdm.conf
-    after: '\[LightDM\]'
-    before: '\[Seat:\*\]'
+    line: 'sessions-directory=/usr/share/lightdm/sessions:/usr/share/xsessions:/usr/share/wayland-sessions'
+    state: present
     regexp: '^.*(sessions-directory=.*/usr/share/wayland-sessions)$'
-    replace: '\g<1>'
+    insertafter: '^\[LightDM\]$'
 
 - name: software | display-manager | LightDM setup "greeter-session"
   tags: display-manager,lightdm
