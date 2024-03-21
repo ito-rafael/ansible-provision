@@ -1,7 +1,8 @@
 - name: system | networking | NetworkManager install
   tags: system,network
   package:
-    name: networkmanager
+    name:
+      - networkmanager                   # core package
     state: latest
 
 - name: system | NetworkManager | start daemon
