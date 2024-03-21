@@ -4,6 +4,7 @@
     name:
       - networkmanager                   # core package
       - nm-connection-editor             # GUI
+      - network-manager-applet           # system tray applet
     state: latest
 
 - name: system | NetworkManager | start daemon
