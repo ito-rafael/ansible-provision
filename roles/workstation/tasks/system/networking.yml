@@ -3,6 +3,7 @@
   package:
     name:
       - networkmanager                   # core package
+      - nm-connection-editor             # GUI
     state: latest
 
 - name: system | NetworkManager | start daemon
