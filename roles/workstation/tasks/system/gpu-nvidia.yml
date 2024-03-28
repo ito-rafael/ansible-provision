@@ -2,4 +2,5 @@
   tags: system,nvidia
   package:
     name:
-      - mesa                # nouveau
+      #- mesa                # nouveau: open-source driver
+      - nvidia              # proprietary drivers
