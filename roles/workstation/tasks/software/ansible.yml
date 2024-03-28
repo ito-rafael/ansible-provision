@@ -4,3 +4,10 @@
     name:
       - git
       - ansible-core
+
+- name: software | ansible | clone ansible-provision repo
+  tags: ansible,ansible-provision
+  git:
+    clone: yes
+    repo: https://github.com/ito-rafael/ansible-provision.git
+    dest: /home/ansible/ansible-provision.git
