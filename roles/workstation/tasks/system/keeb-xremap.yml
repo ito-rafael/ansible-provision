@@ -7,3 +7,5 @@
   tags: keyboard,xremap
   community.general.cargo:
     name: xremap
+
+#cargo install xremap --features sway
