@@ -6,6 +6,7 @@
 
   # Initialization
   - import_tasks: users/rafael.yml                      # default user
+  - import_tasks: users/ansible.yml                     # Ansible user
   - import_tasks: users/dotfiles-clone.yml              # dotfiles repo
 
   # Arch Linux exclusive

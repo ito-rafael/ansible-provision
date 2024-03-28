@@ -1,0 +1,5 @@
+- name: users | ansible | create group
+  tags: users,ansible
+  group:
+    name: ansible
+    state: present
