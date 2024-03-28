@@ -1,0 +1,5 @@
+- name: system | GPU-NVIDIA | install drivers
+  tags: system,nvidia
+  package:
+    name:
+      - mesa                # nouveau
