@@ -1,0 +1,6 @@
+- name: software | ansible | install ansible
+  tags: ansible
+  package:
+    name:
+      - git
+      - ansible-core
