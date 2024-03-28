@@ -4,3 +4,4 @@
     name:
       #- mesa                # nouveau: open-source driver
       - nvidia              # proprietary drivers
+      - nvidia-utils        # drivers utilities
