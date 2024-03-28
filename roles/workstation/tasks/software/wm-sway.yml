@@ -2,10 +2,10 @@
   tags: wayland,sway
   package:
     name:
-      - gnu-free-fonts      # prerequisite of sway
       - seatd               # prerequisite of sway
       - sway                # window manager / compositor
       - ruby                # prerequisite for i3bang (config preprocessor)
+      - sway-contrib        # community scripts for sway
 
 - name: software | window-manager | add user to seat group
   tags: wayland,sway,users,rafael

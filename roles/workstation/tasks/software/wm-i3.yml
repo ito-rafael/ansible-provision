@@ -1,0 +1,16 @@
+- name: software | window-manager | X11: i3
+  tags: X11,i3
+  package:
+    name:
+      - xorg-xserver        # XOrg
+      - xorg-apps           # XOrg packages
+      - ruby                # prerequisite for i3bang (config preprocessor)
+      - perl-anyevent-i3    # layout saving
+      - perl-json-xs        # layout saving
+      - i3-wm               # i3 window manager
+
+- name: software | window-manager | general packages
+  tags: X11,i3
+  package:
+    name:
+      - xclip               # clipboard utils
