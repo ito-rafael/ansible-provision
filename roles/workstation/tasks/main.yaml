@@ -5,49 +5,49 @@
 - block:
 
   # Initialization
-  - import_tasks: users/rafael.yml                      # create user
-  - import_tasks: users/dotfiles.yml                    # clone dotfiles repo
+  - import_tasks: users/rafael.yml                      # default user
+  - import_tasks: users/dotfiles-clone.yml              # dotfiles repo
 
   # Arch Linux exclusive
-  - include_tasks: software/pacman.yml                  # pacman-contrib
-  - include_tasks: users/aurman.yml                     # AUR user
-  - include_tasks: software/paru.yml                    # paru (AUR helper)
-  - include_tasks: software/ansible-aur.yml             # ansible-aur module
+  - import_tasks: software/pacman.yml                   # pacman-contrib
+  - import_tasks: users/aurman.yml                      # AUR user
+  - import_tasks: software/paru.yml                     # paru (AUR helper)
+  - import_tasks: software/ansible-aur.yml              # ansible-aur module
     when: ansible_distribution == "Archlinux"
 
   # System settings
   #- import_tasks: system/keyboard-interception.yml      # keyboard [deprecated]
-  - import_tasks: system/keyboard-hwdb.yml              # keyboard
+  #- import_tasks: system/udevmon.yml                    # keyboard remap (interception-tools)  [deprecated]
   - import_tasks: system/networking.yml                 # NetworkManager
+  - import_tasks: system/keyboard-hwdb.yml              # keyboard
+  - import_tasks: system/xremap.yml                     # keyboard remap (xremap)
   - import_tasks: system/audio.yml                      # PipeWire
   - import_tasks: system/bluetooth.yml                  # BlueZ
-  - import_tasks: system/udevmon.yml                    # keyboard remap (interception-tools)
-  - import_tasks: system/xremap.yml                     # keyboard remap (xremap)
   - import_tasks: system/fonts.yml                      # fonts
 
   # Applications
-  - import_tasks: software/ssh-agent.yml                # Keychain
-  - import_tasks: software/shell.yml                    # Zsh
-  - import_tasks: software/terminal.yml                 # kitty
-  - import_tasks: software/window-manager.yml           # Sway
-  - import_tasks: software/display-manager-lightdm.yml  # LightDM + theme
-  #- import_tasks: software/display-manager-sddm.yml     # SDDM
-  - import_tasks: software/statusline.yml               # Powerline
-  - import_tasks: software/utils.yml                    # general packages
+  - import_tasks: software/android.yml                  # Android
   - import_tasks: software/browser-brave.yml            # browser: Brave
   - import_tasks: software/browser-firefox.yml          # browser: Firefox
   - import_tasks: software/browser-chromium.yml         # browser: Chromium
+  - import_tasks: software/display-manager-lightdm.yml  # LightDM + theme
+  #- import_tasks: software/display-manager-sddm.yml     # SDDM [deprecated]
+  - import_tasks: software/email-client.yml             # Thunderbird
   - import_tasks: software/media-spotify.yml            # Spotify
   - import_tasks: software/office-suite.yml             # LibreOffice
-  - import_tasks: software/email-client.yml             # Thunderbird
-  - import_tasks: software/android.yml                  # Android
+  - import_tasks: software/shell.yml                    # Zsh
+  - import_tasks: software/ssh-agent.yml                # Keychain
+  - import_tasks: software/statusline.yml               # Powerline
+  - import_tasks: software/terminal.yml                 # kitty
+  - import_tasks: software/utils.yml                    # general packages
+  - import_tasks: software/window-manager.yml           # Sway
 
   # Development
-  - import_tasks: dev/emacs.yml                         # Doom Emacs
   - import_tasks: dev/docker.yml                        # Docker
-  - import_tasks: dev/python.yml                        # Python
+  - import_tasks: dev/emacs.yml                         # Doom Emacs
   - import_tasks: dev/jupyter.yml                       # Jupyter
   - import_tasks: dev/latex.yml                         # LaTeX
+  - import_tasks: dev/python.yml                        # Python
 
   - import_tasks: users/rafael-groups.yml               # groups permissions
   - import_tasks: users/rafael-dotfiles.yml             # dotfiles
