@@ -18,15 +18,15 @@
     when: ansible_distribution == "Archlinux"
 
   # System settings
-  #- import_tasks: system/keyboard-interception.yml      # keyboard [deprecated]
-  #- import_tasks: system/udevmon.yml                    # keyboard remap (interception-tools)  [deprecated]
-  - import_tasks: system/networking.yml                 # NetworkManager
-  - import_tasks: system/keyboard-hwdb.yml              # keyboard
-  - import_tasks: system/xremap.yml                     # keyboard remap (xremap)
-  - import_tasks: system/gpu-nvidia.yml                 # GPU: NVIDIA
   - import_tasks: system/audio.yml                      # PipeWire
   - import_tasks: system/bluetooth.yml                  # BlueZ
   - import_tasks: system/fonts.yml                      # fonts
+  - import_tasks: system/gpu-nvidia.yml                 # GPU: NVIDIA
+  - import_tasks: system/keeb-hwdb.yml                  # keyboard: hardware mod
+  - import_tasks: system/keep-xremap.yml                # keyboard: software processing
+  #- import_tasks: system/keeb-interception.yml         # keyboard: interception [deprecated]
+  #- import_tasks: system/keeb-udevmon.yml              # keyboard: udevmon [deprecated]
+  - import_tasks: system/networking.yml                 # NetworkManager
 
   # Applications
   - import_tasks: software/android.yml                  # Android
