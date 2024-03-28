@@ -1,0 +1,5 @@
+- name: system | keyboard | install KMonad
+  tags: keyboard,kmonad
+  become_user: aurman
+  aur:
+    name: kmonad-bin

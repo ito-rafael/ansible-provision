@@ -23,6 +23,7 @@
   - import_tasks: system/fonts.yml                      # fonts
   - import_tasks: system/gpu-nvidia.yml                 # GPU: NVIDIA
   - import_tasks: system/keeb-hwdb.yml                  # keyboard: hardware mod
+  - import_tasks: system/keeb-kmonad.yml                # keyboard: QMK-like layers
   - import_tasks: system/keep-xremap.yml                # keyboard: software processing
   #- import_tasks: system/keeb-interception.yml         # keyboard: interception [deprecated]
   #- import_tasks: system/keeb-udevmon.yml              # keyboard: udevmon [deprecated]
