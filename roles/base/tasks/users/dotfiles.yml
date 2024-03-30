@@ -1,0 +1,16 @@
+- name: users | dotfiles | clone dotfiles repo
+  tags: users,dotfiles,clone
+  become_user: rafael
+  git:
+    clone: yes
+    repo: https://github.com/ito-rafael/dotfiles.git
+    dest: /home/rafael/git/dotfiles
+
+- name: users | dotfiles | ensures dir exists
+  tags: users,dotfiles,clone
+  file:
+    path: /home/rafael/.config
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
