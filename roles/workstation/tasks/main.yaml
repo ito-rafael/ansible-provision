@@ -4,12 +4,6 @@
 
 - block:
 
-  # Initialization
-  - import_tasks: software/ansible.yml                  # Ansible
-  - import_tasks: users/rafael.yml                      # default user
-  - import_tasks: users/ansible.yml                     # Ansible user
-  - import_tasks: users/dotfiles-clone.yml              # dotfiles repo
-
   # Arch Linux exclusive
   - import_tasks: software/pacman.yml                   # pacman-contrib
   - import_tasks: users/aurman.yml                      # AUR user
