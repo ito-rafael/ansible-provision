@@ -18,7 +18,7 @@
   - import_tasks: system/gpu-nvidia.yml                 # GPU: NVIDIA
   - import_tasks: system/keeb-hwdb.yml                  # keyboard: hardware mod
   - import_tasks: system/keeb-kmonad.yml                # keyboard: QMK-like layers
-  - import_tasks: system/keep-xremap.yml                # keyboard: software processing
+  - import_tasks: system/keeb-xremap.yml                # keyboard: software processing
   #- import_tasks: system/keeb-interception.yml         # keyboard: interception [deprecated]
   #- import_tasks: system/keeb-udevmon.yml              # keyboard: udevmon [deprecated]
   - import_tasks: system/networking.yml                 # NetworkManager
@@ -48,4 +48,4 @@
   - import_tasks: dev/python.yml                        # Python
 
   - import_tasks: users/rafael-groups.yml               # groups permissions
-  - import_tasks: users/rafael-dotfiles.yml             # dotfiles
+  - import_tasks: users/dotfiles.yml                    # apply dotfiles repo

@@ -24,7 +24,7 @@
     regexp: '^#(\[multilib\]$\n)^#(Include.*)$'
     replace: '\g<1>\g<2>'
 
-  - name: software | package-manager | install rebuild-detector
+- name: software | package-manager | install rebuild-detector
   tags: pacman,rebuild-detector
   pacman:
     name: rebuild-detector
