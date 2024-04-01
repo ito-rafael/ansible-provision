@@ -5,7 +5,8 @@
   roles:
     - base
 
-- hosts: all
+- hosts: localhost
+  connection: local
   become: true
   pre_tasks:
     - name: pre-run | [Arch] update package cache
@@ -14,8 +15,17 @@
       changed_when: False
       when: ansible_distribution == "Archlinux"
 
-- hosts: workstation
+- hosts: localhost
+  connection: local
   become: true
   roles:
-    - workstation
+    - role: workstation
+      when: inventory_hostname in groups["workstation"]
+
+- hosts: localhost
+  connection: local
+  become: true
+  roles:
+    - role: server
+      when: inventory_hostname in groups["server"]
 ...
