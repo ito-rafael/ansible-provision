@@ -1,0 +1,5 @@
+[User]
+Session=
+XSession=sway
+Icon=/home/rafael/git/dotfiles/lightdm/users/rafael.jpg
+SystemAccount=false

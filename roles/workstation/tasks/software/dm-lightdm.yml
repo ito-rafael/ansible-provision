@@ -64,11 +64,12 @@
 
 - name: software | display-manager | LightDM set avatar photo
   tags: display-manager,lightdm
-  lineinfile:
-    path: /var/lib/AccountsService/users/rafael
-    line: 'Icon=/home/rafael/git/dotfiles/lightdm/users/rafael.jpg'
-    state: present
-    regexp: '^Icon=.*'
+  copy:
+    src: files/lightdm/rafael
+    dest: /var/lib/AccountsService/users/rafael
+    owner: root
+    group: root
+    mode: 0600
 
 - name: software | display-manager | LightDM start daemon
   tags: display-manager,lightdm
