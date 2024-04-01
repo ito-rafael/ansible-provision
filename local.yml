@@ -20,12 +20,12 @@
   become: true
   roles:
     - role: workstation
-      when: inventory_hostname in groups["workstation"]
+      when: ansible_hostname in groups["workstation"]
 
 - hosts: localhost
   connection: local
   become: true
   roles:
     - role: server
-      when: inventory_hostname in groups["server"]
+      when: ansible_hostname in groups["server"]
 ...
