@@ -1,8 +1,9 @@
 - name: system | keyboard | copy udev/hwdb config file
   tags: system,keyboard,hwdb
   copy:
-    src: https://github.com/ito-rafael/pc-general-config/udev/hwdb.d/90-miryoku-colemak.hwdb
+    src: /home/rafael/git/dotfiles/udev/hwdb.d/90-miryoku-colemak.hwdb
     dest: /etc/udev/hwdb.d/90-miryoku-colemak.hwdb
+    remote_src: true
     owner: root
     group: root
     mode: 0644
