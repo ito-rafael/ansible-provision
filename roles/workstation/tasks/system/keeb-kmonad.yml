@@ -3,3 +3,13 @@
   become_user: aurman
   aur:
     name: kmonad-bin
+
+- name: system | keyboard | copy KMonad systemd service
+  tags: keyboard,kmonad
+  copy:
+    src: /home/rafael/git/dotfiles/kmonad/kmonad.service
+    dest: /etc/systemd/system/kmonad.service
+    remote_src: true
+    owner: root
+    group: root
+    mode: 0644
