@@ -23,3 +23,10 @@
     owner: rafael
     group: rafael
     mode: 0600
+
+- name: system | keyboard | start KMonad daemon
+  tags: keyboard,kmonad
+  systemd:
+    name: kmonad
+    enabled: yes
+    state: started
