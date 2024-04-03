@@ -37,3 +37,13 @@
   shell: ZSH='/home/rafael/.config/oh-my-zsh' sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   args:
     creates: /home/rafael/.config/oh-my-zsh/.git
+
+- name: software | shell | copy dotfiles for zsh (zshrc)
+  tags: shell,zsh
+  copy:
+    src: /home/rafael/git/dotfiles/zsh/zshrc
+    dest: /home/rafael/.config/zsh/.zshrc
+    remote_src: true
+    owner: root
+    group: root
+    mode: 0600

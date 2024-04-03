@@ -14,7 +14,16 @@
     group: root
     mode: 0644
 
-- name: system | keyboard | copy KMonad config file
+- name: system | keyboard | ensure KMonad dir exist
+  tags: keyboard,kmonad
+  file:
+    path: /home/rafael/.config/kmonad
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
+
+- name: system | keyboard | copy dotfiles for KMonad
   tags: keyboard,kmonad
   copy:
     src: /home/rafael/git/dotfiles/kmonad/inkl-1ru.kbd
