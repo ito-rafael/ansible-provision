@@ -38,7 +38,7 @@
   args:
     creates: /home/rafael/.config/oh-my-zsh/.git
 
-- name: software | shell | copy dotfiles for zsh (zshrc)
+- name: software | shell | copy zsh dotfiles (zshrc)
   tags: shell,zsh
   copy:
     src: /home/rafael/git/dotfiles/zsh/zshrc
@@ -48,7 +48,7 @@
     group: root
     mode: 0600
 
-- name: software | shell | copy dotfiles for zsh (zshenv)
+- name: software | shell | copy zsh dotfiles (zshenv)
   tags: shell,zsh
   copy:
     src: /home/rafael/git/dotfiles/zsh/zshenv

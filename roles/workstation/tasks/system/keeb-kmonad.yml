@@ -23,7 +23,7 @@
     group: rafael
     mode: 0700
 
-- name: system | keyboard | copy dotfiles for KMonad
+- name: system | keyboard | copy KMonad dotfile
   tags: keyboard,kmonad
   copy:
     src: /home/rafael/git/dotfiles/kmonad/inkl-1ru.kbd

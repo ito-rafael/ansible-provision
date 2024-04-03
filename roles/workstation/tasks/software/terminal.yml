@@ -3,7 +3,7 @@
   package:
     name: kitty
 
-- name: software | terminal | copy dotfiles for kitty
+- name: software | terminal | copy kitty dotfiles
   tags: terminal,kitty
   copy:
     src: /home/rafael/git/dotfiles/kitty/kitty.conf

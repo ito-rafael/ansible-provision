@@ -26,3 +26,13 @@
   package:
     name:
       - wl-clipboard        # clipboard utils
+
+- name: software | window-manager | copy Sway dotfile
+  tags: wayland,sway
+  copy:
+    src: /home/rafael/git/dotfiles/i3-sway/config
+    dest: /home/rafael/.config/sway/config
+    remote_src: true
+    owner: root
+    group: root
+    mode: 0600

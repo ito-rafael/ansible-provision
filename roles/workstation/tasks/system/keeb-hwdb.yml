@@ -1,4 +1,4 @@
-- name: system | keyboard | copy dotfiles for udev/hwdb
+- name: system | keyboard | copy udev/hwdb dotfile
   tags: system,keyboard,hwdb
   copy:
     src: /home/rafael/git/dotfiles/udev/hwdb.d/90-miryoku-colemak.hwdb
