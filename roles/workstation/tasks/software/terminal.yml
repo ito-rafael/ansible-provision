@@ -9,6 +9,6 @@
     src: /home/rafael/git/dotfiles/kitty/kitty.conf
     dest: /home/rafael/.config/kitty/kitty.conf
     remote_src: true
-    owner: root
-    group: root
+    owner: rafael
+    group: rafael
     mode: 0600

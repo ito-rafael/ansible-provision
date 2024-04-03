@@ -44,8 +44,8 @@
     src: /home/rafael/git/dotfiles/zsh/zshrc
     dest: /home/rafael/.config/zsh/.zshrc
     remote_src: true
-    owner: root
-    group: root
+    owner: rafael
+    group: rafael
     mode: 0600
 
 - name: software | shell | copy zsh dotfiles (zshenv)
@@ -54,6 +54,6 @@
     src: /home/rafael/git/dotfiles/zsh/zshenv
     dest: /home/rafael/.config/zsh/.zshenv
     remote_src: true
-    owner: root
-    group: root
+    owner: rafael
+    group: rafael
     mode: 0600

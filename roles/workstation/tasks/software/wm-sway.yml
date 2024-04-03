@@ -33,6 +33,6 @@
     src: /home/rafael/git/dotfiles/i3-sway/config
     dest: /home/rafael/.config/sway/config
     remote_src: true
-    owner: root
-    group: root
+    owner: rafael
+    group: rafael
     mode: 0600
