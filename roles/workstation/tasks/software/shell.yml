@@ -47,3 +47,13 @@
     owner: root
     group: root
     mode: 0600
+
+- name: software | shell | copy dotfiles for zsh (zshenv)
+  tags: shell,zsh
+  copy:
+    src: /home/rafael/git/dotfiles/zsh/zshenv
+    dest: /home/rafael/.config/zsh/.zshenv
+    remote_src: true
+    owner: root
+    group: root
+    mode: 0600
