@@ -17,6 +17,13 @@
     name:
       - zsh-vi-mode
 
+- name: software | shell | change default shell to zsh
+  tags: shell,zsh
+  become: yes
+  user:
+    name: rafael
+    shell: /usr/bin/zsh
+
 - name: software | shell | install Oh My Zsh
   tags: shell,zsh,oh-my-zsh
   shell: ZSH='/home/rafael/.config/oh-my-zsh' sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
