@@ -1,12 +1,16 @@
-- name: software | shell | zsh
+- name: software | shell | install zsh
+  tags: shell,zsh
+  package:
+    name: zsh
+
+- name: software | shell | install zsh plugins
   tags: shell,zsh
   package:
     name:
-      - zsh
       - zsh-autosuggestions
       - zsh-syntax-highlighting
 
-- name: software | shell | zsh
+- name: software | shell | install zsh plugins from AUR
   tags: shell,zsh
   become_user: aurman
   aur:
