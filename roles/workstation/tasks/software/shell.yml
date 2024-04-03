@@ -13,7 +13,7 @@
 - name: software | shell | install zsh plugins from AUR
   tags: shell,zsh
   become_user: aurman
-  aur:
+  kewlfft.aur.aur:
     name:
       - zsh-vi-mode
 

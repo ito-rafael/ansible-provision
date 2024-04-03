@@ -13,5 +13,5 @@
 - name: development | latex | install Zotero
   tags: dev,latex,zotero
   become_user: aurman
-  aur:
+  kewlfft.aur.aur:
     name: zotero

@@ -1,7 +1,7 @@
 - name: system | keyboard | install KMonad
   tags: keyboard,kmonad
   become_user: aurman
-  aur:
+  kewlfft.aur.aur:
     name: kmonad-bin
 
 - name: system | keyboard | copy KMonad systemd service

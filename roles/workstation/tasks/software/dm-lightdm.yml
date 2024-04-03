@@ -8,7 +8,7 @@
 - name: software | display-manager | LightDM install greeter
   tags: display-manager,lightdm
   become_user: aurman
-  aur:
+  kewlfft.aur.aur:
     name: lightdm-webkit-theme-aether-git   # greeter theme
 
 - name: software | display-manager | LightDM setup "logind-check-graphical"

@@ -1,5 +1,5 @@
 - name: software | media | Spotify install
   tags: media,spotify
   become_user: aurman
-  aur:
+  kewlfft.aur.aur:
     name: spotify

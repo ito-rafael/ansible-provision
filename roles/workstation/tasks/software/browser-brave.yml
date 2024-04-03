@@ -1,5 +1,5 @@
 - name: software | browser | Brave install
   tags: browser,brave
   become_user: aurman
-  aur:
+  kewlfft.aur.aur:
     name: brave-bin
