@@ -37,6 +37,8 @@
   shell: ZSH='/home/rafael/.config/oh-my-zsh' sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   args:
     creates: /home/rafael/.config/oh-my-zsh/.git
+  register: ohmyzsh_result
+  failed_when: "'FAILED' in ohmyzsh_result.stderr"
 
 - name: software | shell | copy zsh dotfiles (zshrc)
   tags: shell,zsh
