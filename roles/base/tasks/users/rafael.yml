@@ -11,6 +11,7 @@
     group: rafael
     groups: "{{ sudo_group }}"
     state: present
+    createhome: yes
     comment: "Rafael Ito"
     password: "{{ rafael_passwd }}"
     shell: /usr/bin/zsh
