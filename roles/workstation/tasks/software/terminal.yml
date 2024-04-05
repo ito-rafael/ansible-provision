@@ -3,6 +3,14 @@
   package:
     name: kitty
 
+- name: software | terminal | ensure kitty dir exist
+  file:
+    path: /home/rafael/.config/kitty
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
+
 - name: software | terminal | copy kitty dotfiles
   tags: terminal,kitty
   copy:
