@@ -27,6 +27,15 @@
     name:
       - wl-clipboard        # clipboard utils
 
+- name: software | window-manager | ensure sway dir exist
+  tags: wayland,sway
+  file:
+    path: /home/rafael/.config/sway
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
+
 - name: software | window-manager | copy Sway dotfile
   tags: wayland,sway
   copy:
