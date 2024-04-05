@@ -25,6 +25,7 @@
     shell: /usr/bin/zsh
 
 - name: software | shell | ensure zsh dir exist
+  tags: shell,zsh
   file:
     path: /home/rafael/.config/zsh
     state: directory

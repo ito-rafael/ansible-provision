@@ -4,6 +4,7 @@
     name: kitty
 
 - name: software | terminal | ensure kitty dir exist
+  tags: terminal,kitty
   file:
     path: /home/rafael/.config/kitty
     state: directory
