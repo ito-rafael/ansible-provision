@@ -9,3 +9,9 @@
     name:
       - twine                 # PyPI interaction
       - python-build          # PyPI build
+
+- name: development | python | other Python packages
+  tags: dev,python
+  package:
+    name:
+      - python-pyserial
