@@ -7,12 +7,15 @@
     group: rafael
     mode: 0700
 
-- name: software | scripts | copy navigate2ws script
+- name: software | scripts | copy scripts
   tags: scripts
   copy:
     remote_src: yes
-    src: /home/rafael/git/dotfiles/scripts/navigate2ws.sh
-    dest: /home/rafael/.config/scripts/navigate2ws.sh
+    src: /home/rafael/git/dotfiles/scripts/{{ item.src }}
+    dest: /home/rafael/.config/scripts/{{ item.dest }}
     owner: rafael
     group: rafael
     mode: 0700
+  with_items:
+    - { src: 'navigate2ws.sh', dest: 'navigate2ws.sh' }
+    - { src: 'sway-kill.sh', dest: 'sway-kill.sh' }
