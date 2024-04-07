@@ -1,0 +1,8 @@
+- name: software | scripts | ensure scripts dir exist
+  tags: scripts
+  file:
+    path: /home/rafael/.config/scripts
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700

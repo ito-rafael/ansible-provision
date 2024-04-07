@@ -36,6 +36,7 @@
   - import_tasks: software/shell.yml                    # Zsh
   - import_tasks: software/ssh-agent.yml                # Keychain
   - import_tasks: software/statusline.yml               # Powerline
+  - import_tasks: software/scripts.yml                  # custom scripts
   - import_tasks: software/terminal.yml                 # kitty
   - import_tasks: software/utils.yml                    # general packages
   - import_tasks: software/wm-sway.yml                  # window manager: Sway (Wayland)
