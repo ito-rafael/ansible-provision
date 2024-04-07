@@ -6,3 +6,13 @@
     owner: rafael
     group: rafael
     mode: 0700
+
+- name: software | scripts | copy navigate2ws script
+  tags: scripts
+  copy:
+    remote_src: yes
+    src: /home/rafael/git/dotfiles/scripts/navigate2ws.sh
+    dest: /home/rafael/.config/scripts/navigate2ws.sh
+    owner: rafael
+    group: rafael
+    mode: 0700
