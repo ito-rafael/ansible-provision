@@ -18,3 +18,13 @@
     owner: rafael
     group: rafael
     mode: 0700
+
+- name: software | statusline | copy waybar dotfiles (launcher)
+  tags: statusline,waybar
+  copy:
+    src: /home/rafael/git/dotfiles/waybar/waybar.sh
+    dest: /home/rafael/.config/waybar/waybar.sh
+    remote_src: true
+    owner: rafael
+    group: rafael
+    mode: 0600
