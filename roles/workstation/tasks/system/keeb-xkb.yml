@@ -9,3 +9,17 @@
   with_items:
     - xkb/symbols
     - xkb/rules
+
+- name: software | keyboard | copy xkb dotfiles
+  tags: system,keyboard,xkb
+  copy:
+    remote_src: yes
+    src: /home/rafael/git/dotfiles/xkb/{{ item.src }}
+    dest: /home/rafael/.config/xkb/{{ item.dest }}
+    owner: rafael
+    group: rafael
+    mode: 0600
+  with_items:
+    - { src: 'rules/evdev', dest: 'rules/evdev' }
+    - { src: 'symbols/fn-keys', dest: 'symbols/fn-keys' }
+    - { src: 'symbols/modifiers', dest: 'symbols/modifiers' }
