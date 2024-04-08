@@ -1,0 +1,11 @@
+- name: software | keyboard | ensure xkb dirs exist
+  tags: system,keyboard,xkb
+  file:
+    path: /home/rafael/.config/{{ item }}
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
+  with_items:
+    - xkb/symbols
+    - xkb/rules
