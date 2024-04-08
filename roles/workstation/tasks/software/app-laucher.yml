@@ -2,3 +2,12 @@
   tags: app-launcher,rofi
   package:
     name: rofi
+
+- name: software | app-launcher | ensure rofi dir exist
+  tags: app-launcher,rofi
+  file:
+    path: /home/rafael/.config/rofi
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
