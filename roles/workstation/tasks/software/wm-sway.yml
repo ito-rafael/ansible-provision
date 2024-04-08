@@ -2,10 +2,10 @@
   tags: wayland,sway
   package:
     name:
-      - seatd               # prerequisite of sway
-      - sway                # window manager / compositor
-      - ruby                # prerequisite for i3bang (config preprocessor)
-      - sway-contrib        # community scripts for sway
+      - seatd                 # prerequisite of sway
+      - sway                  # window manager / compositor
+      - ruby                  # prerequisite for i3bang (config preprocessor)
+      - sway-contrib          # community scripts for sway
 
 - name: software | window-manager | add user to seat group
   tags: wayland,sway,users,rafael
@@ -20,12 +20,6 @@
     name: seatd
     enabled: yes
     state: started
-
-- name: software | window-manager | general packages
-  tags: wayland,sway
-  package:
-    name:
-      - wl-clipboard        # clipboard utils
 
 - name: software | window-manager | ensure sway dir exist
   tags: wayland,sway
@@ -45,3 +39,15 @@
     owner: rafael
     group: rafael
     mode: 0600
+
+- name: software | window-manager | install general packages
+  tags: wayland,sway
+  package:
+    name:
+      - wl-clipboard          # clipboard utils
+
+- name: software | window-manager | install general packages from AUR
+  tags: wayland,sway
+  become_user: aurman
+  kewlfft.aur.aur:
+    name: autotiling          # script to switch h/v window orientation
