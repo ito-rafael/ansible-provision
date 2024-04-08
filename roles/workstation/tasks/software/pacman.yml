@@ -30,3 +30,12 @@
     name: rebuild-detector
     state: latest
     force: yes
+
+- name: software | package-manager | install reflector
+  tags: pacman,reflector
+  pacman:
+    name:
+      - rsync                 # prerequisite for reflector
+      - reflector             # update /etc/pacman.d/mirrorlist sorting the mirrors by speed
+    state: latest
+    force: yes
