@@ -2,3 +2,12 @@
   tags: syncthing
   package:
     name: syncthing
+
+- name: software | syncthing | start Syncthing daemon
+  tags: syncthing
+  become_user: rafael
+  systemd:
+    scope: "user"
+    name: syncthing
+    enabled: yes
+    state: started
