@@ -1,9 +1,7 @@
-- name: system | fonts | Font Awesome
+- name: system | fonts | install fonts
   tags: system,fonts
   package:
-    name: ttf-font-awesome
-
-- name: system | fonts | JetBrains Mono
-  tags: system,fonts
-  package:
-    name: ttf-jetbrains-mono
+    name:
+      - ttf-font-awesome                # Font Awesome
+      - ttf-jetbrains-mono              # JetBrains Mono
+      - ttf-ubuntu-font-family          # Ubuntu Font Family
