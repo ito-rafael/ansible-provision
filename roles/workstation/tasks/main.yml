@@ -26,6 +26,7 @@
 
   # Applications
   - import_tasks: software/android.yml                  # Android
+  - import_tasks: software/app-laucher.yml              # rofi
   - import_tasks: software/browser-brave.yml            # browser: Brave
   - import_tasks: software/browser-firefox.yml          # browser: Firefox
   - import_tasks: software/browser-chromium.yml         # browser: Chromium

@@ -1,0 +1,4 @@
+- name: software | app-launcher | install rofi
+  tags: app-launcher,rofi
+  package:
+    name: rofi
