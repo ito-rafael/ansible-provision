@@ -1,0 +1,4 @@
+- name: software | syncthing | install Syncthing
+  tags: syncthing
+  package:
+    name: syncthing
