@@ -1,14 +1,16 @@
-- name: development | latex | install & config (La)TeX environment
+# name: development | latex | install & config (La)TeX environment
+#  tags: dev,latex
+#  package:
+#    name:
+#      - texlive-base
+#      - texlive-bin
+#      - texlive-latexextra
+#      - texlive-fontsextra
+#      - texlive-publishers
+#      - texlive-bibtexextra
+#      - texlive-science
+#      - texlive-plaingeneric
   tags: dev,latex
-  package:
-    name:
-      - texlive-core
-      - texlive-bin
-      - texlive-latexextra
-      - texlive-fontsextra
-      - texlive-publishers
-      - texlive-bibtexextra
-      - texlive-science
 
 - name: development | latex | install Zotero
   tags: dev,latex,zotero
