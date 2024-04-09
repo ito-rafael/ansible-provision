@@ -11,3 +11,9 @@
     name: syncthing
     enabled: yes
     state: started
+
+- name: software | syncthing | install Syncthing tray icon
+  tags: syncthing
+  become_user: aurman
+  kewlfft.aur.aur:
+    name: syncthingtray-qt6
