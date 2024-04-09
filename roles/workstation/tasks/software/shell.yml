@@ -42,32 +42,16 @@
   register: ohmyzsh_result
   failed_when: "'FAILED' in ohmyzsh_result.stderr"
 
-- name: software | shell | copy zsh dotfiles (zshrc)
-  tags: shell,zsh
-  copy:
-    src: /home/rafael/git/dotfiles/zsh/zshrc
-    dest: /home/rafael/.config/zsh/.zshrc
-    remote_src: true
-    owner: rafael
-    group: rafael
-    mode: 0600
-
-- name: software | shell | copy zsh dotfiles (zshenv)
-  tags: shell,zsh
-  copy:
-    src: /home/rafael/git/dotfiles/zsh/zshenv
-    dest: /home/rafael/.config/zsh/.zshenv
-    remote_src: true
-    owner: rafael
-    group: rafael
-    mode: 0600
-
-- name: software | shell | copy zsh_home dotfile
+- name: software | shell | copy zsh dotfiles
   tags: shell,zsh
   copy:
     remote_src: yes
-    src: /home/rafael/git/dotfiles/zsh/zshenv_home
-    dest: /home/rafael/.zshenv
+    src: /home/rafael/git/dotfiles/zsh/{{ item.src }}
+    dest: /home/rafael/{{ item.dest }}
     owner: rafael
     group: rafael
-    mode: 0600
+    mode: {{ item.mode }}
+  with_items:
+    - { src: 'zshrc', dest: '.config/zsh/.zshrc', mode: '0600' }
+    - { src: 'zshenv', dest: '.config/zsh/zshenv', mode: '0600' }
+    - { src: 'zshenv_home', dest: '.zshenv', mode: '0600' }
