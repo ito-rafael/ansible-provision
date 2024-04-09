@@ -25,6 +25,16 @@
     owner: rafael
     group: rafael
     mode: 0700
+# the "--strip=1" is used to skip the first directory extracted, since its name incorporate the date in the format "install-tl-YYYYMMDD", making it easier for automating.
+- name: development | latex | unpack TeX Live installer
+  tags: dev,latex
+  become_user: rafael
+  ansible.builtin.unarchive:
+    remote_src: yes
+    src: /home/rafael/.cache/install-tl-unx.tar.gz
+    dest: /home/rafael/.cache/install-tl
+    extra_opts:
+      - "--strip=1"
 
 - name: development | latex | install Zotero
   tags: dev,latex,zotero
