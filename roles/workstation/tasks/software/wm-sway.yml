@@ -8,6 +8,7 @@
       - sway-contrib          # community scripts for sway
       - swaylock              # screen locker
       - swayidle              # idle manager
+      - swaybg                # wallpaper tool
 
 - name: software | window-manager | add user to seat group
   tags: wayland,sway,users,rafael
