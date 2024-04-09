@@ -19,22 +19,15 @@
     group: rafael
     mode: 0700
 
-- name: software | statusline | copy waybar dotfiles (launcher)
+- name: software | statusline | copy waybar dotfiles
   tags: statusline,waybar
   copy:
-    src: /home/rafael/git/dotfiles/waybar/waybar.sh
-    dest: /home/rafael/.config/waybar/waybar.sh
-    remote_src: true
+    remote_src: yes
+    src: /home/rafael/git/dotfiles/waybar/{{ item.src }}
+    dest: /home/rafael/.config/waybar/{{ item.dest }}
     owner: rafael
     group: rafael
-    mode: 0700
-
-- name: software | statusline | copy waybar dotfiles (config)
-  tags: statusline,waybar
-  copy:
-    src: /home/rafael/git/dotfiles/waybar/config
-    dest: /home/rafael/.config/waybar/config
-    remote_src: true
-    owner: rafael
-    group: rafael
-    mode: 0600
+    mode: {{ item.mode }}
+  with_items:
+    - { src: 'waybar.sh', dest: 'waybar.sh', mode: '0700' } # launcher
+    - { src: 'config', dest: 'config', mode: '0600' }       # config
