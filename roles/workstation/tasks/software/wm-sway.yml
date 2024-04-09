@@ -6,6 +6,7 @@
       - sway                  # window manager / compositor
       - ruby                  # prerequisite for i3bang (config preprocessor)
       - sway-contrib          # community scripts for sway
+      - swaylock              # screen locker
 
 - name: software | window-manager | add user to seat group
   tags: wayland,sway,users,rafael
