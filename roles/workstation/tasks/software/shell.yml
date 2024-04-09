@@ -61,3 +61,13 @@
     owner: rafael
     group: rafael
     mode: 0600
+
+- name: software | shell | copy zsh_home dotfile
+  tags: shell,zsh
+  copy:
+    remote_src: yes
+    src: /home/rafael/git/dotfiles/zsh/zshenv_home
+    dest: /home/rafael/.zshenv
+    owner: rafael
+    group: rafael
+    mode: 0600
