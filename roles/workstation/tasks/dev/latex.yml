@@ -16,7 +16,15 @@
   ansible.builtin.get_url:
     url: https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
     dest: /home/rafael/.cache/
+
+- name: development | latex | create LaTeX installer dir
   tags: dev,latex
+  ansible.builtin.file:
+    path: /home/rafael/.cache/install-tl
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
 
 - name: development | latex | install Zotero
   tags: dev,latex,zotero
