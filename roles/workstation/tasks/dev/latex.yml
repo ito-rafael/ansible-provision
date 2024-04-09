@@ -10,6 +10,12 @@
 #      - texlive-bibtexextra
 #      - texlive-science
 #      - texlive-plaingeneric
+
+- name: development | latex | download TeX Live installer
+  tags: dev,latex
+  ansible.builtin.get_url:
+    url: https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+    dest: /home/rafael/.cache/
   tags: dev,latex
 
 - name: development | latex | install Zotero
