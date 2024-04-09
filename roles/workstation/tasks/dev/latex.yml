@@ -11,11 +11,18 @@
 #      - texlive-science
 #      - texlive-plaingeneric
 
+- name: development | latex | check if TeX Live is already installed
+  tags: dev,latex
+  ansible.builtin.stat:
+    path: /usr/local/texlive/2024/bin/x86_64-linux/pdftex
+  register: texlive_pdftex
+
 - name: development | latex | download TeX Live installer
   tags: dev,latex
   ansible.builtin.get_url:
     url: https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
     dest: /home/rafael/.cache/
+  when: not texlive_pdftex.stat.exists
 
 - name: development | latex | create LaTeX installer dir
   tags: dev,latex
@@ -25,6 +32,7 @@
     owner: rafael
     group: rafael
     mode: 0700
+  when: not texlive_pdftex.stat.exists
 
 # the "--strip=1" is used to skip the first directory extracted, since its name incorporate the date in the format "install-tl-YYYYMMDD", making it easier for automating.
 - name: development | latex | unpack TeX Live installer
@@ -36,6 +44,7 @@
     dest: /home/rafael/.cache/install-tl
     extra_opts:
       - "--strip=1"
+  when: not texlive_pdftex.stat.exists
 
 - name: development | latex | install TeX Live
   tags: dev,latex
@@ -45,6 +54,7 @@
   args:
     cmd: perl ./install-tl --no-interaction
     chdir: /home/rafael/.cache/install-tl
+  when: not texlive_pdftex.stat.exists
 
 - name: development | latex | install Zotero
   tags: dev,latex,zotero
