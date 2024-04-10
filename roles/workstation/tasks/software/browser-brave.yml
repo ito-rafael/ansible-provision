@@ -3,3 +3,13 @@
   become_user: aurman
   kewlfft.aur.aur:
     name: brave-bin
+
+- name: software | browser | ensure Brave extensions dir exist
+  tags: browser,brave
+  #become: yes
+  file:
+    path: /etc/brave/policies/managed
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
