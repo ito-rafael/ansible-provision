@@ -3,14 +3,14 @@
   tags: always
 
 - block:
-
   # Arch Linux exclusive
   - import_tasks: software/pacman.yml                   # pacman-contrib
   - import_tasks: users/aurman.yml                      # AUR user
   - import_tasks: software/paru.yml                     # paru (AUR helper)
-  - import_tasks: software/ansible-aur.yml              # ansible-aur module
-    when: ansible_distribution == "Archlinux"
+  #- import_tasks: software/ansible-aur.yml              # ansible-aur module
+  when: ansible_distribution == "Archlinux"
 
+- block:
   # System settings
   - import_tasks: system/audio.yml                      # PipeWire
   - import_tasks: system/bluetooth.yml                  # BlueZ
