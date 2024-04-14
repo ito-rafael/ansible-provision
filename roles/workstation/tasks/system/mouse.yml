@@ -1,0 +1,5 @@
+- name: system | mouse | install LogiOps
+  tags: mouse,logiops
+  become_user: aurman
+  kewlfft.aur.aur:
+    name: logiops
