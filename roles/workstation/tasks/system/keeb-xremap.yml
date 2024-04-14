@@ -16,3 +16,13 @@
     name: rafael
     append: yes
     groups: input
+
+- name: system | keyboard remap | copy udev/rules.d file
+  tags: keyboard,xremap
+  copy:
+    remote_src: true
+    src: /home/rafael/git/dotfiles/udev/rules.d/input.rules
+    dest: /etc/udev/rules.d/input.rules
+    owner: root
+    group: root
+    mode: 0644
