@@ -12,3 +12,13 @@
     owner: rafael
     group: rafael
     mode: 0700
+
+- name: system | mouse | copy LogiOps dotfile
+  tags: mouse,logiops
+  copy:
+    src: /home/rafael/git/dotfiles/mx/logid.cfg
+    dest: /home/rafael/.config/logiops/logid.cfg
+    remote_src: true
+    owner: rafael
+    group: rafael
+    mode: 0600
