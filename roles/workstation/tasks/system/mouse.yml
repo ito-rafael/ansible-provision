@@ -22,3 +22,13 @@
     owner: rafael
     group: rafael
     mode: 0600
+
+- name: system | mouse | copy LogiOps systemd service
+  tags: mouse,logiops
+  copy:
+    src: /home/rafael/git/dotfiles/mx/logid.service
+    dest: /etc/systemd/system/logid.service
+    remote_src: true
+    owner: root
+    group: root
+    mode: 0644
