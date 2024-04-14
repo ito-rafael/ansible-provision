@@ -26,3 +26,12 @@
     owner: root
     group: root
     mode: 0644
+
+- name: system | keyboard remap | ensure xremap dir exist
+  tags: keyboard,xremap
+  file:
+    path: /home/rafael/.config/xremap
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
