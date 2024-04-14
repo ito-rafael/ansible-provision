@@ -32,3 +32,10 @@
     owner: root
     group: root
     mode: 0644
+
+- name: system | mouse | start LogiOps daemon
+  tags: mouse,logiops
+  systemd:
+    name: logid
+    enabled: yes
+    state: started
