@@ -35,3 +35,13 @@
     owner: rafael
     group: rafael
     mode: 0700
+
+- name: system | keyboard remap | copy xremap dotfile
+  tags: keyboard,xremap
+  copy:
+    remote_src: true
+    src: /home/rafael/git/dotfiles/xremap/config.yml
+    dest: /home/rafael/.config/xremap/config.yml
+    owner: rafael
+    group: rafael
+    mode: 0600
