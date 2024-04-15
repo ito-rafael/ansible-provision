@@ -4,6 +4,15 @@
   kewlfft.aur.aur:
     name: brave-bin
 
+- name: software | browser | ensure Brave dir exist
+  tags: browser,brave
+  file:
+    path: /etc/brave/policies/managed
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
 - name: software | browser | ensure Brave extensions dir exist
   tags: browser,brave
   #become: yes
