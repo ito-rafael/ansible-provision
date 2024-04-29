@@ -1,0 +1,5 @@
+- name: system | flatpak | install Flatpak
+  tags: system,flatpak
+  package:
+    name: flatpak
+    state: latest
