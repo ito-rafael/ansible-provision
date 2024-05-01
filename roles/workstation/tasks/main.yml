@@ -38,6 +38,7 @@
   - import_tasks: software/media-spotify.yml            # Spotify
   - import_tasks: software/office-suite.yml             # LibreOffice
   - import_tasks: software/shell.yml                    # Zsh
+  - import_tasks: software/pdf-viewer.yml               # Zathura
   - import_tasks: software/ssh-agent.yml                # Keychain
   - import_tasks: software/statusline.yml               # Powerline
   - import_tasks: software/scripts.yml                  # custom scripts
