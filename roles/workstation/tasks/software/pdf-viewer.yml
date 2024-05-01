@@ -1,4 +1,6 @@
 - name: software | pdf viewer | install Zathura
   tags: pdf,zathura
   package:
-    name: zathura
+    name:
+      - zathura
+      - zathura-pdf-viewer
