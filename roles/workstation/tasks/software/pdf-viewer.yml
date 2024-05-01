@@ -4,3 +4,12 @@
     name:
       - zathura
       - zathura-pdf-viewer
+
+- name: software | pdf viewer | ensure zathura dir exist
+  tags: pdf,zathura
+  file:
+    path: /home/rafael/.config/zathura
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
