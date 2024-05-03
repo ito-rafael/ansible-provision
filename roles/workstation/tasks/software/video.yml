@@ -2,3 +2,8 @@
   tags: video,obs
   community.general.flatpak:
     name: com.obsproject.Studio
+
+- name: software | video | install mpv
+  tags: video,mpv
+  package:
+    name: mpv
