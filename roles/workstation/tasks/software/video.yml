@@ -13,3 +13,4 @@
   package:
     name:
       - ffmpeg
+      - v4l-utils
