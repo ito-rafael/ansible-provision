@@ -4,6 +4,7 @@
     name:
       - grim        # grab images from a Wayland compositor
       - slurp       # select a region in a Wayland compositor
+      - swappy      # Wayland native snapshot editing tool
 
 #- name: software | screenshot | install screenshot tools for X11
 #  tags: screenshot
