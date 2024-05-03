@@ -1,4 +1,6 @@
 - name: software | file manager | install GUI file manager
   tags: file-manager,thunar
   package:
-    name: thunar
+    name:
+      - thunar              # Xfce file manager
+      - tumbler             # thumbnail support
