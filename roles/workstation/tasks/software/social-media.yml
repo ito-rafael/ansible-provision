@@ -5,3 +5,9 @@
     name:
       - whatsapp-for-linux
       - slack-desktop
+
+- name: software | social-media | install applications
+  tags: social-media
+  package:
+    name:
+      - discord
