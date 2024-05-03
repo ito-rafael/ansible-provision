@@ -4,3 +4,4 @@
     name:
       - thunar              # Xfce file manager
       - tumbler             # thumbnail support
+      - ffmpegthumbnailer   # video thumbnailing
