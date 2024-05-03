@@ -47,6 +47,7 @@
   - import_tasks: software/syncthing.yml                # Syncthing
   - import_tasks: software/terminal.yml                 # kitty
   - import_tasks: software/utils.yml                    # general packages
+  - import_tasks: software/video.yml                    # video tools
   - import_tasks: software/wm-sway.yml                  # window manager: Sway (Wayland)
 
   # Development

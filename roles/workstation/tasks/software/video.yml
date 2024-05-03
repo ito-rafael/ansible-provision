@@ -1,0 +1,4 @@
+- name: software | video | install OBS with Flatpak
+  tags: video,obs
+  community.general.flatpak:
+    name: com.obsproject.Studio
