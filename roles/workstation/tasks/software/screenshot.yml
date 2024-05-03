@@ -1,5 +1,11 @@
-- name: software | screenshot | install screenshot tools for X11
+- name: software | screenshot | install screenshot tools for Wayland
   tags: screenshot
   package:
     name:
-      - shutter
+      - grim        # grab images from a Wayland compositor
+
+#- name: software | screenshot | install screenshot tools for X11
+#  tags: screenshot
+#  package:
+#    name:
+#      - shutter
