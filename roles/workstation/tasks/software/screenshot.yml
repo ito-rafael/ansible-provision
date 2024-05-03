@@ -1,0 +1,5 @@
+- name: software | screenshot | install screenshot tools for X11
+  tags: screenshot
+  package:
+    name:
+      - shutter
