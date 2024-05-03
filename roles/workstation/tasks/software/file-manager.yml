@@ -5,3 +5,9 @@
       - thunar              # Xfce file manager
       - tumbler             # thumbnail support
       - ffmpegthumbnailer   # video thumbnailing
+
+- name: software | file manager | install terminal file manager
+  tags: file-manager,ranger
+  package:
+    name:
+      - ranger
