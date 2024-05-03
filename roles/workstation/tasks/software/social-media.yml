@@ -1,5 +1,7 @@
-- name: software | social-media | install Slack
+- name: software | social-media | install applications from AUR
   tags: social-media
   become_user: aurman
   kewlfft.aur.aur:
-    name: slack
+    name:
+      - whatsapp-for-linux
+      - slack-desktop
