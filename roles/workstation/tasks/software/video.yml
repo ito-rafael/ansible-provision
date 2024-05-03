@@ -7,3 +7,9 @@
   tags: video,mpv
   package:
     name: mpv
+
+- name: software | video | install other applications
+  tags: video
+  package:
+    name:
+      - ffmpeg
