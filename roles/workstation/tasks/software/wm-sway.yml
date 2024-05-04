@@ -1,4 +1,4 @@
-- name: software | window-manager | sway
+- name: software | window-manager | install Sway
   tags: wayland,sway
   package:
     name:
@@ -9,6 +9,13 @@
       - swaylock              # screen locker
       - swayidle              # idle manager
       - swaybg                # wallpaper tool
+
+- name: software | window-manager | install portals
+  tags: wayland,portals
+  package:
+    name:
+      - xdg-desktop-portal      # XDG Desktop portal
+      - xdg-desktop-portal-wlr  # portal backend for wlroots (Sway included)
 
 - name: software | window-manager | add user to seat group
   tags: wayland,sway,users,rafael
