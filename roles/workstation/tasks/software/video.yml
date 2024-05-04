@@ -12,5 +12,7 @@
   tags: video
   package:
     name:
-      - ffmpeg
-      - v4l-utils
+      - ffmpeg                # FFmpeg: record, convert & stream video
+      - v4l-utils             # Video4Linux tools
+      - linux-headers         # prerequisite for V4L2 loopback
+      - v4l2loopback-dkms     # V4L2 loopback devices
