@@ -8,6 +8,11 @@
   package:
     name: mpv
 
+- name: software | video | install VLC
+  tags: video,vlc
+  package:
+    name: vlc
+
 - name: software | video | install other applications
   tags: video
   package:
