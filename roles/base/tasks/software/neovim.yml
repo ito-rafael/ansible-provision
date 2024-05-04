@@ -1,12 +1,21 @@
-- name: software | terminal text editor | neovim
+- name: software | terminal text editor | install Neovim
   tags: vim
   package:
     name: neovim
     state: latest
 
-- name: software | terminal text editor | vim symlink
+- name: software | terminal text editor | create vim symlink
   tags: vim
   file:
     src: /usr/bin/nvim
     path: /usr/bin/vim
     state: link
+
+- name: software | terminal | ensure Neovim dir exist
+  tags: vim
+  file:
+    path: /home/rafael/.config/nvim/lua
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
