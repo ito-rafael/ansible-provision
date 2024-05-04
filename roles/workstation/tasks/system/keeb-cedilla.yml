@@ -7,3 +7,13 @@
   with_items:
     - { find: 'ć', replace: 'ç' }
     - { find: 'Ć', replace: 'Ç' }
+
+- name: software | keyboard | export cedilla env vars
+  tags: system,keyboard,cedilla
+  lineinfile:
+    path: /etc/environment
+    line: "{{ item }}"
+    state: present
+  with_items:
+    - 'GTK_IM_MODULE=cedilla'
+    - 'QT_IM_MODULE=cedilla'
