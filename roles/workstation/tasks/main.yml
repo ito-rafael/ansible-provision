@@ -21,6 +21,7 @@
   - import_tasks: system/keeb-xkb.yml                   # keyboard: set modifiers
   - import_tasks: system/keeb-kmonad.yml                # keyboard: QMK-like layers
   - import_tasks: system/keeb-xremap.yml                # keyboard: software processing
+  - import_tasks: system/keeb-cedilla.yml               # keyboard: fix cedilla
   #- import_tasks: system/keeb-interception.yml         # keyboard: interception [deprecated]
   #- import_tasks: system/keeb-udevmon.yml              # keyboard: udevmon [deprecated]
   - import_tasks: system/mouse.yml                      # LogiOps driver
