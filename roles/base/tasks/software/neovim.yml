@@ -19,3 +19,16 @@
     owner: rafael
     group: rafael
     mode: 0700
+
+- name: software | terminal text editor | copy Neovim dotfiles
+  tags: vim
+  copy:
+    remote_src: yes
+    src: /home/rafael/git/dotfiles/nvim/{{ item }}
+    dest: /home/rafael/.config/nvim/{{ item }}
+    owner: rafael
+    group: rafael
+    mode: 0600
+  with_items:
+    - init.vim
+    - lua/plugins.lua
