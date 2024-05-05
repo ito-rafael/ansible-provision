@@ -1,0 +1,4 @@
+- name: system | keyboard | install ydotool
+  tags: keyboard,ydotool
+  package:
+    name: ydotool
