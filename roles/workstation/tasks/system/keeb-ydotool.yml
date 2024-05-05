@@ -2,3 +2,12 @@
   tags: keyboard,ydotool
   package:
     name: ydotool
+
+- name: system | keyboard | start ydotool daemon
+  tags: keyboard,ydotool
+  become_user: rafael
+  systemd:
+    name: ydotool
+    enabled: yes
+    state: started
+    scope: user
