@@ -10,6 +10,7 @@
       - zathura               # core package
       - tesseract-data-eng    # prerequisite for zathura-pdf-mupdf
       - zathura-pdf-mupdf     # support for EPUB, PDF and XPS via MuPDF
+      - zathura-djvu          # support for DjVu
 
 - name: software | pdf viewer | ensure zathura dir exist
   tags: pdf,zathura
