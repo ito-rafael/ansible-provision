@@ -1,3 +1,8 @@
+- name: software | pdf viewer | install Evince
+  tags: pdf,evince
+  package:
+    name: evince
+
 - name: software | pdf viewer | install Zathura
   tags: pdf,zathura
   package:
