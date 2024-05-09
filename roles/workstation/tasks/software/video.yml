@@ -11,7 +11,9 @@
 - name: software | video | install VLC
   tags: video,vlc
   package:
-    name: vlc
+    name:
+      - vlc
+      - zvbi    # recording
 
 - name: software | video | install other applications
   tags: video
