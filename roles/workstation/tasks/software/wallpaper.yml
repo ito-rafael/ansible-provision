@@ -1,0 +1,8 @@
+- name: software | wallpaper | ensure wallpaper dir exist
+  tags: wallpaper
+  file:
+    path: /home/rafael/.config/wallpaper
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
