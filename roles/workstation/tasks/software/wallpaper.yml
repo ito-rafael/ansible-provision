@@ -6,3 +6,13 @@
     owner: rafael
     group: rafael
     mode: 0700
+
+- name: software | wallpaper | copy images to wallpaper dir
+  tags: wallpaper
+  copy:
+    src: /home/rafael/git/dotfiles/wallpaper/london.jpg
+    dest: /home/rafael/.config/wallpaper/london.jpg
+    remote_src: true
+    owner: rafael
+    group: rafael
+    mode: 0600
