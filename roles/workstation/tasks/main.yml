@@ -27,6 +27,7 @@
   #- import_tasks: system/keeb-udevmon.yml              # keyboard: udevmon [deprecated]
   - import_tasks: system/mouse.yml                      # LogiOps driver
   - import_tasks: system/networking.yml                 # NetworkManager
+  - import_tasks: system/printer.yml                    # CUPS, driver, GUI
 
   # Applications
   - import_tasks: software/android.yml                  # Android

@@ -1,7 +1,9 @@
 - name: system | printer | install CUPS
   tags: system,printer
   package:
-    name: cups
+    name:
+      - cups
+      - cups-pdf
 
 - name: system | printer | start CUPS daemon
   tags: system,printer
