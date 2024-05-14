@@ -16,3 +16,8 @@
   tags: system,printer
   package:
     name: system-config-printer
+
+- name: system | printer | install HP driver
+  tags: system,printer
+  package:
+    name: hplip
