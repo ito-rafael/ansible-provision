@@ -1,4 +1,4 @@
-- name: software | terminal | kitty
+- name: software | terminal | install kitty
   tags: terminal,kitty
   package:
     name: kitty
@@ -12,7 +12,7 @@
     group: rafael
     mode: 0700
 
-- name: software | terminal | copy kitty dotfiles
+- name: software | terminal | copy kitty dotfile
   tags: terminal,kitty
   copy:
     src: /home/rafael/git/dotfiles/kitty/kitty.conf
