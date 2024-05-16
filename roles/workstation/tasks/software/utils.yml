@@ -13,3 +13,8 @@
     name:       # replacement for:
       - bat     # cat
       - eza     # ls
+- name: software | utils | install GUI tools
+  tags: utils,tools
+  package:
+    name:
+      - gimp        # image editor
