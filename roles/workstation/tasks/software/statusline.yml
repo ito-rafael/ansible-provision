@@ -30,6 +30,8 @@
     mode: "{{ item.mode }}"
   with_items:
     - { src: 'launch.sh', dest: 'launch.sh', mode: '0700' }     # launcher
+    - { src: 'config.ini', dest: 'config.ini', mode: '0600' }   # config
+
 - name: software | statusline | waybar install
   tags: statusline,waybar
   package:
