@@ -54,7 +54,7 @@
     dest: /home/rafael/.config/waybar/{{ item.dest }}
     owner: rafael
     group: rafael
-    mode: {{ item.mode }}
+    mode: "{{ item.mode }}"
   with_items:
     - { src: 'waybar.sh', dest: 'waybar.sh', mode: '0700' } # launcher
     - { src: 'config', dest: 'config', mode: '0600' }       # config
