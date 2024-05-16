@@ -12,4 +12,4 @@
   package:
     name:       # replacement for:
       - bat     # cat
-      - exa     # ls
+      - eza     # ls
