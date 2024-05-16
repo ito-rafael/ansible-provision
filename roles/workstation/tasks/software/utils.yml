@@ -18,3 +18,4 @@
   package:
     name:
       - gimp        # image editor
+      - pdfpc       # slides presentation
