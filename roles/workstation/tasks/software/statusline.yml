@@ -5,6 +5,11 @@
       - powerline
       - powerline-fonts
 
+- name: software | statusline | polybar install
+  tags: statusline,polybar
+  package:
+    name: polybar
+
 - name: software | statusline | waybar install
   tags: statusline,waybar
   package:
