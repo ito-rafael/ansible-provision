@@ -10,6 +10,15 @@
   package:
     name: polybar
 
+- name: software | statusline | ensure polybar dir exist
+  tags: statusline,polybar
+  file:
+    path: /home/rafael/.config/polybar
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
+
 - name: software | statusline | waybar install
   tags: statusline,waybar
   package:
