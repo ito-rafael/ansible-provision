@@ -1,9 +1,11 @@
-- name: system | printer | install CUPS
+- name: system | printer | install CUPS & tools
   tags: system,printer
   package:
     name:
-      - cups
-      - cups-pdf
+      - cups                    # CUPS
+      - cups-pdf                # print as PDF
+      - system-config-printer   # GUI for CUPS
+      - hplip                   # HP driver
 
 - name: system | printer | start CUPS daemon
   tags: system,printer
@@ -11,13 +13,3 @@
     name: cups
     state: started
     enabled: yes
-
-- name: system | printer | install GUI for CUPS
-  tags: system,printer
-  package:
-    name: system-config-printer
-
-- name: system | printer | install HP driver
-  tags: system,printer
-  package:
-    name: hplip
