@@ -19,3 +19,4 @@
     name:
       - gimp        # image editor
       - pdfpc       # slides presentation
+      - meld        # GUI diff
