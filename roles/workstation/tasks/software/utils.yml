@@ -1,9 +1,10 @@
-- name: software | utils | general
+- name: software | utils | install CLI tools
   tags: utils,general
   package:
     name:
-      - wget
-      - curl
+      - wget        # download files from web
+      - curl        # transfer data
+      - man-db      # full documentation
 
 - name: software | utils | modern-unix
   tags: utils,modern-unix
