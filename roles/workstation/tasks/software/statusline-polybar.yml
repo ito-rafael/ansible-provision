@@ -1,0 +1,26 @@
+- name: software | statusline | polybar install
+  tags: statusline,polybar
+  package:
+    name: polybar
+
+- name: software | statusline | ensure polybar dir exist
+  tags: statusline,polybar
+  file:
+    path: /home/rafael/.config/polybar
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
+
+- name: software | statusline | copy polybar dotfiles
+  tags: statusline,polybar
+  copy:
+    remote_src: yes
+    src: /home/rafael/git/dotfiles/polybar/{{ item.src }}
+    dest: /home/rafael/.config/polybar/{{ item.dest }}
+    owner: rafael
+    group: rafael
+    mode: "{{ item.mode }}"
+  with_items:
+    - { src: 'launch.sh', dest: 'launch.sh', mode: '0700' }     # launcher
+    - { src: 'config.ini', dest: 'config.ini', mode: '0600' }   # config

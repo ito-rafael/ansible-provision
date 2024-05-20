@@ -1,0 +1,26 @@
+- name: software | statusline | waybar install
+  tags: statusline,waybar
+  package:
+    name: waybar
+
+- name: software | statusline | ensure waybar dir exist
+  tags: statusline,waybar
+  file:
+    path: /home/rafael/.config/waybar
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
+
+- name: software | statusline | copy waybar dotfiles
+  tags: statusline,waybar
+  copy:
+    remote_src: yes
+    src: /home/rafael/git/dotfiles/waybar/{{ item.src }}
+    dest: /home/rafael/.config/waybar/{{ item.dest }}
+    owner: rafael
+    group: rafael
+    mode: "{{ item.mode }}"
+  with_items:
+    - { src: 'waybar.sh', dest: 'waybar.sh', mode: '0700' } # launcher
+    - { src: 'config', dest: 'config', mode: '0600' }       # config

@@ -17,6 +17,13 @@
     name:
       - zsh-vi-mode
 
+- name: software | shell | install Powerline
+  tags: shell,zsh
+  package:
+    name:
+      - powerline
+      - powerline-fonts
+
 - name: software | shell | change default shell to zsh
   tags: shell,zsh
   become: yes
