@@ -6,6 +6,7 @@
       - tumbler                 # thumbnail support
       - ffmpegthumbnailer       # video thumbnailing
       - thunar-archive-plugin   # archive support frontend
+      - xarchiver               # archive support backend
 
 - name: software | file manager | install terminal file manager
   tags: file-manager,ranger
