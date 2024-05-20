@@ -1,4 +1,4 @@
-- name: software | ansible-galaxy | ansible-aur install
+- name: software | ansible-galaxy | install ansible-aur
   tags: ansible-galaxy,ansible-aur
   become: false
   command: paru -S ansible-aur-git --noconfirm
