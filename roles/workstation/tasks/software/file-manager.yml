@@ -2,9 +2,10 @@
   tags: file-manager,thunar
   package:
     name:
-      - thunar              # Xfce file manager
-      - tumbler             # thumbnail support
-      - ffmpegthumbnailer   # video thumbnailing
+      - thunar                  # Xfce file manager
+      - tumbler                 # thumbnail support
+      - ffmpegthumbnailer       # video thumbnailing
+      - thunar-archive-plugin   # archive support frontend
 
 - name: software | file manager | install terminal file manager
   tags: file-manager,ranger
