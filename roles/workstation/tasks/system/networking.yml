@@ -1,11 +1,10 @@
-- name: system | networking | NetworkManager install
+- name: system | networking | install NetworkManager
   tags: system,network
   package:
     name:
       - networkmanager                   # core package
       - nm-connection-editor             # GUI
       - network-manager-applet           # system tray applet
-    state: latest
 
 - name: system | NetworkManager | start daemon
   tags: system,network
@@ -13,3 +12,9 @@
     name: NetworkManager
     state: started
     enabled: yes
+
+- name: system | networking | install OpenVPN
+  tags: system,network
+  package:
+    name:
+      - openvpn                          # install OpenVPN
