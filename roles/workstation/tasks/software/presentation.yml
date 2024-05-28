@@ -3,7 +3,7 @@
   package:
     name: pdfpc
 
-- name: software | presentation | install pdfpc
+- name: software | presentation | ensure pdfpc dir exist
   tags: presentation,pdfpc
   file:
     path: /home/rafael/.config/pdfpc
@@ -11,3 +11,13 @@
     owner: rafael
     group: rafael
     mode: 0700
+
+- name: software | presentation | copy pdfpc dotfile
+  tags: presentation,pdfpc
+  copy:
+    remote_src: yes
+    src: /home/rafael/git/dotfiles/pdfpc/pdfpcrc
+    dest: /home/rafael/.config/pdfpc/pdfpcrc
+    owner: rafael
+    group: rafael
+    mode: 0600
