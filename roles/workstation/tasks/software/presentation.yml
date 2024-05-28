@@ -1,0 +1,4 @@
+- name: software | presentation | install pdfpc
+  tags: presentation,pdfpc
+  package:
+    name: pdfpc
