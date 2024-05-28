@@ -2,3 +2,12 @@
   tags: presentation,pdfpc
   package:
     name: pdfpc
+
+- name: software | presentation | install pdfpc
+  tags: presentation,pdfpc
+  file:
+    path: /home/rafael/.config/pdfpc
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
