@@ -6,15 +6,12 @@
       - nm-connection-editor             # GUI
       - network-manager-applet           # system tray applet
 
-- name: system | NetworkManager | start daemon
+- name: system | networking | start NetworkManager daemon
   tags: system,network
   systemd:
     name: NetworkManager
     state: started
     enabled: yes
 
-- name: system | networking | install OpenVPN
   tags: system,network
   package:
-    name:
-      - openvpn                          # install OpenVPN
