@@ -13,5 +13,7 @@
     state: started
     enabled: yes
 
+- name: system | networking | install Avahi
   tags: system,network
   package:
+    name: avahi
