@@ -17,3 +17,10 @@
   tags: system,network
   package:
     name: avahi
+
+- name: system | networking | start Avahi daemon
+  tags: system,network
+  systemd:
+    name: avahi-daemon
+    state: started
+    enabled: yes
