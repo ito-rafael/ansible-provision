@@ -49,15 +49,18 @@
     - sway
     - swaylock
 
-- name: software | window-manager | copy Sway dotfile
+- name: software | window-manager | copy Sway dotfiles
   tags: wayland,sway
   copy:
-    src: /home/rafael/git/dotfiles/i3-sway/config
-    dest: /home/rafael/.config/sway/config
+    src: /home/rafael/git/dotfiles/{{ item.src }}
+    dest: /home/rafael/.config/{{ item.dest }}
     remote_src: true
     owner: rafael
     group: rafael
     mode: 0600
+  with_items:
+    - { src: 'i3-sway/_config_sway', dest: 'sway/_config' }
+    - { src: 'swaylock/config',      dest: 'swaylock/config' }
 
 - name: software | window-manager | install general packages
   tags: wayland,sway
