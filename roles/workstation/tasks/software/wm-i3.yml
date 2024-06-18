@@ -20,6 +20,7 @@
   package:
     name:
       - xclip               # clipboard utils
+      - imagemagick         # used by i3lock scripts
 
 - name: software | window-manager | ensure i3wm dirs exist
   tags: X11,i3
