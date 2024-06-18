@@ -43,3 +43,17 @@
     owner: rafael
     group: rafael
     mode: 0600
+
+- name: software | window-manager | copy i3lock dotfiles
+  tags: X11,i3
+  copy:
+    src: /home/rafael/git/dotfiles/i3lock/{{ item.src }}
+    dest: /home/rafael/.config/i3lock/{{ item.dest }}
+    remote_src: true
+    owner: rafael
+    group: rafael
+    mode: 0600
+  with_items:
+    - { src: 'take-screenshot.sh', dest: 'take-screenshot.sh' }
+    - { src: 'del-screenshot.sh',  dest: 'del-screenshot.sh' }
+    - { src: 'lock-screen.sh',     dest: 'lock-screen.sh' }
