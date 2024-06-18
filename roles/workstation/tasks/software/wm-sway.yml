@@ -10,6 +10,12 @@
       - swayidle              # idle manager
       - swaybg                # wallpaper tool
 
+- name: software | window-manager | install Sway locker
+  tags: wayland,sway
+  become_user: aurman
+  kewlfft.aur.aur:
+    name: swaylock-effects    # screen locker
+
 - name: software | window-manager | install portals
   tags: wayland,portals
   package:
