@@ -32,3 +32,13 @@
   with_items:
     - i3
     - i3lock
+
+- name: software | window-manager | copy i3wm dotfiles
+  tags: X11,i3
+  copy:
+    src: /home/rafael/git/dotfiles/i3-sway/_config_i3
+    dest: /home/rafael/.config/i3/_config
+    remote_src: true
+    owner: rafael
+    group: rafael
+    mode: 0600
