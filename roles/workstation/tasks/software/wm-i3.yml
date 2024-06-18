@@ -1,4 +1,4 @@
-- name: software | window-manager | X11: i3
+- name: software | window-manager | install i3wm
   tags: X11,i3
   package:
     name:
@@ -8,6 +8,12 @@
       - perl-anyevent-i3    # layout saving
       - perl-json-xs        # layout saving
       - i3-wm               # i3 window manager
+
+- name: software | window-manager | install i3wm locker
+  tags: X11,i3
+  become_user: aurman
+  kewlfft.aur.aur:
+    name: i3lock-color      # screen locker
 
 - name: software | window-manager | general packages
   tags: X11,i3
