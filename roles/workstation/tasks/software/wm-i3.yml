@@ -20,3 +20,15 @@
   package:
     name:
       - xclip               # clipboard utils
+
+- name: software | window-manager | ensure i3wm dirs exist
+  tags: X11,i3
+  file:
+    path: /home/rafael/.config/{{ item }}
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
+  with_items:
+    - i3
+    - i3lock
