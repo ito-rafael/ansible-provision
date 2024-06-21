@@ -17,6 +17,6 @@
     group: rafael
     mode: 0700
   with_items:
+    - { src: 'hide-or-kill.sh', dest: 'hide-or-kill.sh' }
     - { src: 'navigate2ws.sh', dest: 'navigate2ws.sh' }
-    - { src: 'sway-kill.sh', dest: 'sway-kill.sh' }
     - { src: 'xremap-keeb-config.sh', dest: 'xremap-keeb-config.sh' }
