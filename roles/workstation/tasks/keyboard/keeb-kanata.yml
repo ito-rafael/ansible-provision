@@ -14,3 +14,13 @@
   with_items:
     - kanata
     - systemd/user
+
+- name: keyboard | kanata | copy kanata dotfile
+  tags: keyboard,kanata
+  copy:
+    src: /home/rafael/git/keebab/kanata/kanata.kbd
+    dest: /home/rafael/.config/kanata/kanata.kbd
+    remote_src: true
+    owner: rafael
+    group: rafael
+    mode: 0600
