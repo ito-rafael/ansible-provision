@@ -34,3 +34,13 @@
     owner: root
     group: root
     mode: 0600
+
+- name: keyboard | kanata | copy kanata user systemd service
+  tags: keyboard,kanata
+  copy:
+    src: /home/rafael/git/keebab/systemd/user/kanata.service
+    dest: /home/rafael/.config/systemd/user/kanata.service
+    remote_src: true
+    owner: rafael
+    group: rafael
+    mode: 0600
