@@ -3,16 +3,6 @@
   package:
     name: kmonad
 
-- name: system | keyboard | copy KMonad systemd service
-  tags: keyboard,kmonad
-  copy:
-    src: /home/rafael/git/dotfiles/kmonad/kmonad.service
-    dest: /etc/systemd/system/kmonad.service
-    remote_src: true
-    owner: root
-    group: root
-    mode: 0644
-
 - name: keyboard | KMonad | ensure KMonad dirs exist
   tags: keyboard,kmonad
   file:
@@ -33,6 +23,16 @@
     remote_src: true
     owner: rafael
     group: rafael
+    mode: 0600
+
+- name: keyboard | KMonad | copy KMonad global systemd service
+  tags: keyboard,kmonad
+  copy:
+    src: /home/rafael/git/keebab/systemd/system/kmonad.service
+    dest: /etc/systemd/system/kmonad.service
+    remote_src: true
+    owner: root
+    group: root
     mode: 0600
 
 - name: keyboard | KMonad | start KMonad global daemon
