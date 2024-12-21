@@ -32,9 +32,10 @@
     group: rafael
     mode: 0600
 
-- name: system | keyboard | start KMonad daemon
+- name: keyboard | KMonad | start KMonad global daemon
   tags: keyboard,kmonad
   systemd:
     name: kmonad
-    enabled: yes
+    enabled: true
+    daemon_reload: true
     state: started
