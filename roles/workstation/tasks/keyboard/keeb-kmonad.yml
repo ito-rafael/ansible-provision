@@ -35,6 +35,16 @@
     group: root
     mode: 0600
 
+- name: keyboard | KMonad | copy KMonad user systemd service
+  tags: keyboard,kmonad
+  copy:
+    src: /home/rafael/git/keebab/systemd/user/kmonad.service
+    dest: /home/rafael/.config/systemd/user/kmonad.service
+    remote_src: true
+    owner: rafael
+    group: rafael
+    mode: 0600
+
 - name: keyboard | KMonad | start KMonad global daemon
   tags: keyboard,kmonad
   systemd:
