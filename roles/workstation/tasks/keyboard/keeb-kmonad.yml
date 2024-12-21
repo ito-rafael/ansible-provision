@@ -1,8 +1,7 @@
-- name: system | keyboard | install KMonad
+- name: keyboard | KMonad | install KMonad
   tags: keyboard,kmonad
-  become_user: aurman
-  kewlfft.aur.aur:
-    name: kmonad-bin
+  package:
+    name: kmonad
 
 - name: system | keyboard | copy KMonad systemd service
   tags: keyboard,kmonad
@@ -14,7 +13,7 @@
     group: root
     mode: 0644
 
-- name: system | keyboard | ensure KMonad dir exist
+- name: keyboard | KMonad | ensure KMonad dirs exist
   tags: keyboard,kmonad
   file:
     path: /home/rafael/.config/kmonad
@@ -23,7 +22,7 @@
     group: rafael
     mode: 0700
 
-- name: system | keyboard | copy KMonad dotfile
+- name: keyboard | KMonad | copy KMonad dotfile
   tags: keyboard,kmonad
   copy:
     src: /home/rafael/git/dotfiles/kmonad/inkl-1ru.kbd
