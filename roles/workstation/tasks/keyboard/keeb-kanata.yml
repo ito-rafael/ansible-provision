@@ -24,3 +24,13 @@
     owner: rafael
     group: rafael
     mode: 0600
+
+- name: keyboard | kanata | copy kanata global systemd service
+  tags: keyboard,kanata
+  copy:
+    src: /home/rafael/git/keebab/systemd/global/kanata.service
+    dest: /etc/systemd/system/kanata.service
+    remote_src: true
+    owner: root
+    group: root
+    mode: 0600
