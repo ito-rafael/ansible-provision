@@ -1,0 +1,4 @@
+- name: keyboard | kanata | install kanata
+  tags: keyboard,kanata
+  kewlfft.aur.aur:
+    name: kanata-bin

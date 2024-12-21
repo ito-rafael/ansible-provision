@@ -14,7 +14,7 @@
   # Keyboard
   - import_tasks: keyboard/keeb-hwdb.yml                # hardware mod
   - import_tasks: keyboard/keeb-xkb.yml                 # set modifiers
-  - import_tasks: keyboard/keeb-kmonad.yml              # QMK-like layers
+  - import_tasks: keyboard/keeb-kanata.yml              # QMK-like layers
   - import_tasks: keyboard/keeb-xremap.yml              # software processing
   - import_tasks: keyboard/keeb-cedilla.yml             # fix cedilla
   - import_tasks: keyboard/keeb-ydotool.yml             # command-line automation
