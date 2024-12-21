@@ -16,11 +16,14 @@
 - name: keyboard | KMonad | ensure KMonad dirs exist
   tags: keyboard,kmonad
   file:
-    path: /home/rafael/.config/kmonad
+    path: /home/rafael/.config/{{ item }}
     state: directory
     owner: rafael
     group: rafael
     mode: 0700
+  with_items:
+    - kmonad
+    - systemd/user
 
 - name: keyboard | KMonad | copy KMonad dotfile
   tags: keyboard,kmonad
