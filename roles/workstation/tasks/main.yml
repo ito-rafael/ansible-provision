@@ -11,20 +11,23 @@
   when: ansible_distribution == "Archlinux"
 
 - block:
+  # Keyboard
+  - import_tasks: keyboard/keeb-hwdb.yml                # hardware mod
+  - import_tasks: keyboard/keeb-xkb.yml                 # set modifiers
+  - import_tasks: keyboard/keeb-kmonad.yml              # QMK-like layers
+  - import_tasks: keyboard/keeb-xremap.yml              # software processing
+  - import_tasks: keyboard/keeb-cedilla.yml             # fix cedilla
+  - import_tasks: keyboard/keeb-ydotool.yml             # command-line automation
+  #- import_tasks: keyboard/keeb-interception.yml       # [deprecated] interception
+  #- import_tasks: keyboard/keeb-udevmon.yml            # [deprecated] udevmon
+  #- import_tasks: keyboard/keeb-kmonad.yml             # [deprecated] QMK-like layers
+
   # System settings
   - import_tasks: system/audio.yml                      # PipeWire
   - import_tasks: system/bluetooth.yml                  # BlueZ
   - import_tasks: system/flatpak.yml                    # Flatpak
   - import_tasks: system/fonts.yml                      # fonts
   - import_tasks: system/gpu-nvidia.yml                 # GPU: NVIDIA
-  - import_tasks: system/keeb-hwdb.yml                  # keyboard: hardware mod
-  - import_tasks: system/keeb-xkb.yml                   # keyboard: set modifiers
-  - import_tasks: system/keeb-kmonad.yml                # keyboard: QMK-like layers
-  - import_tasks: system/keeb-xremap.yml                # keyboard: software processing
-  - import_tasks: system/keeb-cedilla.yml               # keyboard: fix cedilla
-  - import_tasks: system/keeb-ydotool.yml               # keyboard: command-line automation
-  #- import_tasks: system/keeb-interception.yml         # keyboard: interception [deprecated]
-  #- import_tasks: system/keeb-udevmon.yml              # keyboard: udevmon [deprecated]
   - import_tasks: system/mouse.yml                      # LogiOps driver
   - import_tasks: system/networking.yml                 # NetworkManager
   - import_tasks: system/printer.yml                    # CUPS, driver, GUI
