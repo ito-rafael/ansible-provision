@@ -2,3 +2,15 @@
   tags: keyboard,kanata
   kewlfft.aur.aur:
     name: kanata-bin
+
+- name: keyboard | kanata | ensure kanata dirs exist
+  tags: keyboard,kanata
+  file:
+    path: /home/rafael/.config/{{ item }}
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
+  with_items:
+    - kanata
+    - systemd/user
