@@ -45,6 +45,15 @@
     group: rafael
     mode: 0600
 
+- name: keyboard | KMonad | reload KMonad user service
+  tags: keyboard,kmonad
+  systemd:
+    name: kmonad
+    enabled: false
+    daemon_reload: true
+    state: stopped
+    scope: user
+
 - name: keyboard | KMonad | start KMonad global daemon
   tags: keyboard,kmonad
   systemd:
