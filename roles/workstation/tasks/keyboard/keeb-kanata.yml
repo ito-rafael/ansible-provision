@@ -44,3 +44,13 @@
     owner: rafael
     group: rafael
     mode: 0600
+
+- name: keyboard | kanata | reload kanata user service
+  tags: keyboard,kanata
+  become_user: rafael
+  systemd:
+    name: kanata
+    enabled: false
+    daemon_reload: true
+    state: stopped
+    scope: user
