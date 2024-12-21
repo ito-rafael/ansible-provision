@@ -54,3 +54,11 @@
     daemon_reload: true
     state: stopped
     scope: user
+
+- name: keyboard | kanata | start kanata global daemon
+  tags: keyboard,kanata
+  systemd:
+    name: kanata
+    enabled: true
+    daemon_reload: true
+    state: started
