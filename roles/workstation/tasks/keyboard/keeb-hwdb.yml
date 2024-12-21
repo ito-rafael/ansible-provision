@@ -1,5 +1,5 @@
-- name: system | keyboard | copy udev/hwdb dotfile
-  tags: system,keyboard,hwdb
+- name: keyboard | udev/hwdb | copy udev/hwdb dotfile
+  tags: keyboard,hwdb
   copy:
     src: /home/rafael/git/dotfiles/udev/hwdb.d/90-miryoku-colemak.hwdb
     dest: /etc/udev/hwdb.d/90-miryoku-colemak.hwdb
@@ -9,13 +9,13 @@
     mode: 0644
   register: hwdb_config
 
-- name: system | keyboard | rebuild the hardware database index (hwdb.bin)
-  tags: system,keyboard,hwdb
+- name: keyboard | udev/hwdb | rebuild the hardware database index (hwdb.bin)
+  tags: keyboard,hwdb
   command: systemd-hwdb update
   when: hwdb_config.changed
 
-- name: system | keyboard | copy systemd-hwdb-update service
-  tags: system,keyboard,hwdb
+- name: keyboard | udev/hwdb | copy systemd-hwdb-update service
+  tags: keyboard,hwdb
   copy:
     src: /lib/systemd/system/systemd-hwdb-update.service
     dest: /etc/systemd/system/systemd-hwdb-update.service
@@ -23,8 +23,8 @@
     group: root
     mode: 0644
 
-- name: system | keyboard | enable update on boot (comment line)
-  tags: system,keyboard,hwdb
+- name: keyboard | udev/hwdb | enable update on boot (comment line)
+  tags: keyboard,hwdb
   lineinfile:
     path: /etc/systemd/system/systemd-hwdb-update.service
     line: '#ConditionNeedsUpdate=/etc'
@@ -32,6 +32,6 @@
     regexp: '^.*(ConditionNeedsUpdate=)/.*$'
     insertafter: '^\[Unit\]$'
 
-- name: system | keyboard | update udev rules on the fly
-  tags: system,keyboard,hwdb
+- name: keyboard | udev/hwdb | update udev rules on the fly
+  tags: keyboard,hwdb
   command: udevadm trigger

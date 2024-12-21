@@ -1,5 +1,5 @@
-- name: software | keyboard | fix cedilla in en_US locale
-  tags: system,keyboard,cedilla
+- name: keyboard | cedilla | fix cedilla in en_US locale
+  tags: keyboard,cedilla
   ansible.builtin.replace:
     path: /usr/share/X11/locale/en_US.UTF-8/Compose
     regexp: "{{ item.find }}"
@@ -8,8 +8,8 @@
     - { find: 'ć', replace: 'ç' }
     - { find: 'Ć', replace: 'Ç' }
 
-- name: software | keyboard | export cedilla env vars
-  tags: system,keyboard,cedilla
+- name: keyboard | cedilla | export cedilla env vars
+  tags: keyboard,cedilla
   lineinfile:
     path: /etc/environment
     line: "{{ item }}"

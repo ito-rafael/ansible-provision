@@ -1,20 +1,20 @@
-- name: system | keyboard | set custom split keeb
-  tags: keyboard
+- name: keyboard | interception | install interception packages
+  tags: keyboard,interception
   package:
     name:
       #- evtest                         # used to get scan codes of each key
       - interception-caps2esc
       - interception-dual-function-keys
 
-- name: system | udevmon | interception (space2meta)
-  tags: udevmon,interception
+- name: keyboard | interception | interception (space2meta)
+  tags: keyboard,interception
   become_user: aurman
   aur:
     name:
       - interception-space2meta
 
-- name: system | udevmon | copy udevmon config file
-  tags: udevmon,interception
+- name: keyboard | interception | copy udevmon config file
+  tags: keyboard,interception
   copy:
     src: files/udevmon/udevmon.yaml
     dest: /etc/interception/udevmon.yaml
@@ -23,8 +23,8 @@
     mode: 0644
   register: udevmon_config
 
-- name: system | udevmon | restart udevmon daemon
-  tags: udevmon,interception
+- name: keyboard | interception | restart udevmon daemon
+  tags: keyboard,interception
   systemd:
     name: udevmon
     state: restarted

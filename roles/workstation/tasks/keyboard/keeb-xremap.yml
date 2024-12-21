@@ -1,23 +1,23 @@
-- name: system | keyboard remap | install Rust
+- name: keyboard | xremap | install packages
   tags: keyboard,rust,xremap
   package:
     name: rust
 
-- name: system | keyboard remap | install xremap
+- name: keyboard | xremap | install xremap
   tags: keyboard,xremap
   community.general.cargo:
     name: xremap
 
 #cargo install xremap --features sway
 
-- name: system | keyboard remap | add user to input group
+- name: keyboard | xremap | add user to input group
   tags: keyboard,xremap
   user:
     name: rafael
     append: yes
     groups: input
 
-- name: system | keyboard remap | copy udev/rules.d file
+- name: keyboard | xremap | copy udev/rules.d file
   tags: keyboard,xremap
   copy:
     remote_src: true
@@ -27,7 +27,7 @@
     group: root
     mode: 0644
 
-- name: system | keyboard remap | ensure xremap dir exist
+- name: keyboard | xremap | ensure xremap dir exists
   tags: keyboard,xremap
   file:
     path: /home/rafael/.config/xremap
@@ -36,7 +36,7 @@
     group: rafael
     mode: 0700
 
-- name: system | keyboard remap | copy xremap dotfile
+- name: keyboard | xremap | copy xremap dotfile
   tags: keyboard,xremap
   copy:
     remote_src: true

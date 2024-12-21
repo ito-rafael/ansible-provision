@@ -1,5 +1,5 @@
-- name: software | keyboard | ensure xkb dirs exist
-  tags: system,keyboard,xkb
+- name: keyboard | XKB | ensure xkb dirs exist
+  tags: keyboard,xkb
   file:
     path: /home/rafael/.config/{{ item }}
     state: directory
@@ -10,8 +10,8 @@
     - xkb/symbols
     - xkb/rules
 
-- name: software | keyboard | copy xkb dotfiles
-  tags: system,keyboard,xkb
+- name: keyboard | XKB | copy xkb dotfiles
+  tags: keyboard,xkb
   copy:
     remote_src: yes
     src: /home/rafael/git/dotfiles/xkb/{{ item.src }}

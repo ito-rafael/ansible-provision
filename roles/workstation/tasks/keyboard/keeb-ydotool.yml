@@ -1,9 +1,9 @@
-- name: system | keyboard | install ydotool
+- name: keyboard | ydotool | install ydotool
   tags: keyboard,ydotool
   package:
     name: ydotool
 
-- name: system | keyboard | start ydotool daemon
+- name: keyboard | ydotool | start user ydotool daemon
   tags: keyboard,ydotool
   become_user: rafael
   systemd:
