@@ -12,6 +12,16 @@
     group: rafael
     mode: 0700
 
+- name: keyboard | ydotool | copy ydotool user systemd service
+  tags: keyboard,ydotool
+  copy:
+    src: /home/rafael/git/keebab/systemd/user/ydotool.service
+    dest: /home/rafael/.config/systemd/user/ydotool.service
+    remote_src: true
+    owner: rafael
+    group: rafael
+    mode: 0600
+
 - name: keyboard | ydotool | start user ydotool daemon
   tags: keyboard,ydotool
   become_user: rafael
