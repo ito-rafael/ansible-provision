@@ -18,6 +18,7 @@
   - import_tasks: keyboard/keeb-xremap.yml              # software processing
   - import_tasks: keyboard/keeb-cedilla.yml             # fix cedilla
   - import_tasks: keyboard/keeb-ydotool.yml             # command-line automation
+  - import_tasks: keyboard/keeb-zsa.yml                 # ZSA's Keymapp & Kontroll
   #- import_tasks: keyboard/keeb-interception.yml       # [deprecated] interception
   #- import_tasks: keyboard/keeb-udevmon.yml            # [deprecated] udevmon
   #- import_tasks: keyboard/keeb-kmonad.yml             # [deprecated] QMK-like layers

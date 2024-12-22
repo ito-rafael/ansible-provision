@@ -1,0 +1,4 @@
+- name: keyboard | ZSA | install Wally CLI
+  tags: keyboard,zsa
+  package:
+    name: zsa-wally-cli
