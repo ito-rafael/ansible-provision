@@ -57,3 +57,12 @@
     owner: rafael
     group: rafael
     mode: 0600
+
+- name: keyboard | xremap | ensure user systemd dir exists
+  tags: keyboard,xremap
+  file:
+    path: /home/rafael/.config/systemd/user
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
