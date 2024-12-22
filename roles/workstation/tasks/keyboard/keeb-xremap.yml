@@ -66,3 +66,13 @@
     owner: rafael
     group: rafael
     mode: 0700
+
+- name: keyboard | xremap | copy xremap service file
+  tags: keyboard,xremap
+  copy:
+    remote_src: true
+    src: /home/rafael/git/dotfiles/systemd/user/xremap.service
+    dest: /home/rafael/.config/systemd/user/xremap.service
+    owner: rafael
+    group: rafael
+    mode: 0600
