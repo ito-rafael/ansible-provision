@@ -3,8 +3,8 @@
   package:
     name: zsa-wally-cli
 
-- name: keyboard | ZSA | install Wally
+- name: keyboard | ZSA | install Keymapp
   tags: keyboard,zsa
   become_user: aurman
   kewlfft.aur.aur:
-    name: zsa-wally-bin
+    name: zsa-keymapp-bin
