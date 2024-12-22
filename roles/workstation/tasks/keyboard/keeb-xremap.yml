@@ -76,3 +76,12 @@
     owner: rafael
     group: rafael
     mode: 0600
+
+- name: keyboard | xremap | reload xremap user service (that will be started by XDG Autostart)
+  tags: keyboard,xremap
+  systemd:
+    name: xremap
+    enabled: false
+    state: stopped
+    daemon_reload: true
+    scope: user
