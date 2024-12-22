@@ -2,3 +2,9 @@
   tags: keyboard,zsa
   package:
     name: zsa-wally-cli
+
+- name: keyboard | ZSA | install Wally
+  tags: keyboard,zsa
+  become_user: aurman
+  kewlfft.aur.aur:
+    name: zsa-wally-bin
