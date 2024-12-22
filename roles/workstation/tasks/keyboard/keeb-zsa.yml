@@ -27,3 +27,10 @@
   ansible.builtin.group:
     name: plugdev
     state: present
+
+- name: keyboard | ZSA | add user to the "plugdev" group
+  tags: keyboard,zsa
+  ansible.builtin.user:
+    name: rafael
+    groups: plugdev
+    append: yes
