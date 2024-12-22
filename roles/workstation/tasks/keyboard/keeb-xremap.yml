@@ -1,7 +1,9 @@
 - name: keyboard | xremap | install packages
   tags: keyboard,rust,xremap
   package:
-    name: rust
+    name:
+      - rust  # Rust
+      - dex   # DesktopEntry Execution (for XDG Autostart)
 
 - name: keyboard | xremap | install xremap
   tags: keyboard,xremap
