@@ -3,6 +3,15 @@
   package:
     name: ydotool
 
+- name: keyboard | ydotool | ensure systemd dir exist
+  tags: keyboard,ydotool
+  file:
+    path: /home/rafael/.config/systemd/user
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
+
 - name: keyboard | ydotool | start user ydotool daemon
   tags: keyboard,ydotool
   become_user: rafael
