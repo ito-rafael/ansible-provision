@@ -29,14 +29,18 @@
     group: root
     mode: 0644
 
-- name: keyboard | xremap | ensure xremap dir exists
+- name: keyboard | xremap | ensure xremap-reladed dirs exist
   tags: keyboard,xremap
   file:
-    path: /home/rafael/.config/xremap
+    path: /home/rafael/.config/{{ item }}
     state: directory
     owner: rafael
     group: rafael
     mode: 0700
+  with_items:
+    - xremap
+    - autostart
+    - systemd/user
 
 - name: keyboard | xremap | copy xremap dotfile
   tags: keyboard,xremap
@@ -57,15 +61,6 @@
     owner: rafael
     group: rafael
     mode: 0600
-
-- name: keyboard | xremap | ensure user systemd dir exists
-  tags: keyboard,xremap
-  file:
-    path: /home/rafael/.config/systemd/user
-    state: directory
-    owner: rafael
-    group: rafael
-    mode: 0700
 
 - name: keyboard | xremap | copy xremap service file
   tags: keyboard,xremap
