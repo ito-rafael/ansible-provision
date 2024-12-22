@@ -16,7 +16,7 @@
   become: yes
   copy:
     remote_src: yes
-    src: /home/rafael/git/dotfiles/udev/rules.d/50-zsa.rules
+    src: /home/rafael/git/keebab/udev/rules.d/50-zsa.rules
     dest: /etc/udev/rules.d/50-zsa.rules
     owner: root
     group: root
