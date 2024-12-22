@@ -45,3 +45,13 @@
     owner: rafael
     group: rafael
     mode: 0600
+
+- name: keyboard | xremap | copy xremap desktop entry (for XDG Autostart)
+  tags: keyboard,xremap
+  copy:
+    remote_src: true
+    src: /home/rafael/git/dotfiles/autostart/xremap.desktop
+    dest: /home/rafael/.config/autostart/xremap.desktop
+    owner: rafael
+    group: rafael
+    mode: 0600
