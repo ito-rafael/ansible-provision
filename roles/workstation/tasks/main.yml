@@ -66,6 +66,7 @@
   # Development
   - import_tasks: dev/docker.yml                        # Docker
   - import_tasks: dev/emacs.yml                         # Doom Emacs
+  - import_tasks: dev/git.yml                           # Git
   - import_tasks: dev/jupyter.yml                       # Jupyter
   - import_tasks: dev/latex.yml                         # LaTeX
   - import_tasks: dev/python.yml                        # Python
