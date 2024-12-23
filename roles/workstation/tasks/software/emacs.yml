@@ -1,0 +1,4 @@
+- name: software | emacs | install Emacs
+  tags: emacs
+  package:
+    name: emacs-wayland

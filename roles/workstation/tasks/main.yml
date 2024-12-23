@@ -42,6 +42,7 @@
   - import_tasks: software/browser-chromium.yml         # browser: Chromium
   - import_tasks: software/dm-lightdm.yml  # LightDM + theme
   #- import_tasks: software/dm-sddm.yml     # SDDM [deprecated]
+  - import_tasks: software/emacs.yml                    # Emacs
   - import_tasks: software/email-client.yml             # Thunderbird
   - import_tasks: software/file-manager.yml             # Thunar/ranger
   - import_tasks: software/media-spotify.yml            # Spotify
