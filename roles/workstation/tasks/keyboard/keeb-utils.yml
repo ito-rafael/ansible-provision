@@ -1,0 +1,5 @@
+- name: software | utils | keyboard tools (X11)
+  tags: utils,tools
+  package:
+    name:
+      - screenkey             # screencast tool
