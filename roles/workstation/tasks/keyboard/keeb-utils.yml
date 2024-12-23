@@ -10,3 +10,10 @@
   kewlfft.aur.aur:
     name:
       - wshowkeys-git         # screencast tool
+
+- name: software | utils | keyboard tools (X11/Wayland)
+  tags: utils,tools
+  become_user: aurman
+  kewlfft.aur.aur:
+    name:
+      - showmethekey          # screencast tool
