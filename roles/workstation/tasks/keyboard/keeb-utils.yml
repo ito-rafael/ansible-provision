@@ -3,3 +3,10 @@
   package:
     name:
       - screenkey             # screencast tool
+
+- name: software | utils | keyboard tools (Wayland)
+  tags: utils,tools
+  become_user: aurman
+  kewlfft.aur.aur:
+    name:
+      - wshowkeys-git         # screencast tool
