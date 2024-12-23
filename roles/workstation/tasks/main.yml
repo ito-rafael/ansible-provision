@@ -30,6 +30,7 @@
   - import_tasks: system/flatpak.yml                    # Flatpak
   - import_tasks: system/fonts.yml                      # fonts
   - import_tasks: system/gpu-nvidia.yml                 # GPU: NVIDIA
+  - import_tasks: system/grub.yml                       # GRUB
   - import_tasks: system/mouse.yml                      # LogiOps driver
   - import_tasks: system/networking.yml                 # NetworkManager
   - import_tasks: system/printer.yml                    # CUPS, driver, GUI

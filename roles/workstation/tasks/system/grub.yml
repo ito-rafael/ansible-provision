@@ -1,0 +1,5 @@
+- name: system | grub | install grub-btrfs
+  tags: system,grub
+  package:
+    name:
+      - grub-btrfs  # include snapshots at boot options
