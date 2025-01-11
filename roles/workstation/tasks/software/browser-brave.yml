@@ -6,6 +6,18 @@
       - brave-bin
       - brave-beta-bin
 
+- name: software | browser | copy Brave dotfiles
+  tags: browser,brave
+  copy:
+    src: /home/rafael/git/dotfiles/brave/{{ item.src }}
+    dest: /home/rafael/.config/{{ item.dest }}
+    remote_src: true
+    owner: rafael
+    group: rafael
+    mode: 0600
+  with_items:
+    - { src: 'brave-flags.conf', dest: 'brave-flags.conf' }
+
 - name: software | browser | ensure Brave dir exist
   tags: browser,brave
   file:
