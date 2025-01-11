@@ -30,6 +30,14 @@
   with_items:
     - { src: 'brave-beta-flags.conf', dest: 'brave-beta-flags.conf' }
 
+- name: software | browser | fix brave-beta shell script
+  tags: browser,brave
+  become: yes
+  ansible.builtin.replace:
+    path: /usr/bin/brave-beta
+    regexp: '"\$USER_FLAGS"'
+    replace: '$USER_FLAGS'
+
 - name: software | browser | ensure Brave dir exist
   tags: browser,brave
   file:
