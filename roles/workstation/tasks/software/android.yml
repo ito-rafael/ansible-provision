@@ -1,9 +1,9 @@
 - name: software | android | install ADB
   tags: android,adb
   package:
-    name: android-tools
+    name: android-tools       # Android platform tools (includes ADB)
 
 - name: software | android | install scrcpy
   tags: android,scrcpy
   package:
-    name: scrcpy
+    name: scrcpy              # Android screen mirroring
