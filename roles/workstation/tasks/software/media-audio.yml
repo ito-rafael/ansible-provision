@@ -3,3 +3,9 @@
   become_user: aurman
   kewlfft.aur.aur:
     name: spotify
+
+- name: software | media | install YouTube Music
+  tags: media,yt-music
+  become_user: aurman
+  kewlfft.aur.aur:
+    name: youtube-music-bin
