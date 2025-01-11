@@ -9,3 +9,10 @@
   become_user: aurman
   kewlfft.aur.aur:
     name: youtube-music-bin
+
+- name: software | media | install Spotube
+  tags: media,spotube
+  become_user: aurman
+  kewlfft.aur.aur:
+    name: spotube-bin
+
