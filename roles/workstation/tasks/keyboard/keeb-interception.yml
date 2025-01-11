@@ -2,7 +2,8 @@
   tags: keyboard,interception
   package:
     name:
-      #- evtest                         # used to get scan codes of each key
+      #- evtest  # used to get scan codes of each key
+      - interception-tools
       - interception-caps2esc
       - interception-dual-function-keys
 
