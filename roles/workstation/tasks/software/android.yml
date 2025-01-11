@@ -7,3 +7,9 @@
   tags: android,scrcpy
   package:
     name: scrcpy              # Android screen mirroring
+
+- name: software | android | install Waydroid
+  tags: android,waydroid
+  become_user: aurman
+  kewlfft.aur.aur:
+    name: waydroid            # Android emulator for Wayland
