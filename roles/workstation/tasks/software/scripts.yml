@@ -11,13 +11,27 @@
   tags: scripts
   copy:
     remote_src: yes
-    src: /home/rafael/git/dotfiles/scripts/{{ item.src }}
-    dest: /home/rafael/.config/scripts/{{ item.dest }}
+    src: /home/rafael/git/dotfiles/scripts/{{ item }}
+    dest: /home/rafael/.config/scripts/{{ item }}
     owner: rafael
     group: rafael
     mode: 0700
   with_items:
-    - { src: 'adb-mdns-scrcpy.sh', dest: 'adb-mdns-scrcpy.sh' }
-    - { src: 'hide-or-kill.sh', dest: 'hide-or-kill.sh' }
-    - { src: 'navigate2ws.sh', dest: 'navigate2ws.sh' }
-    - { src: 'xremap-keeb-config.sh', dest: 'xremap-keeb-config.sh' }
+    - 'adb-mdns-pair.sh'
+    - 'adb-mdns-scrcpy.sh'
+    - 'capslock_status.sh'
+    - 'darth_bright.sh'
+    - 'emacs-respawn.sh'
+    - 'hide-or-kill.sh'
+    - 'keyboard-leds.sh'
+    - 'kill-window.sh'
+    - 'mouse-warp.sh'
+    - 'navigate2ws.sh'
+    - 'opacity.sh'
+    - 'rofi.sh'
+    - 'scratchpad-temp.sh'
+    - 'screencast.sh'
+    - 'show-or-launch.sh'
+    - 'vpn-connecter.sh'
+    - 'wlprop.sh'
+    - 'xremap-keeb-config.sh'
