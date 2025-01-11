@@ -1,8 +1,10 @@
-- name: software | browser | Brave install
+- name: software | browser | install Brave
   tags: browser,brave
   become_user: aurman
   kewlfft.aur.aur:
-    name: brave-bin
+    name:
+      - brave-bin
+      - brave-beta-bin
 
 - name: software | browser | ensure Brave dir exist
   tags: browser,brave
