@@ -46,7 +46,7 @@
   - import_tasks: software/emacs.yml                    # Emacs
   - import_tasks: software/email-client.yml             # Thunderbird
   - import_tasks: software/file-manager.yml             # Thunar/ranger
-  - import_tasks: software/media-spotify.yml            # Spotify
+  #- import_tasks: software/media-audio.yml             # Spotify, YouTube Music, Spotube
   - import_tasks: software/office-suite.yml             # LibreOffice
   - import_tasks: software/shell.yml                    # Zsh
   - import_tasks: software/pdf-viewer.yml               # Zathura
