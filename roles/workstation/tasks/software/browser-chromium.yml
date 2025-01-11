@@ -1,4 +1,5 @@
 - name: software | browser | Chromium install
   tags: browser,chromium
-  package:
-    name: chromium
+  become_user: aurman
+  kewlfft.aur.aur:
+    name: ungoogled-chromium-bin
