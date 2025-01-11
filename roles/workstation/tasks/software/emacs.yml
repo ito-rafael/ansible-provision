@@ -19,3 +19,16 @@
     clone: yes
     repo: https://github.com/plexus/chemacs2.git
     dest: /home/rafael/.config/emacs
+
+- name: software | emacs | copy Chemacs 2 dotfiles
+  tags: emacs
+  copy:
+    remote_src: yes
+    src: /home/rafael/git/dotfiles/emacs/chemacs/{{ item }}
+    dest: /home/rafael/.config/chemacs/{{ item }}
+    owner: rafael
+    group: rafael
+    mode: "0600"
+  with_items:
+    - "profiles.el"  # list profiles
+    - "profile"      # set default
