@@ -22,5 +22,5 @@
     group: rafael
     mode: "{{ item.mode }}"
   with_items:
-    - { src: 'waybar.sh', dest: 'waybar.sh', mode: '0700' } # launcher
-    - { src: 'config', dest: 'config', mode: '0600' }       # config
+    - { src: 'waybar.sh', dest: 'waybar.sh', mode: '0700' }  # launcher
+    - { src: 'config',    dest: 'config',    mode: '0600' }  # config
