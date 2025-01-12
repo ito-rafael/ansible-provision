@@ -15,6 +15,7 @@
     regexp: "{{ item.regex }}"
   with_items:
     - { line: "GRUB_TIMEOUT=0",            regex: "^GRUB_TIMEOUT=.*$" }
+    - { line: "GRUB_TIMEOUT_STYLE=hidden", regex: "^GRUB_TIMEOUT_STYLE=.*$" }
   register: grub
 
 - name: system | grub | regenerate GRUB config file
