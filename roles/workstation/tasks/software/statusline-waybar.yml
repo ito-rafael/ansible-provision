@@ -25,3 +25,4 @@
     - { src: 'waybar.sh', dest: 'waybar.sh', mode: '0700' }  # launcher
     - { src: 'config',    dest: 'config',    mode: '0600' }  # config
     - { src: 'style.css', dest: 'style.css', mode: '0600' }  # CSS
+    - { src: 'scripts',   dest: '',          mode: '0700' }  # scripts
