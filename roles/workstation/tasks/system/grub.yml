@@ -15,3 +15,11 @@
     regexp: "{{ item.regex }}"
   with_items:
     - { line: "GRUB_TIMEOUT=0",            regex: "^GRUB_TIMEOUT=.*$" }
+  register: grub
+
+- name: system | grub | regenerate GRUB config file
+  tags: system,grub
+  become: yes
+  shell:
+    cmd: grub-mkconfig -o /efi/EFI/arch/grub/grub.cfg
+  when: grub.changed
