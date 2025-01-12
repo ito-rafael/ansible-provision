@@ -3,3 +3,15 @@
   package:
     name:
       - grub-btrfs  # include snapshots at boot options
+
+- name: system | grub | set GRUB options
+  tags: system,grub
+  become: yes
+  lineinfile:
+    backup: true
+    path: /etc/default/grub
+    line: "{{ item.line }}"
+    state: present
+    regexp: "{{ item.regex }}"
+  with_items:
+    - { line: "GRUB_TIMEOUT=0",            regex: "^GRUB_TIMEOUT=.*$" }
