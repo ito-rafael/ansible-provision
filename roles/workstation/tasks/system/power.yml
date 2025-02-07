@@ -1,0 +1,11 @@
+- name: system | power | disable power button
+  tags: power
+  lineinfile:
+    path: /etc/systemd/logind.conf
+    line: "{{ item.line }}"
+    state: present
+    regexp: "{{ item.regexp }}"
+  with_items:
+    - { line: 'HandlePowerKey=ignore', regexp: '^.*(HandlePowerKey=).*$' }
+    - { line: 'HandlePowerKeyLongPress=poweroff', regexp: '^.*(HandlePowerKeyLongPress=).*$' }
+  register: logind

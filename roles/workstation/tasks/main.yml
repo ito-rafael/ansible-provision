@@ -33,6 +33,7 @@
   - import_tasks: system/grub.yml                       # GRUB
   - import_tasks: system/mouse.yml                      # LogiOps driver
   - import_tasks: system/networking.yml                 # NetworkManager
+  - import_tasks: system/power.yml                      # Power settings
   - import_tasks: system/printer.yml                    # CUPS, driver, GUI
 
   # Applications
