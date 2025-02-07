@@ -29,6 +29,7 @@
   - import_tasks: system/bluetooth.yml                  # BlueZ
   - import_tasks: system/flatpak.yml                    # Flatpak
   - import_tasks: system/fonts.yml                      # fonts
+  - import_tasks: system/gpg.yml                        # GnuPG keys
   - import_tasks: system/gpu-nvidia.yml                 # GPU: NVIDIA
   - import_tasks: system/grub.yml                       # GRUB
   - import_tasks: system/mouse.yml                      # LogiOps driver

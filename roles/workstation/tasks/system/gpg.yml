@@ -1,0 +1,4 @@
+- name: system | gpg | install GnuPG
+  tags: system,gpg
+  package:
+    name: gnupg
