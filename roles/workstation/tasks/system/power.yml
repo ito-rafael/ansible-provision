@@ -9,3 +9,10 @@
     - { line: 'HandlePowerKey=ignore', regexp: '^.*(HandlePowerKey=).*$' }
     - { line: 'HandlePowerKeyLongPress=poweroff', regexp: '^.*(HandlePowerKeyLongPress=).*$' }
   register: logind
+
+- name: system | power | restart logind service
+  tags: power
+  systemd:
+    name: systemd-logind
+    state: restarted
+  when: logind is changed
