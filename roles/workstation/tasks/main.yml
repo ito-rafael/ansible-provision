@@ -42,8 +42,8 @@
   - import_tasks: software/browser-brave.yml            # browser: Brave
   - import_tasks: software/browser-firefox.yml          # browser: Firefox
   - import_tasks: software/browser-chromium.yml         # browser: Chromium
-  - import_tasks: software/dm-lightdm.yml  # LightDM + theme
-  #- import_tasks: software/dm-sddm.yml     # SDDM [deprecated]
+  - import_tasks: software/dm-lightdm.yml               # LightDM + theme
+  #- import_tasks: software/dm-sddm.yml                  # SDDM [deprecated]
   - import_tasks: software/emacs.yml                    # Emacs
   - import_tasks: software/email-client.yml             # Thunderbird
   - import_tasks: software/file-manager.yml             # Thunar/ranger
