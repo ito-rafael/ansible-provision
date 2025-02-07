@@ -11,3 +11,10 @@
   register: key_exists
   failed_when: false
   changed_when: false
+
+- name: system | gpg | generate GnuPG keys
+  tags: system,gpg
+  become_user: rafael
+  ansible.builtin.shell:
+    cmd: 'gpg --batch --passphrase "" --quick-generate-key "Rafael Ito (Personal use keys) <ito.rafael@gmail.com>"'
+  when: key_exists.stdout == ""
