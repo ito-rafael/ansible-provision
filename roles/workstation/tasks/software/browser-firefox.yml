@@ -2,3 +2,9 @@
   tags: browser,firefox
   package:
     name: firefox-developer-edition
+
+- name: software | browser | install Video DownloadHelper CoApp
+  tags: browser,firefox
+  become_user: aurman
+  kewlfft.aur.aur:
+    name: vdhcoapp-bin
