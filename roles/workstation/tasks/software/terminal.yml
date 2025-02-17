@@ -27,3 +27,4 @@
     - themes/terminal.conf
     - themes/python.conf
     - themes/ssh.conf
+    - themes/root.conf
