@@ -26,3 +26,4 @@
       - pdfpc       # slides presentation
       - meld        # GUI diff
       - yad         # GUI dialogs from CLI/scripts (zenity fork)
+      - warpd       # keyboard-driven mouse cursor manipulation
