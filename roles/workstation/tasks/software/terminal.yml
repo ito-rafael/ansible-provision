@@ -47,3 +47,11 @@
     owner: root
     group: root
     mode: 0600
+
+- name: software | terminal | [root] change theme when root
+  tags: terminal,kitty
+  lineinfile:
+    path: /root/.profile
+    line: 'kitty @ set-colors /root/.config/kitty/root.conf'
+    state: present
+    create: true
