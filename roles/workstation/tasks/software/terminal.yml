@@ -55,3 +55,11 @@
     line: 'kitty @ set-colors /root/.config/kitty/root.conf'
     state: present
     create: true
+
+- name: software | terminal | [root] change back theme when not root
+  tags: terminal,kitty
+  lineinfile:
+    path: /root/.bash_logout
+    line: 'kitty @ set-colors --reset'
+    state: present
+    create: true
