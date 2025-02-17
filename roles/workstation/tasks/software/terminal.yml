@@ -28,3 +28,12 @@
     - themes/python.conf
     - themes/ssh.conf
     - themes/root.conf
+
+- name: software | terminal | [root] ensure kitty dir exist
+  tags: terminal,kitty
+  file:
+    path: /root/.config/kitty
+    state: directory
+    owner: root
+    group: root
+    mode: 0700
