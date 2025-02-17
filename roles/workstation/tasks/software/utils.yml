@@ -25,3 +25,4 @@
       - gimp        # image editor
       - pdfpc       # slides presentation
       - meld        # GUI diff
+      - yad         # GUI dialogs from CLI/scripts (zenity fork)
