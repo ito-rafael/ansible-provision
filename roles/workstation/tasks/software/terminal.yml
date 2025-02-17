@@ -24,3 +24,4 @@
   with_items:
     - kitty.conf
     - themes/default.conf
+    - themes/terminal.conf
