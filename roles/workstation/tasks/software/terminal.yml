@@ -37,3 +37,13 @@
     owner: root
     group: root
     mode: 0700
+
+- name: software | terminal | [root] copy kitty dotfiles
+  tags: terminal,kitty
+  copy:
+    remote_src: yes
+    src: /home/rafael/git/dotfiles/kitty/themes/root.conf
+    dest: /root/.config/kitty/root.conf
+    owner: root
+    group: root
+    mode: 0600
