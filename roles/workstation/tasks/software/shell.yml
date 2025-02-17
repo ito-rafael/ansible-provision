@@ -60,5 +60,5 @@
     mode: {{ item.mode }}
   with_items:
     - { src: 'zshrc', dest: '.config/zsh/.zshrc', mode: '0600' }
-    - { src: 'zshenv', dest: '.config/zsh/zshenv', mode: '0600' }
+    - { src: 'zshenv', dest: '.config/zsh/.zshenv', mode: '0600' }
     - { src: 'zshenv_home', dest: '.zshenv', mode: '0600' }
