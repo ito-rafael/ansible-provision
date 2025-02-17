@@ -12,12 +12,15 @@
     group: rafael
     mode: 0700
 
-- name: software | terminal | copy kitty dotfile
+- name: software | terminal | copy kitty dotfiles & themes
   tags: terminal,kitty
   copy:
-    src: /home/rafael/git/dotfiles/kitty/kitty.conf
-    dest: /home/rafael/.config/kitty/kitty.conf
     remote_src: true
+    src: /home/rafael/git/dotfiles/kitty/{{ item }}
+    dest: /home/rafael/.config/kitty/{{ item }}
     owner: rafael
     group: rafael
     mode: 0600
+  with_items:
+    - kitty.conf
+    - themes/default.conf
