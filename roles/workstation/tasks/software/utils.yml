@@ -8,6 +8,7 @@
       - man-db          # full documentation
       - tldr            # TL;DR documentation
       - imagemagick     # image manipulation with ImageMagick
+      - fzf             # fuzzy finder
 
 - name: software | utils | modern-unix
   tags: utils,modern-unix
