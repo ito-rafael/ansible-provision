@@ -6,7 +6,7 @@
 - name: software | terminal | ensure kitty dir exist
   tags: terminal,kitty
   file:
-    path: /home/rafael/.config/kitty
+    path: /home/rafael/.config/kitty/themes
     state: directory
     owner: rafael
     group: rafael
