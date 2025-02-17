@@ -2,10 +2,11 @@
   tags: utils,general
   package:
     name:
-      - wget        # download files from web
-      - curl        # transfer data
-      - man-db      # full documentation
-      - tldr        # TL;DR documentation
+      - sudo            # exec commands as another user
+      - wget            # download files from web
+      - curl            # transfer data
+      - man-db          # full documentation
+      - tldr            # TL;DR documentation
 
 - name: software | utils | modern-unix
   tags: utils,modern-unix
