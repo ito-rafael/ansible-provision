@@ -9,6 +9,7 @@
       - tldr            # TL;DR documentation
       - imagemagick     # image manipulation with ImageMagick
       - fzf             # fuzzy finder
+      - bc              # calculator language
 
 - name: software | utils | modern-unix
   tags: utils,modern-unix
