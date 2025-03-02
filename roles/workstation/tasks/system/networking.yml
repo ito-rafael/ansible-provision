@@ -24,3 +24,9 @@
     name: avahi-daemon
     state: started
     enabled: yes
+
+- name: system | networking | install network packages
+  tags: system,network
+  package:
+    name:
+      - net-tools                        # collection of base networking utilities
