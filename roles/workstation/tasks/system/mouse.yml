@@ -33,15 +33,18 @@
     group: root
     mode: 0644
 
-- name: system | mouse | copy LogiOps systemd service
+- name: system | mouse | copy LogiOps systemd services
   tags: mouse,logiops
   copy:
-    src: /home/rafael/git/keebab/systemd/system/logid.service
-    dest: /etc/systemd/system/logid.service
+    src: /home/rafael/git/keebab/systemd/system/{{ item }}
+    dest: /etc/systemd/system/{{ item }}
     remote_src: true
     owner: root
     group: root
     mode: 0644
+  with_items:
+    - logid.service
+    - logid-restart.service
 
 - name: system | mouse | start LogiOps daemon
   tags: mouse,logiops
