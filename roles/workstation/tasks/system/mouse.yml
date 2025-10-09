@@ -23,6 +23,16 @@
     group: rafael
     mode: 0600
 
+- name: system | mouse | copy LogiOps udev rules
+  tags: mouse,logiops
+  copy:
+    src: /home/rafael/git/keebab/udev/rules.d/50-mx-master3.rules
+    dest: /etc/udev/rules.d/50-mx-master3.rules
+    remote_src: true
+    owner: root
+    group: root
+    mode: 0644
+
 - name: system | mouse | copy LogiOps systemd service
   tags: mouse,logiops
   copy:
