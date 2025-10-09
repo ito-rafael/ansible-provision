@@ -16,7 +16,7 @@
 - name: system | mouse | copy LogiOps dotfile
   tags: mouse,logiops
   copy:
-    src: /home/rafael/git/dotfiles/mx/logid.cfg
+    src: /home/rafael/git/keebab/logiops/logid.cfg
     dest: /home/rafael/.config/logiops/logid.cfg
     remote_src: true
     owner: rafael
@@ -26,7 +26,7 @@
 - name: system | mouse | copy LogiOps systemd service
   tags: mouse,logiops
   copy:
-    src: /home/rafael/git/dotfiles/mx/logid.service
+    src: /home/rafael/git/keebab/systemd/system/logid.service
     dest: /etc/systemd/system/logid.service
     remote_src: true
     owner: root
