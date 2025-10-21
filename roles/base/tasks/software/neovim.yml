@@ -14,11 +14,14 @@
 - name: software | terminal | ensure Neovim dir exist
   tags: vim
   file:
-    path: /home/rafael/.config/nvim/lua
+    path: /home/rafael/.config/nvim/{{ item }}
     state: directory
     owner: rafael
     group: rafael
     mode: 0700
+  with_items:
+    - lua/config
+    - lua/plugins
 
 - name: software | terminal text editor | copy Neovim dotfiles
   tags: vim
