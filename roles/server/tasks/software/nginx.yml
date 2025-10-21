@@ -1,0 +1,4 @@
+- name: software | web server | install NGINX
+  tags: web-server,nginx
+  package:
+    name: nginx
