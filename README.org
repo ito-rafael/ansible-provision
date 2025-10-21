@@ -1,0 +1,8 @@
+#+TITLE: ansible-provision
+#+AUTHOR: Rafael Ito
+#+DESCRIPTION: Ansible-pull automation to provision desktop/laptop/server config and dotfiles consistently.
+#+STARTUP: showeverything
+#+auto_tangle: t
+
+* Description
+Automagically configure your workstations, laptops, and servers from the ground up with a single command.
