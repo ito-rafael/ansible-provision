@@ -4,11 +4,15 @@
 #+STARTUP: showeverything
 #+auto_tangle: t
 
+* Table of Contents :toc_3:
+- [[#description][Description]]
+- [[#inventory][Inventory]]
+
 * Description
 Automagically configure your workstations, laptops, and servers from the ground up with a single command.
-* Hosts
+* Inventory :noexport_1:
 :PROPERTIES:
-:header-args: :tangle hosts.yml
+:header-args: :tangle inventory/hosts.yml
 :END:
 ** Server
 #+begin_src yml
