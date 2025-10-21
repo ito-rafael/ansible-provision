@@ -57,7 +57,7 @@
     dest: /home/rafael/{{ item.dest }}
     owner: rafael
     group: rafael
-    mode: {{ item.mode }}
+    mode: "{{ item.mode }}"
   with_items:
     - { src: 'zshrc', dest: '.config/zsh/.zshrc', mode: '0600' }
     - { src: 'zshenv', dest: '.config/zsh/.zshenv', mode: '0600' }
