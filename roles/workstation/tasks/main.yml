@@ -54,7 +54,9 @@
   - import_tasks: software/pdf-viewer.yml               # Zathura
   - import_tasks: software/presentation.yml             # pdfpc
   - import_tasks: software/ssh-agent.yml                # Keychain
-  - import_tasks: software/statusline.yml               # Powerline
+  - import_tasks: software/statusline.yml               # Waybar / Polybar
+  #- import_tasks: software/statusline-polybar.yml       # Polybar
+  #- import_tasks: software/statusline-waybar.yml        # Waybar
   - import_tasks: software/scripts.yml                  # custom scripts
   - import_tasks: software/screenshot.yml               # screenshot tools
   - import_tasks: software/social-media.yml             # Slack, WhatsApp, Discord, etc

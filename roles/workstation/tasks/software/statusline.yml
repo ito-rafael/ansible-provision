@@ -1,0 +1,10 @@
+- name: choose status bar
+- tags: statusline
+  tasks:
+    - name: include Waybar tasks for Wayland displays
+      include_tasks: statusline-waybar.yml
+      when: status-bar == "waybar"
+
+    - name: include Polybar tasks for X11 displays
+      include_tasks: statusline-polybar.yml
+      when: status-bar == "polybar"
