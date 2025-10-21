@@ -6,3 +6,23 @@
 
 * Description
 Automagically configure your workstations, laptops, and servers from the ground up with a single command.
+* Hosts
+:PROPERTIES:
+:header-args: :tangle hosts.yml
+:END:
+** Server
+#+begin_src yml
+server:
+  hosts:
+    srv1
+    srv2
+#+end_src
+** Workstation
+#+begin_src yml
+workstation:
+  hosts:
+    Y2P-ArchLinux
+    VB-ArchLinux
+    IPF-ArchLinux
+    DXT-ArchLinux
+#+end_src
