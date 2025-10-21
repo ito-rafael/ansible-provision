@@ -23,15 +23,19 @@
     - lua/config
     - lua/plugins
 
-- name: software | terminal text editor | copy Neovim dotfiles
+- name: software | terminal text editor | copy Neovim dotfiles (user)
   tags: vim
   copy:
     remote_src: yes
-    src: /home/rafael/git/dotfiles/nvim/{{ item }}
-    dest: /home/rafael/.config/nvim/{{ item }}
+    src: /home/rafael/git/dotfiles/nvim/{{ item.src }}
+    dest: /home/rafael/.config/nvim/{{ item.dest }}
     owner: rafael
     group: rafael
+    mode: "{{ item.mode }}"
+  with_items:
+    - { src: 'init.lua',    dest: 'init.lua',    mode: '0600' }
+    - { src: 'vimrc.vim',   dest: 'vimrc.vim',   mode: '0600' }
+    - { src: 'lua/config',  dest: 'lua/config',  mode: '0700' }
+    - { src: 'lua/plugins', dest: 'lua/plugins', mode: '0700' }
     mode: 0600
   with_items:
-    - init.vim
-    - lua/plugins.lua
