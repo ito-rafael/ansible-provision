@@ -36,7 +36,7 @@
     - { src: 'init.lua',    dest: 'init.lua',    mode: '0600' }
     - { src: 'vimrc.vim',   dest: 'vimrc.vim',   mode: '0600' }
     - { src: 'lua/config',  dest: 'lua/config',  mode: '0700' }
-    - { src: 'lua/plugins', dest: 'lua/plugins', mode: '0700' }
+    #- { src: 'lua/plugins', dest: 'lua/plugins', mode: '0700' }
 
 - name: software | terminal text editor | copy Neovim dotfiles (root)
   tags: vim
