@@ -1,14 +1,14 @@
 - name: users | dotfiles | ensures dirs exists
   tags: users,dotfiles,clone
   file:
-    path: /home/rafael/{{ item }}
+    path: "{{ item }}"
     state: directory
     owner: rafael
     group: rafael
     mode: 0700
   with_items:
-    - git
-    - .config
+    - "/home/rafael/git"
+    - "/home/rafael/.config"
 
 - name: users | dotfiles | clone dotfiles repo
   tags: users,dotfiles,clone
