@@ -1,5 +1,18 @@
+- name: users | dotfiles | ensures dirs exists
+  tags: users,dotfiles,clone
+  file:
+    path: /home/rafael/{{ item }}
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
+  with_items:
+    - git
+    - .config
+
 - name: users | dotfiles | clone dotfiles repo
   tags: users,dotfiles,clone
+  #become: yes
   become_user: rafael
   git:
     clone: yes
@@ -20,12 +33,3 @@
   with_items:
     - dotfiles
     - keebab
-
-- name: users | dotfiles | ensures dir exists
-  tags: users,dotfiles,clone
-  file:
-    path: /home/rafael/.config
-    state: directory
-    owner: rafael
-    group: rafael
-    mode: 0700
