@@ -12,8 +12,8 @@
 
 - name: users | dotfiles | clone dotfiles repo
   tags: users,dotfiles,clone
-  #become: yes
-  #become_user: rafael
+  become: false
+  become_user: rafael
   git:
     clone: yes
     repo: "{{ item.repo }}"
@@ -21,15 +21,3 @@
   with_items:
     - { repo: "https://github.com/ito-rafael/dotfiles.git", dest: "/home/rafael/git/dotfiles" }
     - { repo: "https://github.com/ito-rafael/keebab.git",   dest: "/home/rafael/git/keebab" }
-
-- name: users | dotfiles | change ownership of dotfiles repo
-  tags: users,dotfiles,clone
-  file:
-    path: /home/rafael/git/{{ item }}
-    state: directory
-    recurse: yes
-    owner: rafael
-    group: rafael
-  with_items:
-    - dotfiles
-    - keebab
