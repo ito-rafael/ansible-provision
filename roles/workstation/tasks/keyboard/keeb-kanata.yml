@@ -1,5 +1,6 @@
 - name: keyboard | kanata | install kanata
   tags: keyboard,kanata
+  become_user: aurman
   kewlfft.aur.aur:
     name: kanata-bin
 
