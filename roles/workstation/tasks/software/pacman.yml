@@ -26,16 +26,16 @@
 
 - name: software | package-manager | install rebuild-detector
   tags: pacman,rebuild-detector
-  pacman:
+  package:
     name: rebuild-detector
     state: latest
 
 - name: software | package-manager | install reflector
   tags: pacman,reflector
-  pacman:
+  package:
     name:
-      - rsync                 # prerequisite for reflector
-      - reflector             # update /etc/pacman.d/mirrorlist sorting the mirrors by speed
+      - rsync       # prerequisite for reflector
+      - reflector   # update /etc/pacman.d/mirrorlist sorting the mirrors by speed
     state: latest
 
 - name: software | package-manager | install downgrade
@@ -43,3 +43,4 @@
   become_user: aurman
   kewlfft.aur.aur:
     name: downgrade
+    state: latest
