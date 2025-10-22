@@ -29,7 +29,7 @@
 - name: keyboard | kanata | copy kanata global systemd service
   tags: keyboard,kanata
   copy:
-    src: /home/rafael/git/keebab/systemd/global/kanata.service
+    src: /home/rafael/git/keebab/systemd/system/kanata.service
     dest: /etc/systemd/system/kanata.service
     remote_src: true
     owner: root
