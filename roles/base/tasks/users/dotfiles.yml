@@ -12,7 +12,6 @@
 
 - name: users | dotfiles | clone dotfiles repo
   tags: users,dotfiles,clone
-  become: false
   become_user: rafael
   git:
     clone: yes
