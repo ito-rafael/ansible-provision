@@ -6,9 +6,9 @@
       - sway                  # window manager / compositor
       - ruby                  # prerequisite for i3bang (config preprocessor)
       - sway-contrib          # community scripts for sway
-      - swaylock              # screen locker
       - swayidle              # idle manager
       - swaybg                # wallpaper tool
+      #- swaylock              # screen locker
 
 - name: software | window-manager | install Sway locker
   tags: wayland,sway
