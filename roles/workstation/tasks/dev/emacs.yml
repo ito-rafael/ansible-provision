@@ -5,7 +5,7 @@
       - git
       - ripgrep
       - fd
-      - emacs-nativecomp
+      - emacs-wayland  # PGTK enabled
 
 - name: development | emacs | clone Doom Emacs git repo
   tags: dev,emacs
