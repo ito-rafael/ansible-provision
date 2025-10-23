@@ -80,6 +80,7 @@
 
 - name: keyboard | xremap | reload xremap user service (that will be started by XDG Autostart)
   tags: keyboard,xremap
+  become_user: rafael
   systemd:
     name: xremap
     enabled: false
