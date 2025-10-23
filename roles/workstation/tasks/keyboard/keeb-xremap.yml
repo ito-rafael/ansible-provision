@@ -46,7 +46,7 @@
   tags: keyboard,xremap
   copy:
     remote_src: true
-    src: /home/rafael/git/dotfiles/xremap/config.yml
+    src: /home/rafael/git/dotfiles/xremap/config_{{ window_manager }}.yml
     dest: /home/rafael/.config/xremap/config.yml
     owner: rafael
     group: rafael
