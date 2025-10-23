@@ -1,27 +1,19 @@
 # load distro-specific variables
 - include_vars: "{{ ansible_distribution }}.yml"
 
-# create and set up =ansible= ansible
-- name: users | ansible | set up ansible user
-  tags: ansible,groups,users
-  become: true
-  import_tasks: users/ansible.yml               # create ansible user
+- block:
+  # set up ansible environment
+  - import_tasks: users/ansible.yml           # create ansible user
+  - import_tasks: software/ansible.yml        # clone ansible-provision repo
+  - import_tasks: software/fcron.yml          # install & setup fcron
+  - import_tasks: software/openssh.yml        # install OpenSSH
+  - import_tasks: system/openssh_keys.yml     # setup ssh keys
+  - import_tasks: system/auto-provision.yml   # ansible auto-provision
 
-- name: Import and run tasks as the new user
-  become_user: ansible
-  block:
-    # set up ansible environment
-    - import_tasks: software/ansible.yml        # clone ansible-provision repo
-    - import_tasks: software/fcron.yml          # install & setup fcron
-    - import_tasks: software/openssh.yml        # install OpenSSH
-    - import_tasks: system/openssh_keys.yml     # setup ssh keys
-    - import_tasks: system/auto-provision.yml   # ansible auto-provision
-
-    # set up users
-    - import_tasks: users/rafael.yml            # create rafael user
+  # set up users
+  - import_tasks: users/rafael.yml            # create rafael user
   
-    # system setup
-    - import_tasks: users/dotfiles.yml          # clone dotfiles repo
-    - import_tasks: software/git.yml            # Git
-    - import_tasks: software/neovim.yml         # Neovim
-
+  # system setup
+  - import_tasks: users/dotfiles.yml          # clone dotfiles repo
+  - import_tasks: software/git.yml            # Git
+  - import_tasks: software/neovim.yml         # Neovim
