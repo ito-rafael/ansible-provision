@@ -22,12 +22,18 @@
     group: rafael
     mode: 0600
 
-- name: keyboard | ydotool | start user ydotool daemon
+- name: keyboard | ydotool | enable user lingering for systemd
+  tags: keyboard,ydotool
+  command:
+    cmd: loginctl enable-linger rafael
+    creates: /var/lib/systemd/linger/rafael
+
+- name: keyboard | ydotool | enable user ydotool daemon
   tags: keyboard,ydotool
   become_user: rafael
   systemd:
     name: ydotool
     enabled: true
     daemon_reload: true
-    state: started
+    state: stopped
     scope: user

@@ -62,7 +62,7 @@
     state: stopped
     scope: user
 
-- name: keyboard | kanata | start kanata global daemon
+- name: keyboard | kanata | enable kanata global daemon
   tags: keyboard,kanata
   systemd:
     name: kanata
