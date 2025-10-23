@@ -1,11 +1,11 @@
 ---
-- hosts: localhost
+- hosts: all
   connection: local
   become: true
   roles:
     - base
 
-- hosts: localhost
+- hosts: all
   connection: local
   become: true
   pre_tasks:
@@ -15,14 +15,14 @@
       changed_when: False
       when: ansible_distribution == "Archlinux"
 
-- hosts: localhost
+- hosts: workstation
   connection: local
   become: true
   roles:
     - role: workstation
       when: ansible_hostname in groups["workstation"]
 
-- hosts: localhost
+- hosts: server
   connection: local
   become: true
   roles:
