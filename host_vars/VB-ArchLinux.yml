@@ -1,2 +1,2 @@
-window-manager: i3
-status-bar: polybar
+window_manager: i3
+status_bar: polybar

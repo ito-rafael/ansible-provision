@@ -1,2 +1,2 @@
-window-manager: sway
-status-bar: waybar
+window_manager: sway
+status_bar: waybar
