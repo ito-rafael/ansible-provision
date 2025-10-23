@@ -46,6 +46,12 @@
     group: rafael
     mode: 0600
 
+- name: keyboard | kanata | enable user lingering for systemd
+  tags: keyboard,kanata
+  command:
+    cmd: loginctl enable-linger rafael
+    creates: /var/lib/systemd/linger/rafael
+
 - name: keyboard | kanata | reload kanata user service
   tags: keyboard,kanata
   become_user: rafael
@@ -62,4 +68,4 @@
     name: kanata
     enabled: true
     daemon_reload: true
-    state: started
+    state: stopped
