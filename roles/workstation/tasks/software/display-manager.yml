@@ -1,0 +1,9 @@
+- name: include LightDM tasks
+  tags: lightdm
+  include_tasks: dm-lightdm.yml
+  when: display_manager == "lightdm"
+
+- name: include SDDM tasks
+  tags: sddm
+  include_tasks: dm-sddm.yml
+  when: display_manager == "sddm"
