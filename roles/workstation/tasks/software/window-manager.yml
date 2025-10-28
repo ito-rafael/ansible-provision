@@ -1,0 +1,9 @@
+- name: include Sway tasks for Wayland displays
+  tags: wayland,sway
+  include_tasks: wm-sway.yml
+  when: window_manager == "sway"
+
+- name: include i3 tasks for X11 displays
+  tags: X11,i3
+  include_tasks: wm-i3.yml
+  when: window_manager == "i3"
