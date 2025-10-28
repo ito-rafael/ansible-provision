@@ -65,7 +65,7 @@
   - import_tasks: software/utils.yml                    # general packages
   - import_tasks: software/video.yml                    # video tools
   - import_tasks: software/wallpaper.yml                # wallpaper
-  - import_tasks: software/wm-sway.yml                  # window manager: Sway (Wayland)
+  - import_tasks: software/window-manager.yml           # window manager: i3 / Sway
 
   # Development
   - import_tasks: dev/docker.yml                        # Docker
