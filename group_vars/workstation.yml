@@ -1,2 +1,3 @@
+display_manager: lightdm
 window_manager: sway
 status_bar: waybar
