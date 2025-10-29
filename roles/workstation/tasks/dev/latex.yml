@@ -48,6 +48,15 @@
     dest: /home/rafael/.cache/install-tl
   when: not texlive_pdftex.stat.exists
 
+- name: development | latex | check if LaTeX installer is for current year
+  tags: dev,latex
+  become_user: rafael
+  ansible.builtin.find:
+    paths: /home/rafael/.cache/install-tl/
+    patterns: "install-tl-{{ ansible_date_time.year }}*"
+    file_type: directory
+  register: texlive_current_year_dir
+
 - name: development | latex | install TeX Live
   tags: dev,latex
   #become_user: rafael
