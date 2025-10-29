@@ -14,14 +14,11 @@
 - name: software | terminal | ensure Neovim dir exist (user)
   tags: vim
   file:
-    path: /home/rafael/.config/nvim/{{ item }}
+    path: /home/rafael/.config/nvim/lua
     state: directory
     owner: rafael
     group: rafael
     mode: 0700
-  with_items:
-    - lua/config
-    - lua/plugins
 
 - name: software | terminal text editor | copy Neovim dotfiles (user)
   tags: vim
@@ -33,10 +30,10 @@
     group: rafael
     mode: "{{ item.mode }}"
   with_items:
-    - { src: 'init.lua',    dest: 'init.lua',    mode: '0600' }
-    - { src: 'vimrc.vim',   dest: 'vimrc.vim',   mode: '0600' }
-    - { src: 'lua/config',  dest: 'lua/config',  mode: '0700' }
-    #- { src: 'lua/plugins', dest: 'lua/plugins', mode: '0700' }
+    - { src: 'init.lua',    dest: 'init.lua',   mode: '0600' }
+    - { src: 'vimrc.vim',   dest: 'vimrc.vim',  mode: '0600' }
+    - { src: 'lua/config',  dest: 'lua',        mode: '0700' }
+    #- { src: 'lua/plugins', dest: 'lua',        mode: '0700' }
 
 - name: software | terminal | ensure Neovim dir exist (root)
   tags: vim
