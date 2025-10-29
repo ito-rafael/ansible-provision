@@ -11,10 +11,10 @@
 #      - texlive-science
 #      - texlive-plaingeneric
 
-- name: development | latex | check if TeX Live is already installed
+- name: development | latex | check if TeX Live of current year is already installed
   tags: dev,latex
   ansible.builtin.stat:
-    path: /usr/local/texlive/2024/bin/x86_64-linux/pdftex
+    path: /usr/local/texlive/{{ ansible_date_time.year }}/bin/x86_64-linux/pdftex
   register: texlive_pdftex
 
 - name: development | latex | download TeX Live installer
