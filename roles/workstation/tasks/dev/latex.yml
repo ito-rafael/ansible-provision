@@ -17,13 +17,6 @@
     path: /usr/local/texlive/{{ ansible_date_time.year }}/bin/x86_64-linux/pdftex
   register: texlive_pdftex
 
-- name: development | latex | download TeX Live installer
-  tags: dev,latex
-  ansible.builtin.get_url:
-    url: https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
-    dest: /home/rafael/.cache/
-  when: not texlive_pdftex.stat.exists
-
 - name: development | latex | ensure LaTeX installer dir exists
   tags: dev,latex
   become_user: rafael
@@ -35,8 +28,13 @@
     mode: 0700
   when: not texlive_pdftex.stat.exists
 
-# the "--strip=1" is used to skip the first directory extracted, since its name incorporate the date in the format "install-tl-YYYYMMDD", making it easier for automating.
-- name: development | latex | unpack TeX Live installer
+- name: development | latex | download latest TeX Live installer
+  tags: dev,latex
+  become_user: rafael
+  ansible.builtin.get_url:
+    url: https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+    dest: /home/rafael/.cache/install-tl
+  when: not texlive_pdftex.stat.exists
   tags: dev,latex
   become_user: rafael
   ansible.builtin.unarchive:
