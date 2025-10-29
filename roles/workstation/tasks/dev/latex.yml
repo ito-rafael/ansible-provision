@@ -24,8 +24,9 @@
     dest: /home/rafael/.cache/
   when: not texlive_pdftex.stat.exists
 
-- name: development | latex | create LaTeX installer dir
+- name: development | latex | ensure LaTeX installer dir exists
   tags: dev,latex
+  become_user: rafael
   ansible.builtin.file:
     path: /home/rafael/.cache/install-tl
     state: directory
@@ -48,7 +49,6 @@
 
 - name: development | latex | install TeX Live
   tags: dev,latex
-  become: true
   #become_user: rafael
   ansible.builtin.shell:
   args:
