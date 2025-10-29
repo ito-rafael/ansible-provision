@@ -85,9 +85,18 @@
   tags: dev,latex
   lineinfile:
     path: /home/rafael/.config/zsh/.zshenv
-    line: 'export PATH=$PATH:/usr/local/texlive/{{ ansible_date_time.year }}/bin/x86_64-linux  # TeX Live'
+    line: "{{ item.line }}"
     state: present
-    regexp: 'export PATH=\$PATH:/usr/local/texlive/\d{4}/bin/x86_64-linux .*# TeX Live'
+    regexp: "{{ item.regexp }}"
+  with_items:
+    - {
+        line: "export PATH=$PATH:/usr/local/texlive/{{ ansible_date_time.year }}/bin/x86_64-linux  # TeX Live",
+        regexp: "^export PATH=\\$PATH:/usr/local/texlive/\\d{4}/bin/x86_64-linux .*# TeX Live"
+      }
+    - {
+        line: "export TEXMFDIST='/usr/local/texlive/{{ ansible_date_time.year }}/texmf-dist'",
+        regexp: "^export TEXMFDIST='/usr/local/texlive/\\d{4}/texmf-dist'"
+      }
 
 - name: development | latex | install Zotero
   tags: dev,latex,zotero
