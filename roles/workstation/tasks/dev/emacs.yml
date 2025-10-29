@@ -3,5 +3,13 @@
   package:
     name: emacs-wayland
 
+- name: software | emacs | ensure Chemacs 2 dir exist
+  tags: emacs
+  file:
+    path: /home/rafael/.config/chemacs
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
 
 
