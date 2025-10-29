@@ -81,6 +81,14 @@
     chdir: /home/rafael/.cache/install-tl/{{ ansible_date_time.year }}
   when: texlive_current_year_dir.matched == 1
 
+- name: development | latex | put executables dir in PATH
+  tags: dev,latex
+  lineinfile:
+    path: /home/rafael/.config/zsh/.zshenv
+    line: 'export PATH=$PATH:/usr/local/texlive/{{ ansible_date_time.year }}/bin/x86_64-linux  # TeX Live'
+    state: present
+    regexp: 'export PATH=\$PATH:/usr/local/texlive/\d{4}/bin/x86_64-linux .*# TeX Live'
+
 - name: development | latex | install Zotero
   tags: dev,latex,zotero
   become_user: aurman
