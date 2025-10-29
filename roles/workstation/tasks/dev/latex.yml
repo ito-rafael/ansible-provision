@@ -57,6 +57,13 @@
     file_type: directory
   register: texlive_current_year_dir
 
+- name: development | latex | rename LaTeX installer dir with current year
+  tags: dev,latex
+  become_user: rafael
+  ansible.builtin.command:
+    cmd: mv "{{ texlive_current_year_dir.files[0].path }}" "/home/rafael/.cache/install-tl/{{ ansible_date_time.year }}"
+  when: texlive_current_year_dir.matched == 1
+
 - name: development | latex | install TeX Live
   tags: dev,latex
   #become_user: rafael
