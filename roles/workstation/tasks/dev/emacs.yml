@@ -12,4 +12,11 @@
     group: rafael
     mode: 0700
 
+- name: software | emacs | clone Chemacs 2 git repo
+  tags: emacs
+  become_user: rafael
+  git:
+    clone: yes
+    repo: https://github.com/plexus/chemacs2.git
+    dest: /home/rafael/.config/emacs
 
