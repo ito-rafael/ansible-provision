@@ -32,3 +32,12 @@
   with_items:
     - "profiles.el"  # list profiles
     - "profile"      # set default
+
+- name: software | emacs | ensure emacs EFS dir exist
+  tags: emacs
+  file:
+    path: /home/rafael/.config/emacs-efs/desktop
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
