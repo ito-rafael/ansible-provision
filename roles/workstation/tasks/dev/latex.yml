@@ -78,8 +78,8 @@
   ansible.builtin.shell:
   args:
     cmd: perl ./install-tl --no-interaction
-    chdir: /home/rafael/.cache/install-tl
-  when: not texlive_pdftex.stat.exists
+    chdir: /home/rafael/.cache/install-tl/{{ ansible_date_time.year }}
+  when: texlive_current_year_dir.matched == 1
 
 - name: development | latex | install Zotero
   tags: dev,latex,zotero
