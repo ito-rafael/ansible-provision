@@ -5,12 +5,17 @@
       - rust  # Rust
       - dex   # DesktopEntry Execution (for XDG Autostart)
 
-- name: keyboard | xremap | install xremap
-  tags: keyboard,xremap
-  community.general.cargo:
-    name: xremap
+- name: keyboard | xremap | install xremap (AUR)
+  tags: keyboard,rust,xremap
+  become_user: aurman
+  kewlfft.aur.aur:
+    name: xremap-wlroots-bin
 
-#cargo install xremap --features sway
+#- name: keyboard | xremap | install xremap (Cargo)
+#  tags: keyboard,xremap
+#  community.general.cargo:
+#    name: xremap
+#    features: wlroots
 
 - name: keyboard | xremap | add user to input group
   tags: keyboard,xremap
