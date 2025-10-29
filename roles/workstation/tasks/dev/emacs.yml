@@ -41,3 +41,16 @@
     owner: rafael
     group: rafael
     mode: 0700
+
+- name: software | emacs | install EFS
+  tags: emacs
+  copy:
+    remote_src: yes
+    src: /home/rafael/git/dotfiles/emacs/{{ item }}
+    dest: /home/rafael/.config/emacs-efs/{{ item }}
+    owner: rafael
+    group: rafael
+    mode: "0600"
+  with_items:
+    - early-init.el
+    - init.el
