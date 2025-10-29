@@ -1,3 +1,4 @@
+# the "Arch-packaged" way
 # name: development | latex | install & config (La)TeX environment
 #  tags: dev,latex
 #  package:
@@ -10,6 +11,8 @@
 #      - texlive-bibtexextra
 #      - texlive-science
 #      - texlive-plaingeneric
+
+# native TeX Live
 
 - name: development | latex | check if TeX Live of current year is already installed
   tags: dev,latex
@@ -35,14 +38,14 @@
     url: https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
     dest: /home/rafael/.cache/install-tl
   when: not texlive_pdftex.stat.exists
+
+- name: development | latex | unpack latest TeX Live installer
   tags: dev,latex
   become_user: rafael
   ansible.builtin.unarchive:
     remote_src: yes
-    src: /home/rafael/.cache/install-tl-unx.tar.gz
+    src: /home/rafael/.cache/install-tl/install-tl-unx.tar.gz
     dest: /home/rafael/.cache/install-tl
-    extra_opts:
-      - "--strip=1"
   when: not texlive_pdftex.stat.exists
 
 - name: development | latex | install TeX Live
