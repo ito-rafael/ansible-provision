@@ -16,6 +16,16 @@
     password: "{{ rafael_passwd }}"
     shell: /usr/bin/zsh
 
+- name: users | rafael | ensure home dir ownership
+  tags: rafael,users
+  file:
+    path: /home/rafael
+    owner: rafael
+    group: rafael
+    mode: 0700
+    recurse: yes
+    state: directory
+
 - name: users | rafael | add sudoers file
   tags: rafael,users,sudo
   copy:
