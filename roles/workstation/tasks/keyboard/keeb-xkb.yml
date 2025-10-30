@@ -14,7 +14,7 @@
   tags: keyboard,xkb
   copy:
     remote_src: yes
-    src: /home/rafael/git/dotfiles/xkb/{{ item.src }}
+    src: /home/rafael/git/keebab/xkb/{{ item.src }}
     dest: /home/rafael/.config/xkb/{{ item.dest }}
     owner: rafael
     group: rafael

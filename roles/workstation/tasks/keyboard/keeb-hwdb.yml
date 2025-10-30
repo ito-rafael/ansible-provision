@@ -1,7 +1,7 @@
 - name: keyboard | udev/hwdb | copy udev/hwdb dotfile
   tags: keyboard,hwdb
   copy:
-    src: /home/rafael/git/dotfiles/udev/hwdb.d/90-miryoku-colemak.hwdb
+    src: /home/rafael/git/keebab/udev/hwdb.d/90-miryoku-colemak.hwdb
     dest: /etc/udev/hwdb.d/90-miryoku-colemak.hwdb
     remote_src: true
     owner: root
