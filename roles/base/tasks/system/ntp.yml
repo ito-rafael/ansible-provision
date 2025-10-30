@@ -1,0 +1,4 @@
+- name: system | ntp | install NTP
+  tags: ntp
+  package:
+    name: ntp

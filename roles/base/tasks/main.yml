@@ -17,3 +17,4 @@
   - import_tasks: users/dotfiles.yml          # clone dotfiles repo
   - import_tasks: software/git.yml            # Git
   - import_tasks: software/neovim.yml         # Neovim
+  - import_tasks: system/ntp.yml              # synchronize time
