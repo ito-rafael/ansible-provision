@@ -66,6 +66,16 @@
     group: root
     mode: 0644
 
+- name: software | display-manager | LightDM set default background image
+  tags: display-manager,lightdm
+  copy:
+    remote_src: true
+    src: /home/rafael/git/dotfiles/wallpaper/piedras-rojas.jpg
+    dest: /usr/share/lightdm-webkit/themes/lightdm-webkit-theme-aether/src/img/wallpapers/space-1.jpg
+    owner: root
+    group: root
+    mode: 0644
+
 - name: software | display-manager | LightDM set avatar photo
   tags: display-manager,lightdm
   copy:
