@@ -1,4 +1,0 @@
-- name: software | office | LibreOffice install
-  tags: office,libreoffice
-  package:
-    name: libreoffice-fresh
