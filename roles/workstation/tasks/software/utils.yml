@@ -2,35 +2,34 @@
   tags: utils,general
   package:
     name:
-      - sudo               # exec commands as another user
-      - wget               # download files from web
-      - curl               # transfer data
-      - man-db             # full documentation
-      - tldr               # TL;DR documentation
-      - imagemagick        # image manipulation with ImageMagick
-      - fzf                # fuzzy finder
-      - bc                 # calculator language
-      - dex                # DesktopEntry Execution
+      - sudo         # exec commands as another user
+      - wget         # download files from web
+      - curl         # transfer data
+      - man-db       # full documentation
+      - tldr         # TL;DR documentation
+      - imagemagick  # image manipulation with ImageMagick
+      - fzf          # fuzzy finder
+      - bc           # calculator language
+      - dex          # DesktopEntry Execution
 
 - name: software | utils | modern-unix
   tags: utils,modern-unix
   package:
-    name:                  # replacement for:
-      - bat                # cat
-      - eza                # ls
+    name:            # replacement for:
+      - bat          # cat
+      - eza          # ls
 - name: software | utils | install GUI tools
   tags: utils,tools
   package:
     name:
-      - gimp               # image editor
-      - pdfpc              # slides presentation
-      - meld               # GUI diff
-      - yad                # GUI dialogs from CLI/scripts (zenity fork)
-      - libreoffice-fresh  # LibreOffice feature branch
+      - gimp         # image editor
+      - pdfpc        # slides presentation
+      - meld         # GUI diff
+      - yad          # GUI dialogs from CLI/scripts (zenity fork)
 
 - name: software | utils | install GUI tools (AUR)
   tags: utils,tools
   become_user: aurman
   kewlfft.aur.aur:
     name:
-      - warpd              # keyboard-driven mouse cursor manipulation
+      - warpd        # keyboard-driven mouse cursor manipulation
