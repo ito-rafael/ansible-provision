@@ -1,0 +1,5 @@
+- name: software | IoT | install Saleae's logic analyzer tool
+  tags: iot,logic-analyzer
+  become_user: aurman
+  kewlfft.aur.aur:
+    name: saleae-logic
