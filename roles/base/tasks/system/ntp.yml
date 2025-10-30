@@ -2,3 +2,10 @@
   tags: ntp
   package:
     name: ntp
+
+- name: system | ntp | start NTP daemon
+  tags: ntp
+  systemd:
+    name: ntpd
+    state: started
+    enabled: true
