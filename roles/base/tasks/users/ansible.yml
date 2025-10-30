@@ -16,6 +16,16 @@
     system: yes
     shell: /bin/bash
 
+- name: users | ansible | ensure home dir ownership
+  tags: ansible,users
+  file:
+    path: /home/ansible
+    owner: ansible
+    group: ansible
+    mode: 0700
+    recurse: yes
+    state: directory
+
 - name: users | ansible | add sudoers file
   tags: ansible,users,sudo
   copy:
