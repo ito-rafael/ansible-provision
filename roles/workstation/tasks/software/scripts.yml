@@ -23,7 +23,7 @@
     - 'darth_bright.sh'
     - 'emacs-respawn.sh'
     - 'hide-or-kill.sh'
-    - 'keyboard-leds.sh'
+    - 'keeb-leds.sh'
     - 'kill-window.sh'
     - 'mouse-warp.sh'
     - 'navigate2ws.sh'
