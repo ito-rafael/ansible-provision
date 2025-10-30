@@ -56,11 +56,15 @@
     regexp: '^sleep 1'
     insertbefore: 'exec \$\@'
 
-- name: software | display-manager | LightDM download background image
+- name: software | display-manager | LightDM create backup of built-in default background
   tags: display-manager,lightdm
-  get_url:
-    url: https://github.com/ito-rafael/dotfiles/raw/master/lightdm/San%20Pedro%20de%20Atacama%20-%20Piedras%20Rojas.jpg
-    dest: /usr/share/lightdm-webkit/themes/lightdm-webkit-theme-aether/src/img/wallpapers/San_Pedro_de_Atacama_-_Piedras_Rojas.jpg
+  copy:
+    remote_src: true
+    src: /usr/share/lightdm-webkit/themes/lightdm-webkit-theme-aether/src/img/wallpapers/space-1.jpg
+    dest: /usr/share/lightdm-webkit/themes/lightdm-webkit-theme-aether/src/img/wallpapers/space-1-bak.jpg
+    owner: root
+    group: root
+    mode: 0644
 
 - name: software | display-manager | LightDM set avatar photo
   tags: display-manager,lightdm
