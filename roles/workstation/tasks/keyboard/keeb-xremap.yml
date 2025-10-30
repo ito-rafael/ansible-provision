@@ -28,8 +28,8 @@
   tags: keyboard,xremap
   copy:
     remote_src: true
-    src: /home/rafael/git/dotfiles/udev/rules.d/input.rules
-    dest: /etc/udev/rules.d/input.rules
+    src: /home/rafael/git/keebab/udev/rules.d/99-xremap-input.rules
+    dest: /etc/udev/rules.d/99-xremap-input.rules
     owner: root
     group: root
     mode: 0644
