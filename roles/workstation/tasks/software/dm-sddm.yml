@@ -3,13 +3,6 @@
   package:
     name: sddm
 
-- name: software | display-manager | SDDM start daemon
-  tags: display-manager,sddm
-  systemd:
-    name: sddm
-    enabled: yes
-    state: started
-
 - name: software | display-manager | SDDM xrandr config
   tags: display-manager,sddm
   copy:
@@ -19,3 +12,10 @@
     owner: root
     group: root
     mode: 0755
+
+- name: software | display-manager | SDDM start daemon
+  tags: display-manager,sddm
+  systemd:
+    name: sddm
+    enabled: yes
+    state: started

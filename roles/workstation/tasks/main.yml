@@ -42,7 +42,6 @@
   - import_tasks: software/browser-brave.yml            # browser: Brave
   - import_tasks: software/browser-firefox.yml          # browser: Firefox
   - import_tasks: software/browser-chromium.yml         # browser: Chromium
-  - import_tasks: software/display-manager.yml          # LightDM / SDDM
   - import_tasks: software/email-client.yml             # Thunderbird
   - import_tasks: software/file-manager.yml             # Thunar/ranger
   #- import_tasks: software/media-audio.yml             # Spotify, YouTube Music, Spotube
@@ -73,3 +72,6 @@
   - import_tasks: dev/python.yml                        # Python
 
   - import_tasks: users/rafael-groups.yml               # groups permissions
+
+  # display manager
+  - import_tasks: software/display-manager.yml          # LightDM / SDDM
