@@ -18,7 +18,7 @@
 - name: keyboard | KMonad | copy KMonad dotfile
   tags: keyboard,kmonad
   copy:
-    src: /home/rafael/git/keebab/kmonad/inkl-1ru.kbd
+    src: /home/ansible/git/keebab/kmonad/inkl-1ru.kbd
     dest: /home/rafael/.config/kmonad/inkl-1ru.kbd
     remote_src: true
     owner: rafael
@@ -28,7 +28,7 @@
 - name: keyboard | KMonad | copy KMonad global systemd service
   tags: keyboard,kmonad
   copy:
-    src: /home/rafael/git/keebab/systemd/system/kmonad.service
+    src: /home/ansible/git/keebab/systemd/system/kmonad.service
     dest: /etc/systemd/system/kmonad.service
     remote_src: true
     owner: root
@@ -38,7 +38,7 @@
 - name: keyboard | KMonad | copy KMonad user systemd service
   tags: keyboard,kmonad
   copy:
-    src: /home/rafael/git/keebab/systemd/user/kmonad.service
+    src: /home/ansible/git/keebab/systemd/user/kmonad.service
     dest: /home/rafael/.config/systemd/user/kmonad.service
     remote_src: true
     owner: rafael

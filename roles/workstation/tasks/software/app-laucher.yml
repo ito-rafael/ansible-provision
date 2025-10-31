@@ -16,7 +16,7 @@
   tags: app-launcher,rofi
   copy:
     remote_src: true
-    src: /home/rafael/git/dotfiles/rofi/config.rasi
+    src: /home/ansible/git/dotfiles/rofi/config.rasi
     dest: /home/rafael/.config/rofi/config.rasi
     owner: rafael
     group: rafael

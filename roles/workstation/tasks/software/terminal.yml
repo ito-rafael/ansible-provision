@@ -16,7 +16,7 @@
   tags: terminal,kitty
   copy:
     remote_src: true
-    src: /home/rafael/git/dotfiles/kitty/{{ item }}
+    src: /home/ansible/git/dotfiles/kitty/{{ item }}
     dest: /home/rafael/.config/kitty/{{ item }}
     owner: rafael
     group: rafael
@@ -42,7 +42,7 @@
   tags: terminal,kitty
   copy:
     remote_src: yes
-    src: /home/rafael/git/dotfiles/kitty/themes/root.conf
+    src: /home/ansible/git/dotfiles/kitty/themes/root.conf
     dest: /root/.config/kitty/root.conf
     owner: root
     group: root

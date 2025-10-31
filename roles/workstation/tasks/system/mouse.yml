@@ -16,7 +16,7 @@
 - name: system | mouse | copy LogiOps dotfile
   tags: mouse,logiops
   copy:
-    src: /home/rafael/git/keebab/logiops/logid.cfg
+    src: /home/ansible/git/keebab/logiops/logid.cfg
     dest: /home/rafael/.config/logiops/logid.cfg
     remote_src: true
     owner: rafael
@@ -26,7 +26,7 @@
 - name: system | mouse | copy LogiOps udev rules
   tags: mouse,logiops
   copy:
-    src: /home/rafael/git/keebab/udev/rules.d/50-mx-master3.rules
+    src: /home/ansible/git/keebab/udev/rules.d/50-mx-master3.rules
     dest: /etc/udev/rules.d/50-mx-master3.rules
     remote_src: true
     owner: root
@@ -36,7 +36,7 @@
 - name: system | mouse | copy LogiOps systemd services
   tags: mouse,logiops
   copy:
-    src: /home/rafael/git/keebab/systemd/system/{{ item }}
+    src: /home/ansible/git/keebab/systemd/system/{{ item }}
     dest: /etc/systemd/system/{{ item }}
     remote_src: true
     owner: root

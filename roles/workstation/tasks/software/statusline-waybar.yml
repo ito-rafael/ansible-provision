@@ -16,7 +16,7 @@
   tags: statusline,waybar
   copy:
     remote_src: yes
-    src: /home/rafael/git/dotfiles/waybar/{{ item.src }}
+    src: /home/ansible/git/dotfiles/waybar/{{ item.src }}
     dest: /home/rafael/.config/waybar/{{ item.dest }}
     owner: rafael
     group: rafael

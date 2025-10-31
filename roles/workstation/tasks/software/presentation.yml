@@ -16,7 +16,7 @@
   tags: presentation,pdfpc
   copy:
     remote_src: yes
-    src: /home/rafael/git/dotfiles/pdfpc/pdfpcrc
+    src: /home/ansible/git/dotfiles/pdfpc/pdfpcrc
     dest: /home/rafael/.config/pdfpc/pdfpcrc
     owner: rafael
     group: rafael

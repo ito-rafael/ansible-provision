@@ -24,7 +24,7 @@
   tags: emacs
   copy:
     remote_src: yes
-    src: /home/rafael/git/dotfiles/emacs/chemacs/{{ item }}
+    src: /home/ansible/git/dotfiles/emacs/chemacs/{{ item }}
     dest: /home/rafael/.config/chemacs/{{ item }}
     owner: rafael
     group: rafael
@@ -46,7 +46,7 @@
   tags: emacs
   copy:
     remote_src: yes
-    src: /home/rafael/git/dotfiles/emacs/{{ item }}
+    src: /home/ansible/git/dotfiles/emacs/{{ item }}
     dest: /home/rafael/.config/emacs-efs/{{ item }}
     owner: rafael
     group: rafael

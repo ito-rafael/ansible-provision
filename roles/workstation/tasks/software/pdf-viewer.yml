@@ -11,6 +11,7 @@
       - tesseract-data-eng    # prerequisite for zathura-pdf-mupdf
       - zathura-pdf-mupdf     # support for EPUB, PDF and XPS via MuPDF
       - zathura-djvu          # support for DjVu
+      #- zathura-ps           # support for PostScript
 
 - name: software | pdf viewer | ensure zathura dir exist
   tags: pdf,zathura
@@ -24,7 +25,7 @@
 - name: software | pdf viewer | copy zathura dotfile
   tags: pdf,zathura
   copy:
-    src: /home/rafael/git/dotfiles/zathura/zathurarc
+    src: /home/ansible/git/dotfiles/zathura/zathurarc
     dest: /home/rafael/.config/zathura/zathurarc
     remote_src: true
     owner: rafael

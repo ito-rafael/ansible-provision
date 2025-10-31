@@ -24,7 +24,7 @@
   tags: vim
   copy:
     remote_src: yes
-    src: /home/rafael/git/dotfiles/nvim/{{ item.src }}
+    src: /home/ansible/git/dotfiles/nvim/{{ item.src }}
     dest: /home/rafael/.config/nvim/{{ item.dest }}
     owner: rafael
     group: rafael
@@ -48,7 +48,7 @@
   tags: vim
   copy:
     remote_src: yes
-    src: /home/rafael/git/dotfiles/nvim/{{ item.src }}
+    src: /home/ansible/git/dotfiles/nvim/{{ item.src }}
     dest: /root/.config/nvim/{{ item.dest }}
     owner: root
     group: root

@@ -53,7 +53,7 @@
   tags: shell,zsh
   copy:
     remote_src: yes
-    src: /home/rafael/git/dotfiles/zsh/{{ item.src }}
+    src: /home/ansible/git/dotfiles/zsh/{{ item.src }}
     dest: /home/rafael/{{ item.dest }}
     owner: rafael
     group: rafael

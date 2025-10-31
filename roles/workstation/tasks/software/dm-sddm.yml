@@ -6,7 +6,7 @@
 - name: software | display-manager | SDDM xrandr config
   tags: display-manager,sddm
   copy:
-    src: /home/rafael/git/dotfiles/scripts/sddm-outputs.sh
+    src: /home/ansible/git/dotfiles/scripts/sddm-outputs.sh
     dest: /usr/share/sddm/scripts/Xsetup
     remote_src: true
     owner: root

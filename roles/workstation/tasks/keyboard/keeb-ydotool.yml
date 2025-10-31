@@ -15,7 +15,7 @@
 - name: keyboard | ydotool | copy ydotool user systemd service
   tags: keyboard,ydotool
   copy:
-    src: /home/rafael/git/keebab/systemd/user/ydotool.service
+    src: /home/ansible/git/keebab/systemd/user/ydotool.service
     dest: /home/rafael/.config/systemd/user/ydotool.service
     remote_src: true
     owner: rafael

@@ -16,7 +16,7 @@
   tags: statusline,polybar
   copy:
     remote_src: yes
-    src: /home/rafael/git/dotfiles/polybar/{{ item.src }}
+    src: /home/ansible/git/dotfiles/polybar/{{ item.src }}
     dest: /home/rafael/.config/polybar/{{ item.dest }}
     owner: rafael
     group: rafael

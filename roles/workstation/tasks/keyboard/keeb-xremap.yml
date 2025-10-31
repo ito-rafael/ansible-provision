@@ -28,7 +28,7 @@
   tags: keyboard,xremap
   copy:
     remote_src: true
-    src: /home/rafael/git/keebab/udev/rules.d/99-xremap-input.rules
+    src: /home/ansible/git/keebab/udev/rules.d/99-xremap-input.rules
     dest: /etc/udev/rules.d/99-xremap-input.rules
     owner: root
     group: root
@@ -51,7 +51,7 @@
   tags: keyboard,xremap
   copy:
     remote_src: true
-    src: /home/rafael/git/keebab/xremap/config_{{ window_manager }}.yml
+    src: /home/ansible/git/keebab/xremap/config_{{ window_manager }}.yml
     dest: /home/rafael/.config/xremap/config.yml
     owner: rafael
     group: rafael
@@ -61,7 +61,7 @@
   tags: keyboard,xremap
   copy:
     remote_src: true
-    src: /home/rafael/git/keebab/autostart/xremap.desktop
+    src: /home/ansible/git/keebab/autostart/xremap.desktop
     dest: /home/rafael/.config/autostart/xremap.desktop
     owner: rafael
     group: rafael
@@ -71,7 +71,7 @@
   tags: keyboard,xremap
   copy:
     remote_src: true
-    src: /home/rafael/git/keebab/systemd/user/xremap.service
+    src: /home/ansible/git/keebab/systemd/user/xremap.service
     dest: /home/rafael/.config/systemd/user/xremap.service
     owner: rafael
     group: rafael

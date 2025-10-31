@@ -11,7 +11,7 @@
   tags: scripts
   copy:
     remote_src: yes
-    src: /home/rafael/git/dotfiles/scripts/{{ item }}
+    src: /home/ansible/git/dotfiles/scripts/{{ item }}
     dest: /home/rafael/.config/scripts/{{ item }}
     owner: rafael
     group: rafael

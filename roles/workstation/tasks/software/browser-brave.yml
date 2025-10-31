@@ -9,7 +9,7 @@
 - name: software | browser | copy Brave dotfiles
   tags: browser,brave
   copy:
-    src: /home/rafael/git/dotfiles/brave/{{ item.src }}
+    src: /home/ansible/git/dotfiles/brave/{{ item.src }}
     dest: /home/rafael/.config/{{ item.dest }}
     remote_src: true
     owner: rafael
@@ -21,7 +21,7 @@
 - name: software | browser | copy Brave Beta dotfiles
   tags: browser,brave
   copy:
-    src: /home/rafael/git/dotfiles/brave-beta/{{ item.src }}
+    src: /home/ansible/git/dotfiles/brave-beta/{{ item.src }}
     dest: /home/rafael/.config/{{ item.dest }}
     remote_src: true
     owner: rafael
@@ -60,7 +60,7 @@
 - name: software | browser | copy Brave extensions dotfile
   tags: browser,brave
   copy:
-    src: /home/rafael/git/dotfiles/brave/extension_install_policy.json
+    src: /home/ansible/git/dotfiles/brave/extension_install_policy.json
     dest: /etc/brave/policies/managed/extension_install_policy.json
     remote_src: true
     owner: root

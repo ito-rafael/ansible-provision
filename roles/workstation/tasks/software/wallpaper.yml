@@ -10,7 +10,7 @@
 - name: software | wallpaper | copy images to wallpaper dir
   tags: wallpaper
   copy:
-    src: /home/rafael/git/dotfiles/wallpaper/{{ item }}
+    src: /home/ansible/git/dotfiles/wallpaper/{{ item }}
     dest: /home/rafael/.config/wallpaper/{{ item }}
     remote_src: true
     owner: rafael
