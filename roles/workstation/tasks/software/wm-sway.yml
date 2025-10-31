@@ -57,10 +57,11 @@
     remote_src: true
     owner: rafael
     group: rafael
-    mode: 0600
+    mode: "{{ item.mode }}"
   with_items:
-    - { src: 'i3-sway/_config_sway', dest: 'sway/_config' }
-    - { src: 'swaylock/config',      dest: 'swaylock/config' }
+    - { src: 'i3-sway/_config_sway',    dest: 'sway/_config',            mode: '0600' }
+    - { src: 'swaylock/config',         dest: 'swaylock/config',         mode: '0600' }
+    - { src: 'swaylock/lock-screen.sh', dest: 'swaylock/lock-screen.sh', mode: '0700' }
 
 - name: software | window-manager | install general packages
   tags: wayland,sway
