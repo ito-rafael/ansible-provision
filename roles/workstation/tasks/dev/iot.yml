@@ -10,3 +10,9 @@
   tags: iot,esptool
   package:
     name: esptool
+
+- name: software | IoT | install PlatformIO CLI
+  tags: iot,platformio
+  package:
+    name:
+      - platformio-core
