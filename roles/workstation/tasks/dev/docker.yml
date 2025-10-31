@@ -19,3 +19,10 @@
   tags: dev,docker
   package:
     name: docker-buildx
+
+- name: development | docker | add user to docker group
+  tags: dev,docker,rafael,groups
+  user:
+    name: rafael
+    append: yes
+    groups: docker

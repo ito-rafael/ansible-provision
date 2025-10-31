@@ -1,7 +1,0 @@
-- name: users | rafael | add to groups
-  tags: rafael,groups
-  user:
-    name: rafael
-    append: yes
-    groups:
-      - docker
