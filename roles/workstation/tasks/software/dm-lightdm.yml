@@ -1,15 +1,19 @@
 - name: software | display-manager | LightDM install
   tags: display-manager,lightdm
   package:
-    name:
-      - lightdm                             # display manager
-      - lightdm-webkit2-greeter             # greeter
+    name: lightdm  # display manager
+  register: lightdm_install
 
-- name: software | display-manager | LightDM install greeter
+- name: software | display-manager | LightDM greeter install
+  tags: display-manager,lightdm
+  package:
+    name: lightdm-webkit2-greeter  # greeter
+
+- name: software | display-manager | LightDM greeter theme install
   tags: display-manager,lightdm
   become_user: aurman
   kewlfft.aur.aur:
-    name: lightdm-webkit-theme-aether-git   # greeter theme
+    name: lightdm-webkit-theme-aether-git  # greeter theme
 
 - name: software | display-manager | LightDM setup "logind-check-graphical"
   tags: display-manager,lightdm
@@ -70,7 +74,7 @@
   tags: display-manager,lightdm
   copy:
     remote_src: true
-    src: /home/rafael/git/dotfiles/wallpaper/piedras-rojas.jpg
+    src: /home/ansible/git/dotfiles/wallpaper/piedras-rojas.jpg
     dest: /usr/share/lightdm-webkit/themes/lightdm-webkit-theme-aether/src/img/wallpapers/space-1.jpg
     owner: root
     group: root
@@ -85,9 +89,18 @@
     group: root
     mode: 0600
 
+- name: software | display-manager | LightDM enable daemon
+  tags: display-manager,lightdm
+  systemd:
+    name: lightdm
+    enabled: yes
+    state: stopped
+  when: lightdm_install.changed
+
 - name: software | display-manager | LightDM start daemon
   tags: display-manager,lightdm
   systemd:
     name: lightdm
     enabled: yes
     state: started
+  when: not lightdm_install.changed
