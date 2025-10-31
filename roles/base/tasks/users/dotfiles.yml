@@ -1,22 +1,37 @@
 - name: users | dotfiles | ensures dirs exists
   tags: users,dotfiles,clone
   file:
-    path: "{{ item }}"
+    path: "{{ item.path }}"
     state: directory
-    owner: rafael
-    group: rafael
+    owner: "{{ item.user }}"
+    group: "{{ item.user }}"
     mode: 0700
   with_items:
-    - "/home/rafael/git"
-    - "/home/rafael/.config"
+    - { path: "/home/ansible/git",    user: "ansible" }
+    - { path: "/home/rafael/git",     user: "rafael" }
+    - { path: "/home/rafael/.config", user: "rafael" }
 
-- name: users | dotfiles | clone dotfiles repo
+- name: users | dotfiles | clone dotfiles repo for ansible user
+  tags: users,dotfiles,clone
+  become_user: ansible
+  git:
+    clone: true
+    update: true
+    repo: "{{ item.repo }}"
+    dest: "{{ item.dest }}"
+  with_items:
+    - { repo: "https://github.com/ito-rafael/dotfiles.git", dest: "/home/ansible/git/dotfiles" }
+    - { repo: "https://github.com/ito-rafael/keebab.git",   dest: "/home/ansible/git/keebab" }
+
+- name: users | dotfiles | clone dotfiles repo for regular user
   tags: users,dotfiles,clone
   become_user: rafael
   git:
     clone: yes
     repo: "{{ item.repo }}"
     dest: "{{ item.dest }}"
+  args:
+    creates: "{{ item.dest }}/.git"
   with_items:
     - { repo: "https://github.com/ito-rafael/dotfiles.git", dest: "/home/rafael/git/dotfiles" }
     - { repo: "https://github.com/ito-rafael/keebab.git",   dest: "/home/rafael/git/keebab" }
