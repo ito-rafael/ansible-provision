@@ -24,6 +24,11 @@
     regexp: '^#(\[multilib\]$\n)^#(Include.*)$'
     replace: '\g<1>\g<2>'
 
+- name: software | package-manager | update cache after enabling multilib
+  tags: pacman
+  pacman:
+    update_cache: true
+
 - name: software | package-manager | install rebuild-detector
   tags: pacman,rebuild-detector
   package:
