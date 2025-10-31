@@ -3,5 +3,10 @@
   become_user: aurman
   kewlfft.aur.aur:
     name:
-      #- saleae-logic
+      - saleae-logic
       - saleae-logic2
+
+- name: software | IoT | install Espressif esptool.py script
+  tags: iot,esptool
+  package:
+    name: esptool
