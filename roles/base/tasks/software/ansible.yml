@@ -21,4 +21,4 @@
   git:
     clone: yes
     repo: https://github.com/ito-rafael/ansible-provision.git
-    dest: /home/ansible/git/ansible-provision.git
+    dest: /home/ansible/git/ansible-provision
