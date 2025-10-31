@@ -5,10 +5,20 @@
       - git
       - ansible-core
 
+- name: software | ansible | create git directory
+  tags: ansible
+  become_user: ansible
+  file:
+    path: /home/ansible/git
+    state: directory
+    owner: ansible
+    group: ansible
+    mode: 0700
+
 - name: software | ansible | clone ansible-provision repo
   tags: ansible,ansible-provision
   become_user: ansible
   git:
     clone: yes
     repo: https://github.com/ito-rafael/ansible-provision.git
-    dest: /home/ansible/ansible-provision.git
+    dest: /home/ansible/git/ansible-provision.git
