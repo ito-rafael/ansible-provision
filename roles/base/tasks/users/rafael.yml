@@ -1,23 +1,25 @@
 - name: users | rafael | create group
-  tags: rafael,groups,users
+  tags: users,rafael,groups
   group:
     name: rafael
     state: present
 
 - name: users | rafael | create user
-  tags: rafael,users
+  tags: users,rafael
   user:
     name: rafael
     group: rafael
     groups: "{{ sudo_group }}"
+    append: true
     state: present
-    createhome: yes
+    createhome: true
     comment: "Rafael Ito"
     password: "{{ rafael_passwd }}"
+    system: false
     shell: /usr/bin/zsh
 
 - name: users | rafael | ensure home dir ownership
-  tags: rafael,users
+  tags: users,rafael
   file:
     path: /home/rafael
     owner: rafael
@@ -27,7 +29,7 @@
     state: directory
 
 - name: users | rafael | add sudoers file
-  tags: rafael,users,sudo
+  tags: users,rafael,sudo
   copy:
     src: files/users/sudoers_rafael
     dest: /etc/sudoers.d/rafael
