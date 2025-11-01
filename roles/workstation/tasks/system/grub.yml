@@ -2,7 +2,8 @@
   tags: system,grub
   package:
     name:
-      - grub-btrfs  # include snapshots at boot options
+      - inotify-tools  # prerequisite for grub-btrfs
+      - grub-btrfs     # include snapshots at boot options
 
 - name: system | grub | set GRUB options
   tags: system,grub
