@@ -16,3 +16,4 @@
   package:
     name:
       - platformio-core
+      - platformio-core-udev
