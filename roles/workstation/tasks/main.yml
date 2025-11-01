@@ -7,6 +7,7 @@
   - import_tasks: users/aurman.yml                      # AUR user
   - import_tasks: software/pacman.yml                   # config package manager
   - import_tasks: software/paru.yml                     # paru (AUR helper)
+  - import_tasks: software/chaotic-aur.yml              # Chaotic-AUR
   when: ansible_distribution == "Archlinux"
 
 - block:
