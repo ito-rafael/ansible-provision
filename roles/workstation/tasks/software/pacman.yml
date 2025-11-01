@@ -43,9 +43,11 @@
       - reflector   # update /etc/pacman.d/mirrorlist sorting the mirrors by speed
     state: latest
 
-- name: software | package-manager | install downgrade
-  tags: pacman,downgrade
+- name: software | package-manager | install additional packages
+  tags: pacman
   become_user: aurman
   kewlfft.aur.aur:
-    name: downgrade
+    name:
+      - downgrade  # downgrade packages in Arch Linux
+      - informant  # Arch Linux News reader and pacman hook
     state: latest
