@@ -14,6 +14,13 @@
     regexp: '^ExecStart=.*'
     insertafter: '^\[Service\]$'
 
+- name: system | grub | include BTRFS snapshots in GRUB
+  tags: system,grub
+  systemd:
+    name: grub-btrfsd
+    enabled: yes
+    state: started
+
 - name: system | grub | set GRUB options
   tags: system,grub
   become: yes
