@@ -10,3 +10,15 @@
     name:
       - https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst
       - https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst
+
+- name: software | package-manager | Chaotic-AUR enable repository
+  tags: chaotic-aur
+  become: true
+  ansible.builtin.blockinfile:
+    path: /etc/pacman.conf
+    #marker: ""
+    block: |
+      [chaotic-aur]
+      Include = /etc/pacman.d/chaotic-mirrorlist
+    insertafter: '(?m)^\[multilib\]$\n^Include = /etc/pacman.d/mirrorlist$\n'
+    append_newline: true
