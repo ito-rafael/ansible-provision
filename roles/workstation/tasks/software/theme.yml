@@ -1,0 +1,6 @@
+- name: software | theme | install GTK
+  tags: theme
+  package:
+    name:
+      - gtk3
+      - gtk4

@@ -59,6 +59,7 @@
   - import_tasks: software/social-media.yml             # Slack, WhatsApp, Discord, etc
   - import_tasks: software/syncthing.yml                # Syncthing
   - import_tasks: software/terminal.yml                 # kitty
+  - import_tasks: software/theme.yml                    # GTK-{3,4}
   - import_tasks: software/utils.yml                    # general packages
   - import_tasks: software/video.yml                    # video tools
   - import_tasks: software/wallpaper.yml                # wallpaper
