@@ -22,3 +22,8 @@
       Include = /etc/pacman.d/chaotic-mirrorlist
     insertafter: '(?m)^\[multilib\]$\n^Include = /etc/pacman.d/mirrorlist$\n'
     append_newline: true
+
+- name: software | package-manager | Chaotic-AUR update cache after enabling repository
+  tags: chaotic-aur
+  pacman:
+    update_cache: true
