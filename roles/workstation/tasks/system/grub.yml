@@ -5,6 +5,15 @@
       - inotify-tools  # prerequisite for grub-btrfs
       - grub-btrfs     # include snapshots at boot options
 
+- name: system | grub | set path of snapshots in grub-btrfsd
+  tags: system,grub
+  lineinfile:
+    path: /etc/systemd/system/grub-btrfsd.service
+    line: 'ExecStart=/usr/bin/grub-btrfsd --syslog /.snapshot'
+    state: present
+    regexp: '^ExecStart=.*'
+    insertafter: '^\[Service\]$'
+
 - name: system | grub | set GRUB options
   tags: system,grub
   become: yes
