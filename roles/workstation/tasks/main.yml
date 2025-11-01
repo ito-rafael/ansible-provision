@@ -72,3 +72,4 @@
   - import_tasks: dev/jupyter.yml                       # Jupyter
   - import_tasks: dev/latex.yml                         # LaTeX
   - import_tasks: dev/python.yml                        # Python
+  - import_tasks: dev/terminal-multiplexer.yml          # tmux

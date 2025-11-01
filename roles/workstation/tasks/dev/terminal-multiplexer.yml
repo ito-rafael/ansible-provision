@@ -1,0 +1,4 @@
+- name: dev | terminal multiplexer | install tmux
+  tags: terminal-multiplexer,tmux
+  package:
+    name: tmux
