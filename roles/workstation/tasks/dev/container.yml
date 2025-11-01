@@ -26,3 +26,8 @@
     name: rafael
     append: yes
     groups: docker
+
+- name: development | container | Podman install
+  tags: dev,container,podman
+  package:
+    name: podman

@@ -63,10 +63,10 @@
   - import_tasks: software/utils.yml                    # general packages
   - import_tasks: software/video.yml                    # video tools
   - import_tasks: software/wallpaper.yml                # wallpaper
-  - import_tasks: software/window-manager.yml           # window manager: i3 / Sway
+  - import_tasks: software/window-manager.yml           # i3 / Sway
 
   # Development
-  - import_tasks: dev/container.yml                     # Docker
+  - import_tasks: dev/container.yml                     # Podman, Docker
   - import_tasks: dev/emacs.yml                         # Emacs
   - import_tasks: dev/git.yml                           # Git
   - import_tasks: dev/iot.yml                           # IoT (esptool, Saleae, PlatformIO, etc)
