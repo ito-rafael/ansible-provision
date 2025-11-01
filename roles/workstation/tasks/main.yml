@@ -65,7 +65,7 @@
   - import_tasks: software/window-manager.yml           # window manager: i3 / Sway
 
   # Development
-  - import_tasks: dev/docker.yml                        # Docker
+  - import_tasks: dev/container.yml                     # Docker
   - import_tasks: dev/emacs.yml                         # Emacs
   - import_tasks: dev/git.yml                           # Git
   - import_tasks: dev/iot.yml                           # IoT (esptool, Saleae, PlatformIO, etc)
