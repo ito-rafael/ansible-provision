@@ -11,6 +11,8 @@
       - fzf          # fuzzy finder
       - bc           # calculator language
       - dex          # DesktopEntry Execution
+      - unrar        # RAR uncompression
+      - unzip        # zip archives extraction
 
 - name: software | utils | modern-unix
   tags: utils,modern-unix
