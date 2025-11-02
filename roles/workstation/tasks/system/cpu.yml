@@ -3,3 +3,9 @@
   package:
     name: intel-ucode
   when: ansible_processor[1] == 'GenuineIntel'
+
+- name: system | CPU | install AMD microcode
+  tags: system,cpu
+  package:
+    name: amd-ucode
+  when: ansible_processor[1] == 'AuthenticAMD'
