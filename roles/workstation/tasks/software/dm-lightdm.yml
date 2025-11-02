@@ -89,6 +89,16 @@
     group: root
     mode: 0600
 
+- name: software | display-manager | set env vars
+  tags: display-manager,lightdm
+  copy:
+    remote_src: yes
+    src: /home/ansible/git/dotfiles/lightdm/xprofile
+    dest: /home/rafael/.xprofile
+    owner: rafael
+    group: rafael
+    mode: "0644"
+
 - name: software | display-manager | LightDM enable daemon
   tags: display-manager,lightdm
   systemd:
