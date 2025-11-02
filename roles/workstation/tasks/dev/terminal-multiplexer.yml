@@ -11,3 +11,13 @@
     owner: rafael
     group: rafael
     mode: 0700
+
+- name: dev | terminal multiplexer | copy tmux dotfile
+  tags: terminal-multiplexer,tmux
+  copy:
+    remote_src: true
+    src: /home/ansible/git/dotfiles/tmux/tmux.conf
+    dest: /home/rafael/.config/tmux/tmux.conf
+    owner: rafael
+    group: rafael
+    mode: 0600
