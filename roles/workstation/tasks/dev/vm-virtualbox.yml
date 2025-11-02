@@ -5,3 +5,9 @@
       - virtualbox                    # base package
       - virtualbox-host-modules-arch  # for standard linux kernel
       #- virtualbox-host-modules-lts   # for linux-lts kernel
+
+- name: development | VM VirtualBox | install VirtualBox additional packages
+  tags: dev,virtualbox
+  package:
+   name:
+      - virtualbox-guest-iso  # VirtualBox Guest Additions ISO image
