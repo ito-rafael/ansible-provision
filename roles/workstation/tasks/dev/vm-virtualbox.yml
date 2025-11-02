@@ -1,5 +1,7 @@
-- name: development | virtual machine | install VirtualBox
+- name: development | VM VirtualBox | install VirtualBox
   tags: dev,virtualbox
   package:
     name:
-      - virtualbox  # base package
+      - virtualbox                    # base package
+      - virtualbox-host-modules-arch  # for standard linux kernel
+      #- virtualbox-host-modules-lts   # for linux-lts kernel
