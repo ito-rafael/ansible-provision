@@ -1,0 +1,5 @@
+- name: development | virtual machine | install VirtualBox
+  tags: dev,virtualbox
+  package:
+    name:
+      - virtualbox  # base package
