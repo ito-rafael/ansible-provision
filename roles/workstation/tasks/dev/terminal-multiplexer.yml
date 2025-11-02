@@ -2,3 +2,12 @@
   tags: terminal-multiplexer,tmux
   package:
     name: tmux
+
+- name: dev | terminal multiplexer | ensure tmux dir exist
+  tags: terminal-multiplexer,tmux
+  file:
+    path: /home/rafael/.config/tmux
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
