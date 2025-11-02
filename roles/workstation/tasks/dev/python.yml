@@ -16,3 +16,14 @@
   package:
     name:
       - python-pyserial  # serial port module
+
+- name: development | python | install Python data science packages
+  tags: dev,python
+  package:
+    name:
+      - python-numpy             # NumPy: arrays support
+      - python-pandas            # pandas: data analysis (DataFrame object)
+      - python-matplotlib        # Matplotlib: plot & visualization
+      - python-scipy             # SciPy: scientific computing
+      - python-scikit-learn      # scikit-learn: machine learning lib
+      - python-seaborn           # seaborn: statistical data visualization
