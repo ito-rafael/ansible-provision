@@ -1,0 +1,5 @@
+- name: system | CPU | install Intel microcode
+  tags: system,cpu
+  package:
+    name: intel-ucode
+  when: ansible_processor[1] == 'GenuineIntel'
