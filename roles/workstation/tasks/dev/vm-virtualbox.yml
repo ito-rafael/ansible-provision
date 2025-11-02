@@ -1,4 +1,4 @@
-- name: development | VM VirtualBox | install VirtualBox
+- name: development | virtual machine | VirtualBox install packages
   tags: dev,virtualbox
   package:
     name:
@@ -6,8 +6,8 @@
       - virtualbox-host-modules-arch  # for standard linux kernel
       #- virtualbox-host-modules-lts   # for linux-lts kernel
 
-- name: development | VM VirtualBox | install VirtualBox additional packages
+- name: development | virtual machine | VirtualBox install additional packages
   tags: dev,virtualbox
   package:
    name:
-      - virtualbox-guest-iso  # VirtualBox Guest Additions ISO image
+     - virtualbox-guest-iso  # VirtualBox Guest Additions ISO image
