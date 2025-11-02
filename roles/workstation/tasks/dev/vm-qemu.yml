@@ -1,0 +1,6 @@
+- name: development | virtual machine | QEMU install
+  tags: dev,qemu
+  package:
+    name:
+      - qemu-base      # version without GUI
+      - qemu-desktop   # x86_64 emulation

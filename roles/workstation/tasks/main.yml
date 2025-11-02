@@ -75,4 +75,5 @@
   - import_tasks: dev/latex.yml                         # LaTeX
   - import_tasks: dev/python.yml                        # Python
   - import_tasks: dev/terminal-multiplexer.yml          # tmux
-  - import_tasks: dev/vm-virtualbox.yml                 # virtual machine: VirtualBox
+  - import_tasks: dev/vm-qemu.yml                       # virual machine: QEMU
+  #- import_tasks: dev/vm-virtualbox.yml                # [deprecated] virtual machine: VirtualBox
