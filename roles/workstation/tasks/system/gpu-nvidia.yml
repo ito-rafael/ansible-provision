@@ -1,7 +1,16 @@
-- name: system | GPU-NVIDIA | install drivers
-  tags: system,nvidia
+- name: system | GPU NVIDIA | check if architecture is Turing, Ampere, or Ada Lovelace
+  tags: system,gpu,gpu-nvidia
+  shell: lspci -k -d ::03xx | grep -E 'TU1[01][2467]|GA10[2467]AD10[23467]'
+  changed_when: false
+  failed_when: false
+  register: turing_ampere_adalovelace
+
+- name: system | GPU NVIDIA | install driver for Turing, Ampere and Ada Lovelace architectures (linux-lts kernel)
+  tags: system,gpu,gpu-nvidia
   package:
     name:
-      #- mesa                # nouveau: open-source driver
-      - nvidia              # proprietary drivers
-      - nvidia-utils        # drivers utilities
+      - nvidia-open-lts  # NVIDIA open kernel modules
+      - nvidia-utils     # drivers utilities (provides nvidia-smi)
+  when:
+    - turing_ampere_adalovelace.stdout != ""
+    - kernel == "linux-lts"
