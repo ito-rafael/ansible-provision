@@ -1,32 +1,43 @@
-- name: system | networking | install NetworkManager
+- name: system | network Wi-Fi | install Wi-Fi related packages
   tags: system,network
   package:
     name:
-      - networkmanager                   # core package
-      - nm-connection-editor             # GUI
-      - network-manager-applet           # system tray applet
+      - iproute2        # IP Routing Utilities
+      - util-linux      # provides rfkill (and much more)
+      - wpa_supplicant  # WPA Supplicant
+      - iw              # nl80211-based CLI config util
+  when: wifi
 
-- name: system | networking | start NetworkManager daemon
+- name: system | network | install network packages
+  tags: system,network
+  package:
+    name:
+      - net-tools  # collection of base networking utilities
+      - inetutils  # collection of common network programs
+
+- name: system | network | install NetworkManager
+  tags: system,network
+  package:
+    name:
+      - networkmanager          # core package
+      - nm-connection-editor    # GUI
+      - network-manager-applet  # system tray applet
+
+- name: system | network | start NetworkManager daemon
   tags: system,network
   systemd:
     name: NetworkManager
     state: started
     enabled: yes
 
-- name: system | networking | install Avahi
+- name: system | network | install Avahi
   tags: system,network
   package:
     name: avahi
 
-- name: system | networking | start Avahi daemon
+- name: system | network | start Avahi daemon
   tags: system,network
   systemd:
     name: avahi-daemon
     state: started
     enabled: yes
-
-- name: system | networking | install network packages
-  tags: system,network
-  package:
-    name:
-      - net-tools                        # collection of base networking utilities
