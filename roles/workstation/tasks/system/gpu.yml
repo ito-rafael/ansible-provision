@@ -1,0 +1,11 @@
+- name: system | GPU | identify GPU manufacturer
+  tags: system,gpu
+  shell: lspci | grep -i 'vga'
+  changed_when: false
+  failed_when: false
+  register: gpu_info
+
+- name: include NVIDIA GPU tasks
+  tags: system,gpu,nvidia
+  include_tasks: gpu-nvidia.yml
+  when: "'NVIDIA' in gpu_info.stdout"
