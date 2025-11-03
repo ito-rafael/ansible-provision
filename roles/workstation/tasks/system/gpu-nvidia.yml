@@ -5,6 +5,17 @@
   failed_when: false
   register: turing_ampere_adalovelace
 
+# Turing, Ampere, and Ada Lovelace
+- name: system | GPU NVIDIA | install driver for Turing, Ampere and Ada Lovelace architectures (linux kernel)
+  tags: system,gpu,gpu-nvidia
+  package:
+    name:
+      - nvidia-open   # NVIDIA open kernel modules
+      - nvidia-utils  # drivers utilities (provides nvidia-smi)
+  when:
+    - turing_ampere_adalovelace.stdout != ""
+    - kernel == "linux"
+
 - name: system | GPU NVIDIA | install driver for Turing, Ampere and Ada Lovelace architectures (linux-lts kernel)
   tags: system,gpu,gpu-nvidia
   package:
