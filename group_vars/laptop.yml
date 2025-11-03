@@ -1,2 +1,2 @@
-window_manager: sway
+window_manager: "sway"
 kernel: "linux"
