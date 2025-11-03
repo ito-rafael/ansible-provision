@@ -15,12 +15,12 @@
       changed_when: False
       when: ansible_distribution == "Archlinux"
 
-- hosts: workstation
+- hosts: workstation:laptop
   connection: local
   become: true
   roles:
     - role: workstation
-      when: ansible_hostname in groups["workstation"]
+      when: ansible_hostname in groups["workstation"] or ansible_hostname in groups["laptop"]
 
 - hosts: server
   connection: local
