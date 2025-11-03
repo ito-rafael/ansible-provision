@@ -42,6 +42,17 @@
     state: latest
   when: kepler.stdout != ""
 
+# Maxwell, Pascal, and Volta
+- name: system | GPU NVIDIA | install driver for Maxwell, Pascal and Volta architectures (linux kernel)
+  tags: system,gpu,gpu-nvidia
+  package:
+    name:
+      - nvidia        # NVIDIA kernel modules
+      - nvidia-utils  # drivers utilities (provides nvidia-smi)
+  when:
+    - maxwell_pascal_volta.stdout != ""
+    - kernel == "linux"
+
 # Turing, Ampere, and Ada Lovelace
 - name: system | GPU NVIDIA | install driver for Turing, Ampere and Ada Lovelace architectures (linux kernel)
   tags: system,gpu,gpu-nvidia
