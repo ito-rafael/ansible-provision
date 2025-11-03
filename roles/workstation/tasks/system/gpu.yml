@@ -1,3 +1,11 @@
+- name: system | GPU | install GPU-related packages
+  tags: system,gpu
+  package:
+    name:
+      - pciutils  # PCI utilities (provides lspci)
+      - nvtop     # process monitoring for GPUs
+      - mesa      # open-source OpenGL drivers
+
 - name: system | GPU | identify GPU manufacturer
   tags: system,gpu
   shell: lspci | grep -i 'vga'
