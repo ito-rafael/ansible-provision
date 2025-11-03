@@ -53,6 +53,16 @@
     - maxwell_pascal_volta.stdout != ""
     - kernel == "linux"
 
+- name: system | GPU NVIDIA | install driver for Maxwell, Pascal and Volta architectures (linux-lts kernel)
+  tags: system,gpu,gpu-nvidia
+  package:
+    name:
+      - nvidia-lts    # NVIDIA drivers for linux-lts
+      - nvidia-utils  # drivers utilities (provides nvidia-smi)
+  when:
+    - maxwell_pascal_volta.stdout != ""
+    - kernel == "linux-lts"
+
 # Turing, Ampere, and Ada Lovelace
 - name: system | GPU NVIDIA | install driver for Turing, Ampere and Ada Lovelace architectures (linux kernel)
   tags: system,gpu,gpu-nvidia
