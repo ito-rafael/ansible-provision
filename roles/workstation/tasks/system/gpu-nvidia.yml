@@ -1,6 +1,7 @@
 # Code names
 # https://nouveau.freedesktop.org/CodeNames.html
 #
+# Kepler       (NVE0 family / GKXXX code name)
 # Turing       (NV160 family / TUXXX code name)
 # Ampere       (NV170 family / GA10X code name)
 # Ada Lovelace (NV190 family / ADXXX code name)
@@ -19,6 +20,17 @@
   changed_when: false
   failed_when: false
   register: turing_ampere_adalovelace
+
+# Kepler
+- name: system | GPU NVIDIA | install driver for Kepler architecture
+  tags: system,gpu,gpu-nvidia
+  become_user: aurman
+  kewlfft.aur.aur:
+    name:
+      - nvidia-470xx-dkms
+      - nvidia-470xx-utils
+    state: latest
+  when: kepler.stdout != ""
 
 # Turing, Ampere, and Ada Lovelace
 - name: system | GPU NVIDIA | install driver for Turing, Ampere and Ada Lovelace architectures (linux kernel)
