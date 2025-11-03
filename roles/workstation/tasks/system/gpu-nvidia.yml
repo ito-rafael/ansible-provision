@@ -2,6 +2,9 @@
 # https://nouveau.freedesktop.org/CodeNames.html
 #
 # Kepler       (NVE0 family / GKXXX code name)
+# Maxwell      (NV110 family / GMXXX code name)
+# Pascal       (NV130 family / GPXXX code name)
+# Volta        (NV140 family / GVXXX code name)
 # Turing       (NV160 family / TUXXX code name)
 # Ampere       (NV170 family / GA10X code name)
 # Ada Lovelace (NV190 family / ADXXX code name)
@@ -13,6 +16,13 @@
   changed_when: false
   failed_when: false
   register: kepler
+
+- name: system | GPU NVIDIA | check if architecture is Maxwell, Pascal, or Volta
+  tags: system,gpu,gpu-nvidia
+  shell: lspci -k -d ::03xx | grep -E 'GM[12]0[04678B]|GP10[24678]|GV100'
+  changed_when: false
+  failed_when: false
+  register: maxwell_pascal_volta
 
 - name: system | GPU NVIDIA | check if architecture is Turing, Ampere, or Ada Lovelace
   tags: system,gpu,gpu-nvidia
