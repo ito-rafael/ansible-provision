@@ -36,3 +36,11 @@
     name: init.defaultBranch
     value: "main"
     scope: global
+
+- name: development | git | config merge.ours.driver=true
+  tags: dev,git
+  become_user: rafael
+  git_config:
+    name: merge.ours.driver
+    value: "true"
+    scope: global
