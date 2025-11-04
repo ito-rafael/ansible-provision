@@ -4,3 +4,11 @@
     name:
       - git
       - github-cli
+
+- name: development | git | config user.name
+  tags: dev,git
+  become_user: rafael
+  git_config:
+    name: user.name
+    value: "Rafael Ito"
+    scope: global
