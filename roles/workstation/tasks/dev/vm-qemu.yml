@@ -14,6 +14,7 @@
      - virt-manager    # GUI to manage KVM, Xen, or LXC via libvirt
      - dnsmasq         # network support: default NAT/DHCP
      - openbsd-netcat  # network support: remote management over SSH
+     - python-lxml     # XML required for libvirt Ansible module
 
 - name: development | virtual machine | QEMU enable network on guests
   tags: dev,qemu
@@ -28,4 +29,14 @@
   systemd:
     name: libvirtd
     state: started
+  when: qemu_install.changed
+
+- name: development | virtual machine | QEMU configure network
+  tags: dev,qemu
+  community.libvirt.virt_net:
+    command: define
+    xml: /etc/libvirt/qemu/networks/default.xml
+    name: default
+    state: active
+    autostart: yes
   when: qemu_install.changed
