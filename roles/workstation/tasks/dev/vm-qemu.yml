@@ -11,3 +11,5 @@
     name:
      - libvirt         # API for controlling virtualization engines
      - virt-manager    # GUI to manage KVM, Xen, or LXC via libvirt
+     - dnsmasq         # network support: default NAT/DHCP
+     - openbsd-netcat  # network support: remote management over SSH
