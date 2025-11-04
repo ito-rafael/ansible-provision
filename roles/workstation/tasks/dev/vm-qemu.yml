@@ -13,3 +13,11 @@
      - virt-manager    # GUI to manage KVM, Xen, or LXC via libvirt
      - dnsmasq         # network support: default NAT/DHCP
      - openbsd-netcat  # network support: remote management over SSH
+
+- name: development | virtual machine | QEMU enable network on VMs
+  tags: dev,qemu
+  lineinfile:
+    path: /etc/libvirt/network.conf
+    line: 'firewall_backend = "iptables"'
+    state: present
+    regexp: '^#firewall_backend = "nftables"$'
