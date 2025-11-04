@@ -20,6 +20,15 @@
 #    - { name: "merge.ours.driver",  value: "true" }
 #    - { name: "color.ui",           value: "auto" }
 
+- name: development | git | ensure $XDG_CONFIG_HOME/git dir exist
+  tags: dev,git
+  file:
+    path: /home/rafael/.config/git
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
+
 - name: development | git | copy git dotfile
   tags: dev,git
   copy:
