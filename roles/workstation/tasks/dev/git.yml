@@ -5,17 +5,27 @@
       - git
       - github-cli
 
-- name: development | git | config settings
+#- name: development | git | config settings
+#  tags: dev,git
+#  become_user: rafael
+#  git_config:
+#    name: "{{ item.name }}"
+#    value: "{{ item.value }}"
+#    scope: global
+#  with_items:
+#    - { name: "user.name",          value: "Name Surname" }
+#    - { name: "user.email",         value: "my.email@provider.com" }
+#    - { name: "core.editor",        value: "vim" }
+#    - { name: "init.defaultBranch", value: "main" }
+#    - { name: "merge.ours.driver",  value: "true" }
+#    - { name: "color.ui",           value: "auto" }
+
+- name: development | git | copy git dotfile
   tags: dev,git
-  become_user: rafael
-  git_config:
-    name: "{{ item.name }}"
-    value: "{{ item.value }}"
-    scope: global
-  with_items:
-    - { name: "user.name",          value: "Rafael Ito" }
-    - { name: "user.email",         value: "ito.rafael@gmail.com" }
-    - { name: "core.editor",        value: "vim" }
-    - { name: "init.defaultBranch", value: "main" }
-    - { name: "merge.ours.driver",  value: "true" }
-    - { name: "color.ui",           value: "auto" }
+  copy:
+    remote_src: yes
+    src: /home/ansible/git/dotfiles/git/config
+    dest: /home/rafael/.config/git/config
+    owner: rafael
+    group: rafael
+    mode: 0600
