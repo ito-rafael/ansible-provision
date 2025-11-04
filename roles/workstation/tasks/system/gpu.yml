@@ -2,9 +2,10 @@
   tags: system,gpu
   package:
     name:
-      - pciutils  # PCI utilities (provides lspci)
-      - nvtop     # process monitoring for GPUs
-      - mesa      # open-source OpenGL drivers
+      - pciutils    # PCI utilities (provides lspci)
+      - nvtop       # process monitoring for GPUs
+      - mesa        # open-source OpenGL drivers
+      - lib32-mesa  # open-source OpenGL drivers for 32-bit
 
 - name: system | GPU | identify GPU manufacturer
   tags: system,gpu
