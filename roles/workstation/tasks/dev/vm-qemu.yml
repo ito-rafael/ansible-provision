@@ -40,3 +40,11 @@
     state: active
     autostart: yes
   when: qemu_install.changed
+
+- name: development | virtual machine | QEMU stop and disable libvirtd daemon
+  tags: dev,qemu
+  systemd:
+    name: libvirtd
+    state: stopped
+    enabled: false
+  when: qemu_install.changed
