@@ -17,3 +17,8 @@
   tags: system,gpu,nvidia
   include_tasks: gpu-nvidia.yml
   when: "'NVIDIA' in gpu_info.stdout"
+
+- name: include AMD GPU tasks
+  tags: system,gpu,amd
+  include_tasks: gpu-amd.yml
+  when: "'AMD' in gpu_info.stdout"
