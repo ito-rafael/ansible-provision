@@ -28,3 +28,11 @@
     name: core.editor
     value: "vim"
     scope: global
+
+- name: development | git | config init.defaultBranch
+  tags: dev,git
+  become_user: rafael
+  git_config:
+    name: init.defaultBranch
+    value: "main"
+    scope: global
