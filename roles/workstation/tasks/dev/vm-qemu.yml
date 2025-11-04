@@ -48,3 +48,11 @@
     state: stopped
     enabled: false
   when: qemu_install.changed
+
+- name: development | virtual machine | QEMU add user to libvirt group
+  tags: dev,qemu,groups
+  ansible.builtin.user:
+    name: rafael
+    groups: libvirt
+    append: yes
+    state: present
