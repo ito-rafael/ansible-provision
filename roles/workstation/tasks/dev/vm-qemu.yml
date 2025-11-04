@@ -4,3 +4,10 @@
     name:
       - qemu-base      # version without GUI
       - qemu-desktop   # x86_64 emulation
+
+- name: development | virtual machine | QEMU install libvirt and virt-manager
+  tags: dev,qemu
+  package:
+    name:
+     - libvirt         # API for controlling virtualization engines
+     - virt-manager    # GUI to manage KVM, Xen, or LXC via libvirt
