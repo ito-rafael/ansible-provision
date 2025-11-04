@@ -20,3 +20,11 @@
     name: user.email
     value: "ito.rafael@gmail.com"
     scope: global
+
+- name: development | git | config core.editor
+  tags: dev,git
+  become_user: rafael
+  git_config:
+    name: core.editor
+    value: "vim"
+    scope: global
