@@ -22,3 +22,8 @@
   tags: system,gpu,amd
   include_tasks: gpu-amd.yml
   when: "'AMD' in gpu_info.stdout"
+
+- name: include Intel GPU tasks
+  tags: system,gpu,amd
+  include_tasks: gpu-amd.yml
+  when: "'Intel' in gpu_info.stdout"

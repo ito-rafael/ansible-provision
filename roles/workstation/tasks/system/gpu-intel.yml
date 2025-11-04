@@ -1,0 +1,9 @@
+- name: system | GPU Intel | install requirements to run Vulkan applications
+  tags: system,gpu,gpu-intel
+  package:
+    name:
+      - vulkan-icd-loader        # Installable Client Driver (ICD) Loader
+      - lib32-vulkan-icd-loader  # ICD for 32-bit applications (requires multilib repository)
+      - vulkan-tools             # Vulkan tools and utilities
+      - vulkan-intel             # provides vulkan-driver
+      - lib32-vulkan-intel       # provides lib32-vulkan-driver
