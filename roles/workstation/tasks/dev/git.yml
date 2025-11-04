@@ -12,3 +12,11 @@
     name: user.name
     value: "Rafael Ito"
     scope: global
+
+- name: development | git | config user.email
+  tags: dev,git
+  become_user: rafael
+  git_config:
+    name: user.email
+    value: "ito.rafael@gmail.com"
+    scope: global
