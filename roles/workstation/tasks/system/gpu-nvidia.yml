@@ -8,6 +8,7 @@
 # Turing       (NV160 family / TUXXX code name)
 # Ampere       (NV170 family / GA10X code name)
 # Ada Lovelace (NV190 family / ADXXX code name)
+# Blackwell    (TBD family / TBD code name)
 
 # NVIDIA GPU architecture identification
 - name: system | GPU NVIDIA | check if architecture is Kepler
@@ -93,3 +94,10 @@
       - vulkan-tools             # Vulkan tools and utilities
       - nvidia-utils             # provides vulkan-driver
       - lib32-nvidia-utils       # provides lib32-vulkan-driver
+
+- name: system | GPU NVIDIA | install CUDA
+  tags: system,gpu,gpu-nvidia
+  package:
+    name:
+      - cuda        # NVIDIA's GPU programming toolkit
+      #- cuda-tools  # extra tools: nsight, compute-sanitizer
