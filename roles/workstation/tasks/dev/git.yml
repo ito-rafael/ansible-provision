@@ -44,3 +44,11 @@
     name: merge.ours.driver
     value: "true"
     scope: global
+
+- name: development | git | config color.ui=auto
+  tags: dev,git
+  become_user: rafael
+  git_config:
+    name: color.ui
+    value: "auto"
+    scope: global
