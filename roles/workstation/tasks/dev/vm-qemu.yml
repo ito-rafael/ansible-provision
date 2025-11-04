@@ -4,6 +4,7 @@
     name:
       - qemu-base      # version without GUI
       - qemu-desktop   # x86_64 emulation
+  register: qemu_install
 
 - name: development | virtual machine | QEMU install libvirt and virt-manager
   tags: dev,qemu
@@ -14,10 +15,17 @@
      - dnsmasq         # network support: default NAT/DHCP
      - openbsd-netcat  # network support: remote management over SSH
 
-- name: development | virtual machine | QEMU enable network on VMs
+- name: development | virtual machine | QEMU enable network on guests
   tags: dev,qemu
   lineinfile:
     path: /etc/libvirt/network.conf
     line: 'firewall_backend = "iptables"'
     state: present
     regexp: '^#firewall_backend = "nftables"$'
+
+- name: development | virtual machine | QEMU start libvirtd daemon
+  tags: dev,qemu
+  systemd:
+    name: libvirtd
+    state: started
+  when: qemu_install.changed
