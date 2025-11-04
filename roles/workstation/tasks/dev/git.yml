@@ -1,4 +1,6 @@
-- name: development | git | install git
+- name: development | git | install git & gh
   tags: dev,git
   package:
-    name: git
+    name:
+      - git
+      - github-cli
