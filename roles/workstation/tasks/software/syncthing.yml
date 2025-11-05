@@ -7,10 +7,10 @@
   tags: syncthing
   become_user: rafael
   systemd:
-    scope: "user"
     name: syncthing
     enabled: yes
     state: started
+    scope: user
 
 - name: software | syncthing | install Syncthing tray icon
   tags: syncthing

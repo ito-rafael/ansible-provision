@@ -14,12 +14,12 @@
       - unrar        # RAR uncompression
       - unzip        # zip archives extraction
 
-- name: software | utils | install CLI tools (AUR)
-  tags: utils,general
-  become_user: aurman
-  kewlfft.aur.aur:
-    name:
-      - forx         # currencies exchange rates
+#- name: software | utils | install CLI tools (AUR)
+#  tags: utils,general
+#  become_user: aurman
+#  kewlfft.aur.aur:
+#    name:
+#      - forx         # currencies exchange rates
 
 - name: software | utils | modern-unix
   tags: utils,modern-unix
@@ -27,6 +27,9 @@
     name:            # replacement for:
       - bat          # cat
       - eza          # ls
+      - zoxide       # cd
+  # https://github.com/ibraheemdev/modern-unix
+
 - name: software | utils | install GUI tools
   tags: utils,tools
   package:
