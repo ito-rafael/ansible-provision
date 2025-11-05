@@ -62,3 +62,9 @@
   tags: X11,i3
   package:
     name: picom
+
+- name: software | window-manager | install flashfocus
+  tags: X11,i3
+  become_user: aurman
+  kewlfft.aur.aur:
+    name: flashfocus-git
