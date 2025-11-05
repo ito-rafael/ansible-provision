@@ -68,3 +68,16 @@
   become_user: aurman
   kewlfft.aur.aur:
     name: flashfocus-git
+
+- name: software | window-manager | copy picom & flashfocus dotfiles
+  tags: X11,i3
+  copy:
+    src: /home/ansible/git/dotfiles/{{ item }}
+    dest: /home/rafael/.config/{{ item }}
+    remote_src: true
+    owner: rafael
+    group: rafael
+    mode: 0600
+  with_items:
+    - 'picom/picom.conf'
+    - 'flashfocus/flashfocus.yml'
