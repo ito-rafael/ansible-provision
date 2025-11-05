@@ -13,3 +13,12 @@
   package:
     name:
       - ranger
+
+- name: software | file manager | ensure xfce4 dir exist
+  tags: file-manager,thunar
+  file:
+    path: /home/rafael/.config/xfce4
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
