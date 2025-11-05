@@ -2,19 +2,19 @@
   tags: wayland,sway
   package:
     name:
-      - seatd                 # prerequisite of sway
-      - sway                  # window manager / compositor
-      - ruby                  # prerequisite for i3bang (config preprocessor)
-      - sway-contrib          # community scripts for sway
-      - swayidle              # idle manager
-      - swaybg                # wallpaper tool
-      #- swaylock              # screen locker
+      - seatd         # prerequisite of sway
+      - sway          # window manager / compositor
+      - ruby          # prerequisite for i3bang (config preprocessor)
+      - sway-contrib  # community scripts for sway
+      - swayidle      # idle manager
+      - swaybg        # wallpaper tool
+      #- swaylock      # screen locker
 
 - name: software | window-manager | install Sway locker
   tags: wayland,sway
   become_user: aurman
   kewlfft.aur.aur:
-    name: swaylock-effects    # screen locker
+    name: swaylock-effects  # screen locker
 
 - name: software | window-manager | install portals
   tags: wayland,portals
@@ -67,10 +67,11 @@
   tags: wayland,sway
   package:
     name:
-      - wl-clipboard          # clipboard utils
+      - wl-clipboard  # clipboard utils
+      - waycheck      # Wayland protocols implementation status
 
 - name: software | window-manager | install general packages from AUR
   tags: wayland,sway
   become_user: aurman
   kewlfft.aur.aur:
-    name: autotiling          # script to switch h/v window orientation
+    name: autotiling  # script to switch h/v window orientation
