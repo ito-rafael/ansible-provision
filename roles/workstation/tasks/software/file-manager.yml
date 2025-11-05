@@ -22,3 +22,15 @@
     owner: rafael
     group: rafael
     mode: 0700
+
+- name: software | file manager | copy Thunar dotfiles
+  tags: file-manager,thunar
+  copy:
+    remote_src: yes
+    src: /home/ansible/git/dotfiles/{{ item.src }}
+    dest: /home/rafael/.config/{{ item.dest }}
+    owner: rafael
+    group: rafael
+    mode: "{{ item.mode }}"
+  with_items:
+    - { src: 'xfce4/helpers.rc', dest: 'xfce4/helpers.rc', mode: '0700' }  # Thunar's "Open Terminal Here"
