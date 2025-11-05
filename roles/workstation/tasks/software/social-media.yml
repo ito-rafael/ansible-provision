@@ -3,8 +3,8 @@
   become_user: aurman
   kewlfft.aur.aur:
     name:
-      #- whatsapp-for-linux
       - slack-desktop
+      - wasistlos              # WhatsApp
 
 - name: software | social-media | install applications
   tags: social-media
