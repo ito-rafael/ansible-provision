@@ -16,3 +16,16 @@
   with_items:
     - gtk-3.0
     - gtk-4.0
+
+- name: software | theme | set theme for GTK 3 and GTK 4 (non-libadwaita)
+  tags: theme
+  copy:
+    remote_src: true
+    src: /home/ansible/git/dotfiles/gtk/{{ item }}
+    dest: /home/rafael/.config/
+    owner: rafael
+    group: rafael
+    mode: 0700
+  with_items:
+    - gtk-3.0
+    - gtk-4.0
