@@ -29,3 +29,10 @@
   with_items:
     - gtk-3.0
     - gtk-4.0
+
+- name: software | theme | set theme for GTK 4 (libadwaita-based)
+  tags: theme
+  community.general.dconf:
+    key: "/org/gnome/desktop/interface/color-scheme"
+    value: "'prefer-dark'"
+    state: present
