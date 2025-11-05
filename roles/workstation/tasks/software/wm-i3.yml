@@ -57,3 +57,8 @@
     - { src: 'take-screenshot.sh', dest: 'take-screenshot.sh' }
     - { src: 'del-screenshot.sh',  dest: 'del-screenshot.sh' }
     - { src: 'lock-screen.sh',     dest: 'lock-screen.sh' }
+
+- name: software | window-manager | install picom (X11 compositor)
+  tags: X11,i3
+  package:
+    name: picom
