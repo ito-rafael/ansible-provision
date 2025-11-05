@@ -14,6 +14,13 @@
       - unrar        # RAR uncompression
       - unzip        # zip archives extraction
 
+- name: software | utils | install CLI tools (AUR)
+  tags: utils,general
+  become_user: aurman
+  kewlfft.aur.aur:
+    name:
+      - forx         # currencies exchange rates
+
 - name: software | utils | modern-unix
   tags: utils,modern-unix
   package:
