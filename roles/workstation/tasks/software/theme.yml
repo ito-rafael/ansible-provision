@@ -1,6 +1,18 @@
-- name: software | theme | install GTK
+#- name: software | theme | install GTK
+#  tags: theme
+#  package:
+#    name:
+#      - gtk3
+#      - gtk4
+
+- name: software | theme | ensure GTK dirs exist
   tags: theme
-  package:
-    name:
-      - gtk3
-      - gtk4
+  file:
+    path: /home/rafael/.config/{{ item }}
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
+  with_items:
+    - gtk-3.0
+    - gtk-4.0
