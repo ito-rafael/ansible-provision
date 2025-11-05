@@ -8,15 +8,19 @@
   package:
     name: mpv
 
-- name: software | video | install applications
-  tags: video,vlc,mkvtoolnix
+- name: software | video | install MKVToolNix
+  tags: video
   package:
     name:
-      - vlc
-      - zvbi    # recording
       - mkvtoolnix-cli
       - mkvtoolnix-gui
 
+#- name: software | video | install VLC
+#  tags: video,vlc
+#  package:
+#    name:
+#      - vlc
+#      - zvbi    # for recording with VLC
 - name: software | video | install other applications
   tags: video
   package:
