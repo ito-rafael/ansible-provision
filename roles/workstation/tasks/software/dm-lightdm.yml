@@ -107,10 +107,10 @@
     state: stopped
   when: lightdm_install.changed
 
-- name: software | display-manager | LightDM start daemon
-  tags: display-manager,lightdm
-  systemd:
-    name: lightdm
-    enabled: yes
-    state: started
-  when: not lightdm_install.changed
+#- name: software | display-manager | LightDM start daemon
+#  tags: display-manager,lightdm
+#  systemd:
+#    name: lightdm
+#    enabled: yes
+#    state: started
+#  when: not lightdm_install.changed
