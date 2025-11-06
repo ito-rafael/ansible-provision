@@ -17,21 +17,23 @@
 - name: keyboard | udev/hwdb | copy systemd-hwdb-update service
   tags: keyboard,hwdb
   copy:
-    src: /lib/systemd/system/systemd-hwdb-update.service
+    src: /home/ansible/git/keebab/systemd/system/systemd-hwdb-update.service
     dest: /etc/systemd/system/systemd-hwdb-update.service
+    remote_src: true
     owner: root
     group: root
     mode: 0644
 
-- name: keyboard | udev/hwdb | enable update on boot (comment line)
-  tags: keyboard,hwdb
-  lineinfile:
-    path: /etc/systemd/system/systemd-hwdb-update.service
-    line: '#ConditionNeedsUpdate=/etc'
-    state: present
-    regexp: '^.*(ConditionNeedsUpdate=)/.*$'
-    insertafter: '^\[Unit\]$'
+#- name: keyboard | udev/hwdb | enable update on boot (comment line)
+#  tags: keyboard,hwdb
+#  lineinfile:
+#    path: /etc/systemd/system/systemd-hwdb-update.service
+#    line: '#ConditionNeedsUpdate=/etc'
+#    state: present
+#    regexp: '^.*(ConditionNeedsUpdate=)/.*$'
+#    insertafter: '^\[Unit\]$'
 
 - name: keyboard | udev/hwdb | update udev rules on the fly
   tags: keyboard,hwdb
   command: udevadm trigger
+  when: hwdb_config.changed
