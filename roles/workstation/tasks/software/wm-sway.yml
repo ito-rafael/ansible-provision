@@ -52,16 +52,28 @@
 - name: software | window-manager | copy Sway dotfiles
   tags: wayland,sway
   copy:
-    src: /home/ansible/git/dotfiles/{{ item.src }}
-    dest: /home/rafael/.config/{{ item.dest }}
+    src: /home/ansible/git/dotfiles/i3-sway/{{ item.src }}
+    dest: /home/rafael/.config/sway/{{ item.dest }}
+    remote_src: true
+    owner: rafael
+    group: rafael
+    mode: 0600
+  with_items:
+    - { src: 'i3bang.rb',    dest: 'i3bang.rb' }
+    - { src: '_config_sway', dest: '_config'   }
+
+- name: software | window-manager | copy swaylock dotfiles
+  tags: wayland,sway
+  copy:
+    src: /home/ansible/git/dotfiles/swaylock/{{ item.filename }}
+    dest: /home/rafael/.config/swaylock/{{ item.filename }}
     remote_src: true
     owner: rafael
     group: rafael
     mode: "{{ item.mode }}"
   with_items:
-    - { src: 'i3-sway/_config_sway',    dest: 'sway/_config',            mode: '0600' }
-    - { src: 'swaylock/config',         dest: 'swaylock/config',         mode: '0600' }
-    - { src: 'swaylock/lock-screen.sh', dest: 'swaylock/lock-screen.sh', mode: '0700' }
+    - { filename: 'config',         mode: '0600' }
+    - { filename: 'lock-screen.sh', mode: '0700' }
 
 - name: software | window-manager | install general packages
   tags: wayland,sway
