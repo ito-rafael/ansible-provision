@@ -49,5 +49,19 @@
   kewlfft.aur.aur:
     name:
       - downgrade  # downgrade packages in Arch Linux
+    state: latest
+
+- name: software | package-manager | install informant news reader
+  tags: pacman
+  become_user: aurman
+  kewlfft.aur.aur:
+    name:
       - informant  # Arch Linux News reader and pacman hook
     state: latest
+  register: reflector_install
+
+- name: software | package-manager | read Arch Linux news after informant installation
+  tags: pacman,rafael,groups
+  command: informant read --all
+  when: reflector_install.changed
+
