@@ -1,9 +1,17 @@
-- name: software | emacs | install Emacs
+- name: development | emacs | prevent package conflicts
+  tags: emacs
+  become_user: aurman
+  kewlfft.aur.aur:
+    name:
+      - emacs
+    state: absent
+
+- name: development | emacs | install Emacs
   tags: emacs
   package:
     name: emacs-wayland
 
-- name: software | emacs | ensure Chemacs 2 dir exist
+- name: development | emacs | ensure Chemacs 2 dir exist
   tags: emacs
   file:
     path: /home/rafael/.config/chemacs
@@ -12,7 +20,7 @@
     group: rafael
     mode: 0700
 
-- name: software | emacs | clone Chemacs 2 git repo
+- name: development | emacs | clone Chemacs 2 git repo
   tags: emacs
   become_user: rafael
   git:
@@ -20,7 +28,7 @@
     repo: https://github.com/plexus/chemacs2.git
     dest: /home/rafael/.config/emacs
 
-- name: software | emacs | copy Chemacs 2 dotfiles
+- name: development | emacs | copy Chemacs 2 dotfiles
   tags: emacs
   copy:
     remote_src: yes
@@ -33,7 +41,7 @@
     - "profiles.el"  # list profiles
     - "profile"      # set default
 
-- name: software | emacs | ensure emacs EFS dir exist
+- name: development | emacs | ensure emacs EFS dir exist
   tags: emacs
   file:
     path: /home/rafael/.config/emacs-efs/desktop
@@ -42,7 +50,7 @@
     group: rafael
     mode: 0700
 
-- name: software | emacs | install EFS
+- name: development | emacs | install EFS
   tags: emacs
   copy:
     remote_src: yes
