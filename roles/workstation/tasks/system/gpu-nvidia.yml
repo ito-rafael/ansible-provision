@@ -49,7 +49,7 @@
   package:
     name:
       - nvidia        # NVIDIA kernel modules
-      - nvidia-utils  # drivers utilities (provides nvidia-smi)
+      - nvidia-utils  # drivers utilities (provides nvidia-smi, vulkan-driver)
   when:
     - maxwell_pascal_volta.stdout != ""
     - kernel == "linux"
@@ -59,7 +59,7 @@
   package:
     name:
       - nvidia-lts    # NVIDIA drivers for linux-lts
-      - nvidia-utils  # drivers utilities (provides nvidia-smi)
+      - nvidia-utils  # drivers utilities (provides nvidia-smi, vulkan-driver)
   when:
     - maxwell_pascal_volta.stdout != ""
     - kernel == "linux-lts"
@@ -70,7 +70,7 @@
   package:
     name:
       - nvidia-open   # NVIDIA open kernel modules
-      - nvidia-utils  # drivers utilities (provides nvidia-smi)
+      - nvidia-utils  # drivers utilities (provides nvidia-smi, vulkan-driver)
   when:
     - turing_ampere_adalovelace.stdout != ""
     - kernel == "linux"
@@ -92,7 +92,6 @@
       - vulkan-icd-loader        # Installable Client Driver (ICD) Loader
       - lib32-vulkan-icd-loader  # ICD for 32-bit applications (requires multilib repository)
       - vulkan-tools             # Vulkan tools and utilities
-      - nvidia-utils             # provides vulkan-driver
       - lib32-nvidia-utils       # provides lib32-vulkan-driver
 
 - name: system | GPU NVIDIA | install CUDA
