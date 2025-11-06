@@ -1,7 +1,6 @@
-- name: development | emacs | prevent package conflicts
+- name: development | emacs | prevent packages conflict
   tags: emacs
-  become_user: aurman
-  kewlfft.aur.aur:
+  package:
     name:
       - emacs
     state: absent

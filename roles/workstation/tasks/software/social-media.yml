@@ -1,7 +1,6 @@
-- name: software | social-media | prevent package conflicts
+- name: software | social-media | prevent packages conflict
   tags: social-media
-  become_user: aurman
-  kewlfft.aur.aur:
+  package:
     name:
       - slack-desktop  # Slack
     state: absent
