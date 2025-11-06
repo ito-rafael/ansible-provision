@@ -55,6 +55,7 @@
     paths: /home/rafael/.cache/install-tl/
     patterns: "install-tl-{{ ansible_date_time.year }}*"
     file_type: directory
+  when: not texlive_pdftex.stat.exists
   register: texlive_current_year_dir
 
 - name: development | latex | rename LaTeX installer dir with current year
@@ -62,7 +63,9 @@
   become_user: rafael
   ansible.builtin.command:
     cmd: mv "{{ texlive_current_year_dir.files[0].path }}" "/home/rafael/.cache/install-tl/{{ ansible_date_time.year }}"
-  when: texlive_current_year_dir.matched == 1
+  when:
+    - not texlive_pdftex.stat.exists
+    - texlive_current_year_dir.matched == 1
 
 - name: development | latex | delete tar.gz installer file
   tags: dev,latex
@@ -70,7 +73,9 @@
   ansible.builtin.file:
     path: /home/rafael/.cache/install-tl/install-tl-unx.tar.gz
     state: absent
-  when: texlive_current_year_dir.matched == 1
+  when:
+    - not texlive_pdftex.stat.exists
+    - texlive_current_year_dir.matched == 1
 
 - name: development | latex | install TeX Live
   tags: dev,latex
@@ -79,7 +84,9 @@
   args:
     cmd: perl ./install-tl --no-interaction
     chdir: /home/rafael/.cache/install-tl/{{ ansible_date_time.year }}
-  when: texlive_current_year_dir.matched == 1
+  when:
+    - not texlive_pdftex.stat.exists
+    - texlive_current_year_dir.matched == 1
 
 - name: development | latex | put executables dir in PATH
   tags: dev,latex
