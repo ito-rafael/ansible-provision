@@ -67,8 +67,9 @@
   tags: wayland,sway
   package:
     name:
-      - wl-clipboard  # clipboard utils
-      - waycheck      # Wayland protocols implementation status
+      - xorg-xwayland  # run X clients under wayland
+      - wl-clipboard   # clipboard utils
+      - waycheck       # Wayland protocols implementation status
 
 - name: software | window-manager | install general packages from AUR
   tags: wayland,sway
