@@ -62,6 +62,13 @@
     - { src: 'i3bang.rb',    dest: 'i3bang.rb' }
     - { src: '_config_sway', dest: '_config'   }
 
+- name: software | window-manager | generate Sway config from Ruby script
+  tags: wayland,sway
+  become_user: rafael
+  command:
+    cmd: ruby /home/rafael/.config/sway/i3bang.rb
+    creates: /home/rafael/.config/sway/config
+
 - name: software | window-manager | copy swaylock dotfiles
   tags: wayland,sway
   copy:
