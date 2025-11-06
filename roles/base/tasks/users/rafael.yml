@@ -25,7 +25,6 @@
     owner: rafael
     group: rafael
     mode: 0700
-    recurse: yes
     state: directory
 
 - name: users | rafael | add sudoers file
