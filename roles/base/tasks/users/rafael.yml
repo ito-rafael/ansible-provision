@@ -1,8 +1,8 @@
-#- name: users | rafael | create group
-#  tags: users,rafael,groups
-#  group:
-#    name: rafael
-#    state: present
+- name: users | rafael | create group
+  tags: users,rafael,groups
+  group:
+    name: rafael
+    state: present
 
 - name: users | rafael | create user
   tags: users,rafael
