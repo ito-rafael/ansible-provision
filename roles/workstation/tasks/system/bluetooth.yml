@@ -8,9 +8,7 @@
 - name: system | bluetooth | Blueman (GTK+ Bluetooth manager)
   tags: system,bluetooth
   package:
-    name:
-      - blueman             # blueman (Bluetooth manager)
-      - blueman-manager     # blueman GUI
+    name: blueman             # blueman GUI (Bluetooth manager)
 
 - name: system | bluetooth | check if btusb kernel module is loaded
   tags: system,bluetooth,kernel
