@@ -35,3 +35,4 @@
     - 'vpn-connecter.sh'
     - 'wlprop.sh'
     - 'xremap-keeb-config.sh'
+    - 'wait_host_up.sh'

@@ -4,3 +4,8 @@
     name:
       - dunst      # customizable and lightweight notification-daemon
       - libnotify  # dunstify: notify-send replacement with extra features
+
+- name: software | notification | install fping
+  tags: notification
+  package:
+    name: fping  # requerired by =wait_host_up.sh= script
