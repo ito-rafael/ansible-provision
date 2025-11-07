@@ -1,9 +1,9 @@
-- name: software | presentation | install pdfpc
+- name: software | presentation | pdfpc install
   tags: presentation,pdfpc
   package:
     name: pdfpc
 
-- name: software | presentation | ensure pdfpc dir exist
+- name: software | presentation | pdfpc ensure dotfile dir exist
   tags: presentation,pdfpc
   file:
     path: /home/rafael/.config/pdfpc
@@ -12,7 +12,7 @@
     group: rafael
     mode: 0700
 
-- name: software | presentation | copy pdfpc dotfile
+- name: software | presentation | pdfpc copy dotfile
   tags: presentation,pdfpc
   copy:
     remote_src: yes
@@ -21,3 +21,9 @@
     owner: rafael
     group: rafael
     mode: 0600
+
+- name: software | presentation | Projecteur install
+  tags: presentation,projecteur
+  become_user: aurman
+  kewlfft.aur.aur:
+    name: projecteur-git
