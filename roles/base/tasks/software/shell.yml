@@ -14,6 +14,13 @@
       - zsh-vi-mode
       - zsh-system-clipboard-git
 
+- name: software | shell | install Powerline
+  tags: shell,zsh
+  package:
+    name:
+      - powerline
+      - powerline-fonts
+
 - name: software | shell | change root shell to zsh
   tags: shell,zsh
   user:
@@ -42,3 +49,39 @@
     - { src: 'zshrc-root',    dest: '.config/zsh/.zshrc' }
     - { src: 'zprofile-root', dest: '.config/zsh/.zprofile' }
     - { src: 'zlogout-root',  dest: '.config/zsh/.zlogout' }
+
+- name: software | shell | change user shell to zsh
+  tags: shell,zsh
+  user:
+    name: rafael
+    shell: /usr/bin/zsh
+
+- name: software | shell | ensure zsh user dir exists
+  file:
+    path: /home/rafael/.config/zsh
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
+
+- name: software | shell | apply zsh user dotfiles
+  tags: shell,zsh
+  copy:
+    src: /home/ansible/git/dotfiles/zsh/{{ item.src }}
+    dest: /home/rafael/{{ item.dest }}
+    owner: rafael
+    group: rafael
+    mode: 0600
+  with_items:
+    - { src: 'zshrc',        dest: '.config/zsh/.zshrc' }
+    - { src: 'zshenv',       dest: '.config/zsh/.zshenv' }
+    - { src: 'zshenv-home',  dest: '.zshenv' }
+
+- name: software | shell | install Oh My Zsh
+  tags: shell,zsh,omz
+  become_user: rafael
+  shell: ZSH='/home/rafael/.config/oh-my-zsh' sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  args:
+    creates: /home/rafael/.config/oh-my-zsh/.git
+  register: ohmyzsh_result
+  failed_when: "'FAILED' in ohmyzsh_result.stderr"

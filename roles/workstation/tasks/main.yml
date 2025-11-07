@@ -55,7 +55,6 @@
   - import_tasks: software/office-suite.yml             # LibreOffice
   - import_tasks: software/pdf-viewer.yml               # Zathura
   - import_tasks: software/presentation.yml             # pdfpc
-  - import_tasks: software/shell.yml                    # Zsh (regular user)
   - import_tasks: software/ssh-agent.yml                # Keychain
   - import_tasks: software/statusline.yml               # Waybar / Polybar
   - import_tasks: software/scripts.yml                  # custom scripts
