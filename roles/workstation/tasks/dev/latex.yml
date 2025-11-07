@@ -62,7 +62,7 @@
   tags: dev,latex
   become_user: rafael
   ansible.builtin.command:
-    cmd: rf -rf "/home/rafael/.cache/install-tl/{{ ansible_date_time.year }}"
+    cmd: rm -rf "/home/rafael/.cache/install-tl/{{ ansible_date_time.year }}"
   when:
     - not texlive_pdftex.stat.exists
     - texlive_current_year_dir.matched == 1
