@@ -1,9 +1,6 @@
-- name: software | notification | notification-server
+- name: software | notification | install dunst
   tags: notification,dunst
   package:
-    name: notification-daemon
-
-- name: software | notification | dunst
-  tags: notification,dunst
-  package:
-    name: dunst
+    name:
+      - dunst      # customizable and lightweight notification-daemon
+      - libnotify  # dunstify: notify-send replacement with extra features
