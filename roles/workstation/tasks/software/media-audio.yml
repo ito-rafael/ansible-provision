@@ -6,3 +6,16 @@
 #      - spotify
 #      - youtube-music-bin
 #      - spotube-bin
+
+- name: software | media | install tools
+  tags: media,audio
+  package:
+    name:
+      - fatsort         # sort media in disk by date
+      - mediainfo       # bitrate and other info
+
+- name: software | media | install puddletag
+  tags: media,audio
+  become_user: aurman
+  kewlfft.aur.aur:
+    name: puddletag
