@@ -3,16 +3,16 @@
 
 - block:
   # set up ansible environment
-  - import_tasks: users/ansible.yml           # create ansible user
-  - import_tasks: software/ansible.yml        # clone ansible-provision repo
-  - import_tasks: software/fcron.yml          # install & setup fcron
-  - import_tasks: software/openssh.yml        # install OpenSSH
-  - import_tasks: system/openssh_keys.yml     # setup ssh keys
-  - import_tasks: system/auto-provision.yml   # ansible auto-provision
+  - import_tasks: users/ansible.yml          # create ansible user
+  - import_tasks: software/ansible.yml       # clone ansible-provision repo
+  - import_tasks: software/fcron.yml         # install & setup fcron
+  - import_tasks: software/openssh.yml       # install OpenSSH
+  - import_tasks: system/openssh_keys.yml    # setup ssh keys
+  - import_tasks: system/auto-provision.yml  # Ansible auto-provision
   
   # system setup
-  - import_tasks: users/rafael.yml            # create regular user
-  - import_tasks: users/dotfiles.yml          # clone dotfiles repo
-  - import_tasks: software/neovim.yml         # Neovim
-  - import_tasks: software/shell.yml          # Zsh (root)
-  - import_tasks: system/ntp.yml              # synchronize time
+  - import_tasks: users/rafael.yml           # create regular user
+  - import_tasks: users/dotfiles.yml         # clone dotfiles repo
+  - import_tasks: system/ntp.yml             # synchronize time
+  - import_tasks: software/shell.yml         # Zsh
+  - import_tasks: software/text-editor.yml   # Neovim

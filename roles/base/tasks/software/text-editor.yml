@@ -1,0 +1,58 @@
+- name: software | terminal text editor | install Neovim
+  tags: vim
+  package:
+    name: neovim
+    state: latest
+
+- name: software | terminal text editor | create vim symlink
+  tags: vim
+  file:
+    src: /usr/bin/nvim
+    path: /usr/bin/vim
+    state: link
+
+- name: software | terminal | ensure Neovim root dir exists
+  tags: vim
+  file:
+    path: /root/.config/nvim
+    state: directory
+    owner: root
+    group: root
+    mode: 0700
+
+- name: software | terminal text editor | copy Neovim root dotfiles
+  tags: vim
+  copy:
+    remote_src: yes
+    src: /home/ansible/git/dotfiles/nvim/{{ item.src }}
+    dest: /root/.config/nvim/{{ item.dest }}
+    owner: root
+    group: root
+    mode: 0600
+  with_items:
+    - { src: 'init.lua-root',  dest: 'init.lua',  mode: '0600' }
+    - { src: 'vimrc.vim-root', dest: 'vimrc.vim', mode: '0600' }
+
+- name: software | terminal | ensure Neovim user dir exists
+  tags: vim
+  file:
+    path: /home/rafael/.config/nvim/lua
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
+
+- name: software | terminal text editor | copy Neovim user dotfiles
+  tags: vim
+  copy:
+    remote_src: yes
+    src: /home/ansible/git/dotfiles/nvim/{{ item.src }}
+    dest: /home/rafael/.config/nvim/{{ item.dest }}
+    owner: rafael
+    group: rafael
+    mode: "{{ item.mode }}"
+  with_items:
+    - { src: 'init.lua',    dest: 'init.lua',   mode: '0600' }
+    - { src: 'vimrc.vim',   dest: 'vimrc.vim',  mode: '0600' }
+    - { src: 'lua/config',  dest: 'lua',        mode: '0700' }
+    #- { src: 'lua/plugins', dest: 'lua',        mode: '0700' }
