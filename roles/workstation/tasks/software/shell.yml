@@ -1,12 +1,8 @@
-- name: software | shell | install zsh
-  tags: shell,zsh
-  package:
-    name: zsh
-
-- name: software | shell | install zsh plugins
+- name: software | shell | install zsh packages and plugins
   tags: shell,zsh
   package:
     name:
+      - zsh
       - zsh-autosuggestions
       - zsh-syntax-highlighting
 
@@ -16,6 +12,7 @@
   kewlfft.aur.aur:
     name:
       - zsh-vi-mode
+      - zsh-system-clipboard-git
 
 - name: software | shell | install Powerline
   tags: shell,zsh
@@ -24,15 +21,13 @@
       - powerline
       - powerline-fonts
 
-- name: software | shell | change default shell to zsh
+- name: software | shell | change user shell to zsh
   tags: shell,zsh
-  become: yes
   user:
     name: rafael
     shell: /usr/bin/zsh
 
-- name: software | shell | ensure zsh dir exist
-  tags: shell,zsh
+- name: software | shell | ensure zsh user dir exists
   file:
     path: /home/rafael/.config/zsh
     state: directory
@@ -40,25 +35,24 @@
     group: rafael
     mode: 0700
 
+- name: software | shell | apply zsh user dotfiles
+  tags: shell,zsh
+  copy:
+    src: /home/ansible/git/dotfiles/zsh/{{ item.src }}
+    dest: /home/rafael/{{ item.dest }}
+    owner: rafael
+    group: rafael
+    mode: 0600
+  with_items:
+    - { src: 'zshrc',        dest: '.config/zsh/.zshrc' }
+    - { src: 'zshenv',       dest: '.config/zsh/.zshenv' }
+    - { src: 'zshenv-home',  dest: '.zshenv' }
+
 - name: software | shell | install Oh My Zsh
-  tags: shell,zsh,oh-my-zsh
+  tags: shell,zsh,omz
   become_user: rafael
   shell: ZSH='/home/rafael/.config/oh-my-zsh' sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   args:
     creates: /home/rafael/.config/oh-my-zsh/.git
   register: ohmyzsh_result
   failed_when: "'FAILED' in ohmyzsh_result.stderr"
-
-- name: software | shell | copy zsh dotfiles
-  tags: shell,zsh
-  copy:
-    remote_src: yes
-    src: /home/ansible/git/dotfiles/zsh/{{ item.src }}
-    dest: /home/rafael/{{ item.dest }}
-    owner: rafael
-    group: rafael
-    mode: "{{ item.mode }}"
-  with_items:
-    - { src: 'zshrc', dest: '.config/zsh/.zshrc', mode: '0600' }
-    - { src: 'zshenv', dest: '.config/zsh/.zshenv', mode: '0600' }
-    - { src: 'zshenv_home', dest: '.zshenv', mode: '0600' }

@@ -1,0 +1,44 @@
+- name: software | shell | install zsh packages/plugins
+  tags: shell,zsh
+  package:
+    name:
+      - zsh
+      - zsh-autosuggestions
+      - zsh-syntax-highlighting
+
+- name: software | shell | install zsh packages from AUR
+  tags: shell,zsh
+  become_user: aurman
+  kewlfft.aur.aur:
+    name:
+      - zsh-vi-mode
+      - zsh-system-clipboard-git
+
+- name: software | shell | change root shell to zsh
+  tags: shell,zsh
+  user:
+    name: root
+    shell: /bin/zsh
+
+- name: software | shell | ensure zsh root dir exists
+  file:
+    path: /root/.config/zsh
+    state: directory
+    owner: root
+    group: root
+    mode: 0700
+
+- name: software | shell | apply zsh root dotfiles
+  tags: shell,zsh
+  copy:
+    src: /home/ansible/git/dotfiles/zsh/{{ item.src }}
+    dest: /root/{{ item.dest }}
+    owner: root
+    group: root
+    mode: 0600
+  with_items:
+    - { src: 'zshenv-home',   dest: '.zshenv' }
+    - { src: 'zshenv-root',   dest: '.config/zsh/.zshenv' }
+    - { src: 'zshrc-root',    dest: '.config/zsh/.zshrc' }
+    - { src: 'zprofile-root', dest: '.config/zsh/.zprofile' }
+    - { src: 'zlogout-root',  dest: '.config/zsh/.zlogout' }
