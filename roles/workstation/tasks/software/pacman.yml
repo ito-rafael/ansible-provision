@@ -65,3 +65,9 @@
   command: informant read --all
   when: reflector_install.changed
 
+- name: software | package-manager | add user to informant group
+  tags: pacman,rafael,groups
+  user:
+    name: rafael
+    append: yes
+    groups: informant
