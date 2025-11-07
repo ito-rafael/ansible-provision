@@ -7,12 +7,22 @@
 
 - name: system | grub | set path of snapshots in grub-btrfsd
   tags: system,grub
-  lineinfile:
-    path: /etc/systemd/system/grub-btrfsd.service
-    line: 'ExecStart=/usr/bin/grub-btrfsd --syslog /.snapshot'
-    state: present
-    regexp: '^ExecStart=.*'
-    insertafter: '^\[Service\]$'
+  copy:
+    src: /home/ansible/git/dotfiles/systemd/system/grub-btrfsd.service
+    dest: /etc/systemd/system/grub-btrfsd.service
+    remote_src: true
+    owner: root
+    group: root
+    mode: 0644
+
+#- name: system | grub | set path of snapshots in grub-btrfsd
+#  tags: system,grub
+#  lineinfile:
+#    path: /etc/systemd/system/grub-btrfsd.service
+#    line: 'ExecStart=/usr/bin/grub-btrfsd --syslog /.snapshot'
+#    state: present
+#    regexp: '^ExecStart=.*'
+#    insertafter: '^\[Service\]$'
 
 - name: system | grub | include BTRFS snapshots in GRUB
   tags: system,grub
