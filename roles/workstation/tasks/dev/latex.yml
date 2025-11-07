@@ -58,11 +58,15 @@
   when: not texlive_pdftex.stat.exists
   register: texlive_current_year_dir
 
-- name: development | latex | delete preview installer if it exists
+- name: development | latex | delete preview installer dir and tar.gz file
   tags: dev,latex
   become_user: rafael
-  ansible.builtin.command:
-    cmd: rm -rf "/home/rafael/.cache/install-tl/{{ ansible_date_time.year }}"
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: absent
+  with_items:
+    - /home/rafael/.cache/install-tl/install-tl-unx.tar.gz
+    - /home/rafael/.cache/install-tl/{{ ansible_date_time.year }}
   when:
     - not texlive_pdftex.stat.exists
     - texlive_current_year_dir.matched == 1
@@ -76,22 +80,12 @@
     - not texlive_pdftex.stat.exists
     - texlive_current_year_dir.matched == 1
 
-- name: development | latex | delete tar.gz installer file
-  tags: dev,latex
-  become_user: rafael
-  ansible.builtin.file:
-    path: /home/rafael/.cache/install-tl/install-tl-unx.tar.gz
-    state: absent
-  when:
-    - not texlive_pdftex.stat.exists
-    - texlive_current_year_dir.matched == 1
-
 - name: development | latex | install TeX Live
   tags: dev,latex
   #become_user: rafael
   ansible.builtin.shell:
   args:
-    cmd: perl ./install-tl --no-interaction
+    cmd: perl ./install-tl --no-interaction --location https://mirror.example.org/ctan/path/systems/texlive/tlnet
     chdir: /home/rafael/.cache/install-tl/{{ ansible_date_time.year }}
   when:
     - not texlive_pdftex.stat.exists
