@@ -3,6 +3,7 @@
   group:
     name: aurman
     state: present
+    system: true
 
 - name: users | aurman | create user
   tags: aur,aurman,users
