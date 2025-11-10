@@ -11,7 +11,7 @@
   package:
     name:
       - powerline
-      - powerline-fonts
+      - "{{ powerline_fonts_pkg }}"
 
 - name: software | shell | change root shell to zsh
   tags: shell,zsh
