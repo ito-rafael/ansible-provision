@@ -1,0 +1,5 @@
+- name: software | miscellaneous | IRPF Brazilian income tax program
+  tags: miscellaneous,irpf
+  become_user: aurman
+  aur:
+    name: irpf
