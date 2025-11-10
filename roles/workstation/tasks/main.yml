@@ -59,6 +59,7 @@
   - import_tasks: software/statusline.yml               # Waybar / Polybar
   - import_tasks: software/scripts.yml                  # custom scripts
   - import_tasks: software/screenshot.yml               # screenshot tools
+  - import_tasks: software/shell.yml                    # Zsh
   - import_tasks: software/social-media.yml             # Slack, WhatsApp, Discord, etc
   - import_tasks: software/syncthing.yml                # Syncthing
   - import_tasks: software/terminal.yml                 # kitty

@@ -1,0 +1,8 @@
+- name: software | shell | install zsh packages from AUR
+  tags: shell,zsh
+  become_user: aurman
+  kewlfft.aur.aur:
+    name:
+      - zsh-vi-mode
+      - zsh-system-clipboard-git
+  when: ansible_distribution == "Archlinux"
