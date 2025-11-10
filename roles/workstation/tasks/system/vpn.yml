@@ -19,3 +19,39 @@
   package:
     name:
       - yad  # dialogs used by custom VPN launcher script
+
+- name: software | vpn | ensure vpn dir exist
+  tags: vpn
+  file:
+    path: /home/rafael/.config/vpn
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
+
+- name: software | vpn | copy scripts
+  tags: vpn
+  copy:
+    remote_src: yes
+    src: /home/ansible/git/dotfiles/vpn/{{ item }}
+    dest: /home/rafael/.config/vpn/{{ item }}
+    owner: rafael
+    group: rafael
+    mode: 0700
+  with_items:
+    - 'lcn'
+    - 'unicamp'
+    - 'lbic'
+    - 'samsung'
+
+- name: software | vpn | ensure OpenVPN client dirs exist
+  tags: vpn
+  file:
+    path: /etc/openvpn/client/{{ item }}
+    state: directory
+    owner: root
+    group: root
+    mode: 0700
+  with_items:
+    - lbic
+    - unicamp
