@@ -41,6 +41,7 @@
   - import_tasks: system/mouse.yml                      # LogiOps driver
   - import_tasks: system/network.yml                    # NetworkManager
   - import_tasks: system/printer.yml                    # CUPS, driver, GUI
+  - import_tasks: system/vpn.yml                        # VPN
 
   # Applications
   - import_tasks: software/android.yml                  # Android

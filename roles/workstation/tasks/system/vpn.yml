@@ -1,0 +1,21 @@
+- name: software | vpn | install packages for OpenVPN
+  tags: vpn
+  package:
+    name:
+      - openvpn                 # OpenVPN daemon
+      - networkmanager-openvpn  # NetworkManager plugin for OpenVPN
+
+- name: software | vpn | install packages for OpenConnect
+  tags: vpn
+  package:
+    name:
+      - openconnect                 # client for Cisco's AnyConnect SSL VPN)
+      - networkmanager-openconnect  # NetworkManager VPN plugin for OpenConnect
+      - stoken                      # RSA SecurID
+      - vpnc                        # VPN client for Cisco
+
+- name: software | vpn | install packages for VPN launcher script
+  tags: vpn
+  package:
+    name:
+      - yad  # dialogs used by custom VPN launcher script
