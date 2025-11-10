@@ -5,7 +5,7 @@
   # set up ansible environment
   - import_tasks: users/ansible.yml          # create ansible user
   - import_tasks: software/ansible.yml       # clone ansible-provision repo
-  - import_tasks: software/fcron.yml         # install & setup fcron
+  - import_tasks: software/cron.yml          # install & setup cron/fcron
   - import_tasks: software/openssh.yml       # install OpenSSH
   - import_tasks: system/openssh_keys.yml    # setup ssh keys
   - import_tasks: system/auto-provision.yml  # Ansible auto-provision

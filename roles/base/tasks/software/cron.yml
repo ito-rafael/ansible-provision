@@ -1,7 +1,7 @@
 - name: system | fcron | install package
   tags: ansible,fcron
   package:
-    name: "{{ cron_package }}"
+    name: "{{ cron_pkg }}"
     state: latest
 
 - name: system | fcron | disable sendmail
