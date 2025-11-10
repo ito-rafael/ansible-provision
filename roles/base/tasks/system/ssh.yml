@@ -1,0 +1,74 @@
+- name: system | ssh | install OpenSSH [Arch]
+  tags: ssh
+  package:
+    name: openssh
+    state: latest
+  when: ansible_distribution == "Archlinux"
+
+- name: system | ssh | install OpenSSH [Debian]
+  tags: ssh
+  package:
+    name:
+      - openssh-server
+      - openssh-client
+    state: latest
+  when: ansible_distribution == "Debian"
+
+- name: system | ssh | create ssh keys dir
+  tags: ssh,ssh-keys
+  file:
+    path: /home/rafael/.ssh
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
+
+- name: system | ssh | generate ssh keys
+  tags: ssh,ssh-keys
+  openssh_keypair:
+    path: /home/rafael/.ssh/id_ed25519
+    type: ed25519
+    state: present
+    owner: rafael
+    group: rafael
+    comment: "Ansible"
+
+- name: system | ssh | create known_hosts & authorized_keys files
+  tags: ssh,ssh-keys
+  copy:
+    content: ""
+    dest: "{{ item }}"
+    force: no
+    owner: rafael
+    group: rafael
+    mode: 0600
+  with_items:
+    - /home/rafael/.ssh/known_hosts
+    - /home/rafael/.ssh/authorized_keys
+
+- name: system | ssh | copy ssh keys
+  tags: ssh,ssh-keys
+  ansible.posix.authorized_key:
+    user: rafael
+    state: present
+    manage_dir: true
+    key: "{{ lookup('file', item.path) }}"
+    comment: "{{ item.comment }}"
+  with_items:
+    - { path: "role_path + /files/ssh-keys/ipf-archlinux.pub", comment: "IPF-ArchLinux" }
+
+- name: system | ssh | start daemon [Arch]
+  tags: ssh
+  systemd:
+    name: sshd
+    state: started
+    enabled: yes
+  when: ansible_distribution == "Archlinux"
+
+- name: system | ssh | start daemon [Debian]
+  tags: ssh
+  systemd:
+    name: ssh
+    state: started
+    enabled: yes
+  when: ansible_distribution == "Debian"
