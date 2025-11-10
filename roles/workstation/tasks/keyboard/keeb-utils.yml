@@ -3,6 +3,7 @@
 #  package:
 #    name:
 #      - screenkey       # screencast tool
+#  when: display_manager == "x11"
 
 #- name: software | utils | keyboard tools (Wayland)
 #  tags: utils,tools
@@ -10,6 +11,7 @@
 #  kewlfft.aur.aur:
 #    name:
 #      - wshowkeys-git   # screencast tool
+#  when: display_manager == "wayland"
 
 - name: software | utils | keyboard tools (X11/Wayland)
   tags: utils,tools

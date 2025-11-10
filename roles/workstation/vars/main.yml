@@ -1,0 +1,5 @@
+mapping:
+  sway: wayland
+  i3: x11
+
+display_server: "{{ mapping[window_manager] | default('unknown') }}"
