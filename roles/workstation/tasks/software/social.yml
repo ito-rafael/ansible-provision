@@ -1,0 +1,38 @@
+- name: software | social | Slack prevent packages conflict
+  tags: social,slack
+  package:
+    name: slack-desktop
+    state: absent
+
+- name: software | social | Slack install
+  tags: social,slack
+  become_user: aurman
+  kewlfft.aur.aur:
+    name: slack-desktop-wayland
+
+- name: software | social | WhatsApp client install (WasIstLos)
+  tags: social
+  become_user: aurman
+  kewlfft.aur.aur:
+    name: wasistlos
+
+- name: software | social | Discord install
+  tags: social
+  package:
+    name: discord
+
+- name: software | social | Zoom install
+  tags: social
+  become_user: aurman
+  kewlfft.aur.aur:
+    name: zoom
+
+- name: software | zoom | copy Zoom dotfile
+  tags: zoom
+  copy:
+    remote_src: yes
+    src: /home/ansible/git/dotfiles/zoom/zoomus.conf
+    dest: /home/rafael/.config/zoomus.conf
+    owner: rafael
+    group: rafael
+    mode: 0600

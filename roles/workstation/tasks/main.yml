@@ -61,7 +61,7 @@
   - import_tasks: software/scripts.yml                  # custom scripts
   - import_tasks: software/screenshot.yml               # screenshot tools
   - import_tasks: software/shell.yml                    # Zsh
-  - import_tasks: software/social-media.yml             # Slack, WhatsApp, Discord, etc
+  - import_tasks: software/social.yml                   # Slack, WhatsApp, Discord, Zoom
   - import_tasks: software/syncthing.yml                # Syncthing
   - import_tasks: software/terminal.yml                 # kitty
   - import_tasks: software/theme.yml                    # GTK-{3,4}
