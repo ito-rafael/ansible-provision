@@ -57,6 +57,56 @@
   with_items:
     - { path: "role_path + /files/ssh-keys/ipf-archlinux.pub", comment: "IPF-ArchLinux" }
 
+#- name: system | ssh | copy config file for SSH server
+#  tags: system,ssh
+#  copy:
+#    src: /home/ansible/git/dotfiles/openssh/sshd_config
+#    dest: /etc/ssh/sshd_config
+#    remote_src: true
+#    owner: root
+#    group: root
+#    mode: 0644
+
+- name: system | ssh | sshd disable password authentication
+  tags: ssh
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    line: 'PasswordAuthentication no'
+    regexp: '^#?PasswordAuthentication'
+    state: present
+
+- name: system | ssh | sshd disable root login
+  tags: ssh
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    line: 'PermitRootLogin no'
+    regexp: '^#?PermitRootLogin'
+    state: present
+
+- name: system | ssh | sshd enable pubkey authentication
+  tags: ssh
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    line: 'PubkeyAuthentication yes'
+    regexp: '^#?PubkeyAuthentication'
+    state: present
+
+- name: system | ssh | sshd change default port
+  tags: ssh
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    line: 'Port 2222'
+    regexp: '^#?Port'
+    state: present
+
+- name: system | ssh | sshd set allowed group to ssh
+  tags: ssh
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    line: 'AllowGroups sshuser'
+    regexp: '^#?AllowGroups'
+    state: present
+
 - name: system | ssh | start daemon [Arch]
   tags: ssh
   systemd:
