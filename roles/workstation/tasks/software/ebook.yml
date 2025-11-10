@@ -1,0 +1,10 @@
+- name: software | e-reader | install calibre
+  tags: ereader,calibre
+  package:
+    name: calibre
+
+- name: software | e-reader | install KOReader
+  tags: ereader,koreader
+  become_user: aurman
+  kewlfft.aur.aur:
+    name: koreader-bin
