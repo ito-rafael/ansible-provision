@@ -5,3 +5,15 @@
       - ttf-font-awesome                # Font Awesome
       - ttf-jetbrains-mono              # JetBrains Mono
       - ttf-ubuntu-font-family          # Ubuntu Font Family
+
+- name: system | fonts | install Font Manager
+  tags: system,fonts
+  package:
+    name:
+      - font-manager
+
+- name: system | fonts | install emoji picker
+  tags: system,fonts
+  become_user: aurman
+  kewlfft.aur.aur:
+    name: emote
