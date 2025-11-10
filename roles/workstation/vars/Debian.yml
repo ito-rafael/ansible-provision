@@ -1,0 +1,2 @@
+sudo_group: sudo
+wpa_supplicant_pkg: wpasupplicant

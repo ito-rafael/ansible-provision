@@ -1,2 +1,2 @@
 sudo_group: wheel
-wpa_supplicant_package: wpa_supplicant
+wpa_supplicant_pkg: wpa_supplicant
