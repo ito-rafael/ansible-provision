@@ -1,13 +1,3 @@
-- name: system | network Wi-Fi | install Wi-Fi related packages
-  tags: system,network
-  package:
-    name:
-      - iproute2                    # IP Routing Utilities
-      - util-linux                  # provides rfkill (and much more)
-      - "{{ wpa_supplicant_pkg }}"  # WPA Supplicant
-      - iw                          # nl80211-based CLI config util
-  when: wifi
-
 - name: system | network | install network packages
   tags: system,network
   package:

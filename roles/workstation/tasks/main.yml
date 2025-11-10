@@ -42,6 +42,7 @@
   - import_tasks: system/network.yml                    # NetworkManager
   - import_tasks: system/printer.yml                    # CUPS, driver, GUI
   - import_tasks: system/vpn.yml                        # VPN
+  - import_tasks: system/wifi.yml                       # eduroam
 
   # Applications
   - import_tasks: software/android.yml                  # Android
