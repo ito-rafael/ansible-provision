@@ -3,3 +3,9 @@
   become_user: aurman
   aur:
     name: irpf
+
+- name: software | miscellaneous | bank BB
+  tags: miscellaneous,bank
+  become_user: aurman
+  aur:
+    name: warsaw-bin
