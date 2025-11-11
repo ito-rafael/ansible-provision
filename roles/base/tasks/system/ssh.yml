@@ -107,6 +107,13 @@
     regexp: '^#?AllowGroups'
     state: present
 
+- name: system | ssh | add user to sshuser group
+  tags: ssh
+  user:
+    name: rafael
+    append: yes
+    groups: sshuser
+
 - name: system | ssh | start daemon [Arch]
   tags: ssh
   systemd:
