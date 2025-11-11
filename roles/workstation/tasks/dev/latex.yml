@@ -17,7 +17,7 @@
 - name: development | latex | check if TeX Live of current year is already installed
   tags: dev,latex
   ansible.builtin.stat:
-    path: /usr/local/texlive/{{ ansible_date_time.year }}/bin/x86_64-linux/pdftex
+    path: /usr/local/texlive/{{ ansible_facts['date_time']['year'] }}/bin/x86_64-linux/pdftex
   register: texlive_pdftex
 
 - name: development | latex | ensure LaTeX installer dir exists
@@ -53,7 +53,7 @@
   become_user: rafael
   ansible.builtin.find:
     paths: /home/rafael/.cache/install-tl/
-    patterns: "install-tl-{{ ansible_date_time.year }}*"
+    patterns: "install-tl-{{ ansible_facts['date_time']['year'] }}*"
     file_type: directory
   when: not texlive_pdftex.stat.exists
   register: texlive_current_year_dir
@@ -66,7 +66,7 @@
     state: absent
   with_items:
     - /home/rafael/.cache/install-tl/install-tl-unx.tar.gz
-    - /home/rafael/.cache/install-tl/{{ ansible_date_time.year }}
+    - /home/rafael/.cache/install-tl/{{ ansible_facts['date_time']['year'] }}
   when:
     - not texlive_pdftex.stat.exists
     - texlive_current_year_dir.matched == 1
@@ -75,7 +75,7 @@
   tags: dev,latex
   become_user: rafael
   ansible.builtin.command:
-    cmd: mv "{{ texlive_current_year_dir.files[0].path }}" "/home/rafael/.cache/install-tl/{{ ansible_date_time.year }}"
+    cmd: mv "{{ texlive_current_year_dir.files[0].path }}" "/home/rafael/.cache/install-tl/{{ ansible_facts['date_time']['year'] }}"
   when:
     - not texlive_pdftex.stat.exists
     - texlive_current_year_dir.matched == 1
@@ -86,7 +86,7 @@
   ansible.builtin.shell:
   args:
     cmd: perl ./install-tl --no-interaction --repository https://mirror.ctan.org/systems/texlive/tlnet
-    chdir: /home/rafael/.cache/install-tl/{{ ansible_date_time.year }}
+    chdir: /home/rafael/.cache/install-tl/{{ ansible_facts['date_time']['year'] }}
   when:
     - not texlive_pdftex.stat.exists
     - texlive_current_year_dir.matched == 1
@@ -100,11 +100,11 @@
     regexp: "{{ item.regexp }}"
   with_items:
     - {
-        line: "export PATH=$PATH:/usr/local/texlive/{{ ansible_date_time.year }}/bin/x86_64-linux  # TeX Live",
+        line: "export PATH=$PATH:/usr/local/texlive/{{ ansible_facts['date_time']['year'] }}/bin/x86_64-linux  # TeX Live",
         regexp: "^export PATH=\\$PATH:/usr/local/texlive/\\d{4}/bin/x86_64-linux .*# TeX Live"
       }
     - {
-        line: "export TEXMFDIST='/usr/local/texlive/{{ ansible_date_time.year }}/texmf-dist'",
+        line: "export TEXMFDIST='/usr/local/texlive/{{ ansible_facts['date_time']['year'] }}/texmf-dist'",
         regexp: "^export TEXMFDIST='/usr/local/texlive/\\d{4}/texmf-dist'"
       }
 
@@ -114,3 +114,58 @@
   kewlfft.aur.aur:
     name: zotero-bin
   when: ansible_facts['distribution'] == "Archlinux"
+
+
+
+
+
+
+
+## Better BibTeX for Zotero
+## curl -s https://api.github.com/repos/retorquere/zotero-better-bibtex/releases/latest | grep "browser_download_url.*xpi" | cut -d : -f 2,3 | tr -d \" | wget -qi -
+#
+##  vars:
+##    zotero_addons_dir: "{{ lookup('env', 'HOME') }}/.zotero/zotero/profile.default/extensions"
+##    bbt_xpi_url: "https://github.com/retorquere/zotero-better-bibtex/releases/latest/download/zotero-better-bibtex.xpi"
+##    bbt_xpi_file: "{{ zotero_addons_dir }}/zotero-better-bibtex@retorquere.xpi"
+#
+#
+#-----------------------------------
+#- name: Get latest release info
+#  uri:
+#    url: https://api.github.com/repos/retorquere/zotero-better-bibtex/releases/latest
+#    return_content: yes
+#  register: bbt_release
+#
+#- name: Download latest Better BibTeX release
+#  get_url:
+#    url: "{{ (bbt_release.json.assets | selectattr('name', 'search', '.xpi') | list)[0].browser_download_url }}"
+#    dest: "{{ bbt_xpi_file }}"
+#-----------------------------------
+#
+#
+## maybe I will need to run this command to discover the exact dir:
+##   find ~/.zotero -type d -name "extensions"
+##   /home/rafael/.zotero/zotero/n2mdk1e7.default/extensions
+#
+#- name: development | latex | ensure Zotero extensions dir exists
+#  tags: dev,latex,zotero
+#  become_user:
+#  file:
+#    #path: "{{ lookup('env', 'HOME') }}/.zotero/zotero/profile.default/extensions"
+#    path: /home/rafael/.zotero/zotero/profile.default/extensions
+#    state: directory
+#    owner: rafael
+#    group: rafael
+#    mode: 0700
+#
+#- name: development | latex | ensure Zotero extensions dir exists
+#  tags: dev,latex,zotero
+#  get_url:
+#    url: https://github.com/retorquere/zotero-better-bibtex/releases/latest/download/zotero-better-bibtex.xpi
+#    dest: /home/rafael/.zotero/zotero/profile.default/extensios/zotero-better-bibtex@retorquere.xpi
+#    mode: 0600
+#  # optional checksum to ensure re-download if changed
+#  #checksum: no
+#
+## the installation will be finalized after Zotero is launched
