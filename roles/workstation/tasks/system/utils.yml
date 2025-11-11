@@ -2,3 +2,17 @@
 #  tags: sys-utils
 #  package:
 #    name: keychain
+
+- name: system | utils | install monitoring-tools
+  tags: sys-utils
+  package:
+    name:
+      - htop              # interactive process viewer
+      - usbutils          # lsusb
+      - demicode          # motherboard info
+      - lshw              # hardware info
+      - ncdu              # disk usage (TUI)
+      - lm_sensors        # temperatures, voltage, fans
+      - brightnessctl     # screen brightness
+      - mission-center    # monitor CPU, Memory, Disk, Network and GPU usage
+      #- glances          # htop alternative in Python
