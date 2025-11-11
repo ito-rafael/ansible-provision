@@ -31,7 +31,7 @@
     state: present
     owner: rafael
     group: rafael
-    comment: "Ansible"
+    comment: "{{ ansible_hostname }}"
 
 - name: system | ssh | create known_hosts & authorized_keys files
   tags: ssh,ssh-keys
@@ -55,7 +55,7 @@
     key: "{{ lookup('file', item.path) }}"
     comment: "{{ item.comment }}"
   with_items:
-    - { path: "role_path + /files/ssh-keys/ipf-archlinux.pub", comment: "IPF-ArchLinux" }
+    - { path: "{{ role_path }}/files/ssh-keys/ipf-archlinux.pub", comment: "IPF-ArchLinux" }
 
 #- name: system | ssh | copy config file for SSH server
 #  tags: system,ssh
