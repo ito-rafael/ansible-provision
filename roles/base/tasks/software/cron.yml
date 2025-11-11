@@ -1,27 +1,38 @@
-- name: system | fcron | install package
-  tags: ansible,fcron
+- name: system | cron | install package
+  tags: ansible,cron
   package:
     name: "{{ cron_pkg }}"
     state: latest
 
-- name: system | fcron | disable sendmail
-  tags: ansible,fcron
+#- name: system | cron | disable sendmail
+#  tags: ansible,cron
+#  replace:
+#    path: /etc/crontab
+#    regexp: '^MAILTO='
+#    line: 'MAILTO=""'
+#    state: present
+#    insertafter: BOF
+#  when: ansible_facts['distribution'] == "Debian"
+
+- name: system | cron | disable sendmail
+  tags: ansible,cron
   replace:
     path: /etc/fcron/fcron.conf
     regexp: '^(sendmail.*=.*/usr/bin/sendmail)$'
     replace: '#\g<1>'
+  when: ansible_facts['distribution'] == "Archlinux"
 
-- name: system | fcron | start daemon
-  tags: ansible,fcron
+- name: system | cron | start daemon
+  tags: ansible,cron
   systemd:
-    name: fcron
+    name: "{{ cron_pkg }}"
     state: started
     enabled: yes
-  when: ansible_distribution == "Archlinux"
 
-- name: system | fcron | crontab symlink
-  tags: ansible,fcron
+- name: system | cron | crontab symlink
+  tags: ansible,cron
   file:
     src: /usr/bin/fcrontab
     path: /usr/bin/crontab
     state: link
+  when: ansible_facts['distribution'] == "Archlinux"
