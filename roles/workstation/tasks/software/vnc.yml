@@ -1,0 +1,18 @@
+- name: software | vnc | install TigerVNC VNC server (X11)
+  tags: vnc
+  package:
+    name: tigervnc
+  when: display_manager == "x11"
+
+- name: software | vnc | install wayvnc VNC server (Wayland)
+  tags: vnc
+  package:
+    name: wayvnc
+  when: display_manager == "wayland"
+
+- name: software | vnc | install VNC client (virt-viewer)
+  tags: vnc
+  package:
+    name:
+     - libvirt        # API for controlling virtualization engines
+     - virt-viewer    # Interface for interacting with the graphical display of virtualized guest OS
