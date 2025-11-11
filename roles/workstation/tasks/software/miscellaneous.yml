@@ -1,11 +1,13 @@
 - name: software | miscellaneous | IRPF Brazilian income tax program
   tags: miscellaneous,irpf
   become_user: aurman
-  aur:
+  kewlfft.aur.aur:
     name: irpf
+  when: ansible_distribution == "Archlinux"
 
 - name: software | miscellaneous | bank BB
   tags: miscellaneous,bank
   become_user: aurman
-  aur:
+  kewlfft.aur.aur:
     name: warsaw-bin
+  when: ansible_distribution == "Archlinux"
