@@ -9,12 +9,14 @@
   become_user: aurman
   kewlfft.aur.aur:
     name: slack-desktop-wayland
+  when: ansible_facts['distribution'] == "Archlinux"
 
 - name: software | social | WhatsApp client install (WasIstLos)
   tags: social
   become_user: aurman
   kewlfft.aur.aur:
     name: wasistlos
+  when: ansible_facts['distribution'] == "Archlinux"
 
 - name: software | social | Discord install
   tags: social
@@ -26,6 +28,7 @@
   become_user: aurman
   kewlfft.aur.aur:
     name: zoom
+  when: ansible_facts['distribution'] == "Archlinux"
 
 - name: software | zoom | copy Zoom dotfile
   tags: zoom

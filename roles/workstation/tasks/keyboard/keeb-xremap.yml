@@ -10,6 +10,7 @@
   become_user: aurman
   kewlfft.aur.aur:
     name: xremap-wlroots-bin
+  when: ansible_facts['distribution'] == "Archlinux"
 
 #- name: keyboard | xremap | install xremap (Cargo)
 #  tags: keyboard,xremap

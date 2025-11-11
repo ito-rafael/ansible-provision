@@ -3,6 +3,7 @@
   become_user: aurman
   kewlfft.aur.aur:
     name: kanata-bin
+  when: ansible_facts['distribution'] == "Archlinux"
 
 - name: keyboard | kanata | ensure kanata dirs exist
   tags: keyboard,kanata

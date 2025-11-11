@@ -11,7 +11,9 @@
 #  kewlfft.aur.aur:
 #    name:
 #      - wshowkeys-git   # screencast tool
-#  when: display_manager == "wayland"
+#  when:
+#    - display_manager == "wayland"
+#    - ansible_facts['distribution'] == "Archlinux"
 
 - name: software | utils | keyboard tools (X11/Wayland)
   tags: utils,tools
@@ -19,3 +21,4 @@
   kewlfft.aur.aur:
     name:
       - showmethekey    # screencast tool
+  when: ansible_facts['distribution'] == "Archlinux"

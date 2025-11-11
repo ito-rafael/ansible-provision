@@ -113,3 +113,4 @@
   become_user: aurman
   kewlfft.aur.aur:
     name: zotero-bin
+  when: ansible_facts['distribution'] == "Archlinux"

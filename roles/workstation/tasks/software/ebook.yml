@@ -8,3 +8,4 @@
   become_user: aurman
   kewlfft.aur.aur:
     name: koreader-bin
+  when: ansible_facts['distribution'] == "Archlinux"

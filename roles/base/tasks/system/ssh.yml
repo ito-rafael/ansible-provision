@@ -3,7 +3,7 @@
   package:
     name: openssh
     state: latest
-  when: ansible_distribution == "Archlinux"
+  when: ansible_facts['distribution'] == "Archlinux"
 
 - name: system | ssh | install OpenSSH [Debian]
   tags: ssh
@@ -12,7 +12,7 @@
       - openssh-server
       - openssh-client
     state: latest
-  when: ansible_distribution == "Debian"
+  when: ansible_facts['distribution'] == "Debian"
 
 - name: system | ssh | create ssh keys dir
   tags: ssh,ssh-keys
@@ -126,7 +126,7 @@
     name: sshd
     state: started
     enabled: yes
-  when: ansible_distribution == "Archlinux"
+  when: ansible_facts['distribution'] == "Archlinux"
 
 - name: system | ssh | start daemon [Debian]
   tags: ssh
@@ -134,4 +134,4 @@
     name: ssh
     state: started
     enabled: yes
-  when: ansible_distribution == "Debian"
+  when: ansible_facts['distribution'] == "Debian"

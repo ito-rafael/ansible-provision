@@ -3,6 +3,7 @@
   become_user: aurman
   kewlfft.aur.aur:
     name: logiops
+  when: ansible_facts['distribution'] == "Archlinux"
 
 - name: system | mouse | ensure LogiOps dir exist
   tags: mouse,logiops

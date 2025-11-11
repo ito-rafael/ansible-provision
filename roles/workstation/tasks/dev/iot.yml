@@ -5,6 +5,7 @@
     name:
       #- saleae-logic
       - saleae-logic2
+  when: ansible_facts['distribution'] == "Archlinux"
 
 - name: software | IoT | install Espressif esptool.py script
   tags: iot,esptool

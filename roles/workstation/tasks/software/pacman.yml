@@ -50,6 +50,7 @@
     name:
       - downgrade  # downgrade packages in Arch Linux
     state: latest
+  when: ansible_facts['distribution'] == "Archlinux"
 
 - name: software | package-manager | install informant news reader
   tags: pacman
@@ -58,6 +59,7 @@
     name:
       - informant  # Arch Linux News reader and pacman hook
     state: latest
+  when: ansible_facts['distribution'] == "Archlinux"
   register: informant_install
 
 - name: software | package-manager | read Arch Linux news after informant installation

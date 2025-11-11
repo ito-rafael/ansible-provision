@@ -27,3 +27,4 @@
   become_user: aurman
   kewlfft.aur.aur:
     name: projecteur-git
+  when: ansible_facts['distribution'] == "Archlinux"

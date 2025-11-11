@@ -3,11 +3,11 @@
   become_user: aurman
   kewlfft.aur.aur:
     name: irpf
-  when: ansible_distribution == "Archlinux"
+  when: ansible_facts['distribution'] == "Archlinux"
 
 - name: software | miscellaneous | bank BB
   tags: miscellaneous,bank
   become_user: aurman
   kewlfft.aur.aur:
     name: warsaw-bin
-  when: ansible_distribution == "Archlinux"
+  when: ansible_facts['distribution'] == "Archlinux"

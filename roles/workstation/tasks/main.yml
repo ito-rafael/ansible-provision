@@ -1,5 +1,5 @@
 # load distro-specific variables
-- include_vars: "{{ ansible_distribution }}.yml"
+- include_vars: "{{ ansible_facts['distribution'] }}.yml"
   tags: always
 
 - block:
@@ -8,7 +8,7 @@
   - import_tasks: software/pacman.yml                   # config package manager
   - import_tasks: software/paru.yml                     # paru (AUR helper)
   - import_tasks: software/chaotic-aur.yml              # Chaotic-AUR
-  when: ansible_distribution == "Archlinux"
+  when: ansible_facts['distribution'] == "Archlinux"
 
 - block:
   # Keyboard: laptop only

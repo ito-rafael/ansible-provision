@@ -42,7 +42,9 @@
       - nvidia-470xx-utils
       - lib32-nvidia-470xx-utils
     state: latest
-  when: kepler.stdout != ""
+  when:
+    - kepler.stdout != ""
+    - ansible_facts['distribution'] == "Archlinux"
 
 # Maxwell, Pascal, and Volta
 - name: system | GPU NVIDIA | install driver for Maxwell, Pascal and Volta architectures (linux kernel)

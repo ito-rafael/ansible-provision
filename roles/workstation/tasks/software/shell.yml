@@ -5,4 +5,4 @@
     name:
       - zsh-vi-mode
       - zsh-system-clipboard-git
-  when: ansible_distribution == "Archlinux"
+  when: ansible_facts['distribution'] == "Archlinux"

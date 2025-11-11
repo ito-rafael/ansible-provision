@@ -14,6 +14,7 @@
   become_user: aurman
   kewlfft.aur.aur:
     name: i3lock-color      # screen locker
+  when: ansible_facts['distribution'] == "Archlinux"
 
 - name: software | window-manager | general packages
   tags: X11,i3
@@ -68,6 +69,7 @@
   become_user: aurman
   kewlfft.aur.aur:
     name: flashfocus-git
+  when: ansible_facts['distribution'] == "Archlinux"
 
 - name: software | window-manager | copy picom & flashfocus dotfiles
   tags: X11,i3

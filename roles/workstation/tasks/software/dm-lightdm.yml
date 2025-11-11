@@ -14,6 +14,7 @@
   become_user: aurman
   kewlfft.aur.aur:
     name: lightdm-webkit-theme-aether-git  # greeter theme
+  when: ansible_facts['distribution'] == "Archlinux"
 
 - name: software | display-manager | LightDM setup "logind-check-graphical"
   tags: display-manager,lightdm

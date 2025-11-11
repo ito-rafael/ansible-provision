@@ -15,6 +15,7 @@
   become_user: aurman
   kewlfft.aur.aur:
     name: swaylock-effects  # screen locker
+  when: ansible_facts['distribution'] == "Archlinux"
 
 - name: software | window-manager | install portals
   tags: wayland,portals
@@ -95,3 +96,4 @@
   become_user: aurman
   kewlfft.aur.aur:
     name: autotiling  # script to switch h/v window orientation
+  when: ansible_facts['distribution'] == "Archlinux"

@@ -10,6 +10,7 @@
     name:
       - zsa-keymapp-bin
       - zsa-kontroll-bin
+  when: ansible_facts['distribution'] == "Archlinux"
 
 - name: keyboard | ZSA | copy udev rules for ZSA keyboards
   tags: keyboard,zsa
