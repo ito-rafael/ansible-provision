@@ -11,6 +11,7 @@
   # system setup
   - import_tasks: users/rafael.yml           # create regular user
   - import_tasks: users/dotfiles.yml         # clone dotfiles repo
+  - import_tasks: system/cpu.yml             # AMD / Intel microcode
   - import_tasks: system/ssh.yml             # install OpenSSH & setup ssh keys
   - import_tasks: system/ntp.yml             # synchronize time
   - import_tasks: software/shell.yml         # Zsh

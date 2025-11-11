@@ -1,4 +1,0 @@
-- name: software | ssh-agent | keychain install
-  tags: ssh-agent
-  package:
-    name: keychain
