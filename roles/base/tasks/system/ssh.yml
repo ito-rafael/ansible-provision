@@ -107,8 +107,14 @@
     regexp: '^#?AllowGroups'
     state: present
 
+- name: system | ssh | create sshuser group
+  tags: ssh,groups
+  group:
+    name: sshuser
+    state: present
+
 - name: system | ssh | add user to sshuser group
-  tags: ssh
+  tags: ssh,users,groups
   user:
     name: rafael
     append: yes
