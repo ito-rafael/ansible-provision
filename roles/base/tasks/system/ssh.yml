@@ -31,7 +31,7 @@
     state: present
     owner: rafael
     group: rafael
-    comment: "{{ ansible_hostname }}"
+    comment: "{{ ansible_facts['hostname'] }}"
 
 - name: system | ssh | create known_hosts & authorized_keys files
   tags: ssh,ssh-keys

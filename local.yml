@@ -20,12 +20,12 @@
   become: true
   roles:
     - role: workstation
-      when: ansible_hostname in groups["workstation"] or ansible_hostname in groups["laptop"]
+      when: ansible_facts['hostname'] in groups["workstation"] or ansible_facts['hostname'] in groups["laptop"]
 
 - hosts: server
   connection: local
   become: true
   roles:
     - role: server
-      when: ansible_hostname in groups["server"]
+      when: ansible_facts['hostname'] in groups["server"]
 ...
