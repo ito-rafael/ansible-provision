@@ -16,3 +16,9 @@
       - brightnessctl     # screen brightness
       - mission-center    # monitor CPU, Memory, Disk, Network and GPU usage
       #- glances          # htop alternative in Python
+
+- name: system | utils | set lm_sensors to monitor temp, voltage and fans
+  tags: sys-utils
+  command:
+    cmd: sensors-detect --auto
+    creates: /etc/conf.d/lm_sensors
