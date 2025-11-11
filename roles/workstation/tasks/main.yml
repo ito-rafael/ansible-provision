@@ -41,6 +41,7 @@
   - import_tasks: system/mouse.yml                      # LogiOps driver
   - import_tasks: system/network.yml                    # NetworkManager
   - import_tasks: system/printer.yml                    # CUPS, driver, GUI
+  - import_tasks: system/utils.yml                      # general utilities
   - import_tasks: system/vpn.yml                        # VPN
   - import_tasks: system/wifi.yml                       # eduroam
 
@@ -68,7 +69,7 @@
   - import_tasks: software/syncthing.yml                # Syncthing
   - import_tasks: software/terminal.yml                 # kitty
   - import_tasks: software/theme.yml                    # GTK-{3,4}
-  - import_tasks: software/utils.yml                    # general packages
+  - import_tasks: software/utils.yml                    # general utilities
   - import_tasks: software/video.yml                    # video tools
   - import_tasks: software/wallpaper.yml                # wallpaper
   - import_tasks: software/window-manager.yml           # i3 / Sway
