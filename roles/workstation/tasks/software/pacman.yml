@@ -58,12 +58,12 @@
     name:
       - informant  # Arch Linux News reader and pacman hook
     state: latest
-  register: reflector_install
+  register: informant_install
 
 - name: software | package-manager | read Arch Linux news after informant installation
   tags: pacman,rafael,groups
   command: informant read --all
-  when: reflector_install.changed
+  when: informant_install.changed
 
 - name: software | package-manager | add user to informant group
   tags: pacman,rafael,groups
