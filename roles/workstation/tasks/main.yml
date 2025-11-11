@@ -55,6 +55,7 @@
   - import_tasks: software/email-client.yml             # Thunderbird
   - import_tasks: software/ebook.yml                    # calibre, KOReader
   - import_tasks: software/file-manager.yml             # Thunar/ranger
+  #- import_tasks: software/kwallet.yml                 # KDE wallet
   - import_tasks: software/media-audio.yml              # music-related
   - import_tasks: software/miscellaneous.yml            # IRPF, BB bank
   - import_tasks: software/office-suite.yml             # LibreOffice

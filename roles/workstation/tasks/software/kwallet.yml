@@ -1,0 +1,8 @@
+- name: software | KDE wallet | install packages
+  tags: kwallet
+  package:
+    name:
+      - kwallet          # KDE wallet
+      - kwalletmanager   # GUI wallet management tool
+      - kwallet-pam      # unlock KDE wallet automatically on login
+      - kleopatra        # install certificate manager and GUI for GnuPG (used to change the KWallet passphrase)
