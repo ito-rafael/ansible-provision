@@ -9,7 +9,7 @@
     name:
       - htop              # interactive process viewer
       - usbutils          # lsusb
-      - demicode          # motherboard info
+      - dmidecode         # motherboard info
       - lshw              # hardware info
       - ncdu              # disk usage (TUI)
       - lm_sensors        # temperatures, voltage, fans
