@@ -76,3 +76,23 @@
     - "'AMD' in gpu_info.stdout"
     - avx2_support == ""
     - ansible_facts['distribution'] == "Archlinux"
+
+- name: development | machine learning | install Python packages with AVX support
+  tags: dev,ml
+  package:
+    name:
+      - python-pytorch-opt     # PyTorch
+      - python-tensorflow-opt  # TensorFlow
+  when:
+    - "'Intel' in gpu_info.stdout"
+    - avx2_support != ""
+
+- name: development | machine learning | install Python packages without CUDA/ROCm/AVX support
+  tags: dev,ml
+  package:
+    name:
+      - python-pytorch     # PyTorch
+      - python-tensorflow  # TensorFlow
+  when:
+    - "'Intel' in gpu_info.stdout"
+    - avx2_support == ""
