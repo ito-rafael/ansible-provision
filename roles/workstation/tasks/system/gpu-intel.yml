@@ -22,3 +22,10 @@
   package:
     name: libva-intel-driver
   when: (intel_cpu_model.stdout | int) < 61
+
+# Gen8+: Broadwell+
+- name: system | GPU Intel | install VA-API driver for Broadwell iGPU or later
+  tags: system,gpu,gpu-intel
+  package:
+    name: intel-media-driver
+  when: (intel_cpu_model.stdout | int) >= 61
