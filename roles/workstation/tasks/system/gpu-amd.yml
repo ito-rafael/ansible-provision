@@ -7,3 +7,10 @@
       - vulkan-tools             # Vulkan tools and utilities
       - vulkan-radeon            # provides vulkan-driver
       - lib32-vulkan-radeon      # provides lib32-vulkan-driver
+
+- name: system | GPU AMD | install ROCm-related packages
+  tags: system,gpu,gpu-amd
+  package:
+    name:
+      - rocm-core  # core package
+      - amdsmi     # AMD system management interface
