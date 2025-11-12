@@ -17,6 +17,14 @@
     name:
       - python-pyserial  # serial port module
 
+- name: development | python | install Python documentation packages
+  tags: dev,python
+  package:
+    name:
+      - python-sphinx            # Sphinx: documentation generator
+      - python-sphinx_rtd_theme  # Read the Docs Sphinx theme
+      - python-recommonmark      # markdown parser for docutils & Sphinx
+
 - name: development | python | install Python data science packages
   tags: dev,python
   package:
@@ -27,11 +35,3 @@
       - python-scipy             # SciPy: scientific computing
       - python-scikit-learn      # scikit-learn: machine learning lib
       - python-seaborn           # seaborn: statistical data visualization
-
-- name: development | python | install Python documentation packages
-  tags: dev,python
-  package:
-    name:
-      - python-sphinx            # Sphinx: documentation generator
-      - python-sphinx_rtd_theme  # Read the Docs Sphinx theme
-      - python-recommonmark      # markdown parser for docutils & Sphinx

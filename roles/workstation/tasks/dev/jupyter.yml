@@ -1,4 +1,0 @@
-- name: development | jupyter | install JupyterLab
-  tags: dev,jupyter
-  package:
-    name: jupyterlab

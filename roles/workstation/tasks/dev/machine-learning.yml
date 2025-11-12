@@ -1,0 +1,4 @@
+- name: development | machine learnig | install JupyterLab
+  tags: dev,ml
+  package:
+    name: jupyterlab
