@@ -68,7 +68,18 @@
     group: rafael
     mode: 0600
 
-- name: keyboard | xremap | copy xremap service file
+- name: keyboard | xremap | copy xremap service file with kanata dependency (laptop)
+  tags: keyboard,xremap
+  copy:
+    remote_src: true
+    src: /home/ansible/git/keebab/systemd/user/xremap-laptop.service
+    dest: /home/rafael/.config/systemd/user/xremap.service
+    owner: rafael
+    group: rafael
+    mode: 0600
+  when: inventory_hostname in groups['laptop']
+
+- name: keyboard | xremap | copy xremap service file without kanata dependency (non-laptop)
   tags: keyboard,xremap
   copy:
     remote_src: true
@@ -77,14 +88,7 @@
     owner: rafael
     group: rafael
     mode: 0600
-
-- name: keyboard | xremap | remove kanata dependency if laptop
-  tags: keyboard,xremap
-  ansible.builtin.replace:
-    path: /home/rafael/.config/systemd/user/xremap.service
-    regexp: '^ExecStartPost=.*\n?'
-    replace: ''
-  when: inventory_hostname in groups['laptop']
+  when: inventory_hostname not in groups['laptop']
 
 - name: keyboard | xremap | enable user lingering for systemd
   tags: keyboard,xremap
