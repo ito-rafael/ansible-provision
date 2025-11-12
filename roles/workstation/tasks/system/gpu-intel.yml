@@ -15,3 +15,10 @@
   changed_when: false
   failed_when: false
   register: intel_cpu_model
+
+# Gen7: Ivy Bridge, Haswell
+- name: system | GPU Intel | install VA-API driver for iGPU older than Broadwell
+  tags: system,gpu,gpu-intel
+  package:
+    name: libva-intel-driver
+  when: (intel_cpu_model.stdout | int) < 61
