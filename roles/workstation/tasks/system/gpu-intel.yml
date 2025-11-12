@@ -7,3 +7,11 @@
       - vulkan-tools             # Vulkan tools and utilities
       - vulkan-intel             # provides vulkan-driver
       - lib32-vulkan-intel       # provides lib32-vulkan-driver
+
+# Intel iGPU identification
+- name: system | GPU Intel | check CPU model
+  tags: system,gpu,gpu-nvidia
+  shell: "awk -F': +' '/model[[:space:]]+:/{print $2; exit}' /proc/cpuinfo"
+  changed_when: false
+  failed_when: false
+  register: intel_cpu_model
