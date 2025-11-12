@@ -2,3 +2,17 @@
   tags: dev,ml
   package:
     name: jupyterlab
+
+- name: development | machine learning | identify GPU manufacturer
+  tags: dev,ml
+  shell: lspci | grep -i 'vga'
+  changed_when: false
+  failed_when: false
+  register: gpu_info
+
+- name: development | machine learning | check if CPU has AVX2 support
+  tags: dev,ml
+  shell: lscpu | grep Flags | grep avx2
+  changed_when: false
+  failed_when: false
+  register: avx2_support
