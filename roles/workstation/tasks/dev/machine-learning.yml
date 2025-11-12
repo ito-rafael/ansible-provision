@@ -16,3 +16,23 @@
   changed_when: false
   failed_when: false
   register: avx2_support
+
+- name: development | machine learning | install Python packages with CUDA & AVX support
+  tags: dev,ml
+  package:
+    name:
+      - python-pytorch-opt-cuda     # PyTorch
+      - python-tensorflow-opt-cuda  # TensorFlow
+  when:
+    - "'NVIDIA' in gpu_info.stdout"
+    - avx2_support != ""
+
+- name: development | machine learning | install Python packages with CUDA support
+  tags: dev,ml
+  package:
+    name:
+      - python-pytorch-cuda     # PyTorch
+      - python-tensorflow-cuda  # TensorFlow
+  when:
+    - "'NVIDIA' in gpu_info.stdout"
+    - avx2_support == ""
