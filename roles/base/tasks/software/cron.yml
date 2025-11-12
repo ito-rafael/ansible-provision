@@ -2,7 +2,6 @@
   tags: ansible,cron
   package:
     name: "{{ cron_pkg }}"
-    state: latest
 
 #- name: system | cron | disable sendmail
 #  tags: ansible,cron

@@ -2,4 +2,3 @@
   tags: system,flatpak
   package:
     name: flatpak
-    state: latest

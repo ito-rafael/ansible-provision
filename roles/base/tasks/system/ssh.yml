@@ -2,7 +2,6 @@
   tags: ssh
   package:
     name: openssh
-    state: latest
   when: ansible_facts['distribution'] == "Archlinux"
 
 - name: system | ssh | install OpenSSH [Debian]
@@ -11,7 +10,6 @@
     name:
       - openssh-server
       - openssh-client
-    state: latest
   when: ansible_facts['distribution'] == "Debian"
 
 - name: system | ssh | create ssh keys dir

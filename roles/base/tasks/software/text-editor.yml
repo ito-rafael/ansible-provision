@@ -2,7 +2,6 @@
   tags: vim
   package:
     name: neovim
-    state: latest
 
 - name: software | terminal text editor | create vim symlink
   tags: vim

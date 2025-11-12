@@ -2,7 +2,6 @@
   tags: ansible
   package:
     name: ansible
-    state: latest
     
 - name: system | auto-provision | add ansible to fcron.allow
   tags: ansible,fcron

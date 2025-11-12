@@ -7,7 +7,6 @@
   tags: pacman,pacman-key
   pacman:
     name: archlinux-keyring
-    state: latest
     force: yes
 
 - name: software | package-manager | enable parallel downloads
@@ -33,7 +32,6 @@
   tags: pacman,rebuild-detector
   package:
     name: rebuild-detector
-    state: latest
 
 - name: software | package-manager | install reflector
   tags: pacman,reflector
@@ -41,7 +39,6 @@
     name:
       - rsync       # prerequisite for reflector
       - reflector   # update /etc/pacman.d/mirrorlist sorting the mirrors by speed
-    state: latest
 
 - name: software | package-manager | install additional packages
   tags: pacman
@@ -49,7 +46,6 @@
   kewlfft.aur.aur:
     name:
       - downgrade  # downgrade packages in Arch Linux
-    state: latest
   when: ansible_facts['distribution'] == "Archlinux"
 
 - name: software | package-manager | install informant news reader
@@ -58,7 +54,6 @@
   kewlfft.aur.aur:
     name:
       - informant  # Arch Linux News reader and pacman hook
-    state: latest
   when: ansible_facts['distribution'] == "Archlinux"
   register: informant_install
 
