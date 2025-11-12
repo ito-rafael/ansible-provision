@@ -2,8 +2,10 @@
   tags: system,fonts
   package:
     name:
-      - ttf-font-awesome                # Font Awesome
       - ttf-jetbrains-mono              # JetBrains Mono
+      - ttf-font-awesome                # Font Awesome: iconic font designed for Bootstrap (woff2 format)
+      - otf-font-awesome                # Font Awesome: iconic font designed for Bootstrap (otf format) (used by Waybar)
+      - ttf-firacode-nerd               # Nerd Fonts: Fira (Fura) Code (used by Waybar)
       - ttf-ubuntu-font-family          # Ubuntu Font Family
 
 - name: system | fonts | install Font Manager
@@ -17,3 +19,4 @@
   become_user: aurman
   kewlfft.aur.aur:
     name: emote
+  when: ansible_facts['distribution'] == "Archlinux"
