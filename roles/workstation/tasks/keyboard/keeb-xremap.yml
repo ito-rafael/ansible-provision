@@ -78,6 +78,14 @@
     group: rafael
     mode: 0600
 
+- name: keyboard | xremap | remove kanata dependency if laptop
+  tags: keyboard,xremap
+  ansible.builtin.replace:
+    path: /home/rafael/.config/systemd/user/xremap.service
+    regexp: '^ExecStartPost=.*\n?'
+    replace: ''
+  when: inventory_hostname in groups['laptop']
+
 - name: keyboard | xremap | enable user lingering for systemd
   tags: keyboard,xremap
   command:
