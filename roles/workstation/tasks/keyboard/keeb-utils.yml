@@ -1,12 +1,12 @@
-#- name: software | utils | keyboard tools (X11)
-#  tags: utils,tools
+#- name: keyboard | utils | X11 screencast
+#  tags: keyboard,utils
 #  package:
 #    name:
 #      - screenkey       # screencast tool
 #  when: display_manager == "x11"
 
-#- name: software | utils | keyboard tools (Wayland)
-#  tags: utils,tools
+#- name: keyboard | utils | Wayland screencast
+#  tags: keyboard,utils
 #  become_user: aurman
 #  kewlfft.aur.aur:
 #    name:
@@ -15,10 +15,24 @@
 #    - display_manager == "wayland"
 #    - ansible_facts['distribution'] == "Archlinux"
 
-- name: software | utils | keyboard tools (X11/Wayland)
-  tags: utils,tools
+- name: keyboard | utils | install keyboard tools (AUR)
+  tags: keyboard,utils
   become_user: aurman
   kewlfft.aur.aur:
     name:
-      - showmethekey    # screencast tool
+      - showmethekey     # screencast tool for both X11/Wayland
   when: ansible_facts['distribution'] == "Archlinux"
+
+- name: keyboard | utils | install keyboard tools for X11
+  tags: keyboard,utils
+  package:
+    name:
+      - xorg-xev  # tool for debugging X events
+  when: display_manager == "x11"
+
+- name: keyboard | utils | install keyboard tools for Wayland
+  tags: keyboard,utils
+  package:
+    name:
+      - wev  # tool for debugging wayland events on a Wayland window
+  when: display_manager == "wayland"
