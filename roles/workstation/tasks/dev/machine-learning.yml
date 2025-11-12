@@ -36,3 +36,43 @@
   when:
     - "'NVIDIA' in gpu_info.stdout"
     - avx2_support == ""
+
+- name: development | machine learning | install Python packages with ROCm & AVX support
+  tags: dev,ml
+  package:
+    name:
+      - python-pytorch-opt-rocm     # PyTorch
+  when:
+    - "'AMD' in gpu_info.stdout"
+    - avx2_support != ""
+
+- name: development | machine learning | install Python packages with ROCm & AVX support
+  tags: dev,ml
+  become_user: aurman
+  kewlfft.aur.aur:
+    name:
+      - python-tensorflow-opt-rocm  # Tensorflow
+  when:
+    - "'AMD' in gpu_info.stdout"
+    - avx2_support != ""
+    - ansible_facts['distribution'] == "Archlinux"
+
+- name: development | machine learning | install Python packages with ROCm support
+  tags: dev,ml
+  package:
+    name:
+      - python-pytorch-rocm     # PyTorch
+  when:
+    - "'AMD' in gpu_info.stdout"
+    - avx2_support == ""
+
+- name: development | machine learning | install Python packages with ROCm support
+  tags: dev,ml
+  become_user: aurman
+  kewlfft.aur.aur:
+    name:
+      - python-tensorflow-rocm  # Tensorflow
+  when:
+    - "'AMD' in gpu_info.stdout"
+    - avx2_support == ""
+    - ansible_facts['distribution'] == "Archlinux"
