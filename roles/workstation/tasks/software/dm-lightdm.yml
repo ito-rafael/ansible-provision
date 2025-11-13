@@ -100,6 +100,17 @@
     group: rafael
     mode: "0644"
 
+- name: software | display-manager | enable touchpad tapping if laptop
+  tags: display-manager,lightdm
+  copy:
+    remote_src: yes
+    src: /home/ansible/git/dotfiles/lightdm/40-libinput.conf
+    dest: /etc/X11/xorg.conf.d/40-libinput.conf
+    owner: root
+    group: root
+    mode: "0644"
+  when: inventory_hostname in groups['laptop']
+
 - name: software | display-manager | LightDM enable daemon
   tags: display-manager,lightdm
   systemd:

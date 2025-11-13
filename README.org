@@ -5,9 +5,11 @@
 #+auto_tangle: t
 
 * Table of Contents :toc_3:
+- [[#tldr][TL;DR]]
 - [[#description][Description]]
 - [[#inventory][Inventory]]
 
+* TL;DR :noexport_2:
 * Description
 Automagically configure your workstations, laptops, and servers from the ground up with a single command.
 * Inventory :noexport_1:
