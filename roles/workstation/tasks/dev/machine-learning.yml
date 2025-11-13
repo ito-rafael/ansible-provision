@@ -17,6 +17,13 @@
   failed_when: false
   register: avx2_support
 
+- name: development | machine learning | install ONNX for model conversions
+  tags: dev,ml
+  package:
+    name:
+      - onnx         # ONNX C++ core lib
+      - python-onnx  # ONNX Python wrapper
+
 - name: development | machine learning | install Python packages with CUDA & AVX support
   tags: dev,ml
   package:
