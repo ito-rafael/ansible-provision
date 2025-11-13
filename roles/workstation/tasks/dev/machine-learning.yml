@@ -52,7 +52,9 @@
   tags: dev,ml
   package:
     name:
-      - python-pytorch-opt-rocm     # PyTorch
+      - python-pytorch-opt-rocm      # PyTorch
+      - onnxruntime-opt-rocm         # ONNX runtime C++ core lib
+      - python-onnxruntime-opt-rocm  # ONNX runtime Python wrapper
   when:
     - "'AMD' in gpu_info.stdout"
     - avx2_support != ""
@@ -72,7 +74,9 @@
   tags: dev,ml
   package:
     name:
-      - python-pytorch-rocm     # PyTorch
+      - python-pytorch-rocm      # PyTorch
+      - onnxruntime-rocm         # ONNX runtime C++ core lib
+      - python-onnxruntime-rocm  # ONNX runtime Python wrapper
   when:
     - "'AMD' in gpu_info.stdout"
     - avx2_support == ""
