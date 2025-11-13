@@ -16,3 +16,10 @@
     name:
      - libvirt        # API for controlling virtualization engines
      - virt-viewer    # Interface for interacting with the graphical display of virtualized guest OS
+
+#- name: software | vnc | install RustDesk remote desktop application
+#  tags: vnc
+#  become_user: aurman
+#  kewlfft.aur.aur:
+#    name: rustdesk-bin
+#  when: ansible_facts['distribution'] == "Archlinux"
