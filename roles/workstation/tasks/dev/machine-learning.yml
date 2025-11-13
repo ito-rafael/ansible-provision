@@ -28,8 +28,10 @@
   tags: dev,ml
   package:
     name:
-      - python-pytorch-opt-cuda     # PyTorch
-      - python-tensorflow-opt-cuda  # TensorFlow
+      - python-pytorch-opt-cuda      # PyTorch
+      - python-tensorflow-opt-cuda   # TensorFlow
+      - onnxruntime-opt-cuda         # ONNX runtime C++ core lib
+      - python-onnxruntime-opt-cuda  # ONNX runtime Python wrapper
   when:
     - "'NVIDIA' in gpu_info.stdout"
     - avx2_support != ""
@@ -38,8 +40,10 @@
   tags: dev,ml
   package:
     name:
-      - python-pytorch-cuda     # PyTorch
-      - python-tensorflow-cuda  # TensorFlow
+      - python-pytorch-cuda      # PyTorch
+      - python-tensorflow-cuda   # TensorFlow
+      - onnxruntime-cuda         # ONNX runtime C++ core lib
+      - python-onnxruntime-cuda  # ONNX runtime Python wrapper
   when:
     - "'NVIDIA' in gpu_info.stdout"
     - avx2_support == ""
