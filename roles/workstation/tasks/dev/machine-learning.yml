@@ -96,8 +96,10 @@
   tags: dev,ml
   package:
     name:
-      - python-pytorch-opt     # PyTorch
-      - python-tensorflow-opt  # TensorFlow
+      - python-pytorch-opt      # PyTorch
+      - python-tensorflow-opt   # TensorFlow
+      - onnxruntime-cpu         # ONNX runtime C++ core lib
+      - python-onnxruntime-cpu  # ONNX runtime Python wrapper
   when:
     - "'Intel' in gpu_info.stdout"
     - avx2_support != ""
@@ -108,6 +110,8 @@
     name:
       - python-pytorch     # PyTorch
       - python-tensorflow  # TensorFlow
+      - onnxruntime-cpu         # ONNX runtime C++ core lib
+      - python-onnxruntime-cpu  # ONNX runtime Python wrapper
   when:
     - "'Intel' in gpu_info.stdout"
     - avx2_support == ""
