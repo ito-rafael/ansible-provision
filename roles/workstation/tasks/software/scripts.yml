@@ -17,22 +17,21 @@
     group: rafael
     mode: 0700
   with_items:
-    - 'adb-mdns-pair.sh'
-    - 'adb-mdns-scrcpy.sh'
-    - 'capslock_status.sh'
-    - 'darth_bright.sh'
-    - 'emacs-respawn.sh'
-    - 'hide-or-kill.sh'
-    - 'keeb-leds.sh'
-    - 'kill-window.sh'
-    - 'mouse-warp.sh'
-    - 'navigate2ws.sh'
-    - 'opacity.sh'
-    - 'rofi.sh'
-    - 'scratchpad-temp.sh'
-    - 'screencast.sh'
-    - 'show-or-launch.sh'
-    - 'vpn-connecter.sh'
-    - 'wlprop.sh'
-    - 'xremap-keeb-config.sh'
-    - 'wait_host_up.sh'
+    - 'adb-mdns-pair.sh'       # detect ADB pair IP:port with mDNS start pairing
+    - 'adb-mdns-scrcpy.sh'     # detect ADB IP:port and show/start scrcpy scratchpad
+    - 'capslock_status.sh'     # control Caps Lock
+    - 'darth_bright.sh'        # toggle GTK light/dark theme
+    - 'emacs-respawn.sh'       # hard restart of Emacs daemon
+    - 'hide-or-kill.sh'        # hide scratchpads, kill other windows
+    - 'keeb-leds.sh'           # control external keyboard backlit RGB LEDs
+    - 'kill-window.sh'         # kill window + if scratchpad, clean PID temp file
+    - 'mouse-warp.sh'          # for i3wm: focus adjacent window and centralize cursor
+    - 'navigate2ws.sh'         # go to workspace, and start application if empty
+    - 'opacity.sh'             # control windows opacity/transparency
+    - 'rofi.sh'                # launch Rofi in specific mode
+    - 'scratchpad-temp.sh'     # show temporary scratchpad or move window to it, if empty
+    - 'screencast.sh'          # control screencast application
+    - 'show-or-launch.sh'      # show scratchpad, or launch it if it doesn't exist
+    - 'vpn-connecter.sh'       # GUI to connect/disconnect VPN
+    - 'wait_host_up.sh'        # fping host and send notification when it's up
+    - 'wlprop.sh'              # get window properties in Wayland (Sway)
