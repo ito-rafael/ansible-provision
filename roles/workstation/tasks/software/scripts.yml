@@ -22,16 +22,21 @@
     - 'capslock_status.sh'     # control Caps Lock
     - 'darth_bright.sh'        # toggle GTK light/dark theme
     - 'emacs-respawn.sh'       # hard restart of Emacs daemon
+    - 'emote-paste.sh'         # paste emoji according to window context
     - 'hide-or-kill.sh'        # hide scratchpads, kill other windows
+    - 'keeb-backlit.sh'        # control native laptop keyboard backlit
     - 'keeb-leds.sh'           # control external keyboard backlit RGB LEDs
     - 'kill-window.sh'         # kill window + if scratchpad, clean PID temp file
     - 'mouse-warp.sh'          # for i3wm: focus adjacent window and centralize cursor
+    - 'mx_script.sh'           # switch MX Master 3 host connection
     - 'navigate2ws.sh'         # go to workspace, and start application if empty
+    - 'nmap.sh'                # scan devices IP with nmap
     - 'opacity.sh'             # control windows opacity/transparency
     - 'rofi.sh'                # launch Rofi in specific mode
     - 'scratchpad-temp.sh'     # show temporary scratchpad or move window to it, if empty
     - 'screencast.sh'          # control screencast application
     - 'show-or-launch.sh'      # show scratchpad, or launch it if it doesn't exist
+    - 'volume-control.sh'      # adjust volume in fixed step sizes (used with mouse)
     - 'vpn-connecter.sh'       # GUI to connect/disconnect VPN
     - 'wait_host_up.sh'        # fping host and send notification when it's up
     - 'wlprop.sh'              # get window properties in Wayland (Sway)
