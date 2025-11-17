@@ -36,3 +36,28 @@
     name:
       - wev  # tool for debugging wayland events on a Wayland window
   when: display_manager == "wayland"
+
+- name: keyboard | utils | ensure scripts dir exists
+  tags: keyboard,utils
+  file:
+    path: /home/rafael/.config/scripts
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
+
+- name: keyboard | utils | copy keyboard scripts
+  tags: keyboard,utils
+  copy:
+    remote_src: yes
+    src: /home/ansible/git/keebab/scripts/{{ item }}
+    dest: /home/rafael/.config/scripts/{{ item }}
+    owner: rafael
+    group: rafael
+    mode: 0700
+  with_items:
+    - 'capslock-status.sh'  # control Caps Lock
+    - 'capslock-led.sh'     # repurpose Caps Lock LED
+    - 'keeb-backlit.sh'     # control native laptop keyboard backlit
+    - 'keeb-leds.sh'        # control external keyboard backlit RGB LEDs
+    - 'mx_script.sh'        # switch MX Master 3 host connection

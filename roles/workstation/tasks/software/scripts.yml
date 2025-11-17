@@ -1,4 +1,4 @@
-- name: software | scripts | ensure scripts dir exist
+- name: software | scripts | ensure scripts dir exists
   tags: scripts
   file:
     path: /home/rafael/.config/scripts
@@ -19,16 +19,12 @@
   with_items:
     - 'adb-mdns-pair.sh'       # detect ADB pair IP:port with mDNS start pairing
     - 'adb-mdns-scrcpy.sh'     # detect ADB IP:port and show/start scrcpy scratchpad
-    - 'capslock_status.sh'     # control Caps Lock
     - 'darth_bright.sh'        # toggle GTK light/dark theme
     - 'emacs-respawn.sh'       # hard restart of Emacs daemon
     - 'emote-paste.sh'         # paste emoji according to window context
     - 'hide-or-kill.sh'        # hide scratchpads, kill other windows
-    - 'keeb-backlit.sh'        # control native laptop keyboard backlit
-    - 'keeb-leds.sh'           # control external keyboard backlit RGB LEDs
     - 'kill-window.sh'         # kill window + if scratchpad, clean PID temp file
     - 'mouse-warp.sh'          # for i3wm: focus adjacent window and centralize cursor
-    - 'mx_script.sh'           # switch MX Master 3 host connection
     - 'navigate2ws.sh'         # go to workspace, and start application if empty
     - 'nmap.sh'                # scan devices IP with nmap
     - 'opacity.sh'             # control windows opacity/transparency
