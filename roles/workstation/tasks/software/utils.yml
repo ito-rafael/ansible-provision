@@ -48,4 +48,14 @@
       - warpd          # keyboard-driven mouse cursor manipulation
       - localsend-bin  # share files/messages over LAN
   when: ansible_facts['distribution'] == "Archlinux"
+
+- name: software | utils | copy LocalSend dotfile
+  tags: utils,tools
+  copy:
+    remote_src: true
+    src: /home/ansible/git/dotfiles/localsend/settings.json
+    dest: /opt/localsend/settings.json
+    owner: rafael
+    group: rafael
+    mode: 0600
   when: ansible_facts['distribution'] == "Archlinux"
