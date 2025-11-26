@@ -44,3 +44,8 @@
   tags: audio,pipewire
   package:
     name: pavucontrol
+
+- name: system | audio | install CAVA (Cross-platform Audio Visualizer)
+  tags: audio,cava
+  package:
+    name: cava  # bar spectrum audio visualizer for terminal
