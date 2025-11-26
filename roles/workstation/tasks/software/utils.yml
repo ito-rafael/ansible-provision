@@ -45,5 +45,7 @@
   become_user: aurman
   kewlfft.aur.aur:
     name:
-      - warpd        # keyboard-driven mouse cursor manipulation
+      - warpd          # keyboard-driven mouse cursor manipulation
+      - localsend-bin  # share files/messages over LAN
+  when: ansible_facts['distribution'] == "Archlinux"
   when: ansible_facts['distribution'] == "Archlinux"
