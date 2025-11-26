@@ -49,3 +49,10 @@
   tags: audio,cava
   package:
     name: cava  # bar spectrum audio visualizer for terminal
+
+- name: system | audio | install Cavalier (GUI for CAVA)
+  tags: audio,cava
+  become_user: aurman
+  kewlfft.aur.aur:
+    name: cavalier  # visualize audio with CAVA
+  when: ansible_facts['distribution'] == "Archlinux"
