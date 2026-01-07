@@ -60,4 +60,4 @@
     - 'capslock-led.sh'     # repurpose Caps Lock LED
     - 'keeb-backlit.sh'     # control native laptop keyboard backlit
     - 'keeb-leds.sh'        # control external keyboard backlit RGB LEDs
-    - 'mx_script.sh'        # switch MX Master 3 host connection
+    - 'mx-script.sh'        # switch MX Master 3 host connection
