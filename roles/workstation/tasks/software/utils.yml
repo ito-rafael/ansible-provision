@@ -5,6 +5,7 @@
       - sudo         # exec commands as another user
       - wget         # download files from web
       - curl         # transfer data
+      - lsof         # lists open files for Unix processes
       - man-db       # full documentation
       - tldr         # TL;DR documentation
       - imagemagick  # image manipulation with ImageMagick
