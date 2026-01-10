@@ -54,3 +54,13 @@
   command:
     cmd: loginctl enable-linger rafael
     creates: /var/lib/systemd/linger/rafael
+
+- name: keyboard | lan-mouse | enable lan-mouse user service
+  tags: keyboard,lan-mouse
+  become_user: rafael
+  systemd:
+    name: lan-mouse
+    enabled: true
+    daemon_reload: true
+    state: stopped
+    scope: user
