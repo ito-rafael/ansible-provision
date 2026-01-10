@@ -4,6 +4,7 @@
     name:
       - net-tools  # collection of base networking utilities
       - inetutils  # collection of common network programs
+      - nmap       # network discovery + security auditing
 
 - name: system | network | install NetworkManager
   tags: system,network
