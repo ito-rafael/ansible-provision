@@ -17,6 +17,17 @@
     - lan-mouse
     - systemd/user
 
+- name: keyboard | lan-mouse | copy lan-mouse dotfile for receiving end
+  tags: keyboard,lan-mouse
+  copy:
+    src: /home/ansible/git/keebab/lan-mouse/config_laptop.toml
+    dest: /home/rafael/.config/lan-mouse/config.toml
+    remote_src: true
+    owner: rafael
+    group: rafael
+    mode: 0600
+  when: inventory_hostname in groups['laptop']
+
 - name: keyboard | lan-mouse | copy lan-mouse dotfile for sending end
   tags: keyboard,lan-mouse
   copy:
