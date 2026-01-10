@@ -38,3 +38,13 @@
     group: rafael
     mode: 0600
   when: inventory_hostname not in groups['laptop']
+
+- name: keyboard | lan-mouse | copy lan-mouse user systemd service
+  tags: keyboard,lan-mouse
+  copy:
+    src: /home/ansible/git/keebab/systemd/user/lan-mouse.service
+    dest: /home/rafael/.config/systemd/user/lan-mouse.service
+    remote_src: true
+    owner: rafael
+    group: rafael
+    mode: 0600
