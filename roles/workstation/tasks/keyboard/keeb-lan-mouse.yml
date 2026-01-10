@@ -1,0 +1,6 @@
+- name: keyboard | lan-mouse | install lan-mouse
+  tags: keyboard,lan-mouse
+  become_user: aurman
+  kewlfft.aur.aur:
+    name: lan-mouse-git
+  when: ansible_facts['distribution'] == "Archlinux"
