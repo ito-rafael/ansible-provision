@@ -48,3 +48,9 @@
     owner: rafael
     group: rafael
     mode: 0600
+
+- name: keyboard | lan-mouse | enable user lingering for systemd
+  tags: keyboard,lan-mouse
+  command:
+    cmd: loginctl enable-linger rafael
+    creates: /var/lib/systemd/linger/rafael
