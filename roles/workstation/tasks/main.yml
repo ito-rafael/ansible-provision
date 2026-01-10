@@ -32,6 +32,7 @@
   # System settings
   - import_tasks: system/audio.yml                      # PipeWire
   - import_tasks: system/bluetooth.yml                  # BlueZ
+  - import_tasks: system/file-system.yml                # file system
   - import_tasks: system/flatpak.yml                    # Flatpak
   - import_tasks: system/fonts.yml                      # fonts
   - import_tasks: system/gpg.yml                        # GnuPG keys
