@@ -39,6 +39,17 @@
     mode: 0600
   when: inventory_hostname not in groups['laptop']
 
+- name: keyboard | lan-mouse | open port to local network
+  tags: keyboard,lan-mouse
+  community.general.ufw:
+    rule: allow
+    port: '4242'
+    src: '192.168.0.0/24'
+    proto: "{{ item }}"
+  loop:
+    - tcp
+    - udp
+
 - name: keyboard | lan-mouse | copy lan-mouse user systemd service
   tags: keyboard,lan-mouse
   copy:
