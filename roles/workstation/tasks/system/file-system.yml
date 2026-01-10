@@ -3,3 +3,4 @@
   package:
     name:
       - snapper          # manage BTRFS and LVM snapshots
+      - btrfs-assistant  # manage BTRFS subvolumes and Snapper snapshots
