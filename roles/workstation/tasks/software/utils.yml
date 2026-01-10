@@ -2,18 +2,19 @@
   tags: utils,general
   package:
     name:
-      - sudo         # exec commands as another user
-      - wget         # download files from web
+      - bc           # calculator language
       - curl         # transfer data
+      - dex          # DesktopEntry Execution
+      - fzf          # fuzzy finder
+      - imagemagick  # image manipulation with ImageMagick
       - lsof         # lists open files for Unix processes
       - man-db       # full documentation
+      - sudo         # exec commands as another user
       - tldr         # TL;DR documentation
-      - imagemagick  # image manipulation with ImageMagick
-      - fzf          # fuzzy finder
-      - bc           # calculator language
-      - dex          # DesktopEntry Execution
       - unrar        # RAR uncompression
       - unzip        # zip archives extraction
+      - wget         # download files from web
+      - whois        # provides mkpasswd
 
 #- name: software | utils | install CLI tools (AUR)
 #  tags: utils,general
@@ -37,8 +38,8 @@
   package:
     name:
       - gimp         # image editor
-      - pdfpc        # slides presentation
       - meld         # GUI diff
+      - pdfpc        # slides presentation
       - yad          # GUI dialogs from CLI/scripts (zenity fork)
 
 - name: software | utils | install GUI tools (AUR)
@@ -46,8 +47,8 @@
   become_user: aurman
   kewlfft.aur.aur:
     name:
-      - warpd          # keyboard-driven mouse cursor manipulation
       - localsend-bin  # share files/messages over LAN
+      - warpd          # keyboard-driven mouse cursor manipulation
   when: ansible_facts['distribution'] == "Archlinux"
 
 - name: software | utils | copy LocalSend dotfile
