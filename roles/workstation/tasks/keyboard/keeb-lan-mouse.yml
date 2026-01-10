@@ -4,3 +4,15 @@
   kewlfft.aur.aur:
     name: lan-mouse-git
   when: ansible_facts['distribution'] == "Archlinux"
+
+- name: keyboard | lan-mouse | ensure lan-mouse dirs exist
+  tags: keyboard,lan-mouse
+  file:
+    path: /home/rafael/.config/{{ item }}
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
+  with_items:
+    - lan-mouse
+    - systemd/user
