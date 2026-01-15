@@ -74,6 +74,15 @@
     regexp: '^.*(greeter-setup-script=).*$'
     insertafter: '^\[Seat:\*\]$'
 
+- name: software | display-manager | LightDM setup "session-setup-script"
+  tags: display-manager,lightdm
+  lineinfile:
+    path: /etc/lightdm/lightdm.conf
+    line: 'session-setup-script=pkill -u lightdm lan-mouse'
+    state: present
+    regexp: '^.*(session-setup-script=).*$'
+    insertafter: '^\[Seat:\*\]$'
+
 - name: software | display-manager | LightDM setup "webkit_theme"
   tags: display-manager,lightdm
   lineinfile:
