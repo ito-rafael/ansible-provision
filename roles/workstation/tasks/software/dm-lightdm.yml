@@ -65,6 +65,15 @@
     regexp: '.*(greeter-session=).*'
     insertafter: '^\[Seat:\*\]$'
 
+- name: software | display-manager | LightDM setup "greeter-setup-script"
+  tags: display-manager,lightdm
+  lineinfile:
+    path: /etc/lightdm/lightdm.conf
+    line: 'greeter-setup-script=/etc/lightdm/lightdm-script-wrapper.sh'
+    state: present
+    regexp: '^.*(greeter-setup-script=).*$'
+    insertafter: '^\[Seat:\*\]$'
+
 - name: software | display-manager | LightDM setup "webkit_theme"
   tags: display-manager,lightdm
   lineinfile:
