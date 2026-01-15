@@ -23,6 +23,21 @@
       - xorg-xrandr  # used by script to display LightDM only in one monitor
       - xorg-xhost   # used by script to launch lan-mouse software KVM
 
+- name: software | display-manager | copy lan-mouse & xrandr scripts for LightDM
+  tags: display-manager,lightdm
+  copy:
+    src: /home/ansible/git/dotfiles/lightdm/{{ item }}
+    dest: /etc/lightdm/{{ item }}
+    remote_src: true
+    owner: root
+    group: root
+    mode: 0744
+  loop:
+    - lightdm-outputs.sh
+    - lightdm-lan-mouse.sh
+    - lightdm-script-wrapper.sh
+  when: inventory_hostname in groups['laptop']
+
 - name: software | display-manager | LightDM setup "logind-check-graphical"
   tags: display-manager,lightdm
   lineinfile:
