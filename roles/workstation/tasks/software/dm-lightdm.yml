@@ -16,10 +16,12 @@
     name: lightdm-webkit-theme-aether-git  # greeter theme
   when: ansible_facts['distribution'] == "Archlinux"
 
-- name: software | display-manager | install xrandr
+- name: software | display-manager | install xorg packages
   tags: display-manager,lightdm
   package:
-    name: xorg-xrandr
+    name:
+      - xorg-xrandr  # used by script to display LightDM only in one monitor
+      - xorg-xhost   # used by script to launch lan-mouse software KVM
 
 - name: software | display-manager | LightDM setup "logind-check-graphical"
   tags: display-manager,lightdm
