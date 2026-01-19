@@ -77,12 +77,15 @@
     cmd: loginctl enable-linger rafael
     creates: /var/lib/systemd/linger/rafael
 
-- name: keyboard | lan-mouse | enable lan-mouse user service
+- name: keyboard | lan-mouse | enable lan-mouse user services
   tags: keyboard,lan-mouse
   become_user: rafael
   systemd:
-    name: lan-mouse
+    name: "{{ item }}"
     enabled: true
     daemon_reload: false
     state: stopped
     scope: user
+  loop:
+    - "lan-mouse"
+    - "lan-mouse-monitor"
