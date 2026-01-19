@@ -58,10 +58,10 @@
     remote_src: true
     owner: rafael
     group: rafael
-    mode: 0600
+    mode: "{{ item.mode }}"
   with_items:
-    - { src: 'i3bang.rb',    dest: 'i3bang.rb' }
-    - { src: '_config_sway', dest: '_config'   }
+    - { src: 'i3bang.rb',    dest: 'i3bang.rb', mode: '0700' }
+    - { src: '_config_sway', dest: '_config',   mode: '0600' }
 
 - name: software | window-manager | generate Sway config from Ruby script
   tags: wayland,sway
