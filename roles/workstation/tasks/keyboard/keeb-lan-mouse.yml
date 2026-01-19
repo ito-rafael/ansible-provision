@@ -50,15 +50,20 @@
     - tcp
     - udp
 
-- name: keyboard | lan-mouse | copy lan-mouse user systemd service
+- name: keyboard | lan-mouse | copy lan-mouse user systemd services
   tags: keyboard,lan-mouse
   copy:
-    src: /home/ansible/git/keebab/systemd/user/lan-mouse.service
-    dest: /home/rafael/.config/systemd/user/lan-mouse.service
+    src: /home/ansible/git/keebab/systemd/user/{{ item }}
+    dest: /home/rafael/.config/systemd/user/{{ item }}
     remote_src: true
     owner: rafael
     group: rafael
     mode: 0600
+  loop:
+    - "lan-mouse.service"
+    - "lan-mouse-monitor.service"
+  register: lan_mouse_services
+
 
 - name: keyboard | lan-mouse | enable user lingering for systemd
   tags: keyboard,lan-mouse
