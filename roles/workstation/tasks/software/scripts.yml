@@ -24,6 +24,7 @@
     - 'emote-paste.sh'         # paste emoji according to window context
     - 'hide-or-kill.sh'        # hide scratchpads, kill other windows
     - 'kill-window.sh'         # kill window + if scratchpad, clean PID temp file
+    - 'lan-mouse-monitor.sh'   # sends clipboard back to sender host via SSH forced command
     - 'mouse-warp.sh'          # for i3wm: focus adjacent window and centralize cursor
     - 'navigate2ws.sh'         # go to workspace, and start application if empty
     - 'nmap.sh'                # scan devices IP with nmap
