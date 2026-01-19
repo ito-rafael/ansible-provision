@@ -64,6 +64,12 @@
     - "lan-mouse-monitor.service"
   register: lan_mouse_services
 
+- name: keyboard | lan-mouse | reload systemd user services once
+  tags: keyboard,lan-mouse
+  become_user: rafael
+  systemd:
+    daemon_reload: true
+  when: lan_mouse_services.changed
 
 - name: keyboard | lan-mouse | enable user lingering for systemd
   tags: keyboard,lan-mouse
@@ -77,6 +83,6 @@
   systemd:
     name: lan-mouse
     enabled: true
-    daemon_reload: true
+    daemon_reload: false
     state: stopped
     scope: user
