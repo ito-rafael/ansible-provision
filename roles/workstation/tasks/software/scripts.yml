@@ -31,6 +31,7 @@
     - 'opacity.sh'             # control windows opacity/transparency
     - 'rofi.sh'                # launch Rofi in specific mode
     - 'scratchpad-temp.sh'     # show temporary scratchpad or move window to it, if empty
+    - 'push-clipboard.sh'      # copy clipboard when switching hosts with lan-mouse
     - 'screencast.sh'          # control screencast application
     - 'show-or-launch.sh'      # show scratchpad, or launch it if it doesn't exist
     - 'volume-control.sh'      # adjust volume in fixed step sizes (used with mouse)
