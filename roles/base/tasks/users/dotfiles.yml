@@ -28,6 +28,7 @@
   become_user: rafael
   git:
     clone: yes
+    update: false
     repo: "{{ item.repo }}"
     dest: "{{ item.dest }}"
   with_items:
