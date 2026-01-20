@@ -56,11 +56,11 @@
     group: rafael
     mode: 0700
   with_items:
-    - 'capslock-status.sh'  # control Caps Lock
-    - 'capslock-led.sh'     # repurpose Caps Lock LED
-    - 'keeb-backlit.sh'     # control native laptop keyboard backlit
-    - 'keeb-leds.sh'        # control external keyboard backlit RGB LEDs
-    - 'lan-mouse-monitor.sh'   # sends clipboard back to sender host via SSH forced command
-    - 'push-clipboard.sh'      # copy clipboard when switching hosts with lan-mouse
-    - 'sway-dispatch.sh'       # xremap-like integration with lan-mouse
-    - 'mx-script.sh'        # switch MX Master 3 host connection
+    - 'capslock-status.sh'   # control Caps Lock
+    - 'capslock-led.sh'      # repurpose Caps Lock LED
+    - 'keeb-backlit.sh'      # control native laptop keyboard backlit
+    - 'keeb-leds.sh'         # control external keyboard backlit RGB LEDs
+    - 'lanmouse-monitor.sh'  # sends clipboard back to sender host via SSH forced command
+    - 'push-clipboard.sh'    # copy clipboard when switching hosts with lan-mouse
+    - 'sway-dispatch.sh'     # xremap-like integration with lan-mouse
+    - 'mx-script.sh'         # switch MX Master 3 host connection
