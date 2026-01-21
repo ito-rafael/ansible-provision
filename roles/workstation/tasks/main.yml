@@ -23,7 +23,7 @@
   # Keyboard: workstation + laptop
   - import_tasks: keyboard/keeb-cedilla.yml             # fix cedilla
   - import_tasks: keyboard/keeb-hwdb.yml                # hardware mod
-  - import_tasks: keyboard/keeb-lan-mouse.yml           # software KVM
+  - import_tasks: keyboard/keeb-lanmouse.yml            # software KVM
   - import_tasks: keyboard/keeb-utils.yml               # tools and utilities
   - import_tasks: keyboard/keeb-xkb.yml                 # set modifiers
   - import_tasks: keyboard/keeb-xremap.yml              # software processing
