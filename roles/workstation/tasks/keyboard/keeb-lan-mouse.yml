@@ -56,7 +56,18 @@
     - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOE49R4lrRocw9X8dtiZxG+GUQ2yykPBGzXkTtnUbaAE rafael@catuaba"
   when: inventory_hostname in groups['laptop']
 
-- name: keyboard | lan-mouse | copy lan-mouse user systemd services
+- name: keyboard | lan-mouse | add laptop's SSH public keys to desktop's authorized_keys
+  tags: keyboard,lan-mouse
+  ansible.posix.authorized_key:
+    user: rafael
+    state: present
+    key_options: 'command="/usr/bin/env WAYLAND_DISPLAY=\"wayland-1\" wl-copy; echo copied",no-agent-forwarding,no-pty,no-X11-forwarding'
+    key: "{{ item }}"
+  loop:
+    - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJYB3VWZL2D13hfjT9WFu4nYgU7b3SsRb59CnDOOU31f rafael@ipf-archlinux"
+  when: inventory_hostname not in groups['laptop']
+
+- name: keyboard | lan-mouse | copy lan-mouse systemd services
   tags: keyboard,lan-mouse
   copy:
     src: /home/ansible/git/keebab/systemd/user/{{ item }}
