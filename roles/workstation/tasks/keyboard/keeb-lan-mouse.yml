@@ -77,16 +77,16 @@
     group: rafael
     mode: 0600
   loop:
-    - "lan-mouse.service"
-    - "lan-mouse-monitor.service"
-  register: lan_mouse_services
+    - lanmouse.service
+    - lanmouse-monitor.service
+  register: lanmouse_services
 
 - name: keyboard | lan-mouse | reload systemd user services once
   tags: keyboard,lan-mouse
   become_user: rafael
   systemd:
     daemon_reload: true
-  when: lan_mouse_services.changed
+  when: lanmouse_services.changed
 
 - name: keyboard | lan-mouse | enable user lingering for systemd
   tags: keyboard,lan-mouse
@@ -104,8 +104,8 @@
     state: stopped
     scope: user
   loop:
-    - "lan-mouse"
-    - "lan-mouse-monitor"
+    - "lanmouse"
+    - "lanmouse-monitor"
 
 - name: keyboard | lan-mouse | open port to local network
   tags: keyboard,lan-mouse
