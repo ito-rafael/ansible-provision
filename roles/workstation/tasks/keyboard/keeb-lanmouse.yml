@@ -86,6 +86,7 @@
   become_user: rafael
   systemd:
     daemon_reload: true
+    scope: user
   when: lanmouse_services.changed
 
 - name: keyboard | lan-mouse | enable user lingering for systemd
