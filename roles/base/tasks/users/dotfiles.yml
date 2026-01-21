@@ -32,5 +32,6 @@
     repo: "{{ item.repo }}"
     dest: "{{ item.dest }}"
   with_items:
-    - { repo: "https://github.com/ito-rafael/dotfiles.git", dest: "/home/rafael/git/dotfiles" }
-    - { repo: "https://github.com/ito-rafael/keebab.git",   dest: "/home/rafael/git/keebab" }
+    - { repo: "https://github.com/ito-rafael/ansible-provision.git", dest: "/home/rafael/git/ansible-provision" }
+    - { repo: "https://github.com/ito-rafael/dotfiles.git",          dest: "/home/rafael/git/dotfiles" }
+    - { repo: "https://github.com/ito-rafael/keebab.git",            dest: "/home/rafael/git/keebab" }
