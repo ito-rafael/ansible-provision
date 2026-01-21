@@ -45,16 +45,16 @@
     - { src: "lanmouse-monitor-desktop.sh", dest: "scripts/lanmouse-monitor.sh", mode: "0700" }
   when: inventory_hostname not in groups['laptop']
 
-- name: keyboard | lan-mouse | open port to local network
+- name: keyboard | lan-mouse | add desktop's SSH public keys to laptop's authorized_keys
   tags: keyboard,lan-mouse
-  community.general.ufw:
-    rule: allow
-    port: '4242'
-    src: '192.168.0.0/24'
-    proto: "{{ item }}"
+  ansible.posix.authorized_key:
+    user: rafael
+    state: present
+    key_options: 'command="/usr/bin/env WAYLAND_DISPLAY=\"wayland-1\" wl-copy; echo copied",no-agent-forwarding,no-pty,no-X11-forwarding'
+    key: "{{ item }}"
   loop:
-    - tcp
-    - udp
+    - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOE49R4lrRocw9X8dtiZxG+GUQ2yykPBGzXkTtnUbaAE rafael@catuaba"
+  when: inventory_hostname in groups['laptop']
 
 - name: keyboard | lan-mouse | copy lan-mouse user systemd services
   tags: keyboard,lan-mouse
@@ -95,3 +95,14 @@
   loop:
     - "lan-mouse"
     - "lan-mouse-monitor"
+
+- name: keyboard | lan-mouse | open port to local network
+  tags: keyboard,lan-mouse
+  community.general.ufw:
+    rule: allow
+    port: '4242'
+    src: '192.168.0.0/24'
+    proto: "{{ item }}"
+  loop:
+    - tcp
+    - udp
