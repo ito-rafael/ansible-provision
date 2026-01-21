@@ -31,15 +31,18 @@
     - { src: "lanmouse-monitor-laptop.sh", dest: "scripts/lanmouse-monitor.sh", mode: "0700" }
   when: inventory_hostname in groups['laptop']
 
-- name: keyboard | lan-mouse | copy lan-mouse dotfile for sending end
+- name: keyboard | lan-mouse | copy lan-mouse config files for desktop (server)
   tags: keyboard,lan-mouse
   copy:
-    src: /home/ansible/git/keebab/lan-mouse/config_pc.toml
-    dest: /home/rafael/.config/lan-mouse/config.toml
+    src: /home/ansible/git/keebab/lan-mouse/{{ item.src }}
+    dest: /home/rafael/.config/{{ item.dest }}
     remote_src: true
     owner: rafael
     group: rafael
-    mode: 0600
+    mode: "{{ item.mode }}"
+  loop:
+    - { src: "config-desktop.toml",         dest: "lan-mouse/config.toml",       mode: "0600" }
+    - { src: "lanmouse-monitor-desktop.sh", dest: "scripts/lanmouse-monitor.sh", mode: "0700" }
   when: inventory_hostname not in groups['laptop']
 
 - name: keyboard | lan-mouse | open port to local network
