@@ -29,6 +29,7 @@
   loop:
     - { src: "config_laptop.toml",         dest: "lan-mouse/config.toml",       mode: "0600" }
     - { src: "lanmouse-monitor_laptop.sh", dest: "scripts/lanmouse-monitor.sh", mode: "0700" }
+    - { src: "lanmouse-switch_laptop.sh",  dest: "scripts/lanmouse-switch.sh",   mode: "0700" }
   when: inventory_hostname in groups['laptop']
 
 - name: keyboard | lan-mouse | copy lan-mouse config files for desktop (server)
@@ -43,6 +44,7 @@
   loop:
     - { src: "config_desktop.toml",         dest: "lan-mouse/config.toml",       mode: "0600" }
     - { src: "lanmouse-monitor_desktop.sh", dest: "scripts/lanmouse-monitor.sh", mode: "0700" }
+    - { src: "lanmouse-switch_desktop.sh",  dest: "scripts/lanmouse-switch.sh",  mode: "0700" }
   when: inventory_hostname not in groups['laptop']
 
 - name: keyboard | lan-mouse | add desktop's SSH public keys to laptop's authorized_keys
