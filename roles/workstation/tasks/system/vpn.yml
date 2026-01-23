@@ -34,7 +34,7 @@
   copy:
     remote_src: yes
     src: /home/ansible/git/dotfiles/vpn/{{ item }}
-    dest: /home/rafael/.config/vpn/{{ item }}
+    dest: /home/rafael/.config/vpn/
     owner: rafael
     group: rafael
     mode: 0700
