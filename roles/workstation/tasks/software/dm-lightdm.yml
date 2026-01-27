@@ -36,7 +36,6 @@
     - lightdm-outputs.sh
     - lightdm-lan-mouse.sh
     - lightdm-script-wrapper.sh
-  when: inventory_hostname in groups['laptop']
 
 - name: software | display-manager | LightDM setup "logind-check-graphical"
   tags: display-manager,lightdm
