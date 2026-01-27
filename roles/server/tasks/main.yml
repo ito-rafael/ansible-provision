@@ -1,5 +1,6 @@
 # load distro-specific variables
 - include_vars: "{{ ansible_facts['distribution'] }}.yml"
+  tags: always
 
 - block:
 
