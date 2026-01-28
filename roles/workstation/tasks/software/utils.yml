@@ -10,6 +10,7 @@
       - libinput-tools  # input device mgmt + event lib (debug)
       - lsof            # lists open files for Unix processes
       - man-db          # full documentation
+      - ntfs-3g         # NTFS fs driver
       - sudo            # exec commands as another user
       - tldr            # TL;DR documentation
       - unrar           # RAR uncompression
