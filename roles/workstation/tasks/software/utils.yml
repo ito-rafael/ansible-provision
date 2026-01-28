@@ -2,19 +2,20 @@
   tags: utils,general
   package:
     name:
-      - bc           # calculator language
-      - curl         # transfer data
-      - dex          # DesktopEntry Execution
-      - fzf          # fuzzy finder
-      - imagemagick  # image manipulation with ImageMagick
-      - lsof         # lists open files for Unix processes
-      - man-db       # full documentation
-      - sudo         # exec commands as another user
-      - tldr         # TL;DR documentation
-      - unrar        # RAR uncompression
-      - unzip        # zip archives extraction
-      - wget         # download files from web
-      - whois        # provides mkpasswd
+      - bc              # calculator language
+      - curl            # transfer data
+      - dex             # DesktopEntry Execution
+      - fzf             # fuzzy finder
+      - imagemagick     # image manipulation with ImageMagick
+      - libinput-tools  # input device mgmt + event lib (debug)
+      - lsof            # lists open files for Unix processes
+      - man-db          # full documentation
+      - sudo            # exec commands as another user
+      - tldr            # TL;DR documentation
+      - unrar           # RAR uncompression
+      - unzip           # zip archives extraction
+      - wget            # download files from web
+      - whois           # provides mkpasswd
 
 #- name: software | utils | install CLI tools (AUR)
 #  tags: utils,general
