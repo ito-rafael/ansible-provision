@@ -8,6 +8,13 @@
       - ttf-firacode-nerd               # Nerd Fonts: Fira (Fura) Code (used by Waybar)
       - ttf-ubuntu-font-family          # Ubuntu Font Family
 
+- name: system | fonts | install fonts from AUR
+  tags: system,fonts
+  become_user: aurman
+  kewlfft.aur.aur:
+    name: ttf-all-the-icons  # used by Emacs
+  when: ansible_facts['distribution'] == "Archlinux"
+
 - name: system | fonts | install Font Manager
   tags: system,fonts
   package:
