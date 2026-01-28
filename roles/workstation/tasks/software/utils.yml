@@ -11,6 +11,7 @@
       - lsof            # lists open files for Unix processes
       - man-db          # full documentation
       - ntfs-3g         # NTFS fs driver
+      - shfmt           # format shell scripts
       - sudo            # exec commands as another user
       - tldr            # TL;DR documentation
       - unrar           # RAR uncompression
