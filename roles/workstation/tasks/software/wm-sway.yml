@@ -87,9 +87,10 @@
   tags: wayland,sway
   package:
     name:
-      - xorg-xwayland  # run X clients under wayland
+      - xorg-xwayland  # run X clients under Wayland
       - wl-clipboard   # clipboard utils
       - waycheck       # Wayland protocols implementation status
+      - wtype          # "xdotool type" for Wayland
 
 - name: software | window-manager | install general packages from AUR
   tags: wayland,sway
