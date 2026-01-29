@@ -60,6 +60,7 @@
     - 'capslock-led.sh'      # repurpose Caps Lock LED
     - 'keeb-backlit.sh'      # control native laptop keyboard backlit
     - 'keeb-leds.sh'         # control external keyboard backlit RGB LEDs
+    - 'mx-script.sh'         # switch MX Master 3 host connection
     - 'push-clipboard.sh'    # copy clipboard when switching hosts with lan-mouse
     - 'sway-dispatch.sh'     # xremap-like integration with lan-mouse
-    - 'mx-script.sh'         # switch MX Master 3 host connection
+    - 'zsa-autoconnect.sh'   # connect keyboard to Keymapp automatically
