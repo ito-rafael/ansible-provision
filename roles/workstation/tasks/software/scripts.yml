@@ -33,6 +33,7 @@
     - 'screencast.sh'          # control screencast application
     - 'show-or-launch.sh'      # show scratchpad, or launch it if it doesn't exist
     - 'sway-scale.sh'          # adjust scale in Sway (zoom-{in,out})
+    - 'sway-test.sh'           # test Sway bindsyms via script with alt+ctrl+t
     - 'volume-control.sh'      # adjust volume in fixed step sizes (used with mouse)
     - 'vpn-connecter.sh'       # GUI to connect/disconnect VPN
     - 'wait_host_up.sh'        # fping host and send notification when it's up
