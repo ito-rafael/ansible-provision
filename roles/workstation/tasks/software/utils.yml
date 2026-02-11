@@ -20,13 +20,14 @@
       - wget            # download files from web
       - whois           # provides mkpasswd
 
-#- name: software | utils | install CLI tools (AUR)
-#  tags: utils,general
-#  become_user: aurman
-#  kewlfft.aur.aur:
-#    name:
-#      - forx         # currencies exchange rates
-#  when: ansible_facts['distribution'] == "Archlinux"
+- name: software | utils | install CLI tools (AUR)
+  tags: utils,general
+  become_user: aurman
+  kewlfft.aur.aur:
+    name:
+      - ventoy-bin      # bootable USB stick with multiple ISO
+      #- forx            # currencies exchange rates
+  when: ansible_facts['distribution'] == "Archlinux"
 
 - name: software | utils | modern-unix
   tags: utils,modern-unix
