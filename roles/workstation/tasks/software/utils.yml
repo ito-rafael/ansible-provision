@@ -5,6 +5,7 @@
       - bc              # calculator language
       - curl            # transfer data
       - dex             # DesktopEntry Execution
+      - expect          # automate interactive applications
       - fzf             # fuzzy finder
       - imagemagick     # image manipulation with ImageMagick
       - libinput-tools  # input device mgmt + event lib (debug)
