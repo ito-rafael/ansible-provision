@@ -15,6 +15,7 @@
     createhome: true
     comment: "Rafael Ito"
     password: "{{ rafael_passwd }}"
+    update_password: on_create
     system: false
     shell: /usr/bin/zsh
 
