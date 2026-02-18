@@ -57,17 +57,6 @@
     - maxwell_pascal_volta.stdout != ""
     - kernel == "linux"
 
-- name: system | GPU NVIDIA | install driver for Maxwell, Pascal and Volta architectures (linux-lts kernel)
-  tags: system,gpu,gpu-nvidia
-  package:
-    name:
-      - nvidia-lts          # NVIDIA drivers for linux-lts
-      - nvidia-utils        # drivers utilities (provides nvidia-smi, vulkan-driver)
-      - lib32-nvidia-utils  # provides lib32-vulkan-driver
-  when:
-    - maxwell_pascal_volta.stdout != ""
-    - kernel == "linux-lts"
-
 # Turing, Ampere, and Ada Lovelace
 - name: system | GPU NVIDIA | install driver for Turing, Ampere and Ada Lovelace architectures (linux kernel)
   tags: system,gpu,gpu-nvidia
@@ -79,17 +68,6 @@
   when:
     - turing_ampere_adalovelace.stdout != ""
     - kernel == "linux"
-
-- name: system | GPU NVIDIA | install driver for Turing, Ampere and Ada Lovelace architectures (linux-lts kernel)
-  tags: system,gpu,gpu-nvidia
-  package:
-    name:
-      - nvidia-open-lts      # NVIDIA open kernel modules
-      - nvidia-utils         # drivers utilities (provides nvidia-smi)
-      - lib32-nvidia-utils   # provides lib32-vulkan-driver
-  when:
-    - turing_ampere_adalovelace.stdout != ""
-    - kernel == "linux-lts"
 
 - name: system | GPU NVIDIA | install requirements to run Vulkan applications
   tags: system,gpu,gpu-nvidia
