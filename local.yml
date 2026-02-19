@@ -30,7 +30,6 @@
       when: ansible_facts['hostname'] in groups["server"]
 
 - hosts: lab
-  remote_user: lbic-user
   connection: ssh
   become: true
   roles:
