@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: "all:!lab"
   connection: local
   become: true
   roles:
@@ -28,4 +28,11 @@
   roles:
     - role: server
       when: ansible_facts['hostname'] in groups["server"]
+
+- hosts: lab
+  connection: ssh
+  become: true
+  roles:
+    - role: lab
+      when: ansible_facts['hostname'] in groups["lab"]
 ...
