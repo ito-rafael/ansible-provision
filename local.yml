@@ -20,19 +20,16 @@
   become: true
   roles:
     - role: workstation
-      when: ansible_facts['hostname'] in groups["workstation"] or ansible_facts['hostname'] in groups["laptop"]
 
 - hosts: server
   connection: local
   become: true
   roles:
     - role: server
-      when: ansible_facts['hostname'] in groups["server"]
 
 - hosts: lab
   connection: ssh
   become: true
   roles:
     - role: lab
-      when: ansible_facts['hostname'] in groups["lab"]
 ...
