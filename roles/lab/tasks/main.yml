@@ -3,3 +3,4 @@
   tags: always
 - block:
   - import_tasks: miscellaneous.yml
+  - import_tasks: ssh.yml
