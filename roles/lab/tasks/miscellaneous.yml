@@ -1,0 +1,5 @@
+- name: software | packages | install packages
+  tags: vim
+  package:
+    name:
+      - vim  # terminal text editor
