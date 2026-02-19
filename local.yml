@@ -5,7 +5,7 @@
   roles:
     - base
 
-- hosts: all
+- hosts: "all:!lab"
   connection: local
   become: true
   pre_tasks:
