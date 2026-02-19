@@ -40,3 +40,59 @@
     group: root
     mode: 0440
     validate: "/usr/bin/visudo -cf %s"
+
+- name: users | rafael | create ssh keys dir
+  tags: ssh,ssh-keys
+  file:
+    path: /home/rafael/.ssh
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
+
+- name: users | rafael | generate ssh keys
+  tags: ssh,ssh-keys
+  openssh_keypair:
+    path: /home/rafael/.ssh/id_ed25519
+    type: ed25519
+    state: present
+    owner: rafael
+    group: rafael
+    comment: "{{ ansible_facts['hostname'] }}"
+
+- name: users | rafael | create known_hosts & authorized_keys files
+  tags: ssh,ssh-keys
+  copy:
+    content: ""
+    dest: "{{ item }}"
+    force: no
+    owner: rafael
+    group: rafael
+    mode: 0600
+  with_items:
+    - /home/rafael/.ssh/known_hosts
+    - /home/rafael/.ssh/authorized_keys
+
+- name: users | rafael | copy ssh keys
+  tags: ssh,ssh-keys
+  ansible.posix.authorized_key:
+    user: rafael
+    state: present
+    manage_dir: true
+    key: "{{ lookup('file', item.path) }}"
+    comment: "{{ item.comment }}"
+  with_items:
+    - { path: "{{ role_path }}/files/ssh-keys/ipf-archlinux.pub", comment: "ipf-archlinux" }
+
+- name: users | rafael | create sshuser group
+  tags: ssh,groups
+  group:
+    name: sshuser
+    state: present
+
+- name: users | rafael | add user to sshuser group
+  tags: ssh,users,groups
+  user:
+    name: rafael
+    append: yes
+    groups: sshuser
