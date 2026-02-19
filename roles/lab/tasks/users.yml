@@ -1,0 +1,26 @@
+- name: users | ansible | create group
+  tags: ansible,groups,users
+  group:
+    name: ansible
+    state: present
+
+- name: users | ansible | create user
+  tags: ansible,users
+  user:
+    name: ansible
+    group: ansible
+    groups: "{{ sudo_group }}"
+    createhome: yes
+    state: present
+    comment: "Ansible"
+    system: yes
+    shell: /bin/bash
+
+- name: users | ansible | ensure home dir ownership
+  tags: ansible,users
+  file:
+    path: /home/ansible
+    owner: ansible
+    group: ansible
+    mode: 0700
+    state: directory
