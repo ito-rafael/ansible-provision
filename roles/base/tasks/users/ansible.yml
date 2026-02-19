@@ -34,3 +34,22 @@
     group: root
     mode: 0440
     validate: "/usr/bin/visudo -cf %s"
+
+- name: users | ansible | create ssh keys dir
+  tags: ssh,ssh-keys
+  file:
+    path: /home/ansible/.ssh
+    state: directory
+    owner: ansible
+    group: ansible
+    mode: 0700
+
+- name: users | ansible | generate ssh keys
+  tags: ssh,ssh-keys
+  openssh_keypair:
+    path: /home/ansible/.ssh/id_ed25519
+    type: ed25519
+    state: present
+    owner: ansible
+    group: ansible
+    comment: "{{ ansible_facts['hostname'] }}"
