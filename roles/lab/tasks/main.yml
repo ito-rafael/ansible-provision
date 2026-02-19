@@ -2,6 +2,7 @@
 - include_vars: "{{ ansible_facts['distribution'] }}.yml"
   tags: always
 - block:
-  - import_tasks: users.yml
+  - import_tasks: users-ansible.yml
+  - import_tasks: users-lbic.yml
   - import_tasks: miscellaneous.yml
   - import_tasks: ssh.yml
