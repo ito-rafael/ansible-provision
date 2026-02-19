@@ -52,4 +52,4 @@
     state: present
     owner: ansible
     group: ansible
-    comment: "{{ ansible_facts['hostname'] }}"
+    comment: "ansible-{{ ansible_facts['hostname'] }}"
