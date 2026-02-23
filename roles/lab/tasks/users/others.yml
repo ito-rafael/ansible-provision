@@ -3,3 +3,22 @@
   group:
     name: lbic
     state: present
+
+- name: users | others | create groups
+  tags: groups,users
+  group:
+    name: "{{ item.name }}"
+    state: present
+  loop: "{{ users }}"
+
+- name: users | others | create accounts
+  tags: users
+  user:
+    name: "{{ item.user }}"
+    group: "{{ item.user }}"
+    comment: "{{ item.comment }}"
+    createhome: yes
+    state: present
+    system: no
+    shell: /bin/bash
+  loop: "{{ users }}"
