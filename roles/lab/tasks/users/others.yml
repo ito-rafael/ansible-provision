@@ -16,6 +16,8 @@
   user:
     name: "{{ item.user }}"
     group: "{{ item.user }}"
+    groups: lbic
+    append: true
     comment: "{{ item.comment }}"
     createhome: yes
     state: present
