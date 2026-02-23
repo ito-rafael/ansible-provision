@@ -2,4 +2,5 @@
   tags: vim
   package:
     name:
-      - vim  # terminal text editor
+      - vim   # terminal text editor
+      - lshw  # show hw info

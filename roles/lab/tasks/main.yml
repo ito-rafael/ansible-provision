@@ -4,5 +4,5 @@
 - block:
   - import_tasks: users-ansible.yml
   - import_tasks: users-lbic.yml
-  - import_tasks: miscellaneous.yml
+  - import_tasks: packages.yml
   - import_tasks: ssh.yml
