@@ -69,3 +69,18 @@
       - nvidia-compute-utils-590-server  # NVIDIA open kernel modules
   when:
     - turing_ampere_adalovelace.stdout != ""
+
+#- name: system | GPU NVIDIA | install requirements to run Vulkan applications
+#  tags: system,gpu,gpu-nvidia
+#  package:
+#    name:
+#      - vulkan-icd-loader        # Installable Client Driver (ICD) Loader
+#      - lib32-vulkan-icd-loader  # ICD for 32-bit applications (requires multilib repository)
+#      - vulkan-tools             # Vulkan tools and utilities
+#
+#- name: system | GPU NVIDIA | install CUDA
+#  tags: system,gpu,gpu-nvidia
+#  package:
+#    name:
+#      - cuda        # NVIDIA's GPU programming toolkit
+#      #- cuda-tools  # extra tools: nsight, compute-sanitizer

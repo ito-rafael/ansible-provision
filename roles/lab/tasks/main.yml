@@ -2,9 +2,12 @@
 - include_vars: "{{ ansible_facts['distribution'] }}.yml"
   tags: always
 - block:
-  - import_tasks: users-ansible.yml
-  - import_tasks: users-lbic-user.yml
-  - import_tasks: users-others.yml
-  - import_tasks: packages.yml
-  - import_tasks: ssh.yml
-  - import_tasks: gpu-nvidia.yml
+  # packages
+  - import_tasks: softwarepackages.yml   # install Vim, networking tools, etc
+  # users
+  - import_tasks: users/ansible.yml      # set system user to run ansible automations
+  - import_tasks: users/lbic-user.yml    # create generic universal LBiC user
+  - import_tasks: users/others.yml       # create real LBiC users
+  # system
+  - import_tasks: system/ssh.yml         # setup OpenSSH
+  - import_tasks: system/gpu-nvidia.yml  # install NVIDIA drivers
