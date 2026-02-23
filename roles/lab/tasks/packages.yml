@@ -2,5 +2,6 @@
   tags: vim
   package:
     name:
-      - vim   # terminal text editor
-      - lshw  # show hw info
+      - vim           # terminal text editor
+      - lshw          # show hw info
+      - iputils-ping  # network ping
