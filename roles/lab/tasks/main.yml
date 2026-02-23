@@ -3,7 +3,7 @@
   tags: always
 - block:
   # packages
-  - import_tasks: softwarepackages.yml   # install Vim, networking tools, etc
+  - import_tasks: software/packages.yml   # install Vim, networking tools, etc
   # users
   - import_tasks: users/ansible.yml      # set system user to run ansible automations
   - import_tasks: users/lbic-user.yml    # create generic universal LBiC user
