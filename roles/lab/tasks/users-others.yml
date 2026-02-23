@@ -1,0 +1,5 @@
+- name: users | others | create lbic group
+  tags: groups,users
+  group:
+    name: lbic
+    state: present

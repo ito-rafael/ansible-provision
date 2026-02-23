@@ -3,7 +3,8 @@
   tags: always
 - block:
   - import_tasks: users-ansible.yml
-  - import_tasks: users-lbic.yml
+  - import_tasks: users-lbic-user.yml
+  - import_tasks: users-others.yml
   - import_tasks: packages.yml
   - import_tasks: ssh.yml
   - import_tasks: gpu-nvidia.yml
