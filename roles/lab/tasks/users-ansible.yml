@@ -38,7 +38,7 @@
 - name: users | ansible | create ssh keys dir
   tags: ssh,ssh-keys
   file:
-    path: /home/lbic-user/.ssh
+    path: /home/ansible/.ssh
     state: directory
     owner: ansible
     group: ansible

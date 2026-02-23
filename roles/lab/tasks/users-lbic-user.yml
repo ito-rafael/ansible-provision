@@ -1,40 +1,40 @@
-- name: users | lbic | create ssh keys dir
+- name: users | lbic-user | create ssh keys dir
   tags: ssh,ssh-keys
   file:
-    path: /home/lbic/.ssh
+    path: /home/lbic-user/.ssh
     state: directory
-    owner: lbic
-    group: lbic
+    owner: lbic-user
+    group: lbic-user
     mode: 0700
 
-#- name: users | lbic | generate ssh keys
+#- name: users | lbic-user | generate ssh keys
 #  tags: ssh,ssh-keys
 #  openssh_keypair:
-#    path: /home/lbic/.ssh/id_ed25519
+#    path: /home/lbic-user/.ssh/id_ed25519
 #    type: ed25519
 #    state: present
-#    owner: lbic
-#    group: lbic
+#    owner: lbic-user
+#    group: lbic-user
 #    comment: "{{ ansible_facts['hostname'] }}"
 
-- name: users | lbic | create known_hosts & authorized_keys files
+- name: users | lbic-user | create known_hosts & authorized_keys files
   tags: ssh,ssh-keys
   copy:
     content: ""
     dest: "{{ item }}"
     force: no
-    owner: lbic
-    group: lbic
+    owner: lbic-user
+    group: lbic-user
     mode: 0600
   with_items:
-    - /home/lbic/.ssh/known_hosts
-    - /home/lbic/.ssh/authorized_keys
+    - /home/lbic-user/.ssh/known_hosts
+    - /home/lbic-user/.ssh/authorized_keys
 
-- name: users | lbic | copy ssh keys
+- name: users | lbic-user | copy ssh keys
   tags: ssh,ssh-keys
   ansible.posix.authorized_key:
 
-    user: lbic
+    user: lbic-user
     state: present
     manage_dir: true
     key: "{{ lookup('file', item.path) }}"
