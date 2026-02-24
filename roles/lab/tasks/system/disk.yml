@@ -17,3 +17,13 @@
   when: root_mount.fstype == 'btrfs'
   args:
     creates: /root/emergency-space.img
+
+- name: system | disk-protection | protect the BTRFS emergency file from accidental deletion
+  tags: system,disk
+  ansible.builtin.file:
+    path: /root/emergency-space.img
+    state: file
+    mode: '0000'
+  when: root_mount.fstype == 'btrfs'
+
+# if/when needed: ssh into the machine, then "sudo rm /root/emergency-space.img"
