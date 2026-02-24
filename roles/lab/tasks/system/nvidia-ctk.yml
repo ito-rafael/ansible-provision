@@ -1,6 +1,6 @@
-- name: system | NVIDIA-Container-Toolkit | install prerequisites
+- name: system | nvidia-ctk | install prerequisites
   tags: system,nvidia
-  package:
+  ansible.builtin.apt:
     name:
       - ca-certificates
       - curl

@@ -2,15 +2,15 @@
 - include_vars: "{{ ansible_facts['distribution'] }}.yml"
   tags: always
 - block:
-  # packages
-  - import_tasks: software/packages.yml                # install Vim, networking tools, etc
-  # users
-  - import_tasks: users/ansible.yml                    # set system user to run ansible automations
-  - import_tasks: users/dataset.yml                    # create lbic group + dataset dir
-  - import_tasks: users/lbic-user.yml                  # create generic universal LBiC user
-  - import_tasks: users/others.yml                     # create real LBiC users
+  # software
+  - import_tasks: software/packages.yml  # install Vim, networking tools, etc
+  # users & groups
+  - import_tasks: users/ansible.yml      # set system user to run ansible automations
+  - import_tasks: users/dataset.yml      # lbic group + dataset dir
+  - import_tasks: users/lbic-user.yml    # generic universal LBiC user
+  - import_tasks: users/others.yml       # real LBiC users
   # system
-  - import_tasks: system/disk.yml                      # preserve disk space
-  - import_tasks: system/ssh.yml                       # setup OpenSSH
-  - import_tasks: system/gpu-nvidia.yml                # install NVIDIA drivers
-  - import_tasks: system/nvidia-container-toolkit.yml  # install NVIDIA Container Toolkit
+  - import_tasks: system/disk.yml        # preserve disk space
+  - import_tasks: system/ssh.yml         # OpenSSH
+  - import_tasks: system/gpu-nvidia.yml  # NVIDIA drivers
+  - import_tasks: system/nvidia-ctk.yml  # NVIDIA Container Toolkit
