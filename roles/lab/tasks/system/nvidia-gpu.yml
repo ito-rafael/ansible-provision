@@ -11,37 +11,37 @@
 # Blackwell    (TBD family / TBD code name)
 
 # NVIDIA GPU architecture identification
-- name: system | GPU NVIDIA | check if architecture is Kepler
-  tags: system,gpu,gpu-nvidia
+- name: system | nvidia | check if architecture is Kepler
+  tags: system,gpu,nvidia,nvidia-gpu
   shell: lspci -k -d ::03xx | grep -E 'GK[12][01][0-9A][B]?'
   changed_when: false
   failed_when: false
   register: kepler
 
-- name: system | GPU NVIDIA | check if architecture is Maxwell, Pascal, or Volta
-  tags: system,gpu,gpu-nvidia
+- name: system | nvidia | check if architecture is Maxwell, Pascal, or Volta
+  tags: system,gpu,nvidia,nvidia-gpu
   shell: lspci -k -d ::03xx | grep -E 'GM[12]0[04678B]|GP10[24678]|GV100'
   changed_when: false
   failed_when: false
   register: maxwell_pascal_volta
 
-- name: system | GPU NVIDIA | check if architecture is Turing, Ampere, or Ada Lovelace
-  tags: system,gpu,gpu-nvidia
+- name: system | nvidia | check if architecture is Turing, Ampere, or Ada Lovelace
+  tags: system,gpu,nvidia,nvidia-gpu
   shell: lspci -k -d ::03xx | grep -E 'TU1[01][2467]|GA10[2467]AD10[23467]'
   changed_when: false
   failed_when: false
   register: turing_ampere_adalovelace
 
-- name: system | GPU NVIDIA | check if architecture is Blackwell
-  tags: system,gpu,gpu-nvidia
+- name: system | nvidia | check if architecture is Blackwell
+  tags: system,gpu,nvidia,nvidia-gpu
   shell: lspci -k -d ::03xx | grep -E 'GB[12][0-9]{2}'
   changed_when: false
   failed_when: false
   register: blackwell
 
 # Kepler
-#- name: system | GPU NVIDIA | install driver for Kepler architecture
-#  tags: system,gpu,gpu-nvidia
+#- name: system | nvidia | install driver for Kepler architecture
+#  tags: system,gpu,nvidia,nvidia-gpu
 #  package:
 #    name:
 #      - nvidia-470xx-dkms
@@ -51,8 +51,8 @@
 #    - kepler.stdout != ""
 
 # Maxwell, Pascal, and Volta
-#- name: system | GPU NVIDIA | install driver for Maxwell, Pascal and Volta architectures (linux kernel)
-#  tags: system,gpu,gpu-nvidia
+#- name: system | nvidia | install driver for Maxwell, Pascal and Volta architectures (linux kernel)
+#  tags: system,gpu,nvidia,nvidia-gpu
 #  package:
 #    name:
 #      - nvidia              # NVIDIA kernel modules
@@ -62,24 +62,24 @@
 #    - maxwell_pascal_volta.stdout != ""
 
 # Turing, Ampere, and Ada Lovelace
-- name: system | GPU NVIDIA | install driver for Turing, Ampere, Ada Lovelace, and Blackwell architectures
-  tags: system,gpu,gpu-nvidia
+- name: system | nvidia | install driver for Turing, Ampere, Ada Lovelace, and Blackwell architectures
+  tags: system,gpu,nvidia,nvidia-gpu
   package:
     name:
       - nvidia-compute-utils-590-server  # NVIDIA open kernel modules
   when:
     - turing_ampere_adalovelace.stdout != ""
 
-#- name: system | GPU NVIDIA | install requirements to run Vulkan applications
-#  tags: system,gpu,gpu-nvidia
+#- name: system | nvidia | install requirements to run Vulkan applications
+#  tags: system,gpu,nvidia,nvidia-gpu
 #  package:
 #    name:
 #      - vulkan-icd-loader        # Installable Client Driver (ICD) Loader
 #      - lib32-vulkan-icd-loader  # ICD for 32-bit applications (requires multilib repository)
 #      - vulkan-tools             # Vulkan tools and utilities
 #
-#- name: system | GPU NVIDIA | install CUDA
-#  tags: system,gpu,gpu-nvidia
+#- name: system | nvidia | install CUDA
+#  tags: system,gpu,nvidia,nvidia-gpu
 #  package:
 #    name:
 #      - cuda        # NVIDIA's GPU programming toolkit

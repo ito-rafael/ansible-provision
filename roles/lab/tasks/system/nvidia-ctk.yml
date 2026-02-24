@@ -1,5 +1,5 @@
 - name: system | nvidia-ctk | install prerequisites
-  tags: system,nvidia
+  tags: system,nvidia,nvidia-ctk
   ansible.builtin.apt:
     name:
       - ca-certificates
