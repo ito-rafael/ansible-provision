@@ -1,8 +1,4 @@
-- name: users | others | create lbic group
   tags: groups,users
-  group:
-    name: lbic
-    state: present
 
 - name: users | others | create groups
   tags: groups,users
