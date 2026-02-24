@@ -3,6 +3,7 @@
   package:
     name:
       - vim           # terminal text editor
+      - tmux          # terminal multiplexer
       - lshw          # show hw info
       - iputils-ping  # network ping
       - man-db        # tools for reading manual pages
