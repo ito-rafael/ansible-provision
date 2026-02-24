@@ -1,0 +1,8 @@
+- name: system | NVIDIA-Container-Toolkit | install prerequisites
+  tags: system,nvidia
+  package:
+    name:
+      - ca-certificates
+      - curl
+      - gnupg2
+    update_cache: yes

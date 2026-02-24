@@ -13,3 +13,4 @@
   - import_tasks: system/disk.yml                      # preserve disk space
   - import_tasks: system/ssh.yml                       # setup OpenSSH
   - import_tasks: system/gpu-nvidia.yml                # install NVIDIA drivers
+  - import_tasks: system/nvidia-container-toolkit.yml  # install NVIDIA Container Toolkit
