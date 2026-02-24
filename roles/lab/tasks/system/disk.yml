@@ -10,3 +10,10 @@
   ansible.builtin.command: "tune2fs -m 1 {{ root_mount.device }}"
   when: root_mount.fstype == 'ext4'
   changed_when: false
+
+- name: system | disk-protection | create reserved disk space block (BTRFS)
+  tags: system,disk
+  ansible.builtin.command: fallocate -l 10G /root/emergency-space.img
+  when: root_mount.fstype == 'btrfs'
+  args:
+    creates: /root/emergency-space.img
