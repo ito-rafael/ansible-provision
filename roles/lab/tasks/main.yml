@@ -10,5 +10,6 @@
   - import_tasks: users/lbic-user.yml                  # create generic universal LBiC user
   - import_tasks: users/others.yml                     # create real LBiC users
   # system
+  - import_tasks: system/disk.yml                      # preserve disk space
   - import_tasks: system/ssh.yml                       # setup OpenSSH
   - import_tasks: system/gpu-nvidia.yml                # install NVIDIA drivers
