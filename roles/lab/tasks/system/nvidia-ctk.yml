@@ -22,3 +22,10 @@
     gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg /tmp/nvidia-container-toolkit.asc
   args:
     creates: /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg
+
+- name: system | nvidia-ctk | download sources list
+  tags: system,nvidia,nvidia-ctk
+  ansible.builtin.get_url:
+    url: https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list
+    dest: /etc/apt/sources.list.d/nvidia-container-toolkit.list
+    mode: '0644'
