@@ -1,3 +1,16 @@
+- name: users | lbic-user | add to lbic group
+  tags: users
+  user:
+    name: lbic-user
+    group: lbic-user
+    groups: lbic,{{ sudo_group }}
+    append: true
+    comment: "lbic-user"
+    createhome: yes
+    state: present
+    system: no
+    shell: /bin/bash
+
 - name: users | lbic-user | create ssh keys dir
   tags: ssh,ssh-keys
   file:
