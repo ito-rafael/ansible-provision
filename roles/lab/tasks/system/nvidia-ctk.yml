@@ -30,9 +30,16 @@
     dest: /etc/apt/sources.list.d/nvidia-container-toolkit.list
     mode: '0644'
 
-- name: system | nvidia-ctk | configure signed-by tag in sources list
+- name: system | nvidia-ctk | configure signed-by tag in APT sources list
   tags: system,nvidia,nvidia-ctk
   ansible.builtin.replace:
     path: /etc/apt/sources.list.d/nvidia-container-toolkit.list
     regexp: 'deb https://'
     replace: 'deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://'
+
+- name: system | nvidia-ctk | install NVIDIA Container Toolkit
+  tags: system,nvidia,nvidia-ctk
+  ansible.builtin.apt:
+    name: nvidia-container-toolkit
+    update_cache: yes
+  register: nvidia_ctk_install
