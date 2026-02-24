@@ -1,7 +1,7 @@
 - name: system | disk-protection | get root mount information
   tags: system,disk
   ansible.builtin.set_fact:
-    root_mount: "{{ ansible_mounts | selectattr('mount', 'equalto', '/') | first }}"
+    root_mount: "{{ ansible_facts['mounts'] | selectattr('mount', 'equalto', '/') | first }}"
 
 # create a reserved block of 1% (~10 GB) to avoid disk filled
 # we set "changed_when" to false, since tune2fs does not have a built-in idempotency check
