@@ -23,9 +23,16 @@
   args:
     creates: /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg
 
-- name: system | nvidia-ctk | download sources list
+- name: system | nvidia-ctk | download APT sources list
   tags: system,nvidia,nvidia-ctk
   ansible.builtin.get_url:
     url: https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list
     dest: /etc/apt/sources.list.d/nvidia-container-toolkit.list
     mode: '0644'
+
+- name: system | nvidia-ctk | configure signed-by tag in sources list
+  tags: system,nvidia,nvidia-ctk
+  ansible.builtin.replace:
+    path: /etc/apt/sources.list.d/nvidia-container-toolkit.list
+    regexp: 'deb https://'
+    replace: 'deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://'
