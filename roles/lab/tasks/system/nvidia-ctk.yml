@@ -15,3 +15,10 @@
     url: https://nvidia.github.io/libnvidia-container/gpgkey
     dest: /tmp/nvidia-container-toolkit.asc
     mode: '0644'
+
+- name: system | nvidia-ctk | dearmor GPG key
+  tags: system,nvidia,nvidia-ctk
+  ansible.builtin.command: >
+    gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg /tmp/nvidia-container-toolkit.asc
+  args:
+    creates: /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg
