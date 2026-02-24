@@ -8,3 +8,10 @@
       - curl
       - gnupg2
     update_cache: yes
+
+- name: system | nvidia-ctk | download GPG key
+  tags: system,nvidia,nvidia-ctk
+  ansible.builtin.get_url:
+    url: https://nvidia.github.io/libnvidia-container/gpgkey
+    dest: /tmp/nvidia-container-toolkit.asc
+    mode: '0644'
