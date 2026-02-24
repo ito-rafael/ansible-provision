@@ -1,7 +1,8 @@
 - name: software | packages | install packages
-  tags: vim
+  tags: software,packages
   package:
     name:
       - vim           # terminal text editor
       - lshw          # show hw info
       - iputils-ping  # network ping
+      - man-db        # tools for reading manual pages
