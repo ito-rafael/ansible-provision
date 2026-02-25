@@ -14,3 +14,15 @@
   ansible.builtin.command: "/tmp/Miniforge3.sh -b -u -p /opt/mamba"
   args:
     creates: /opt/mamba
+
+- name: system | mamba | make mamba available to users upon login
+  tags: system,mamba
+  ansible.builtin.copy:
+    dest: /etc/profile.d/mamba.sh
+    content: |
+      export MAMBA_ROOT_PREFIX=/opt/mamba
+      . /opt/mamba/etc/profile.d/conda.sh
+      . /opt/mamba/etc/profile.d/mamba.sh
+    owner: root
+    group: root
+    mode: '0644'
