@@ -25,3 +25,9 @@
     state: directory
     mode: '0755'
 
+- name: system | nvidia-cdi | generate NVIDIA CDI specification
+  tags: system,nvidia,nvidia-cdi
+  ansible.builtin.command: nvidia-cdi cdi generate --output=/etc/cdi/nvidia.yaml
+  args:
+    creates: /etc/cdi/nvidia.yaml
+
