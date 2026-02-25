@@ -72,17 +72,9 @@
     turing_ampere_adalovelace.stdout != "" or
     blackwell.stdout != ""
 
-#- name: system | nvidia | install requirements to run Vulkan applications
-#  tags: system,gpu,nvidia,nvidia-gpu
-#  package:
-#    name:
-#      - vulkan-icd-loader        # Installable Client Driver (ICD) Loader
-#      - lib32-vulkan-icd-loader  # ICD for 32-bit applications (requires multilib repository)
-#      - vulkan-tools             # Vulkan tools and utilities
-#
-#- name: system | nvidia | install CUDA
-#  tags: system,gpu,nvidia,nvidia-gpu
-#  package:
-#    name:
-#      - cuda        # NVIDIA's GPU programming toolkit
-#      #- cuda-tools  # extra tools: nsight, compute-sanitizer
+- name: system | nvidia | install GPU tools
+  tags: system,gpu,nvidia,nvidia-gpu
+  package:
+    name:
+      - nvtop                 # GPU process monitoring
+      #- nvidia-cuda-toolkit  # NVIDIA's GPU programming toolkit
