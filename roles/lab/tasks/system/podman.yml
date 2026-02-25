@@ -9,6 +9,8 @@
   package:
     name:
       - podman          # tool and library to run OCI-based containers in pods
+      - podman-compose  # script to run docker-compose.yml
+      - podman-docker   # aliases to emulate Docker CLI
 
 - name: system | podman | [debug] test GPU support Podman containers
   tags: system,podman
