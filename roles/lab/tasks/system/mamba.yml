@@ -1,0 +1,6 @@
+- name: system | mamba | download Miniforge installer
+  tags: system,mamba
+  ansible.builtin.get_url:
+    url: "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh"
+    dest: "/tmp/Miniforge3.sh"
+    mode: '0755'

@@ -17,3 +17,4 @@
   - import_tasks: system/nvidia-ctk.yml    # NVIDIA Container Toolkit
   - import_tasks: system/nvidia-cdi.yml    # NVIDIA Container Device Interface
   - import_tasks: system/podman.yml        # Podman containers
+  - import_tasks: system/mamba.yml         # Mamba Python env
