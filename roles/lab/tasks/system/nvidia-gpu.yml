@@ -66,9 +66,11 @@
   tags: system,gpu,nvidia,nvidia-gpu
   package:
     name:
-      - nvidia-compute-utils-590-server  # NVIDIA open kernel modules
-  when:
-    - turing_ampere_adalovelace.stdout != ""
+      - nvidia-driver-590-open  # NVIDIA open kernel modules
+      - nvidia-utils-590        # driver utilities (provides nvidia-smi)
+  when: >
+    turing_ampere_adalovelace.stdout != "" or
+    blackwell.stdout != ""
 
 #- name: system | nvidia | install requirements to run Vulkan applications
 #  tags: system,gpu,nvidia,nvidia-gpu
