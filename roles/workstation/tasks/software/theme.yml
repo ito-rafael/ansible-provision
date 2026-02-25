@@ -45,3 +45,10 @@
       - qt6-wayland  # provides APIs for Wayland (Qt6)
       - qt6-svg      # classes for displaying the contents of SVG files
   when: window_manager == "sway"
+
+- name: software | theme | install Kvantum
+  tags: theme,qt
+  package:
+    name:
+      - kvantum-qt5  # SVG-based theme engine for Qt5
+      - kvantum      # SVG-based theme engine for Qt6
