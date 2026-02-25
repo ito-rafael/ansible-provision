@@ -31,3 +31,13 @@
   args:
     creates: /etc/cdi/nvidia.yaml
 
+- name: system | nvidia-cdi | [debug] verify CDI devices are detectable
+  tags: system,nvidia,nvidia-cdi
+  ansible.builtin.command: nvidia-ctk cdi list
+  register: cdi_list
+  changed_when: false
+
+- name: system | nvidia-cdi | [debug] display detected CDI devices
+  tags: system,nvidia,nvidia-cdi
+  ansible.builtin.debug:
+    var: cdi_list.stdout_lines
