@@ -61,3 +61,13 @@
     owner: rafael
     group: rafael
     mode: 0700
+
+- name: software | theme | copy Kvantum dotfile
+  tags: theme,qt
+  copy:
+    remote_src: true
+    src: /home/ansible/git/dotfiles/Kvantum/kvantum.kvconfig
+    dest: /home/rafael/.config/Kvantum/kvantum.kvconfig
+    owner: rafael
+    group: rafael
+    mode: 0600
