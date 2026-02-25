@@ -52,3 +52,12 @@
     name:
       - kvantum-qt5  # SVG-based theme engine for Qt5
       - kvantum      # SVG-based theme engine for Qt6
+
+- name: software | theme | ensure Kvantum dir exists
+  tags: theme,qt
+  file:
+    path: /home/rafael/.config/Kvantum
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
