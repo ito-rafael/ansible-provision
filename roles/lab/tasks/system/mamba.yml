@@ -4,3 +4,13 @@
     url: "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh"
     dest: "/tmp/Miniforge3.sh"
     mode: '0755'
+
+# flags:
+#   -b: batch mode (run silently)
+#   -u: update
+#   -p: prefix/path (set to /opt/mamba)
+- name: system | mamba | run Miniforge installer
+  tags: system,mamba
+  ansible.builtin.command: "/tmp/Miniforge3.sh -b -u -p /opt/mamba"
+  args:
+    creates: /opt/mamba
