@@ -9,3 +9,15 @@
   package:
     name:
       - podman          # tool and library to run OCI-based containers in pods
+
+- name: system | podman | [debug] test GPU support Podman containers
+  tags: system,podman
+  ansible.builtin.command: podman run --rm --device nvidia.com/gpu=all ubuntu nvidia-smi
+  #ansible.builtin.command: podman run --rm --device nvidia.com/gpu=all ubuntu nvidia-smi -L
+  register: podman_gpu_test
+  changed_when: false
+
+- name: system | podman | [debug] display the output of nvidia-smi inside container
+  tags: system,podman
+  ansible.builtin.debug:
+    var: podman_gpu_test.stdout_lines
