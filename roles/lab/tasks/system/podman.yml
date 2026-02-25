@@ -1,0 +1,5 @@
+- name: system | podman | prevent packages conflict
+  tags: system,podman
+  package:
+    name: docker
+    state: absent
