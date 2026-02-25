@@ -26,3 +26,23 @@
     owner: root
     group: root
     mode: '0644'
+
+- name: system | mamba | config global condarc for user envs
+  tags: system,mamba
+  ansible.builtin.copy:
+    dest: /opt/mamba/.condarc
+    content: |
+      # Set default channels
+      channels:
+        - conda-forge
+
+      # route new envs and cached packages to the user's home dir
+      envs_dirs:
+        - ~/.conda/envs
+        - /opt/mamba/envs
+      pkgs_dirs:
+        - ~/.conda/pkgs
+        - /opt/mamba/pkgs
+    owner: root
+    group: root
+    mode: '0644'
