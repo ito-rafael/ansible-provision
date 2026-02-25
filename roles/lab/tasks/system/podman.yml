@@ -3,3 +3,9 @@
   package:
     name: docker
     state: absent
+
+- name: system | podman | install Podman
+  tags: system,podman
+  package:
+    name:
+      - podman          # tool and library to run OCI-based containers in pods
