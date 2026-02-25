@@ -4,12 +4,24 @@
 # Automatic CDI specification generation
 #----------------------------------------
 
-# as of nvidia-cdi v1.18.0, the specification is generated/updated by the =nvidia-cdi-refresh= systemd service
-- name: system | nvidia-cdi | generate CDI specification
+# as of nvidia-cdi v1.18.0, the specification is generated/updated by the =nvidia-cdi-refresh= systemd service (not working)
+#- name: system | nvidia-cdi | generate CDI specification
+#  tags: system,nvidia,nvidia-cdi
+#  systemd:
+#    name: nvidia-cdi-refresh
+#    enabled: true
+#    daemon_reload: true
+#    state: restarted
+#  when: nvidia_ctk_install.changed
+
+#----------------------------------------
+# Manual CDI specification generation
+#----------------------------------------
+
+- name: system | nvidia-cdi | ensure CDI dir exists
   tags: system,nvidia,nvidia-cdi
-  systemd:
-    name: nvidia-cdi-refresh
-    enabled: true
-    daemon_reload: true
-    state: restarted
-  when: nvidia_ctk_install.changed
+  ansible.builtin.file:
+    path: /etc/cdi
+    state: directory
+    mode: '0755'
+
