@@ -36,3 +36,12 @@
     key: "/org/gnome/desktop/interface/color-scheme"
     value: "'prefer-dark'"
     state: present
+
+- name: software | theme | install Qt packages
+  tags: theme,qt
+  package:
+    name:
+      - qt5-wayland  # provides APIs for Wayland (Qt5)
+      - qt6-wayland  # provides APIs for Wayland (Qt6)
+      - qt6-svg      # classes for displaying the contents of SVG files
+  when: window_manager == "sway"
