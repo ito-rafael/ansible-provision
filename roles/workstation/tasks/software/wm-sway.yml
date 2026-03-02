@@ -8,14 +8,6 @@
       - sway-contrib  # community scripts for sway
       - swayidle      # idle manager
       - swaybg        # wallpaper tool
-      #- swaylock      # screen locker
-
-- name: software | window-manager | install Sway locker
-  tags: wayland,sway
-  become_user: aurman
-  kewlfft.aur.aur:
-    name: swaylock-effects  # screen locker
-  when: ansible_facts['distribution'] == "Archlinux"
 
 - name: software | window-manager | install portals
   tags: wayland,portals
@@ -48,7 +40,6 @@
     mode: 0700
   with_items:
     - sway
-    - swaylock
 
 - name: software | window-manager | copy Sway dotfiles
   tags: wayland,sway
@@ -69,19 +60,6 @@
   command:
     cmd: ruby /home/rafael/.config/sway/i3bang.rb
     creates: /home/rafael/.config/sway/config
-
-- name: software | window-manager | copy swaylock dotfiles
-  tags: wayland,sway
-  copy:
-    src: /home/ansible/git/dotfiles/swaylock/{{ item.filename }}
-    dest: /home/rafael/.config/swaylock/{{ item.filename }}
-    remote_src: true
-    owner: rafael
-    group: rafael
-    mode: "{{ item.mode }}"
-  with_items:
-    - { filename: 'config',         mode: '0600' }
-    - { filename: 'lock-screen.sh', mode: '0700' }
 
 - name: software | window-manager | install general packages
   tags: wayland,sway
