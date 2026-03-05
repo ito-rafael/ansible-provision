@@ -9,7 +9,7 @@
 #+LATEX_CLASS_OPTIONS: [a4paper, landscape]
 
 # set version
-#+LATEX_HEADER: \newcommand{\docversion}{v1.0}
+#+LATEX_HEADER: \newcommand{\docversion}{v1.1}
 
 # # manually place the title
 # #+LATEX: \begin{center}
@@ -107,9 +107,9 @@
 #+LATEX: \raggedcolumns
 
 * Table of Contents :toc:noexport:
-- [[#accessing-the-lab-latexhfillraisebox-02heightincludegraphicsheight1emfigurestudent-idpnghspace025cmraisebox-02heightincludegraphicsheight1emfigurekeypng][Accessing the lab @@latex:\hfill\raisebox{-0.2\height}{\includegraphics[height=1em]{figure/student-id.png}}\hspace{0.25cm}\raisebox{-0.2\height}{\includegraphics[height=1em]{figure/key.png}}@@]]
-- [[#accessing-the-computers-latexhfillraisebox-02heightincludegraphicsheight125emfigureopenvpnpnghspace025cmraisebox-02heightincludegraphicsheight125emfigureopensshpng][Accessing the computers @@latex:\hfill\raisebox{-0.2\height}{\includegraphics[height=1.25em]{figure/openvpn.png}}\hspace{0.25cm}\raisebox{-0.2\height}{\includegraphics[height=1.25em]{figure/openssh.png}}@@]]
-- [[#hosts-latexhfillraisebox-02heightincludegraphicsheight1emfigureserverpnghspace025cmraisebox-02heightincludegraphicsheight1emfigurecomputerpng][Hosts @@latex:\hfill\raisebox{-0.2\height}{\includegraphics[height=1em]{figure/server.png}}\hspace{0.25cm}\raisebox{-0.2\height}{\includegraphics[height=1em]{figure/computer.png}}@@]]
+- [[#accessing-the-lab][Accessing the lab]]
+- [[#accessing-the-computers][Accessing the computers]]
+- [[#hosts][Hosts]]
 - [[#general-commands-latexhfillraisebox-02heightincludegraphicsheight125emfigureshellpng][General commands @@latex:\hfill\raisebox{-0.2\height}{\includegraphics[height=1.25em]{figure/shell.png}}@@]]
   - [[#change-password][Change Password]]
   - [[#monitoring-cpu-and-gpu-processes][Monitoring CPU and GPU processes]]
@@ -133,19 +133,20 @@
   - [[#example-train-an-ai-model-on-mnist-dataset][Example: train an AI model on MNIST dataset]]
 - [[#podman-containers-latexhfillraisebox-02heightincludegraphicsheight15emfigurepodmanpnghspace025cmraisebox-02heightincludegraphicsheight15emfiguredockerpng][Podman (containers) @@latex:\hfill\raisebox{-0.2\height}{\includegraphics[height=1.5em]{figure/podman.png}}\hspace{0.25cm}\raisebox{-0.2\height}{\includegraphics[height=1.5em]{figure/docker.png}}@@]]
   - [[#run-a-container-interactively][Run a container interactively]]
-  - [[#list-running-containers][List running containers]]
+  - [[#list-running-containers-and-downloaded-images][List running containers and downloaded images]]
   - [[#enter-inside-a-running-container][Enter inside a running container]]
-  - [[#list-downloaded-images][List downloaded images]]
   - [[#stop-a-container][Stop a container]]
   - [[#remove-a-stopped-container][Remove a stopped container]]
   - [[#example-run-a-jupyter-notebook-with-gpu][Example: run a Jupyter Notebook (with GPU)]]
 
-* Accessing the lab @@latex:\hfill\raisebox{-0.2\height}{\includegraphics[height=1em]{figure/student-id.png}}\hspace{0.25cm}\raisebox{-0.2\height}{\includegraphics[height=1em]{figure/key.png}}@@
+* Accessing the lab
+# * Accessing the lab @@latex:\hfill\raisebox{-0.2\height}{\includegraphics[height=1em]{figure/student-id.png}}\hspace{0.25cm}\raisebox{-0.2\height}{\includegraphics[height=1em]{figure/key.png}}@@
 #+LATEX: \vspace{-0.1cm}
 - *Building*: Access to the G2 block (LBiC's location) requires student ID ("RA"). If your ID fails, please contact prof. Von Zuben\textsuperscript{*} for authorization (@@latex:\href{https://site.fee.unicamp.br/ctic/faq\detokenize{#}acesso_laboratorio}{\textcolor{blue}{\uline{CTIC}}}@@).
 - *LBiC*: The lab access control is done through a regular key. If you plan to use the physical space, kindly ask Prof. Von Zuben for a copy of the lab key.
 #+LATEX: \vspace{-1em}\noindent\rule{\linewidth}{0.4pt}\vspace{-1em}
-* Accessing the computers @@latex:\hfill\raisebox{-0.2\height}{\includegraphics[height=1.25em]{figure/openvpn.png}}\hspace{0.25cm}\raisebox{-0.2\height}{\includegraphics[height=1.25em]{figure/openssh.png}}@@
+* Accessing the computers
+# * Accessing the computers @@latex:\hfill\raisebox{-0.2\height}{\includegraphics[height=1.25em]{figure/openvpn.png}}\hspace{0.25cm}\raisebox{-0.2\height}{\includegraphics[height=1.25em]{figure/openssh.png}}@@
 #+LATEX: \vspace{-0.1cm}
 If you don't have your credentials yet, send an email\textsuperscript{\dag}  requesting it. To access hosts remotely, connect via VPN then SSH into the host. If you are locally connected to the lab's network, only an SSH connection needed.
 - *VPN*: Connect to the lab VPN using your assigned credentials. A comprehensive setup guide was included in your credential email for reference.
@@ -154,7 +155,8 @@ If you don't have your credentials yet, send an email\textsuperscript{\dag}  req
   ssh username@ip_address
   #+end_src
 #+LATEX: \vspace{-1em}\noindent\rule{\linewidth}{0.4pt}\vspace{-1em}
-* Hosts @@latex:\hfill\raisebox{-0.2\height}{\includegraphics[height=1em]{figure/server.png}}\hspace{0.25cm}\raisebox{-0.2\height}{\includegraphics[height=1em]{figure/computer.png}}@@
+* Hosts
+# * Hosts @@latex:\hfill\raisebox{-0.2\height}{\includegraphics[height=1em]{figure/server.png}}\hspace{0.25cm}\raisebox{-0.2\height}{\includegraphics[height=1em]{figure/computer.png}}@@
 #+LATEX: \vspace{-0.1cm}
 - *Workstations*: There are a few dedicated PCs available for local or remote research. Please contact us\textsuperscript{\dag} to request a machine for your project's duration.
 - *Servers*: Experiments are currently hosted on a shared primary server. Please schedule your sessions in advance via the resource reservation @@latex:\href{https://docs.google.com/spreadsheets/d/1Lhi5pEze4d4Z4oHMksUpD3k6n5Hp26gXtOMGz6sXr9A/edit?usp=sharing}{\textcolor{blue}{\uline{spreadsheet}}}@@.
@@ -296,7 +298,7 @@ Clean up when your experiment is finished.
 #+begin_src sh
 mamba env remove -n <environment_name>
 #+end_src
-#+LATEX: \vspace{0em}\noindent\rule{\linewidth}{0.4pt}\vspace{0em}
+#+LATEX: \vspace{0em}\noindent\rule{\linewidth}{0.4pt}\vspace{0.25em}
 ** Example: train an AI model on MNIST dataset
 #+ATTR_LATEX: :options basicstyle=\fontsize{8pt}{8.5pt}\ttfamily
 #+begin_src sh
@@ -315,27 +317,24 @@ python main.py --epochs 1
 *What is it?* Podman is a container engine. It is functionally identical to Docker (you can even use the alias "docker" to run the commands), but it is "daemonless" and runs securely without needing root privileges.
 #+LATEX: \vspace{0em}\noindent\rule{\linewidth}{0.4pt}\vspace{0em}
 ** Run a container interactively
-Download an image and run a command inside it.
+Download an image, mount volumes, and run a command inside the container.
 #+begin_src sh
-podman run --rm -it --device nvidia.com/gpu=all nvidia/pytorch:26.02-py3 bash
-podman run --rm -it --device nvidia.com/gpu=all pytorch/pytorch:latest bash
+podman run --rm -it --device nvidia.com/gpu=all \
+       --volume /dataset/mnist:/dataset         \
+       --volume $(pwd):/workspace               \
+       pytorch/pytorch:latest                   \
+       bash
 #+end_src
-** List running containers
-Check what is currently running and get the container IDs.
+** List running containers and downloaded images
 #+begin_src sh
-podman ps
+podman ps             # check what is currently running and get the container IDs
+podman image ls       # check what container images are currently stored locally
 #+end_src
 ** Enter inside a running container
 #+begin_src sh
 podman exec -it <container_id> bash
 #+end_src
-** List downloaded images
-Check what container images are currently stored locally.
-#+begin_src sh
-podman image ls
-#+end_src
 ** Stop a container
-Stop a running container using its ID or name.
 #+begin_src sh
 podman stop <container_id>
 #+end_src
@@ -343,7 +342,7 @@ podman stop <container_id>
 #+begin_src sh
 podman rm <container_id>
 #+end_src
-#+LATEX: \vspace{-0.25em}\noindent\rule{\linewidth}{0.4pt}\vspace{-0.25em}
+#+LATEX: \vspace{0em}\noindent\rule{\linewidth}{0.4pt}\vspace{0.25em}
 ** Example: run a Jupyter Notebook (with GPU)
 #+LATEX: \vspace{0.5em}
 Run a Jupyter container, map port =<xxxx>=, and keep it running in the background.
