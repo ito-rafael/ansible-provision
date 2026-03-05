@@ -90,14 +90,14 @@
 #+LATEX: \raggedcolumns
 
 * Table of Contents :toc:noexport:
-- [[#accessing-the-lab][Accessing the lab]]
-- [[#accessing-the-computers][Accessing the computers]]
-- [[#hosts][Hosts]]
-- [[#basic-commands][Basic Commands]]
+- [[#accessing-the-lab-latexhfillraisebox-02heightincludegraphicsheight1emfigurestudent-idpnghspace025cmraisebox-02heightincludegraphicsheight1emfigurekeypng][Accessing the lab @@latex:\hfill\raisebox{-0.2\height}{\includegraphics[height=1em]{figure/student-id.png}}\hspace{0.25cm}\raisebox{-0.2\height}{\includegraphics[height=1em]{figure/key.png}}@@]]
+- [[#accessing-the-computers-latexhfillraisebox-02heightincludegraphicsheight125emfigureopenvpnpnghspace025cmraisebox-02heightincludegraphicsheight125emfigureopensshpng][Accessing the computers @@latex:\hfill\raisebox{-0.2\height}{\includegraphics[height=1.25em]{figure/openvpn.png}}\hspace{0.25cm}\raisebox{-0.2\height}{\includegraphics[height=1.25em]{figure/openssh.png}}@@]]
+- [[#hosts-latexhfillraisebox-02heightincludegraphicsheight1emfigureserverpnghspace025cmraisebox-02heightincludegraphicsheight1emfigurecomputerpng][Hosts @@latex:\hfill\raisebox{-0.2\height}{\includegraphics[height=1em]{figure/server.png}}\hspace{0.25cm}\raisebox{-0.2\height}{\includegraphics[height=1em]{figure/computer.png}}@@]]
+- [[#general-commands-latexhfillraisebox-02heightincludegraphicsheight125emfigureshellpng][General commands @@latex:\hfill\raisebox{-0.2\height}{\includegraphics[height=1.25em]{figure/shell.png}}@@]]
   - [[#change-password][Change Password]]
   - [[#monitoring-cpu-and-gpu-processes][Monitoring CPU and GPU processes]]
   - [[#help][Help]]
-- [[#terminal-multiplexer-tmux-latexhfillraisebox-02heightincludegraphicsheight1emtmuxpng][Terminal multiplexer (tmux) @@latex:\hfill\raisebox{-0.2\height}{\includegraphics[height=1em]{tmux.png}}@@]]
+- [[#terminal-multiplexer-tmux-latexhfillraisebox-02heightincludegraphicsheight1emfiguretmuxpng][Terminal multiplexer (tmux) @@latex:\hfill\raisebox{-0.2\height}{\includegraphics[height=1em]{figure/tmux.png}}@@]]
   - [[#start-a-new-session][Start a new session]]
   - [[#detach-leave-it-running][Detach (leave it running)]]
   - [[#reattach-later][Reattach later]]
@@ -106,7 +106,7 @@
   - [[#kill-a-session][Kill a session]]
   - [[#zoom-pane-toggle-fullscreen][Zoom pane (toggle fullscreen)]]
   - [[#scroll-terminal-history][Scroll terminal history]]
-- [[#mamba-python-environments-latexhfillraisebox-02heightincludegraphicsheight15empythonpnghspace025cmraisebox-02heightincludegraphicsheight15emmambapnghspace025cmraisebox-02heightincludegraphicsheight15emanacondapng][Mamba (Python environments) @@latex:\hfill\raisebox{-0.2\height}{\includegraphics[height=1.5em]{python.png}}\hspace{0.25cm}\raisebox{-0.2\height}{\includegraphics[height=1.5em]{mamba.png}}\hspace{0.25cm}\raisebox{-0.2\height}{\includegraphics[height=1.5em]{anaconda.png}}@@]]
+- [[#mamba-python-environments-latexhfillraisebox-02heightincludegraphicsheight15emfigurepythonpnghspace025cmraisebox-02heightincludegraphicsheight15emfiguremambapnghspace025cmraisebox-02heightincludegraphicsheight15emfigureanacondapng][Mamba (Python environments) @@latex:\hfill\raisebox{-0.2\height}{\includegraphics[height=1.5em]{figure/python.png}}\hspace{0.25cm}\raisebox{-0.2\height}{\includegraphics[height=1.5em]{figure/mamba.png}}\hspace{0.25cm}\raisebox{-0.2\height}{\includegraphics[height=1.5em]{figure/anaconda.png}}@@]]
   - [[#create-a-new-environment][Create a new environment]]
   - [[#list-all-environments][List all environments]]
   - [[#activate-the-environment][Activate the environment]]
@@ -114,7 +114,7 @@
   - [[#deactivate-the-environment][Deactivate the environment]]
   - [[#delete-an-environment][Delete an environment]]
   - [[#example-train-an-ai-model-on-mnist-dataset][Example: train an AI model on MNIST dataset]]
-- [[#podman-containers-latexhfillraisebox-02heightincludegraphicsheight15empodmanpnghspace025cmraisebox-02heightincludegraphicsheight15emdockerpng][Podman (containers) @@latex:\hfill\raisebox{-0.2\height}{\includegraphics[height=1.5em]{podman.png}}\hspace{0.25cm}\raisebox{-0.2\height}{\includegraphics[height=1.5em]{docker.png}}@@]]
+- [[#podman-containers-latexhfillraisebox-02heightincludegraphicsheight15emfigurepodmanpnghspace025cmraisebox-02heightincludegraphicsheight15emfiguredockerpng][Podman (containers) @@latex:\hfill\raisebox{-0.2\height}{\includegraphics[height=1.5em]{figure/podman.png}}\hspace{0.25cm}\raisebox{-0.2\height}{\includegraphics[height=1.5em]{figure/docker.png}}@@]]
   - [[#run-a-container-interactively][Run a container interactively]]
   - [[#list-running-containers][List running containers]]
   - [[#enter-inside-a-running-container][Enter inside a running container]]
@@ -123,19 +123,22 @@
   - [[#remove-a-stopped-container][Remove a stopped container]]
   - [[#example-run-a-jupyter-notebook-with-gpu][Example: run a Jupyter Notebook (with GPU)]]
 
-* Accessing the lab
+* Accessing the lab @@latex:\hfill\raisebox{-0.2\height}{\includegraphics[height=1em]{figure/student-id.png}}\hspace{0.25cm}\raisebox{-0.2\height}{\includegraphics[height=1em]{figure/key.png}}@@
+#+LATEX: \vspace{-0.1cm}
 - *Building*: Access to the G2 block (LBiC's location) requires student ID ("RA"). If your ID fails, please contact prof. Von Zuben\textsuperscript{*} for authorization (@@latex:\href{https://site.fee.unicamp.br/ctic/faq\detokenize{#}acesso_laboratorio}{\textcolor{blue}{\uline{CTIC}}}@@).
 - *LBiC*: The lab access control is done through a regular key. If you plan to use the physical space, kindly ask Prof. Von Zuben for a copy of the lab key.
-#+LATEX: \vspace{-0.5cm}
-* Accessing the computers
+#+LATEX: \vspace{-1em}\noindent\rule{\linewidth}{0.4pt}\vspace{-1em}
+* Accessing the computers @@latex:\hfill\raisebox{-0.2\height}{\includegraphics[height=1.25em]{figure/openvpn.png}}\hspace{0.25cm}\raisebox{-0.2\height}{\includegraphics[height=1.25em]{figure/openssh.png}}@@
+#+LATEX: \vspace{-0.1cm}
 If you don't have your credentials yet, send an email\textsuperscript{\dag}  requesting it. To access hosts remotely, connect via VPN then SSH into the host. If you are locally connected to the lab's network, only an SSH connection needed.
 - *VPN*: Connect to the lab VPN using your assigned credentials. A comprehensive setup guide was included in your credential email for reference.
 - *SSH:* After establishing the VPN connection, log in to the PC and/or server:
   #+begin_src sh
-  ssh your_username@ip_address
+  ssh username@ip_address
   #+end_src
-#+LATEX: \vspace{-0.5cm}
-* Hosts
+#+LATEX: \vspace{-1em}\noindent\rule{\linewidth}{0.4pt}\vspace{-1em}
+* Hosts @@latex:\hfill\raisebox{-0.2\height}{\includegraphics[height=1em]{figure/server.png}}\hspace{0.25cm}\raisebox{-0.2\height}{\includegraphics[height=1em]{figure/computer.png}}@@
+#+LATEX: \vspace{-0.1cm}
 - *Workstations*: There are a few dedicated PCs available for local or remote research. Please contact us\textsuperscript{\dag} to request a machine for your project's duration.
 - *Servers*: Experiments are currently hosted on a shared primary server. Please schedule your sessions in advance via the resource reservation @@latex:\href{https://docs.google.com/spreadsheets/d/1Lhi5pEze4d4Z4oHMksUpD3k6n5Hp26gXtOMGz6sXr9A/edit?usp=sharing}{\textcolor{blue}{\uline{spreadsheet}}}@@.
 
@@ -150,9 +153,9 @@ If you don't have your credentials yet, send an email\textsuperscript{\dag}  req
 On workstations, =root= privileges are granted (and recommended), and users are responsible for system maintenance. On servers, =root= access is restricted; please contact us\textsuperscript{\dag} for any required system-wide package installations.
 
 #+LATEX: \vfill
-#+LATEX: \noindent \footnotesize \textsuperscript{*} vonzuben[at]unicamp[dot]br
+#+LATEX: \noindent \scriptsize \textsuperscript{*} vonzuben[at]unicamp[dot]br
 #+LATEX: \newline
-#+LATEX: \noindent \footnotesize \textsuperscript{\dag} vonzuben[at]unicamp[dot]br, with copy to ito[dot]rafael[at]gmail[dot]com
+#+LATEX: \noindent \scriptsize \textsuperscript{\dag} vonzuben[at]unicamp[dot]br, with copy to ito[dot]rafael[at]gmail[dot]com
 #+LATEX: \normalsize
 #+LATEX: \columnbreak
 ** Future server :noexport:
@@ -178,7 +181,7 @@ On workstations, =root= privileges are granted (and recommended), and users are 
 | RAM      | 128 GiB DDR5 @ 4400 MT/s     |
 |----------+------------------------------|
 #+LATEX: \end{minipage}
-* Basic Commands
+* General commands @@latex:\hfill\raisebox{-0.2\height}{\includegraphics[height=1.25em]{figure/shell.png}}@@
 ** Change Password
 Please change your password after your first login.
 #+begin_src sh
@@ -195,7 +198,7 @@ man <command>         # example: "man podman"
 <command> --help      # example: "mamba --help"
 #+end_src
 #+LATEX: \vspace{0.25em}\noindent\rule{\linewidth}{0.4pt}\vspace{-0.5em}
-* Terminal multiplexer (tmux) @@latex:\hfill\raisebox{-0.2\height}{\includegraphics[height=1em]{tmux.png}}@@
+* Terminal multiplexer (tmux) @@latex:\hfill\raisebox{-0.2\height}{\includegraphics[height=1em]{figure/tmux.png}}@@
 Prevent script termination on SSH disconnect by running =tmux= in the background.
 #+LATEX: \newline\newline
 #+LATEX: \noindent\begin{minipage}[t]{0.47\linewidth}
@@ -242,7 +245,7 @@ tmux kill-session -t my_experiment
 #+LATEX: \noindent \scriptsize Use arrows/PgUp to scroll. Press \keys{q} to exit.
 #+LATEX: \end{minipage}
 #+LATEX: \newpage
-* Mamba (Python environments) @@latex:\hfill\raisebox{-0.2\height}{\includegraphics[height=1.5em]{python.png}}\hspace{0.25cm}\raisebox{-0.2\height}{\includegraphics[height=1.5em]{mamba.png}}\hspace{0.25cm}\raisebox{-0.2\height}{\includegraphics[height=1.5em]{anaconda.png}}@@
+* Mamba (Python environments) @@latex:\hfill\raisebox{-0.2\height}{\includegraphics[height=1.5em]{figure/python.png}}\hspace{0.25cm}\raisebox{-0.2\height}{\includegraphics[height=1.5em]{figure/mamba.png}}\hspace{0.25cm}\raisebox{-0.2\height}{\includegraphics[height=1.5em]{figure/anaconda.png}}@@
 *What is it?* Mamba is a package manager. It is a drop-in replacement for Conda, but rewritten in C++ to be drastically faster. It isolates your Python versions and libraries so different projects don't conflict.
 #+LATEX: \vspace{1em}\noindent\rule{\linewidth}{0.4pt}\vspace{-1em}
 ** Create a new environment
@@ -288,9 +291,9 @@ cd mnist_test
 python main.py --epochs 1
 #+end_src
 #+LATEX: \columnbreak
-* Podman (containers) @@latex:\hfill\raisebox{-0.2\height}{\includegraphics[height=1.5em]{podman.png}}\hspace{0.25cm}\raisebox{-0.2\height}{\includegraphics[height=1.5em]{docker.png}}@@
+* Podman (containers) @@latex:\hfill\raisebox{-0.2\height}{\includegraphics[height=1.5em]{figure/podman.png}}\hspace{0.25cm}\raisebox{-0.2\height}{\includegraphics[height=1.5em]{figure/docker.png}}@@
 # * Podman (containers) :ignore:
-# +LATEX: \section*{Podman (containers) \hfill\raisebox{-0.2\height}{\includegraphics[height=1.5em]{podman.png}}\hspace{0.25cm}\raisebox{-0.2\height}{\includegraphics[height=1.5em]{docker.png}}}
+# +LATEX: \section*{Podman (containers) \hfill\raisebox{-0.2\height}{\includegraphics[height=1.5em]{figure/podman.png}}\hspace{0.25cm}\raisebox{-0.2\height}{\includegraphics[height=1.5em]{figure/docker.png}}}
 
 *What is it?* Podman is a container engine. It is functionally identical to Docker (you can even use the alias "docker" to run the commands), but it is "daemonless" and runs securely without needing root privileges.
 #+LATEX: \vspace{0em}\noindent\rule{\linewidth}{0.4pt}\vspace{0em}
@@ -334,7 +337,7 @@ podman run -d --device nvidia.com/gpu=all -p <xxxx>:8888 jupyter/scipy-notebook
 #+end_src
 Run this on your local machine to map the server's Jupyter port to your own computer.
 #+begin_src sh
-ssh -L <xxxx>:localhost:<xxxx> -Nf user@server_ip
+ssh -L <xxxx>:localhost:<xxxx> -Nf username@server_ip
 #+end_src
 Then access =https://localhost:<xxxx>= on a web browser.
 #+LATEX: \end{multicols}
