@@ -44,7 +44,7 @@
   ansible.builtin.copy:
     dest: /opt/mamba/.condarc
     content: |
-      # Set default channels
+      # set default channels
       channels:
         - conda-forge
 
@@ -55,6 +55,8 @@
       pkgs_dirs:
         - ~/.conda/pkgs
         - /opt/mamba/pkgs
+
+      short-name-mode: disabled
     owner: root
     group: root
     mode: '0644'
