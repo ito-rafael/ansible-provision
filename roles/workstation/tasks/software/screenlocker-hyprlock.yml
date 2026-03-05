@@ -1,0 +1,4 @@
+- name: software | screen locker | install hyprlock
+  tags: screen-locker,hyprlock
+  package:
+    name: hyprlock

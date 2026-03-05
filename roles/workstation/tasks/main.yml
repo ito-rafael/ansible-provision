@@ -64,8 +64,10 @@
   - import_tasks: software/presentation.yml             # pdfpc
   - import_tasks: software/pomodoro-timer.yml           # tomat
   - import_tasks: software/statusline.yml               # Waybar / Polybar
-  - import_tasks: software/scripts.yml                  # custom scripts
+  - import_tasks: software/screenlocker-hyprlock.yml    # hyprlock
+  #- import_tasks: software/screenlocker-swaylock.yml    # swaylock
   - import_tasks: software/screenshot.yml               # screenshot tools
+  - import_tasks: software/scripts.yml                  # custom scripts
   - import_tasks: software/shell.yml                    # Zsh
   - import_tasks: software/social.yml                   # Slack, WhatsApp, Discord, Zoom
   - import_tasks: software/syncthing.yml                # Syncthing
