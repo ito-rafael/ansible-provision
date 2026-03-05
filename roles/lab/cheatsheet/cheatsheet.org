@@ -1,4 +1,4 @@
-#+TITLE: LBiC servers Quick Start Guide
+#+TITLE: LBiC Computing Resources: Quick Start Guide
 # +LATEX: \vspace{-2.0cm}
 #+OPTIONS: num:nil date:nil author:nil toc:nil
 #+BIND: org-latex-title-command ""
@@ -11,10 +11,27 @@
 # set version
 #+LATEX_HEADER: \newcommand{\docversion}{v1.0}
 
+# # manually place the title
+# #+LATEX: \begin{center}
+# #+LATEX: \vspace*{0cm}
+# #+LATEX: {\LARGE \bfseries LBiC servers Quick Start Guide}
+# #+LATEX: \end{center}
+# #+LATEX: \vspace{0cm}
+
 # manually place the title
 #+LATEX: \begin{center}
-#+LATEX: \vspace*{0cm}
-#+LATEX: {\LARGE \bfseries LBiC servers Quick Start Guide}
+#+LATEX: \begin{tikzpicture}[remember picture, overlay]
+#+LATEX:   % left icon (LBiC)
+#+LATEX:   \node[anchor=north west, xshift=1.0cm, yshift=-0.25cm] at (current page.north west)
+#+LATEX:        {\includegraphics[height=4.0em]{figure/lbic.png}};
+#+LATEX:   % right icon (FEEC/Unicamp)
+#+LATEX:   \node[anchor=north east, xshift=-2.5cm, yshift=-0.75cm] at (current page.north east)
+#+LATEX:        {\includegraphics[height=2.5em]{figure/feec.png}};
+#+LATEX:   \node[anchor=north east, xshift=-0.75cm, yshift=-0.50cm] at (current page.north east)
+#+LATEX:        {\includegraphics[height=4.0em]{figure/unicamp.png}};
+#+LATEX: \end{tikzpicture}
+#+LATEX: \vspace*{0.2cm}
+#+LATEX: {\LARGE \bfseries LBiC Computing Resources: Quick Start Guide}
 #+LATEX: \end{center}
 #+LATEX: \vspace{0cm}
 
@@ -53,22 +70,22 @@
 #+LATEX_HEADER: \definecolor{pastelblue}{HTML}{E3F2FD}
 #+LATEX_HEADER: \definecolor{pastelyellow}{HTML}{FFFDE7} % A light pastel yellow
 #+LATEX_HEADER: \AddToShipoutPictureBG{%
-#+LATEX_HEADER:   \ifthenelse{\value{page}=1}{%
-#+LATEX_HEADER:     \begin{tikzpicture}[remember picture, overlay]
-#+LATEX_HEADER:       % Page 1 Left: Yellow
+#+LATEX_HEADER:   \begin{tikzpicture}[remember picture, overlay]
+#+LATEX_HEADER:     % global background (white)
+#+LATEX_HEADER:     \fill[white] (current page.south west) rectangle (current page.north east);
+#+LATEX_HEADER:
+#+LATEX_HEADER:     % page-specific overlays
+#+LATEX_HEADER:     \ifthenelse{\value{page}=1}{%
+#+LATEX_HEADER:       % page 1: yellow (left) / red (right)
 #+LATEX_HEADER:       \fill[pastelyellow] ($(current page.south west) + (0.75cm, 0.75cm)$) rectangle ($(current page.north) + (0cm, -2.25cm)$);
-#+LATEX_HEADER:       % Page 1 Right: Red
 #+LATEX_HEADER:       \fill[pastelred] ($(current page.south) + (0cm, 0.75cm)$) rectangle ($(current page.north east) - (0.75cm, 2.25cm)$);
-#+LATEX_HEADER:     \end{tikzpicture}%
-#+LATEX_HEADER:   }{%
-#+LATEX_HEADER:     \begin{tikzpicture}[remember picture, overlay]
-#+LATEX_HEADER:       % Page 2 stays Green/Blue
+#+LATEX_HEADER:     }{%
+#+LATEX_HEADER:       % page 2: green (left) / blue (right)
 #+LATEX_HEADER:       \fill[pastelgreen] ($(current page.south west) + (0.75cm, 0.75cm)$) rectangle ($(current page.north) - (0cm, 0.75cm)$);
 #+LATEX_HEADER:       \fill[pastelblue] ($(current page.south) + (0cm, 0.75cm)$) rectangle ($(current page.north east) - (0.75cm, 0.75cm)$);
-#+LATEX_HEADER:     \end{tikzpicture}%
-#+LATEX_HEADER:   }%
-#+LATEX_HEADER:   % add date and version to all pages
-#+LATEX_HEADER:   \begin{tikzpicture}[remember picture, overlay]
+#+LATEX_HEADER:     }%
+#+LATEX_HEADER:
+#+LATEX_HEADER:     % vertion & date (bottom right)
 #+LATEX_HEADER:     \node [anchor=south east, xshift=-1cm, yshift=0.75cm, text=gray!70] at (current page.south east) {\scriptsize \docversion\ | \today};
 #+LATEX_HEADER:   \end{tikzpicture}
 #+LATEX_HEADER: }
