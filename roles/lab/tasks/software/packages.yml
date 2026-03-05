@@ -5,6 +5,7 @@
       - vim           # terminal text editor
       - tmux          # terminal multiplexer
       - git           # version control
+      - python3       # Python programming language
       - htop          # process viewer
       - lshw          # show hw info
       - iputils-ping  # network ping
