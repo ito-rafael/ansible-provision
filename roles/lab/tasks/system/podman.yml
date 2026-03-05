@@ -31,3 +31,11 @@
     regexp: 'unqualified-search-registries ='
     line: 'unqualified-search-registries = ["docker.io", "quay.io"]'
     state: present
+
+- name: system | podman | configure short-name-mode
+  tags: system,podman
+  ansible.builtin.lineinfile:
+    path: /etc/containers/registries.conf
+    regexp: 'short-name-mode ='
+    line: 'short-name-mode = "disabled"'
+    state: present
