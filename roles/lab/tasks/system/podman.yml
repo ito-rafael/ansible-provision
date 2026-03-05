@@ -23,3 +23,11 @@
   tags: system,podman
   ansible.builtin.debug:
     var: podman_gpu_test.stdout_lines
+
+- name: system | podman | configure unqualified-search-registries
+  tags: system,podman
+  ansible.builtin.lineinfile:
+    path: /etc/containers/registries.conf
+    regexp: 'unqualified-search-registries ='
+    line: 'unqualified-search-registries = ["docker.io", "quay.io"]'
+    state: present
