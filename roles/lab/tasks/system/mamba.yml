@@ -23,6 +23,18 @@
       export MAMBA_ROOT_PREFIX=/opt/mamba
       . /opt/mamba/etc/profile.d/conda.sh
       . /opt/mamba/etc/profile.d/mamba.sh
+
+      # force Mamba to use the user's home for packages and environments
+      export CONDA_ENVS_PATH="$HOME/.conda/envs"
+      export CONDA_PKGS_DIRS="$HOME/.conda/pkgs:/opt/mamba/pkgs"
+
+      # ensure the user's local package cache exists
+      mkdir -p "$HOME/.conda/pkgs"
+
+      # disable system-level updates for users
+      export CONDA_AUTO_UPDATE_CONDA=false
+      # prevent "short-name" interactive prompts
+      export CONDA_SHORT_NAME_MODE=disabled
     owner: root
     group: root
     mode: '0644'
