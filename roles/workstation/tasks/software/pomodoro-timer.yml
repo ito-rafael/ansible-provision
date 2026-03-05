@@ -1,0 +1,5 @@
+- name: software | pomodoro | install tomat
+  tags: pomodoro
+  kewlfft.aur.aur:
+    name: tomat-bin
+  when: ansible_facts['distribution'] == "Archlinux"
