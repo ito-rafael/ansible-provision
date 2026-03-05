@@ -60,3 +60,15 @@
     owner: root
     group: root
     mode: '0644'
+
+- name: system | mamba | create shared lockfile
+  tags: system,mamba
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: touch
+    mode: '0666'
+    modification_time: preserve
+    access_time: preserve
+  loop:
+    - /opt/mamba/pkgs/pkgs.lock
+    - /opt/mamba/pkgs/urls.txt
