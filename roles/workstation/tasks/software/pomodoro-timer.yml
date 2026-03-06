@@ -39,3 +39,12 @@
     cmd: loginctl enable-linger rafael
     creates: /var/lib/systemd/linger/rafael
 
+- name: software | pomodoro | enable user tomat daemon
+  tags: pomodoro
+  become_user: rafael
+  systemd:
+    name: tomat
+    enabled: true
+    state: stopped
+    daemon_reload: true
+    scope: user
