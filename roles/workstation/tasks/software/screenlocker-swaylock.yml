@@ -1,9 +1,18 @@
-- name: software | screen locker | install Sway locker
+- name: software | screen locker | install swaylock
   tags: screen-locker,swaylock
   become_user: aurman
   kewlfft.aur.aur:
     name: swaylock-effects  # screen locker
   when: ansible_facts['distribution'] == "Archlinux"
+
+- name: software | screen locker | ensure swaylock dir exist
+  tags: screen-locker,swaylock
+  file:
+    path: /home/rafael/.config/swaylock
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
 
 - name: software | screen locker | copy swaylock dotfiles
   tags: screen-locker,swaylock
