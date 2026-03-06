@@ -1,4 +1,4 @@
-% Created 2026-03-05 Thu 17:15
+% Created 2026-03-06 Fri 16:48
 % Intended LaTeX compiler: pdflatex
 \documentclass[a4paper, landscape]{article}
 \usepackage[utf8]{inputenc}
@@ -12,7 +12,7 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
-\newcommand{\docversion}{v1.1}
+\newcommand{\docversion}{v1.2}
 \usepackage[margin=1.25cm, top=1.0cm]{geometry}
 \usepackage{multicol}
 \usepackage{xcolor}
@@ -93,7 +93,7 @@ pdfnewwindow=true
 \begin{multicols}{2}
 \raggedcolumns
 \section*{Accessing the lab}
-\label{sec:org08ad65f}
+\label{sec:orgc30ec46}
 \vspace{-0.1cm}
 \begin{itemize}
 \item \textbf{Building}: Access to the G2 block (LBiC's location) requires student ID ("RA"). If your ID fails, please contact prof. Von Zuben\textsuperscript{*} for authorization (\href{https://site.fee.unicamp.br/ctic/faq\detokenize{#}acesso_laboratorio}{\textcolor{blue}{\uline{CTIC}}}).
@@ -101,7 +101,7 @@ pdfnewwindow=true
 \end{itemize}
 \vspace{-1em}\noindent\rule{\linewidth}{0.4pt}\vspace{-1em}
 \section*{Accessing the computers}
-\label{sec:org33a56a5}
+\label{sec:org7614af6}
 \vspace{-0.1cm}
 If you don't have your credentials yet, send an email\textsuperscript{\dag}  requesting it. To access hosts remotely, connect via VPN then SSH into the host. If you are locally connected to the lab's network, only an SSH connection needed.
 \begin{itemize}
@@ -113,7 +113,7 @@ If you don't have your credentials yet, send an email\textsuperscript{\dag}  req
 \end{itemize}
 \vspace{-1em}\noindent\rule{\linewidth}{0.4pt}\vspace{-1em}
 \section*{Hosts}
-\label{sec:orgb8eec66}
+\label{sec:org8bbbf16}
 \vspace{-0.1cm}
 \begin{itemize}
 \item \textbf{Workstations}: There are a few dedicated PCs available for local or remote research. Please contact us\textsuperscript{\dag} to request a machine for your project's duration.
@@ -141,48 +141,48 @@ On workstations, \texttt{root} privileges are granted (and recommended), and use
 \normalsize
 \columnbreak
 \section*{General commands \hfill\raisebox{-0.2\height}{\includegraphics[height=1.25em]{figure/shell.png}}}
-\label{sec:org148038e}
+\label{sec:org2d97c82}
 \subsection*{Change Password}
-\label{sec:org36f2fb8}
+\label{sec:org9e95c7c}
 Please change your password after your first login.
 \begin{lstlisting}[language=sh,numbers=none]
 passwd
 \end{lstlisting}
 \subsection*{Monitoring CPU and GPU processes}
-\label{sec:orgde91016}
+\label{sec:org03ce502}
 \begin{lstlisting}[language=sh,numbers=none]
 htop                  # for memory usage and CPU cores utilization
 nvtop                 # for GPU proccesses and VRAM memory utilization
 \end{lstlisting}
 \subsection*{Help}
-\label{sec:org4096acb}
+\label{sec:orgf8026dc}
 \begin{lstlisting}[language=sh,numbers=none]
 man <command>         # example: "man podman"
 <command> --help      # example: "mamba --help"
 \end{lstlisting}
 \vspace{0.25em}\noindent\rule{\linewidth}{0.4pt}\vspace{-0.5em}
 \section*{Terminal multiplexer (tmux) \hfill\raisebox{-0.2\height}{\includegraphics[height=1em]{figure/tmux.png}}}
-\label{sec:orgd065b82}
+\label{sec:orga9945e5}
 Prevent script termination on SSH disconnect by running \texttt{tmux} in the background.
 \newline\newline
 \noindent\begin{minipage}[t]{0.47\linewidth}
 \subsection*{Start a new session}
-\label{sec:org5d1341c}
+\label{sec:org43c6251}
 \begin{lstlisting}[language=sh,numbers=none]
 tmux new -s my_experiment
 \end{lstlisting}
 \subsection*{Detach (leave it running)}
-\label{sec:org5ac4d7b}
+\label{sec:orga8eb013}
 \begin{lstlisting}[language=sh,numbers=none,escapeinside={(*}{*)}]
 (*Press \keys{\ctrl + b} $\longrightarrow$ \keys{d}*)
 \end{lstlisting}
 \subsection*{Reattach later}
-\label{sec:orgbb655ca}
+\label{sec:org73f52c0}
 \begin{lstlisting}[language=sh,numbers=none]
 tmux attach -t my_experiment
 \end{lstlisting}
 \subsection*{Split screen}
-\label{sec:org9ee2e40}
+\label{sec:orga46990a}
 \begin{lstlisting}[language=sh,numbers=none,escapeinside={(*}{*)}, lineskip=2pt, basicstyle=\ttfamily\footnotesize]
 Vertical:     (*\keys{\ctrl + b} $\longrightarrow$ \keys{\%}*)
 Horizontal:   (*\keys{\ctrl + b} $\longrightarrow$ \keys{"}*)
@@ -191,22 +191,22 @@ Switch panes: (*\keys{\ctrl + b} $\longrightarrow$ \keys{$\leftarrow$}\keys{$\up
 \end{minipage}\hfill
 \begin{minipage}[t]{0.47\linewidth}
 \subsection*{List active sessions}
-\label{sec:org5a623e6}
+\label{sec:orgc65407d}
 \begin{lstlisting}[language=sh,numbers=none]
 tmux ls
 \end{lstlisting}
 \subsection*{Kill a session}
-\label{sec:org66b1629}
+\label{sec:orgb9f5efc}
 \begin{lstlisting}[language=sh,numbers=none]
 tmux kill-session -t my_experiment
 \end{lstlisting}
 \subsection*{Zoom pane (toggle fullscreen)}
-\label{sec:org4e0fd9b}
+\label{sec:org55620cf}
 \begin{lstlisting}[language=sh,numbers=none,escapeinside={(*}{*)}]
 (*Press \keys{\ctrl + b} $\longrightarrow$ \keys{z}*)
 \end{lstlisting}
 \subsection*{Scroll terminal history}
-\label{sec:org0618ba2}
+\label{sec:orgd164964}
 \begin{lstlisting}[language=sh,numbers=none,escapeinside={(*}{*)}]
 (*Press \keys{\ctrl + b} $\longrightarrow$ \keys{[}*)
 \end{lstlisting}
@@ -214,49 +214,49 @@ tmux kill-session -t my_experiment
 \end{minipage}
 \newpage
 \section*{Mamba (Python environments) \hfill\raisebox{-0.2\height}{\includegraphics[height=1.5em]{figure/python.png}}\hspace{0.25cm}\raisebox{-0.2\height}{\includegraphics[height=1.5em]{figure/mamba.png}}\hspace{0.25cm}\raisebox{-0.2\height}{\includegraphics[height=1.5em]{figure/anaconda.png}}}
-\label{sec:org0696980}
+\label{sec:orgac57fea}
 \textbf{What is it?} Mamba is a package manager. It is a drop-in replacement for Conda, but rewritten in C++ to be drastically faster. It isolates your Python versions and libraries so different projects don't conflict.
 \vspace{1em}\noindent\rule{\linewidth}{0.4pt}\vspace{-1em}
 \subsection*{Create a new environment}
-\label{sec:org9635a6c}
+\label{sec:org671129c}
 Specify the Python version and any starting packages.
 \begin{lstlisting}[language=sh,numbers=none]
 mamba create -n <environment_name> python=3.10 pytorch -c pytorch
 \end{lstlisting}
 \subsection*{List all environments}
-\label{sec:orgae7defb}
+\label{sec:org271f041}
 See all available environments on the server.
 \begin{lstlisting}[language=sh,numbers=none]
 mamba env list
 \end{lstlisting}
 \subsection*{Activate the environment}
-\label{sec:orga8943d1}
+\label{sec:org4493de4}
 Activate the environment every time you log in before running your code.
 \begin{lstlisting}[language=sh,numbers=none]
 mamba activate <environment_name>
 \end{lstlisting}
 \subsection*{Install additional packages}
-\label{sec:org6b809ba}
+\label{sec:org4adbdea}
 Package installation can be done with \texttt{mamba} or \texttt{pip} (after environment activation).
 \begin{lstlisting}[language=sh,numbers=none]
-mamba install pandas
-pip install scipy scikit-learn
+mamba install pandas  # mixing mamba and pip can create dependencies issues
+pip install scipy     # if you need to use both, prioritize for mamba over pip
 \end{lstlisting}
 \subsection*{Deactivate the environment}
-\label{sec:org542ed27}
+\label{sec:orgc17fe3d}
 Return to the default system environment.
 \begin{lstlisting}[language=sh,numbers=none]
 mamba deactivate
 \end{lstlisting}
 \subsection*{Delete an environment}
-\label{sec:org3d754e4}
+\label{sec:orgae7acf1}
 Clean up when your experiment is finished.
 \begin{lstlisting}[language=sh,numbers=none]
 mamba env remove -n <environment_name>
 \end{lstlisting}
 \vspace{0em}\noindent\rule{\linewidth}{0.4pt}\vspace{0.25em}
 \subsection*{Example: train an AI model on MNIST dataset}
-\label{sec:org3d39c32}
+\label{sec:orgaecc1e1}
 \begin{lstlisting}[language=sh,numbers=none,basicstyle=\fontsize{8pt}{8.5pt}\ttfamily]
 mamba create -n mnist_env python=3.10 -y
 mamba activate mnist_env
@@ -267,11 +267,11 @@ python main.py --epochs 1
 \end{lstlisting}
 \columnbreak
 \section*{Podman (containers) \hfill\raisebox{-0.2\height}{\includegraphics[height=1.5em]{figure/podman.png}}\hspace{0.25cm}\raisebox{-0.2\height}{\includegraphics[height=1.5em]{figure/docker.png}}}
-\label{sec:org1105274}
+\label{sec:org78d9845}
 \textbf{What is it?} Podman is a container engine. It is functionally identical to Docker (you can even use the alias "docker" to run the commands), but it is "daemonless" and runs securely without needing root privileges.
 \vspace{0em}\noindent\rule{\linewidth}{0.4pt}\vspace{0em}
 \subsection*{Run a container interactively}
-\label{sec:org6c97fd3}
+\label{sec:org6131432}
 Download an image, mount volumes, and run a command inside the container.
 \begin{lstlisting}[language=sh,numbers=none]
 podman run --rm -it --device nvidia.com/gpu=all \
@@ -281,29 +281,29 @@ podman run --rm -it --device nvidia.com/gpu=all \
        bash
 \end{lstlisting}
 \subsection*{List running containers and downloaded images}
-\label{sec:orga619090}
+\label{sec:orgaa3ba21}
 \begin{lstlisting}[language=sh,numbers=none]
 podman ps             # check what is currently running and get the container IDs
 podman image ls       # check what container images are currently stored locally
 \end{lstlisting}
 \subsection*{Enter inside a running container}
-\label{sec:orgfc43568}
+\label{sec:orgfc598da}
 \begin{lstlisting}[language=sh,numbers=none]
 podman exec -it <container_id> bash
 \end{lstlisting}
 \subsection*{Stop a container}
-\label{sec:org341efa5}
+\label{sec:orgdd042b9}
 \begin{lstlisting}[language=sh,numbers=none]
 podman stop <container_id>
 \end{lstlisting}
 \subsection*{Remove a stopped container}
-\label{sec:orgebfafb6}
+\label{sec:org77bd61d}
 \begin{lstlisting}[language=sh,numbers=none]
 podman rm <container_id>
 \end{lstlisting}
 \vspace{0em}\noindent\rule{\linewidth}{0.4pt}\vspace{0.25em}
 \subsection*{Example: run a Jupyter Notebook (with GPU)}
-\label{sec:orgceef565}
+\label{sec:org52e6a8b}
 \vspace{0.5em}
 Run a Jupyter container, map port \texttt{<xxxx>}, and keep it running in the background.
 \newline

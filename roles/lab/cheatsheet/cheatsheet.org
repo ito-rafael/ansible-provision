@@ -9,7 +9,7 @@
 #+LATEX_CLASS_OPTIONS: [a4paper, landscape]
 
 # set version
-#+LATEX_HEADER: \newcommand{\docversion}{v1.1}
+#+LATEX_HEADER: \newcommand{\docversion}{v1.2}
 
 # # manually place the title
 # #+LATEX: \begin{center}
@@ -285,8 +285,8 @@ mamba activate <environment_name>
 ** Install additional packages
 Package installation can be done with =mamba= or =pip= (after environment activation).
 #+begin_src sh
-mamba install pandas
-pip install scipy scikit-learn
+mamba install pandas  # mixing mamba and pip can create dependencies issues
+pip install scipy     # if you need to use both, prioritize for mamba over pip
 #+end_src
 ** Deactivate the environment
 Return to the default system environment.
