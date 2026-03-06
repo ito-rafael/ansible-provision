@@ -12,3 +12,13 @@
     owner: rafael
     group: rafael
     mode: 0700
+
+- name: software | pomodoro | copy tomat dotfile
+  tags: pomodoro
+  copy:
+    remote_src: true
+    src: /home/ansible/git/dotfiles/tomat/config.toml
+    dest: /home/rafael/.config/tomat/config.toml
+    owner: rafael
+    group: rafael
+    mode: 0600
