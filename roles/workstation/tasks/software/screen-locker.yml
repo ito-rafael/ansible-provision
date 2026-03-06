@@ -1,0 +1,9 @@
+- name: include tasks for hyprlock screen locker
+  tags: screen-locker,hyprlock
+  include_tasks: screenlocker-hyprlock.yml
+  when: screen_locker == "hyprlock"
+
+- name: include tasks for swaylock screen locker
+  tags: screen-locker,swaylock
+  include_tasks: screenlocker-swaylock.yml
+  when: screen_locker == "swaylock"
