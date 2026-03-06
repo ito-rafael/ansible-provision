@@ -11,3 +11,13 @@
     owner: rafael
     group: rafael
     mode: 0700
+
+- name: software | screen locker | copy hyprlock dotfiles
+  tags: screen-locker,hyprlock
+  copy:
+    src: /home/ansible/git/dotfiles/hypr/lock-screen.sh
+    dest: /home/rafael/.config/hypr/lock-screen.sh
+    remote_src: true
+    owner: rafael
+    group: rafael
+    mode: 0700
