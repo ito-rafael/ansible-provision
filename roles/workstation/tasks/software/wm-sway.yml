@@ -30,16 +30,14 @@
     enabled: yes
     state: started
 
-- name: software | window-manager | ensure Sway dirs exist
+- name: software | window-manager | ensure Sway dir exist
   tags: wayland,sway
   file:
-    path: /home/rafael/.config/{{ item }}
+    path: /home/rafael/.config/sway
     state: directory
     owner: rafael
     group: rafael
     mode: 0700
-  with_items:
-    - sway
 
 - name: software | window-manager | copy Sway dotfiles
   tags: wayland,sway
