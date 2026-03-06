@@ -2,3 +2,12 @@
   tags: screen-locker,hyprlock
   package:
     name: hyprlock
+
+- name: software | screen locker | ensure hyprlock dir exist
+  tags: screen-locker,hyprlock
+  file:
+    path: /home/rafael/.config/swaylock
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
