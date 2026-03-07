@@ -1,26 +1,26 @@
-- name: development | container | Docker install engine
+- name: development | container-docker | Docker install engine
   tags: dev,container,docker
   package:
     name: docker
 
-- name: development | container | Docker start & enable daemon
+- name: development | container-docker | Docker start & enable daemon
   tags: dev,container,docker
   systemd:
     name: docker
     state: started
     enabled: yes
 
-- name: development | container | Docker install Compose
+- name: development | container-docker | Docker install Compose
   tags: dev,container,docker
   package:
     name: docker-compose
 
-- name: development | container | Docker install Buildx
+- name: development | container-docker | Docker install Buildx
   tags: dev,container,docker
   package:
     name: docker-buildx
 
-- name: development | container | Docker add user to group
+- name: development | container-docker | Docker add user to group
   tags: dev,container,docker,rafael,groups
   user:
     name: rafael
