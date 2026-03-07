@@ -17,6 +17,7 @@ Automagically configure your workstations, laptops, and servers from the ground 
 :header-args: :tangle inventory/hosts.yml
 :END:
 ** Server
+Meant to be used for servers. Currently, I'm using to host all my =homelab= self-hosted applications. Please check my other [[https://github.com/ito-rafael/lacasanostra][git repo]] for more information.
 #+begin_src yml
 server:
   hosts:
@@ -24,6 +25,7 @@ server:
     srv2:
 #+end_src
 ** Laptop
+Meant to be used for laptops. It includes all my [[https://github.com/ito-rafael/keebab?tab=readme-ov-file#built-in-laptop][keyboard customization]] stuff.
 #+begin_src yml
 laptop:
   hosts:
@@ -32,6 +34,7 @@ laptop:
     ipf-archlinux:
 #+end_src
 ** Workstation
+Meant to be used for workstations. It includes the majority of tasks in this git repo (with exception of the keyboard customization, lab-specific tasks, and a few others).
 #+begin_src yml
 workstation:
   hosts:
@@ -39,18 +42,19 @@ workstation:
     catuaba.lbic.fee.unicamp.br:
 #+end_src
 ** Lab
+Meant to be used with standard =ansible= instead of =ansible-pull=. Configures the servers and workstations for the LBiC laboratory at University of Campinas.
 #+begin_src yml
 lab:
   children:
 #+end_src
 *** Server
-#+begin_src yml
+#+begin_src yml :padline no
     lab_server:
       hosts:
         paubrasil.lbic.fee.unicamp.br:    # xxx.xx.xx.179
 #+end_src
 *** Workstation
-#+begin_src yml
+#+begin_src yml :padline no
     lab_workstation:
       hosts:
         andira.lbic.fee.unicamp.br:        # xxx.xx.xx.162
@@ -77,6 +81,7 @@ lab:
         canabis.lbic.fee.unicamp.br:       # xxx.xx.xx.183
 #+end_src
 ** Rootless
+Meant to be used with standard =ansible= instead of =ansible-pull=. Configures tools in rootless environmets.
 #+begin_src yml
 rootless:
   hosts:
