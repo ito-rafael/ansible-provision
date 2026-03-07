@@ -1,4 +1,10 @@
-- name: development | container | Podman install
+- name: development | container-podman | prevent packages conflict
+  tags: system,podman
+  package:
+    name: docker
+    state: absent
+
+- name: development | container-podman | install Podman
   tags: dev,container,podman
   package:
     name:
