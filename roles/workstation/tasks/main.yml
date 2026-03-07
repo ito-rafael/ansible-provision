@@ -79,7 +79,7 @@
   - import_tasks: software/window-manager.yml           # i3 / Sway
 
   # Development
-  - import_tasks: dev/container.yml                     # Podman, Docker
+  - import_tasks: dev/container.yml                     # Podman, Docker, LXC
   - import_tasks: dev/emacs.yml                         # Emacs
   - import_tasks: dev/git.yml                           # Git
   - import_tasks: dev/iot.yml                           # IoT (esptool, Saleae, PlatformIO, etc)
