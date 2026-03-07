@@ -11,3 +11,11 @@
       - podman          # tool and library to run OCI-based containers in pods
       - podman-compose  # script to run docker-compose.yml
       - podman-docker   # aliases to emulate Docker CLI
+
+- name: development | container-podman | configure unqualified-search-registries
+  tags: system,podman
+  ansible.builtin.lineinfile:
+    path: /etc/containers/registries.conf
+    regexp: 'unqualified-search-registries ='
+    line: 'unqualified-search-registries = ["docker.io", "quay.io"]'
+    state: present
