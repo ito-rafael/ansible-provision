@@ -9,10 +9,10 @@
 - [[#description][Description]]
 - [[#inventory][Inventory]]
 
-* TL;DR :noexport_2:
+* TL;DR :noexport_1:
 * Description
 Automagically configure your workstations, laptops, and servers from the ground up with a single command.
-* Inventory :noexport_1:
+* Inventory
 :PROPERTIES:
 :header-args: :tangle inventory/hosts.yml
 :END:
@@ -80,5 +80,5 @@ lab:
 #+begin_src yml
 rootless:
   hosts:
-    recod:
+    ssh.recod.ic.unicamp.br:
 #+end_src
