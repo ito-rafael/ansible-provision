@@ -2,4 +2,5 @@
   tags: dev,container,podman
   package:
     name:
-      - podman
+      - podman          # tool and library to run OCI-based containers in pods
+      - podman-compose  # script to run docker-compose.yml
