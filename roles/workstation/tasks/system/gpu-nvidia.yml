@@ -108,3 +108,9 @@
     name:
       - cuda        # NVIDIA's GPU programming toolkit
       #- cuda-tools  # extra tools: nsight, compute-sanitizer
+
+- name: system | GPU NVIDIA | install NVIDIA Container Toolkit
+  tags: system,gpu,gpu-nvidia
+  package:
+    name: nvidia-container-toolkit
+  when: ansible_facts['distribution'] == "Archlinux"
