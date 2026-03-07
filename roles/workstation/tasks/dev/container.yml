@@ -1,33 +1,9 @@
-- name: development | container | Docker install engine
-  tags: dev,container,docker
-  package:
-    name: docker
-
-- name: development | container | Docker start & enable daemon
-  tags: dev,container,docker
-  systemd:
-    name: docker
-    state: started
-    enabled: yes
-
-- name: development | container | Docker install Compose
-  tags: dev,container,docker
-  package:
-    name: docker-compose
-
-- name: development | container | Docker install Buildx
-  tags: dev,container,docker
-  package:
-    name: docker-buildx
-
-- name: development | container | Docker add user to group
-  tags: dev,container,docker,rafael,groups
-  user:
-    name: rafael
-    append: yes
-    groups: docker
-
-- name: development | container | Podman install
+- name: include tasks for podman container
   tags: dev,container,podman
-  package:
-    name: podman
+  include_tasks: container-podman.yml
+  when: container == "podman"
+
+- name: include tasks for docker container
+  tags: dev,container,docker
+  include_tasks: container-docker.yml
+  when: container == "docker"
