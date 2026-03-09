@@ -42,6 +42,19 @@
     cmd: loginctl enable-linger rafael
     creates: /var/lib/systemd/linger/rafael
 
+- name: software | window-manager | enable xdg-desktop-portals user services
+  tags: wayland,portals
+  become_user: rafael
+  systemd:
+    name: "{{ item }}"
+    enabled: true
+    daemon_reload: false
+    state: stopped
+    scope: user
+  loop:
+    - "xdg-desktop-portal"
+    - "xdg-desktop-portal-wlr"
+    - "xdg-desktop-portal-gtk"
 
 - name: software | window-manager | add user to seat group
   tags: wayland,sway,users,rafael
