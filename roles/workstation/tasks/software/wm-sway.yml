@@ -26,6 +26,16 @@
     group: rafael
     mode: 0700
 
+- name: software | window-manager | copy xdg-desktop-portal dotfile
+  tags: wayland,portals
+  copy:
+    remote_src: true
+    src: /home/rafael/git/dotfiles/xdg-desktop-portal/sway-portals.conf
+    dest: /home/rafael/.config/xdg-desktop-portal/sway-portals.conf
+    owner: rafael
+    group: rafael
+    mode: 0600
+
 
 - name: software | window-manager | add user to seat group
   tags: wayland,sway,users,rafael
