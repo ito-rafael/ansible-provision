@@ -6,7 +6,7 @@
 - name: software | screen locker | ensure hyprlock dir exist
   tags: screen-locker,hyprlock
   file:
-    path: /home/rafael/.config/swaylock
+    path: /home/rafael/.config/hypr
     state: directory
     owner: rafael
     group: rafael
