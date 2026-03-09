@@ -17,6 +17,16 @@
       - xdg-desktop-portal-wlr  # xdg-desktop-portal backend for wlroots
       - xdg-desktop-portal-gtk  # xdg-desktop-portal backend using GTK
 
+- name: software | window-manager | ensure xdg-desktop-portal dir exists
+  tags: wayland,portals
+  file:
+    path: /home/rafael/.config/xdg-desktop-portal
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
+
+
 - name: software | window-manager | add user to seat group
   tags: wayland,sway,users,rafael
   user:
