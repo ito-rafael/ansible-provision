@@ -1,3 +1,8 @@
+- name: system | mouse | install Solaar
+  tags: mouse,solaar
+  package:
+    name: solaar
+
 - name: system | mouse | install LogiOps
   tags: mouse,logiops
   become_user: aurman
