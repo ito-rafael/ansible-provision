@@ -128,7 +128,6 @@
     name: "{{ item }}"
     enabled: true
     daemon_reload: false
-    state: stopped
     scope: user
   loop:
     - "lanmouse"
