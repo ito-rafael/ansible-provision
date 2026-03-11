@@ -1,0 +1,7 @@
+- name: keyboard | lan-mouse | restart user systemd service
+  become_user: rafael
+  ansible.builtin.systemd:
+    name: lanmouse
+    scope: user
+    state: restarted
+    daemon_reload: false
