@@ -29,7 +29,8 @@
   loop:
     - { src: "config_laptop.toml",         dest: "lan-mouse/config.toml",       mode: "0600" }
     - { src: "lanmouse-monitor_laptop.sh", dest: "scripts/lanmouse-monitor.sh", mode: "0700" }
-    - { src: "lanmouse-switch_laptop.sh",  dest: "scripts/lanmouse-switch.sh",   mode: "0700" }
+    - { src: "lanmouse-switch_laptop.sh",  dest: "scripts/lanmouse-switch.sh",  mode: "0700" }
+    - { src: "sway-window-nav_laptop.py",  dest: "scripts/sway-window-nav.py",  mode: "0700" }
   when: inventory_hostname in groups['laptop']
 
 - name: keyboard | lan-mouse | copy lan-mouse config files for desktop (server)
