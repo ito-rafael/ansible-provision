@@ -3,6 +3,9 @@
   tags: always
 
 - block:
+  # Users
+  - import_tasks: users/rafael.yml                      # enable lingering for systemd
+
   # Arch Linux exclusive
   - import_tasks: users/aurman.yml                      # AUR user
   - import_tasks: software/pacman.yml                   # config package manager

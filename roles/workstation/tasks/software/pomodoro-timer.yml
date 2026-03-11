@@ -33,12 +33,6 @@
     group: rafael
     mode: 0600
 
-- name: software | pomodoro | enable user lingering for systemd
-  tags: pomodoro
-  command:
-    cmd: loginctl enable-linger rafael
-    creates: /var/lib/systemd/linger/rafael
-
 - name: software | pomodoro | enable user tomat daemon
   tags: pomodoro
   become_user: rafael

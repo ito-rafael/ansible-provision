@@ -1,0 +1,5 @@
+- name: users | rafael | enable user lingering for systemd
+  tags: users,rafael
+  command:
+    cmd: loginctl enable-linger rafael
+    creates: /var/lib/systemd/linger/rafael

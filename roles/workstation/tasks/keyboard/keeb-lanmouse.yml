@@ -115,12 +115,6 @@
     scope: user
   when: lanmouse_services.changed
 
-- name: keyboard | lan-mouse | enable user lingering for systemd
-  tags: keyboard,lan-mouse
-  command:
-    cmd: loginctl enable-linger rafael
-    creates: /var/lib/systemd/linger/rafael
-
 - name: keyboard | lan-mouse | enable lan-mouse user services
   tags: keyboard,lan-mouse
   become_user: rafael

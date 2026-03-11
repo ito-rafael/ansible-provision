@@ -36,12 +36,6 @@
     group: rafael
     mode: 0600
 
-- name: software | window-manager | enable user lingering for systemd
-  tags: wayland,portals
-  command:
-    cmd: loginctl enable-linger rafael
-    creates: /var/lib/systemd/linger/rafael
-
 - name: software | window-manager | enable xdg-desktop-portals user services
   tags: wayland,portals
   become_user: rafael
