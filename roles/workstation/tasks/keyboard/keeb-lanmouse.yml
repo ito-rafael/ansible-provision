@@ -44,7 +44,19 @@
     - { src: "sway-window-nav_laptop.py",  dest: "scripts/sway-window-nav.py",  mode: "0700" }
   when: inventory_hostname in groups['laptop']
 
-- name: keyboard | lan-mouse | copy lan-mouse config files for desktop (server)
+- name: keyboard | lan-mouse | copy lan-mouse config file for desktop (server)
+  tags: keyboard,lan-mouse
+  copy:
+    src: /home/ansible/git/keebab/lan-mouse/config_desktop.toml
+    dest: /home/rafael/.config/lan-mouse/config.toml
+    remote_src: true
+    owner: rafael
+    group: rafael
+    mode: 0600
+  when: inventory_hostname not in groups['laptop']
+  notify: keyboard | lan-mouse | restart user systemd service
+
+- name: keyboard | lan-mouse | copy lan-mouse scripts for desktop (server)
   tags: keyboard,lan-mouse
   copy:
     src: /home/ansible/git/keebab/lan-mouse/{{ item.src }}
@@ -54,7 +66,6 @@
     group: rafael
     mode: "{{ item.mode }}"
   loop:
-    - { src: "config_desktop.toml",         dest: "lan-mouse/config.toml",       mode: "0600" }
     - { src: "lanmouse-monitor_desktop.sh", dest: "scripts/lanmouse-monitor.sh", mode: "0700" }
     - { src: "lanmouse-switch_desktop.sh",  dest: "scripts/lanmouse-switch.sh",  mode: "0700" }
     - { src: "sway-window-nav_desktop.py",  dest: "scripts/sway-window-nav.py",  mode: "0700" }
