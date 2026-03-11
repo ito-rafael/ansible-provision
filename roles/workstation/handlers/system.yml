@@ -1,0 +1,5 @@
+- name: system | power | restart logind service
+  tags: power
+  systemd:
+    name: systemd-logind
+    state: restarted
