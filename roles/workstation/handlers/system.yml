@@ -3,3 +3,10 @@
   systemd:
     name: systemd-logind
     state: restarted
+
+- name: system | mouse | restart LogiOps systemd service
+  tags: mouse,logiops
+  systemd:
+    name: logid
+    enabled: yes
+    state: started

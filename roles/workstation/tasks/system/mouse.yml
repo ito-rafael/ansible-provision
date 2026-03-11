@@ -28,6 +28,7 @@
     owner: rafael
     group: rafael
     mode: 0600
+  notify: system | mouse | restart LogiOps systemd service
 
 - name: system | mouse | copy LogiOps udev rules
   tags: mouse,logiops
@@ -51,10 +52,3 @@
   with_items:
     - logid.service
     - logid-restart.service
-
-- name: system | mouse | start LogiOps daemon
-  tags: mouse,logiops
-  systemd:
-    name: logid
-    enabled: yes
-    state: started
