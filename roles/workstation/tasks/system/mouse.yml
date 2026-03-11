@@ -52,3 +52,9 @@
   with_items:
     - logid.service
     - logid-restart.service
+
+- name: system | mouse | enable LogiOps systemd service
+  tags: mouse,logiops
+  systemd:
+    name: logid
+    enabled: yes
