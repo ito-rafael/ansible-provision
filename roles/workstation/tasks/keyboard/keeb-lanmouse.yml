@@ -17,7 +17,19 @@
     - lan-mouse
     - systemd/user
 
-- name: keyboard | lan-mouse | copy lan-mouse config files for laptop (client)
+- name: keyboard | lan-mouse | copy lan-mouse config file for laptop (client)
+  tags: keyboard,lan-mouse
+  copy:
+    src: /home/ansible/git/keebab/lan-mouse/config_laptop.toml
+    dest: /home/rafael/.config/lan-mouse/config.toml
+    remote_src: true
+    owner: rafael
+    group: rafael
+    mode: 0600
+  when: inventory_hostname in groups['laptop']
+  notify: keyboard | lan-mouse | restart user systemd service
+
+- name: keyboard | lan-mouse | copy lan-mouse scripts for laptop (client)
   tags: keyboard,lan-mouse
   copy:
     src: /home/ansible/git/keebab/lan-mouse/{{ item.src }}
@@ -27,7 +39,6 @@
     group: rafael
     mode: "{{ item.mode }}"
   loop:
-    - { src: "config_laptop.toml",         dest: "lan-mouse/config.toml",       mode: "0600" }
     - { src: "lanmouse-monitor_laptop.sh", dest: "scripts/lanmouse-monitor.sh", mode: "0700" }
     - { src: "lanmouse-switch_laptop.sh",  dest: "scripts/lanmouse-switch.sh",  mode: "0700" }
     - { src: "sway-window-nav_laptop.py",  dest: "scripts/sway-window-nav.py",  mode: "0700" }
