@@ -1,0 +1,7 @@
+- name: software | pomodoro | restart tomat user systemd service
+  tags: pomodoro
+  become_user: rafael
+  systemd:
+    name: tomat
+    state: restarted
+    scope: user

@@ -22,6 +22,7 @@
     owner: rafael
     group: rafael
     mode: 0600
+  notify: software | pomodoro | restart tomat user systemd service
 
 - name: software | pomodoro | copy tomat systemd service
   tags: pomodoro
