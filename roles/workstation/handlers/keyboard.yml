@@ -5,3 +5,9 @@
     scope: user
     state: restarted
     daemon_reload: false
+
+- name: keyboard | KMonad | restart KMonad global systemd service
+  tags: keyboard,kmonad
+  systemd:
+    name: kmonad
+    state: restarted

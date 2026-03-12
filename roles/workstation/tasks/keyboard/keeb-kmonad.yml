@@ -24,6 +24,7 @@
     owner: rafael
     group: rafael
     mode: 0600
+  notify: keyboard | KMonad | restart KMonad global systemd service
 
 - name: keyboard | KMonad | copy KMonad global systemd service
   tags: keyboard,kmonad
