@@ -22,13 +22,10 @@
     owner: root
     group: root
     mode: 0644
-  register: udevmon_config
   notify: keyboard | interception | restart udevmon systemd service
 
-- name: keyboard | interception | restart udevmon daemon
+- name: keyboard | interception | enable udevmon systemd service
   tags: keyboard,interception
   systemd:
     name: udevmon
-    state: restarted
     enabled: yes
-  when: udevmon_config.changed
