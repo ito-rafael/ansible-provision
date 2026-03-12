@@ -34,12 +34,11 @@
     group: rafael
     mode: 0600
 
-- name: software | pomodoro | enable user tomat daemon
+- name: software | pomodoro | enable tomat user systemd service
   tags: pomodoro
   become_user: rafael
   systemd:
     name: tomat
     enabled: true
-    state: stopped
     daemon_reload: true
     scope: user
