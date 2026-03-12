@@ -5,3 +5,15 @@
     name: tomat
     state: restarted
     scope: user
+
+- name: software | window-manager | restart xdg-desktop-portals user systemd services
+  tags: wayland,portals
+  become_user: rafael
+  systemd:
+    name: "{{ item }}"
+    state: restarted
+    scope: user
+  loop:
+    - "xdg-desktop-portal"
+    - "xdg-desktop-portal-wlr"
+    - "xdg-desktop-portal-gtk"

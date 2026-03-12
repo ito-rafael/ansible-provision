@@ -35,6 +35,7 @@
     owner: rafael
     group: rafael
     mode: 0600
+  notify: software | window-manager | restart xdg-desktop-portals user systemd services
 
 - name: software | window-manager | enable xdg-desktop-portals user services
   tags: wayland,portals
