@@ -13,9 +13,8 @@
     group: root
     mode: 0755
 
-- name: software | display-manager | SDDM start daemon
+- name: software | display-manager | enable SDDM systemd service
   tags: display-manager,sddm
   systemd:
     name: sddm
     enabled: yes
-    state: started
