@@ -23,6 +23,7 @@
     group: root
     mode: 0644
   register: udevmon_config
+  notify: keyboard | interception | restart udevmon systemd service
 
 - name: keyboard | interception | restart udevmon daemon
   tags: keyboard,interception

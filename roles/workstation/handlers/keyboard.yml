@@ -4,10 +4,15 @@
     name: lanmouse
     scope: user
     state: restarted
-    daemon_reload: false
 
 - name: keyboard | KMonad | restart KMonad global systemd service
   tags: keyboard,kmonad
   systemd:
     name: kmonad
+    state: restarted
+
+- name: keyboard | interception | restart udevmon systemd service
+  tags: keyboard,interception
+  systemd:
+    name: udevmon
     state: restarted
