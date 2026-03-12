@@ -2,7 +2,6 @@
   tags: display-manager,lightdm
   package:
     name: lightdm  # display manager
-  register: lightdm_install
 
 - name: software | display-manager | LightDM greeter install
   tags: display-manager,lightdm
@@ -150,18 +149,8 @@
     mode: "0644"
   when: inventory_hostname in groups['laptop']
 
-- name: software | display-manager | LightDM enable daemon
+- name: software | display-manager | enable LightDM systemd service
   tags: display-manager,lightdm
   systemd:
     name: lightdm
     enabled: yes
-    state: stopped
-  when: lightdm_install.changed
-
-#- name: software | display-manager | LightDM start daemon
-#  tags: display-manager,lightdm
-#  systemd:
-#    name: lightdm
-#    enabled: yes
-#    state: started
-#  when: not lightdm_install.changed
