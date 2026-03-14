@@ -27,6 +27,7 @@
     name:
       - ventoy-bin      # bootable USB stick with multiple ISO
       #- forx            # currencies exchange rates
+      - pandoc-bin      # conversion between documentation formats
   when: ansible_facts['distribution'] == "Archlinux"
 
 - name: software | utils | modern-unix
