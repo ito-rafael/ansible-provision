@@ -14,6 +14,7 @@
       - networkmanager          # core package
       - nm-connection-editor    # GUI
       - network-manager-applet  # system tray applet
+      - networkmanager-dmenu    # integration with dmenu/Rofi
 
 - name: system | network | start NetworkManager daemon
   tags: system,network
