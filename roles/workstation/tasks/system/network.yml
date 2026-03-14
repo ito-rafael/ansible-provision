@@ -16,6 +16,14 @@
       - network-manager-applet  # system tray applet
       - networkmanager-dmenu    # integration with dmenu/Rofi
 
+- name: system | network | ensure networkmanager-dmenu dir exists
+  tags: system,network
+  file:
+    path: /home/rafael/.config/networkmanager-dmenu
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
 - name: system | network | start NetworkManager daemon
   tags: system,network
   systemd:
