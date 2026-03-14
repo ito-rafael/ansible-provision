@@ -1,14 +1,22 @@
-- name: system | bluetooth | BlueZ install
+- name: system | bluetooth | install BlueZ
   tags: system,bluetooth
   package:
     name:
       - bluez               # Bluetooth protocol stack
       - bluez-utils         # bluetoothctl utility
 
-- name: system | bluetooth | Blueman (GTK+ Bluetooth manager)
+- name: system | bluetooth | install Blueman (GTK+ Bluetooth manager)
   tags: system,bluetooth
   package:
     name: blueman             # blueman GUI (Bluetooth manager)
+
+- name: system | bluetooth | install Rofi integration (AUR)
+  tags: system,bluetooth
+  become_user: aurman
+  kewlfft.aur.aur:
+    name:
+      - rofi-bluetooth-git
+  when: ansible_facts['distribution'] == "Archlinux"
 
 - name: system | bluetooth | check if btusb kernel module is loaded
   tags: system,bluetooth,kernel
