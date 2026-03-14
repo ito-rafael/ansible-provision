@@ -24,6 +24,17 @@
     owner: rafael
     group: rafael
     mode: 0700
+
+- name: system | network | copy networkmanager-dmenu dotfile
+  tags: system,network
+  copy:
+    src: /home/ansible/git/dotfiles/networkmanager-dmenu/config.ini
+    dest: /home/rafael/.config/networkmanager-dmenu/config.ini
+    remote_src: true
+    owner: rafael
+    group: rafael
+    mode: 0600
+
 - name: system | network | start NetworkManager daemon
   tags: system,network
   systemd:
