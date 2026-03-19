@@ -16,3 +16,12 @@
   systemd:
     name: udevmon
     state: restarted
+
+- name: keyboard | xremap | try-restart xremap systemd user service
+  tags: keyboard,xremap
+  become_user: rafael
+  ansible.builtin.command: systemctl try-restart xremap.service --user
+
+- name: keyboard | xremap | try-restart xremap systemd global service
+  tags: keyboard,xremap
+  ansible.builtin.command: systemctl try-restart xremap.service

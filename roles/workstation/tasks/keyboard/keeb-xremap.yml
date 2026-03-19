@@ -57,6 +57,9 @@
     owner: rafael
     group: rafael
     mode: 0600
+  notify:
+    - keyboard | xremap | try-restart xremap systemd user service
+    - keyboard | xremap | try-restart xremap systemd global service
 
 - name: keyboard | xremap | copy xremap desktop entry (for XDG Autostart)
   tags: keyboard,xremap
@@ -78,6 +81,7 @@
     group: rafael
     mode: 0600
   when: inventory_hostname in groups['laptop']
+  notify: keyboard | xremap | try-restart xremap systemd user service
 
 - name: keyboard | xremap | copy xremap service file without kanata dependency (non-laptop)
   tags: keyboard,xremap
@@ -89,6 +93,7 @@
     group: rafael
     mode: 0600
   when: inventory_hostname not in groups['laptop']
+  notify: keyboard | xremap | try-restart xremap systemd global service
 
 - name: keyboard | xremap | reload xremap user service (that will be started by XDG Autostart)
   tags: keyboard,xremap
