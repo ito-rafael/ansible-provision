@@ -1,0 +1,5 @@
+- name: system | cron | restart cron systemd service
+  tags: ansible,cron
+  systemd:
+    name: "{{ cron_pkg }}"
+    state: restarted
