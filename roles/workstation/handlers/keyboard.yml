@@ -17,6 +17,15 @@
     name: udevmon
     state: restarted
 
+- name: keyboard | kanata | try-restart kanata systemd user service
+  tags: keyboard,kanata
+  become_user: rafael
+  ansible.builtin.command: systemctl try-restart kanata.service --user
+
+- name: keyboard | kanata | try-restart kanata systemd global service
+  tags: keyboard,kanata
+  ansible.builtin.command: systemctl try-restart kanata.service
+
 - name: keyboard | xremap | try-restart xremap systemd user service
   tags: keyboard,xremap
   become_user: rafael

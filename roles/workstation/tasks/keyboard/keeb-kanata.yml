@@ -26,6 +26,9 @@
     owner: rafael
     group: rafael
     mode: 0600
+  notify:
+    - keyboard | kanata | try-restart kanata systemd user service
+    - keyboard | kanata | try-restart kanata systemd global service
 
 - name: keyboard | kanata | copy kanata global systemd service
   tags: keyboard,kanata
@@ -54,7 +57,6 @@
     name: kanata
     enabled: false
     daemon_reload: true
-    state: stopped
     scope: user
 
 - name: keyboard | kanata | enable kanata global daemon
@@ -63,4 +65,3 @@
     name: kanata
     enabled: true
     daemon_reload: true
-    state: stopped
