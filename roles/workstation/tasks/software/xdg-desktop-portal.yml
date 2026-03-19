@@ -19,7 +19,7 @@
   tags: wayland,portals
   copy:
     remote_src: true
-    src: /home/rafael/git/dotfiles/xdg-desktop-portal/sway-portals.conf
+    src: /home/ansible/git/dotfiles/xdg-desktop-portal/sway-portals.conf
     dest: /home/rafael/.config/xdg-desktop-portal/sway-portals.conf
     owner: rafael
     group: rafael
@@ -42,7 +42,7 @@
   tags: wayland,portals
   copy:
     remote_src: true
-    src: /home/rafael/git/dotfiles/xdg-desktop-portal/mimeapps.list
+    src: /home/ansible/git/dotfiles/xdg-desktop-portal/mimeapps.list
     dest: /home/rafael/.config/mimeapps.list
     owner: rafael
     group: rafael
