@@ -38,3 +38,12 @@
     - "xdg-desktop-portal-wlr"
     - "xdg-desktop-portal-gtk"
 
+- name: software | xdg-desktop-portal | copy XDG MIME dotfile
+  tags: wayland,portals
+  copy:
+    remote_src: true
+    src: /home/rafael/git/dotfiles/xdg-desktop-portal/mimeapps.list
+    dest: /home/rafael/.config/mimeapps.list
+    owner: rafael
+    group: rafael
+    mode: 0600
