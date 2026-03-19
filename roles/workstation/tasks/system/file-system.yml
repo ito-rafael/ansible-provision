@@ -10,3 +10,4 @@
   package:
     name:
       - ntfs-3g         # NTFS fs driver
+      - exfatprogs      # exFAT partition support
