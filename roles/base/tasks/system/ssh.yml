@@ -29,6 +29,7 @@
     line: 'PasswordAuthentication no'
     regexp: '^#?PasswordAuthentication'
     state: present
+  notify: system | ssh | restart ssh systemd service
 
 - name: system | ssh | sshd disable root login
   tags: ssh
@@ -37,6 +38,7 @@
     line: 'PermitRootLogin no'
     regexp: '^#?PermitRootLogin'
     state: present
+  notify: system | ssh | restart ssh systemd service
 
 - name: system | ssh | sshd enable pubkey authentication
   tags: ssh
@@ -45,6 +47,7 @@
     line: 'PubkeyAuthentication yes'
     regexp: '^#?PubkeyAuthentication'
     state: present
+  notify: system | ssh | restart ssh systemd service
 
 - name: system | ssh | sshd change default port
   tags: ssh
@@ -53,6 +56,7 @@
     line: 'Port 2222'
     regexp: '^#?Port'
     state: present
+  notify: system | ssh | restart ssh systemd service
 
 - name: system | ssh | sshd set allowed group to ssh
   tags: ssh
@@ -61,6 +65,7 @@
     line: 'AllowGroups sshuser'
     regexp: '^#?AllowGroups'
     state: present
+  notify: system | ssh | restart ssh systemd service
 
 - name: system | ssh | create sshuser group
   tags: ssh,groups
