@@ -4,3 +4,9 @@
     name:
       - snapper          # manage BTRFS and LVM snapshots
       - btrfs-assistant  # manage BTRFS subvolumes and Snapper snapshots
+
+- name: system | fs | install other file system utilities
+  tags: system,fs
+  package:
+    name:
+      - ntfs-3g         # NTFS fs driver
