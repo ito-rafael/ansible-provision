@@ -73,18 +73,9 @@
     name: sshuser
     state: present
 
-- name: system | ssh | start daemon [Arch]
+- name: system | ssh | start and enable ssh systemd service
   tags: ssh
   systemd:
-    name: sshd
+    name: "{{ ssh_pkg }}"
     state: started
     enabled: yes
-  when: ansible_facts['distribution'] == "Archlinux"
-
-- name: system | ssh | start daemon [Debian]
-  tags: ssh
-  systemd:
-    name: ssh
-    state: started
-    enabled: yes
-  when: ansible_facts['distribution'] == "Debian"

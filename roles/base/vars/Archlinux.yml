@@ -1,3 +1,4 @@
 sudo_group: wheel
 cron_pkg: fcron
+ssh_pkg: sshd
 powerline_fonts_pkg: powerline-fonts
