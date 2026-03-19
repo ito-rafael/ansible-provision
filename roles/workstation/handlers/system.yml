@@ -8,5 +8,4 @@
   tags: mouse,logiops
   systemd:
     name: logid
-    enabled: yes
-    state: started
+    state: restarted
