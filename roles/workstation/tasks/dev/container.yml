@@ -1,9 +1,9 @@
 - name: include tasks for podman container
   tags: dev,container,podman
-  include_tasks: container-podman.yml
+  import_tasks: container-podman.yml
   when: container == "podman"
 
 - name: include tasks for docker container
   tags: dev,container,docker
-  include_tasks: container-docker.yml
+  import_tasks: container-docker.yml
   when: container == "docker"

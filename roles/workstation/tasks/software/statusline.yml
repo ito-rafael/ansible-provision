@@ -1,9 +1,9 @@
 - name: include Waybar tasks for Wayland displays
   tags: statusline,waybar
-  include_tasks: statusline-waybar.yml
+  import_tasks: statusline-waybar.yml
   when: status_bar == "waybar"
 
 - name: include Polybar tasks for X11 displays
   tags: statusline,polybar
-  include_tasks: statusline-polybar.yml
+  import_tasks: statusline-polybar.yml
   when: status_bar == "polybar"
