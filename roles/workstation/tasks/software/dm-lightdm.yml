@@ -33,7 +33,7 @@
     mode: 0744
   loop:
     - lightdm-outputs.sh
-    - lightdm-lan-mouse.sh
+    - lightdm-lanmouse.sh
     - lightdm-script-wrapper.sh
 
 - name: software | display-manager | LightDM setup "logind-check-graphical"
