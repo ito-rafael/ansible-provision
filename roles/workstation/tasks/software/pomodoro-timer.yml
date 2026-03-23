@@ -27,7 +27,7 @@
 - name: software | pomodoro | copy tomat systemd service
   tags: pomodoro
   copy:
-    src: /home/rafael/git/dotfiles/systemd/user/tomat.service
+    src: /home/rafael/git/dotfiles/tomat/tomat.service
     dest: /home/rafael/.config/systemd/user/tomat.service
     remote_src: true
     owner: rafael
