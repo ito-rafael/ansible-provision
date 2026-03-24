@@ -8,6 +8,13 @@
   systemd:
     daemon_reload: true
     scope: user
+
+- name: reload user systemd services (rafael)
+  become_user: rafael
+  systemd:
+    daemon_reload: true
+    scope: user
+
 - import_tasks: keyboard.yml
 - import_tasks: software.yml
 - import_tasks: system.yml
