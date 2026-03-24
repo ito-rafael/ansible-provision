@@ -3,9 +3,11 @@
   systemd:
     name: "{{ cron_pkg }}"
     state: restarted
+    enabled: true
 
 - name: system | ssh | restart ssh systemd service
   tags: ssh
   systemd:
     name: "{{ ssh_pkg }}"
     state: restarted
+    enabled: true

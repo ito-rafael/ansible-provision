@@ -72,10 +72,3 @@
   group:
     name: sshuser
     state: present
-
-- name: system | ssh | start and enable ssh systemd service
-  tags: ssh
-  systemd:
-    name: "{{ ssh_pkg }}"
-    state: started
-    enabled: yes
