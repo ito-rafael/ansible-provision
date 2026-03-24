@@ -13,6 +13,19 @@
     group: rafael
     mode: 0700
 
+- name: software | pomodoro | copy tomat systemd service
+  tags: pomodoro
+  copy:
+    src: /home/ansible/git/dotfiles/tomat/tomat.service
+    dest: /home/rafael/.config/systemd/user/tomat.service
+    remote_src: true
+    owner: rafael
+    group: rafael
+    mode: 0600
+  notify:
+    - reload user systemd services (rafael)
+    - software | pomodoro | restart tomat user systemd service
+
 - name: software | pomodoro | copy tomat dotfile
   tags: pomodoro
   copy:
@@ -23,22 +36,3 @@
     group: rafael
     mode: 0600
   notify: software | pomodoro | restart tomat user systemd service
-
-- name: software | pomodoro | copy tomat systemd service
-  tags: pomodoro
-  copy:
-    src: /home/rafael/git/dotfiles/tomat/tomat.service
-    dest: /home/rafael/.config/systemd/user/tomat.service
-    remote_src: true
-    owner: rafael
-    group: rafael
-    mode: 0600
-
-- name: software | pomodoro | enable tomat user systemd service
-  tags: pomodoro
-  become_user: rafael
-  systemd:
-    name: tomat
-    enabled: true
-    daemon_reload: true
-    scope: user

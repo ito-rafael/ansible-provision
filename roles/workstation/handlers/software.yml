@@ -4,6 +4,7 @@
   systemd:
     name: tomat
     state: restarted
+    enabled: true
     scope: user
 
 - name: software | xdg-desktop-portal | restart xdg-desktop-portals user systemd services
