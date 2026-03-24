@@ -7,13 +7,13 @@
 
 - name: keyboard | KMonad | restart KMonad global systemd service
   tags: keyboard,kmonad
-  systemd:
+  ansible.builtin.systemd:
     name: kmonad
     state: restarted
 
 - name: keyboard | interception | restart udevmon systemd service
   tags: keyboard,interception
-  systemd:
+  ansible.builtin.systemd:
     name: udevmon
     state: restarted
 
