@@ -3,6 +3,11 @@
     daemon_reload: true
     scope: system
 
+- name: reload user systemd services (ansible)
+  become_user: ansible
+  systemd:
+    daemon_reload: true
+    scope: user
 - import_tasks: keyboard.yml
 - import_tasks: software.yml
 - import_tasks: system.yml
