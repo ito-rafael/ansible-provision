@@ -1,3 +1,12 @@
+- name: software | semaphore | restart user systemd service
+  tags: semaphore
+  become_user: ansible
+  systemd:
+    name: semaphore
+    state: restarted
+    enabled: true
+    scope: user
+
 - name: software | pomodoro | restart tomat user systemd service
   tags: pomodoro
   become_user: rafael

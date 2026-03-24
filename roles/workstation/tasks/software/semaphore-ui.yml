@@ -54,3 +54,6 @@
     owner: ansible
     group: ansible
     mode: 0600
+  notify:
+    - reload user systemd services (ansible)
+    - software | semaphore | restart user systemd service
