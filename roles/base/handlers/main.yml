@@ -1,4 +1,9 @@
 # load distro-specific variables
 - include_vars: "{{ ansible_facts['distribution'] }}.yml"
 
+- name: reload systemd services (system scope)
+  systemd:
+    daemon_reload: true
+    scope: system
+
 - import_tasks: system.yml
