@@ -42,6 +42,7 @@
   tags: utils,tools
   package:
     name:
+      - ristretto    # image viewer
       - gimp         # image editor
       - meld         # GUI diff
       - pdfpc        # slides presentation
