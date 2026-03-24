@@ -16,3 +16,9 @@
   with_items:
     - semaphore
     - systemd/user
+
+- name: software | semaphore | check if semaphore config already exists
+  tags: semaphore
+  ansible.builtin.stat:
+    path: /home/ansible/.config/semaphore/config.json
+  register: semaphore_config_file
