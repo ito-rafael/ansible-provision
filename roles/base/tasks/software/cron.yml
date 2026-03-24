@@ -20,14 +20,9 @@
     regexp: '^(sendmail.*=.*/usr/bin/sendmail)$'
     replace: '#\g<1>'
   when: ansible_facts['distribution'] == "Archlinux"
-  notify: system | cron | restart cron systemd service
-
-- name: system | cron | start daemon
-  tags: ansible,cron
-  systemd:
-    name: "{{ cron_pkg }}"
-    state: started
-    enabled: yes
+  notify:
+    - reload systemd services (system scope)
+    - system | cron | restart cron systemd service
 
 - name: system | cron | crontab symlink
   tags: ansible,cron
