@@ -1,0 +1,6 @@
+- name: software | semaphore | install Semaphore UI
+  tags: semaphore
+  become_user: aurman
+  kewlfft.aur.aur:
+    name: semaphore-bin
+  when: ansible_facts['distribution'] == "Archlinux"
