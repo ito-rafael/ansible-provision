@@ -4,6 +4,7 @@
 
 - block:
   # Users
+  - import_tasks: users/ansible.yml                     # enable lingering for systemd
   - import_tasks: users/rafael.yml                      # enable lingering for systemd
 
   # Arch Linux exclusive

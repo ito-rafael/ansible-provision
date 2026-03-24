@@ -1,0 +1,5 @@
+- name: users | ansible | enable user lingering for systemd
+  tags: users,ansible
+  command:
+    cmd: loginctl enable-linger ansible
+    creates: /var/lib/systemd/linger/ansible
