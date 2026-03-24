@@ -44,3 +44,13 @@
       cookie_encryption: "{{ lookup('pipe', 'openssl rand -base64 32') }}"
       access_key_encryption: "{{ lookup('pipe', 'openssl rand -base64 32') }}"
   when: not semaphore_config_file.stat.exists
+
+- name: software | semaphore | copy semaphore systemd service
+  tags: semaphore
+  copy:
+    src: /home/ansible/git/dotfiles/semaphore/semaphore.service
+    dest: /home/ansible/.config/systemd/user/semaphore.service
+    remote_src: true
+    owner: ansible
+    group: ansible
+    mode: 0600
