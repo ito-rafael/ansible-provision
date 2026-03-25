@@ -49,6 +49,20 @@
   when: not semaphore_config_file.stat.exists
 
 - name: software | semaphore | copy semaphore systemd service
+- name: software | semaphore | create admin user
+  tags: semaphore
+  ansible.builtin.command: >
+    /usr/bin/semaphore user add
+    --admin
+    --login admin
+    --name "{{ lookup('pipe', 'pass show semaphore/admin_name') | trim }}"
+    --email "{{ lookup('pipe', 'pass show semaphore/admin_email') | trim }}"
+    --password "{{ lookup('pipe', 'pass show semaphore/admin_password') | trim }}"
+    --config /home/ansible/.config/semaphore/config.json
+  # hide the output to prevent the password from being printed in the Ansible logs
+  no_log: true
+  when: not semaphore_config_file.stat.exists
+
   tags: semaphore
   copy:
     src: /home/ansible/git/dotfiles/semaphore/semaphore.service
