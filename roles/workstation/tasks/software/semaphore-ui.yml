@@ -1,12 +1,12 @@
 - name: software | semaphore | install Semaphore UI
-  tags: semaphore
+  tags: semaphore-ui
   become_user: aurman
   kewlfft.aur.aur:
     name: semaphore-bin
   when: ansible_facts['distribution'] == "Archlinux"
 
 - name: software | semaphore | ensure semaphore dirs exist
-  tags: semaphore
+  tags: semaphore-ui
     file:
       path: /home/ansible/.config/{{ item }}
       state: directory
@@ -18,13 +18,13 @@
     - systemd/user
 
 - name: software | semaphore | check if semaphore config already exists
-  tags: semaphore
+  tags: semaphore-ui
   ansible.builtin.stat:
     path: /home/ansible/.config/semaphore/config.json
   register: semaphore_config_file
 
 - name: software | semaphore | generate secure keys and write config file
-  tags: semaphore
+  tags: semaphore-ui
   copy:
     dest: /home/ansible/.config/semaphore/config.json
     owner: ansible
@@ -48,9 +48,8 @@
       telegram_token: "{{ lookup('pipe', 'pass show telegram/bot_token') }}"
   when: not semaphore_config_file.stat.exists
 
-- name: software | semaphore | copy semaphore systemd service
 - name: software | semaphore | create admin user
-  tags: semaphore
+  tags: semaphore-ui
   ansible.builtin.command: >
     /usr/bin/semaphore user add
     --admin
@@ -63,7 +62,8 @@
   no_log: true
   when: not semaphore_config_file.stat.exists
 
-  tags: semaphore
+- name: software | semaphore | copy user systemd service
+  tags: semaphore-ui
   copy:
     src: /home/ansible/git/dotfiles/semaphore/semaphore.service
     dest: /home/ansible/.config/systemd/user/semaphore.service

@@ -67,12 +67,13 @@
   - import_tasks: software/pdf-viewer.yml               # Zathura
   - import_tasks: software/presentation.yml             # pdfpc
   - import_tasks: software/pomodoro-timer.yml           # tomat
-  - import_tasks: software/statusline.yml               # Waybar / Polybar
   - import_tasks: software/screen-locker.yml            # hyprlock / swaylock
   - import_tasks: software/screenshot.yml               # screenshot tools
   - import_tasks: software/scripts.yml                  # custom scripts
+  - import_tasks: software/semaphore-ui.yml             # GUI for Ansible (and others)
   - import_tasks: software/shell.yml                    # Zsh
   - import_tasks: software/social.yml                   # Slack, WhatsApp, Discord, Zoom
+  - import_tasks: software/statusline.yml               # Waybar / Polybar
   - import_tasks: software/syncthing.yml                # Syncthing
   - import_tasks: software/terminal.yml                 # kitty
   - import_tasks: software/theme.yml                    # GTK-{3,4}
