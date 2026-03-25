@@ -45,6 +45,8 @@ workstation:
 Meant to be used with standard =ansible= instead of =ansible-pull=. Configures the servers and workstations for the LBiC laboratory at University of Campinas.
 #+begin_src yml
 lab:
+  vars:
+    ansible_user: lbic_user
   children:
 #+end_src
 *** Server
