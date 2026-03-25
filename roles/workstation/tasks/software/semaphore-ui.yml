@@ -43,6 +43,9 @@
       cookie_hash: "{{ lookup('pipe', 'openssl rand -base64 32') }}"
       cookie_encryption: "{{ lookup('pipe', 'openssl rand -base64 32') }}"
       access_key_encryption: "{{ lookup('pipe', 'openssl rand -base64 32') }}"
+      telegram_alert: true
+      telegram_chat: "{{ lookup('pipe', 'pass show telegram/chat_id') }}"
+      telegram_token: "{{ lookup('pipe', 'pass show telegram/bot_token') }}"
   when: not semaphore_config_file.stat.exists
 
 - name: software | semaphore | copy semaphore systemd service
