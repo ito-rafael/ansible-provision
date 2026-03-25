@@ -8,6 +8,13 @@
 - [[#tldr][TL;DR]]
 - [[#description][Description]]
 - [[#inventory][Inventory]]
+  - [[#server-1][Server]]
+  - [[#laptop-1][Laptop]]
+  - [[#workstation-1][Workstation]]
+  - [[#lab][Lab]]
+    - [[#server-2][Server]]
+    - [[#workstation-2][Workstation]]
+  - [[#rootless][Rootless]]
 
 * TL;DR :noexport_1:
 * Description
@@ -29,17 +36,17 @@ Meant to be used for laptops. It includes all my [[https://github.com/ito-rafael
 #+begin_src yml
 laptop:
   hosts:
-    y2p-archlinux:
-    vb-archlinux:
-    ipf-archlinux:
+    #y2p-archlinux:                        # RIP: Yoga 2 Pro
+    #vb-archlinux:                         # RIP: Viva-Bem
+    ipf-archlinux:                         # IdeaPad Flex 5i
 #+end_src
 ** Workstation
 Meant to be used for workstations. It includes the majority of tasks in this git repo (with exception of the keyboard customization, lab-specific tasks, and a few others).
 #+begin_src yml
 workstation:
   hosts:
-    dxt-archlinux:
-    catuaba.lbic.fee.unicamp.br:
+    dxt-archlinux:                         # used for tests
+    catuaba.lbic.fee.unicamp.br:           # LBiC's PC
 #+end_src
 ** Lab
 Meant to be used with standard =ansible= instead of =ansible-pull=. Configures the servers and workstations for the LBiC laboratory at University of Campinas.
