@@ -26,17 +26,17 @@
     mode: 0600
   notify: software | xdg-desktop-portal | restart xdg-desktop-portals user systemd services
 
-- name: software | xdg-desktop-portal | enable xdg-desktop-portals user services
-  tags: wayland,portals
-  become_user: rafael
-  systemd:
-    name: "{{ item }}"
-    enabled: true
-    scope: user
-  loop:
-    - "xdg-desktop-portal"
-    - "xdg-desktop-portal-wlr"
-    - "xdg-desktop-portal-gtk"
+#- name: software | xdg-desktop-portal | enable xdg-desktop-portals user services
+#  tags: wayland,portals
+#  become_user: rafael
+#  systemd:
+#    name: "{{ item }}"
+#    enabled: true
+#    scope: user
+#  loop:
+#    - "xdg-desktop-portal"
+#    - "xdg-desktop-portal-wlr"
+#    - "xdg-desktop-portal-gtk"
 
 - name: software | xdg-desktop-portal | copy XDG MIME dotfile
   tags: wayland,portals
