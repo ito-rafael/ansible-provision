@@ -57,9 +57,7 @@
     owner: rafael
     group: rafael
     mode: 0600
-  notify:
-    - keyboard | xremap | try-restart systemd user service
-    - keyboard | xremap | try-restart systemd global service
+  notify: keyboard | xremap | try-restart user systemd service
 
 - name: keyboard | xremap | copy xremap desktop entry (for XDG Autostart)
   tags: keyboard,xremap
@@ -84,6 +82,7 @@
   notify:
     - reload user systemd services (rafael)
     - keyboard | xremap | disable user systemd service (to be started by XDG Autostart)
+    - keyboard | xremap | try-restart xremap systemd user service
 
 - name: keyboard | xremap | copy xremap service file without kanata dependency (non-laptop)
   tags: keyboard,xremap
@@ -98,3 +97,4 @@
   notify:
     - reload user systemd services (rafael)
     - keyboard | xremap | disable user systemd service (to be started by XDG Autostart)
+    - keyboard | xremap | try-restart xremap systemd user service
