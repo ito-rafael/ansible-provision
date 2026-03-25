@@ -58,8 +58,8 @@
     group: rafael
     mode: 0600
   notify:
-    - keyboard | xremap | try-restart xremap systemd user service
-    - keyboard | xremap | try-restart xremap systemd global service
+    - keyboard | xremap | try-restart systemd user service
+    - keyboard | xremap | try-restart systemd global service
 
 - name: keyboard | xremap | copy xremap desktop entry (for XDG Autostart)
   tags: keyboard,xremap

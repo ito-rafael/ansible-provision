@@ -26,11 +26,11 @@
   tags: keyboard,kanata
   ansible.builtin.command: systemctl try-restart kanata.service
 
-- name: keyboard | xremap | try-restart xremap systemd user service
+- name: keyboard | xremap | try-restart systemd user service
   tags: keyboard,xremap
   become_user: rafael
   ansible.builtin.command: systemctl try-restart xremap.service --user
 
-- name: keyboard | xremap | try-restart xremap systemd global service
+- name: keyboard | xremap | try-restart systemd global service
   tags: keyboard,xremap
   ansible.builtin.command: systemctl try-restart xremap.service
