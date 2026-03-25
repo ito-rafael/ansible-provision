@@ -7,12 +7,12 @@
 
 - name: software | semaphore | ensure semaphore dirs exist
   tags: semaphore-ui
-    file:
-      path: /home/ansible/.config/{{ item }}
-      state: directory
-      owner: ansible
-      group: ansible
-      mode: 0700
+  file:
+    path: /home/ansible/.config/{{ item }}
+    state: directory
+    owner: ansible
+    group: ansible
+    mode: 0700
   with_items:
     - semaphore
     - systemd/user
