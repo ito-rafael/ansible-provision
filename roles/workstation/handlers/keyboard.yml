@@ -53,3 +53,11 @@
   tags: keyboard,xremap
   become_user: rafael
   ansible.builtin.command: systemctl try-restart xremap.service --user
+
+- name: keyboard | udev/hwdb | rebuild the hardware database index (hwdb.bin)
+  tags: keyboard,hwdb
+  command: systemd-hwdb update
+
+- name: keyboard | udev/hwdb | update udev rules on the fly
+  tags: keyboard,hwdb
+  command: udevadm trigger
