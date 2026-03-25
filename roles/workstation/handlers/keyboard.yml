@@ -17,6 +17,12 @@
     name: udevmon
     state: restarted
 
+- name: keyboard | kanata | enable global systemd service
+  tags: keyboard,kanata
+  ansible.builtin.systemd:
+    name: kanata
+    enabled: true
+
 - name: keyboard | kanata | try-restart systemd user service
   tags: keyboard,kanata
   become_user: rafael
