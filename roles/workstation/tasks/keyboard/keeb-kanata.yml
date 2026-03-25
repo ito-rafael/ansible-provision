@@ -27,10 +27,10 @@
     group: rafael
     mode: 0600
   notify:
-    - keyboard | kanata | try-restart kanata systemd user service
-    - keyboard | kanata | try-restart kanata systemd global service
+    - keyboard | kanata | try-restart systemd user service
+    - keyboard | kanata | try-restart systemd global service
 
-- name: keyboard | kanata | copy kanata global systemd service
+- name: keyboard | kanata | copy global systemd service
   tags: keyboard,kanata
   copy:
     src: /home/ansible/git/keebab/systemd/system/kanata.service
@@ -40,7 +40,7 @@
     group: root
     mode: 0600
 
-- name: keyboard | kanata | copy kanata user systemd service
+- name: keyboard | kanata | copy user systemd service
   tags: keyboard,kanata
   copy:
     src: /home/ansible/git/keebab/systemd/user/kanata.service
