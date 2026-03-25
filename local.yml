@@ -1,9 +1,6 @@
 ---
 - hosts: "all:!lab"
   connection: local
-  become: true
-  roles:
-    - base
 
 - hosts: "all:!lab"
   connection: local
@@ -14,6 +11,8 @@
       pacman: update_cache=yes
       changed_when: False
       when: ansible_facts['distribution'] == "Archlinux"
+  roles:
+    - base
 
 - hosts: workstation:laptop
   connection: local
