@@ -5,7 +5,7 @@
     scope: user
     state: restarted
 
-- name: keyboard | KMonad | restart KMonad global systemd service
+- name: keyboard | KMonad | restart global systemd service
   tags: keyboard,kmonad
   ansible.builtin.systemd:
     name: kmonad
