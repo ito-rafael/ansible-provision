@@ -6,11 +6,7 @@
   connection: local
   become: true
   pre_tasks:
-    - name: pre-run | [Arch] update package cache
-      tags: always
-      pacman: update_cache=yes
-      changed_when: False
-      when: ansible_facts['distribution'] == "Archlinux"
+    - import_tasks: tasks/update-cache.yml
   roles:
     - base
 
