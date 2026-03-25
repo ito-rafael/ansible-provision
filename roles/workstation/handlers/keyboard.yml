@@ -54,6 +54,13 @@
   become_user: rafael
   ansible.builtin.command: systemctl try-restart xremap.service --user
 
+- name: keyboard | udev/hwdb | restart systemd-hwdb-update systemd service
+  tags: keyboard,hwdb
+  ansible.builtin.systemd:
+    name: udevmon
+    state: restarted
+    enabled: true
+
 - name: keyboard | udev/hwdb | rebuild the hardware database index (hwdb.bin)
   tags: keyboard,hwdb
   command: systemd-hwdb update

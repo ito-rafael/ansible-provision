@@ -20,6 +20,9 @@
     owner: root
     group: root
     mode: 0644
+  notify:
+    - reload systemd services (system scope)
+    - keyboard | udev/hwdb | restart systemd-hwdb-update systemd service
 
 #- name: keyboard | udev/hwdb | enable update on boot (comment line)
 #  tags: keyboard,hwdb
