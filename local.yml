@@ -1,6 +1,9 @@
 ---
 - hosts: "all:!lab"
   connection: local
+  strategy: linear
+  tasks:
+    - import_tasks: tasks/bootstrap-mitogen.yml
 
 - hosts: "all:!lab"
   connection: local

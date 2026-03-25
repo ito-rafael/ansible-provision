@@ -1,0 +1,6 @@
+- name: bootstrap | install mitogen strategy plugin
+  tags: always
+  kewlfft.aur.aur:
+    name: mitogen
+    state: present
+  when: ansible_facts['distribution'] == "Archlinux"
