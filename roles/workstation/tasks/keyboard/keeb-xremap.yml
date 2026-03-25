@@ -81,7 +81,9 @@
     group: rafael
     mode: 0600
   when: inventory_hostname in groups['laptop']
-  notify: keyboard | xremap | try-restart xremap systemd user service
+  notify:
+    - reload user systemd services (rafael)
+    - keyboard | xremap | disable user systemd service (to be started by XDG Autostart)
 
 - name: keyboard | xremap | copy xremap service file without kanata dependency (non-laptop)
   tags: keyboard,xremap
@@ -93,14 +95,6 @@
     group: rafael
     mode: 0600
   when: inventory_hostname not in groups['laptop']
-  notify: keyboard | xremap | try-restart xremap systemd global service
-
-- name: keyboard | xremap | reload xremap user service (that will be started by XDG Autostart)
-  tags: keyboard,xremap
-  become_user: rafael
-  systemd:
-    name: xremap
-    enabled: false
-    state: stopped
-    daemon_reload: true
-    scope: user
+  notify:
+    - reload user systemd services (rafael)
+    - keyboard | xremap | disable user systemd service (to be started by XDG Autostart)

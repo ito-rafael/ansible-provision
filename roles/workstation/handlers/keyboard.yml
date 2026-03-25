@@ -32,6 +32,14 @@
     name: kanata
     enabled: true
 
+- name: keyboard | xremap | disable user systemd service (to be started by XDG Autostart)
+  tags: keyboard,xremap
+  become_user: rafael
+  ansible.builtin.systemd:
+    name: xremap
+    enabled: false
+    scope: user
+
 - name: keyboard | kanata | try-restart systemd user service
   tags: keyboard,kanata
   become_user: rafael
