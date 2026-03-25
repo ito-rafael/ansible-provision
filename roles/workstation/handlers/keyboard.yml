@@ -1,4 +1,5 @@
 - name: keyboard | lan-mouse | restart user systemd service
+  tags: keyboard,lan-mouse
   become_user: rafael
   ansible.builtin.systemd:
     name: lanmouse
