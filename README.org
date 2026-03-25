@@ -94,5 +94,6 @@ Meant to be used with standard =ansible= instead of =ansible-pull=. Configures t
 #+begin_src yml
 rootless:
   hosts:
-    ssh.recod.ic.unicamp.br: rafael.ito    # Recod.ai
+    ssh.recod.ic.unicamp.br:               # Recod.ai
+      ansible_user: rafael.ito
 #+end_src
