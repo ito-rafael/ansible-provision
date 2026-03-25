@@ -49,7 +49,7 @@
     group: rafael
     mode: 0700
 
-- name: development | emacs | install EFS
+- name: development | emacs | copy emacs EFS dotfiles
   tags: emacs
   copy:
     remote_src: yes
