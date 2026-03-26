@@ -1,5 +1,5 @@
 - name: pre-run | install mitogen strategy plugin
-  tags: pre-run,mitogen
+  tags: always,pre-run,mitogen
   become_user: aurman
   kewlfft.aur.aur:
     name: mitogen
@@ -7,7 +7,7 @@
   when: ansible_facts['distribution'] == "Archlinux"
 
 - name: pre-run | grant aurman traversal rights via ACL
-  tags: pre-run,mitogen
+  tags: always,pre-run,mitogen
   ansible.posix.acl:
     path: "{{ item }}"
     entity: aurman
