@@ -92,6 +92,7 @@
   when: >
     semaphore_admin_check.rc != 0 or
     semaphore_admin_check.stdout == "0"
+  notify: software | semaphore | restart user systemd service
 
 - name: software | semaphore | copy user systemd service
   tags: semaphore-ui
