@@ -91,7 +91,7 @@
   # only run if the table was missing (rc != 0), or if the user count is exactly 0
   when: >
     semaphore_admin_check.rc != 0 or
-    semaphore_admin_check.stdout == "0"
+    semaphore_admin_check.stdout | trim == "0"
   notify: software | semaphore | restart user systemd service
 
 - name: software | semaphore | copy user systemd service
