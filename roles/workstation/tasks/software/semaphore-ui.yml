@@ -70,7 +70,7 @@
   ansible.builtin.command: >
     /usr/bin/semaphore user add
     --admin
-    --login admin
+    --login rafael
     --name "{{ lookup('pipe', 'sudo -u rafael pass show semaphore/admin_name') | trim }}"
     --email "{{ lookup('pipe', 'sudo -u rafael pass show semaphore/admin_email') | trim }}"
     --password "{{ lookup('pipe', 'sudo -u rafael pass show semaphore/admin_password') | trim }}"
