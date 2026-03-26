@@ -8,7 +8,9 @@
 - name: software | semaphore | ensure pass is installed
   tags: semaphore-ui
   package:
-    name: pass  # password manager
+    name:
+      - pass    # password manager
+      - sqlite  # SQL database
 
 - name: software | semaphore | ensure semaphore dirs exist
   tags: semaphore-ui
