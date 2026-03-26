@@ -11,6 +11,7 @@
       - libinput-tools  # input device mgmt + event lib (debug)
       - lsof            # lists open files for Unix processes
       - man-db          # full documentation
+      - pass            # password manager
       - shfmt           # format shell scripts
       - sudo            # exec commands as another user
       - tldr            # TL;DR documentation
