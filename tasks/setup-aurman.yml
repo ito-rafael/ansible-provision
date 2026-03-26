@@ -27,27 +27,3 @@
     group: root
     mode: '0440'
     validate: "/usr/bin/visudo -cf %s"
-
-- name: pre-run | grant aurman traversal rights via ACL
-  tags: pre-run,aurman,mitogen
-  ansible.posix.acl:
-    path: "{{ item }}"
-    entity: aurman
-    etype: user
-    permissions: x
-    state: present
-  loop:
-    - /home/ansible
-    - /home/ansible/git
-    - /home/ansible/git/ansible-provision
-
-- name: pre-run | ensure ansible workspace is traversable by become_users
-  tags: pre-run,mitogen
-  ansible.builtin.file:
-    path: "{{ item }}"
-    state: directory
-    mode: 'a+x'
-  loop:
-    - /home/ansible
-    - /home/ansible/tmp
-    - /home/ansible/tmp/semaphore

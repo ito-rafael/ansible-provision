@@ -1,3 +1,33 @@
+- name: pre-run | grant strict traversal rights to required users
+  tags: pre-run,mitogen,acl
+  ansible.posix.acl:
+    path: "{{ item[1] }}"
+    entity: "{{ item[0] }}"
+    etype: user
+    permissions: x
+    state: present
+  with_nested:
+    - ['aurman', 'rafael']
+    - [ '/home/ansible',
+        '/home/ansible/tmp',
+        '/home/ansible/tmp/semaphore']
+  failed_when: false
+  when: ansible_facts['distribution'] == "Archlinux"
+
+- name: pre-run | ensure dynamic Semaphore subdirectories inherit rights
+  tags: pre-run,mitogen,acl
+  ansible.posix.acl:
+    path: /home/ansible/tmp/semaphore
+    entity: "{{ item }}"
+    etype: user
+    permissions: x
+    default: yes
+    state: present
+  loop:
+    - aurman
+    - rafael
+  when: ansible_facts['distribution'] == "Archlinux"
+
 - name: pre-run | install mitogen strategy plugin
   tags: always,pre-run,mitogen
   become_user: aurman
