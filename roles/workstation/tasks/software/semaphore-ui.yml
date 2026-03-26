@@ -67,6 +67,15 @@
       telegram_token: "{{ lookup('pipe', 'sudo -u rafael pass show telegram/bot_token') }}"
   notify: software | semaphore | restart user systemd service
 
+- name: software | semaphore | check if admin user exists in database
+  tags: semaphore-ui
+  ansible.builtin.command: >
+    sqlite3 /home/ansible/.config/semaphore/database.sqlite
+    "SELECT COUNT(*) FROM user WHERE username = 'admin';"
+  register: semaphore_admin_check
+  changed_when: false  # read-only query
+  failed_when: false   # avoid errors if the table doesn't exist yet
+
 - name: software | semaphore | create admin user
   tags: semaphore-ui
   ansible.builtin.command: >
@@ -79,7 +88,10 @@
     --config /home/ansible/.config/semaphore/config.json
   # hide the output to prevent the password from being printed in the Ansible logs
   no_log: true
-  when: not semaphore_config_file.stat.exists
+  # only run if the table was missing (rc != 0), or if the user count is exactly 0
+  when: >
+    semaphore_admin_check.rc != 0 or
+    semaphore_admin_check.stdout == "0"
 
 - name: software | semaphore | copy user systemd service
   tags: semaphore-ui
