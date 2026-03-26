@@ -69,6 +69,7 @@
 
 - name: software | semaphore | check if admin user exists in database
   tags: semaphore-ui
+  become_user: ansible
   ansible.builtin.command: >
     sqlite3 /home/ansible/.config/semaphore/database.sqlite
     "SELECT COUNT(*) FROM user WHERE username = 'ansible';"
@@ -78,6 +79,7 @@
 
 - name: software | semaphore | create admin user
   tags: semaphore-ui
+  become_user: ansible
   ansible.builtin.command: >
     /usr/bin/semaphore user add
     --admin
