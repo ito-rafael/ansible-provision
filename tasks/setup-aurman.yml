@@ -1,0 +1,41 @@
+- name: pre-run | create aurman group
+  tags: pre-run,aurman
+  group:
+    name: aurman
+    state: present
+    system: true
+
+- name: pre-run | create aurman user
+  tags: pre-run,aurman
+  user:
+    name: aurman
+    group: aurman
+    groups: "{{ sudo_group }}"
+    createhome: yes
+    state: present
+    comment: "AUR manager"
+    system: yes
+    shell: /usr/bin/nologin
+
+- name: pre-run | setup aurman sudoers file
+  tags: pre-run,aurman
+  copy:
+    src: files/users/sudoers_aurman
+    dest: /etc/sudoers.d/aurman
+    owner: root
+    group: root
+    mode: 0440
+    validate: "/usr/bin/visudo -cf %s"
+
+- name: pre-run | grant aurman traversal rights via ACL
+  tags: always,pre-run,mitogen
+  ansible.posix.acl:
+    path: "{{ item }}"
+    entity: aurman
+    etype: user
+    permissions: x
+    state: present
+  loop:
+    - /home/ansible
+    - /home/ansible/git
+    - /home/ansible/git/ansible-provision

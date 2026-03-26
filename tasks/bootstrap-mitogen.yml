@@ -5,16 +5,3 @@
     name: mitogen
     state: present
   when: ansible_facts['distribution'] == "Archlinux"
-
-- name: pre-run | grant aurman traversal rights via ACL
-  tags: always,pre-run,mitogen
-  ansible.posix.acl:
-    path: "{{ item }}"
-    entity: aurman
-    etype: user
-    permissions: x
-    state: present
-  loop:
-    - /home/ansible
-    - /home/ansible/git
-    - /home/ansible/git/ansible-provision

@@ -4,7 +4,12 @@
   become: true
   strategy: linear
   tasks:
-    - import_tasks: tasks/bootstrap-mitogen.yml
+    - name: bootstrap | setup aurman environment [Arch Linux]
+      import_tasks: tasks/setup-aurman.yml
+      when: ansible_facts['distribution'] == "Archlinux"
+
+    - name: bootstrap | install mitogen plugin
+      import_tasks: tasks/bootstrap-mitogen.yml
 
 - hosts: "all:!lab"
   connection: local
