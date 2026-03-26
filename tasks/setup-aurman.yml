@@ -1,12 +1,12 @@
 - name: pre-run | create aurman group
-  tags: pre-run,aurman
+  tags: pre-run,aurman,mitogen
   group:
     name: aurman
     state: present
     system: true
 
 - name: pre-run | create aurman user
-  tags: pre-run,aurman
+  tags: pre-run,aurman,mitogen
   user:
     name: aurman
     group: aurman
@@ -18,7 +18,7 @@
     shell: /usr/bin/nologin
 
 - name: pre-run | setup aurman sudoers file
-  tags: pre-run,aurman
+  tags: pre-run,aurman,mitogen
   copy:
     dest: /etc/sudoers.d/aurman
     content: |
@@ -29,7 +29,7 @@
     validate: "/usr/bin/visudo -cf %s"
 
 - name: pre-run | grant aurman traversal rights via ACL
-  tags: always,pre-run,mitogen
+  tags: pre-run,aurman,mitogen
   ansible.posix.acl:
     path: "{{ item }}"
     entity: aurman
@@ -40,3 +40,14 @@
     - /home/ansible
     - /home/ansible/git
     - /home/ansible/git/ansible-provision
+
+- name: pre-run | ensure ansible workspace is traversable by become_users
+  tags: pre-run,mitogen
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: 'a+x'
+  loop:
+    - /home/ansible
+    - /home/ansible/tmp
+    - /home/ansible/tmp/semaphore
