@@ -20,11 +20,12 @@
 - name: pre-run | setup aurman sudoers file
   tags: pre-run,aurman
   copy:
-    src: files/users/sudoers_aurman
     dest: /etc/sudoers.d/aurman
+    content: |
+      aurman ALL=(ALL) NOPASSWD: /usr/bin/pacman
     owner: root
     group: root
-    mode: 0440
+    mode: '0440'
     validate: "/usr/bin/visudo -cf %s"
 
 - name: pre-run | grant aurman traversal rights via ACL
