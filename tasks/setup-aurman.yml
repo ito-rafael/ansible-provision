@@ -10,7 +10,7 @@
   user:
     name: aurman
     group: aurman
-    groups: "{{ sudo_group }}"
+    groups: wheel
     createhome: yes
     state: present
     comment: "AUR manager"
