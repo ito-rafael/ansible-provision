@@ -13,3 +13,14 @@
     name: cups
     state: started
     enabled: yes
+
+- name: system | printer | copy CUPS printers config file
+  tags: system,printer
+  copy:
+    src: /home/ansible/git/dotfiles/cups/printers.conf
+    dest: /etc/cups/printers.conf
+    remote_src: true
+    owner: root
+    group: lp
+    mode: 0600
+  notify: system | printer | restart CUPS systemd service
