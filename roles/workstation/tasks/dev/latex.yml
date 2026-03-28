@@ -85,7 +85,8 @@
   #become_user: rafael
   ansible.builtin.shell:
   args:
-    cmd: perl ./install-tl --no-interaction --repository https://mirror.ctan.org/systems/texlive/tlnet
+    #cmd: perl ./install-tl --no-interaction --repository https://mirror.ctan.org/systems/texlive/tlnet
+    cmd: perl ./install-tl --no-interaction --repository https://br.mirrors.cicku.me/ctan/systems/texlive/tlnet
     chdir: /home/rafael/.cache/install-tl/{{ ansible_facts['date_time']['year'] }}
   when:
     - not texlive_pdftex.stat.exists
