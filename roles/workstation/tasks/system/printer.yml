@@ -14,16 +14,19 @@
     state: started
     enabled: yes
 
-- name: system | printer | copy CUPS printers config file
+- name: system | printer | template CUPS printers config file
   tags: system,printer
-  copy:
+  ansible.builtin.template:
     src: /home/ansible/git/dotfiles/cups/printers.conf
     dest: /etc/cups/printers.conf
-    remote_src: true
     owner: root
     group: lp
-    mode: 0600
-  notify: system | printer | restart CUPS systemd service
+    mode: '0600'
+  vars:
+    ip_printer_lbic_laserjet_p3005dn: "{{ lookup('pipe', 'sudo -u rafael pass show ip/printer_lbic') | trim }}"
+  # hide the output to prevent the real IP address from being printed in the Ansible logs
+  no_log: true
+  notify: system | printer | restart cups systemd service
 
 - name: system | printer | copy CUPS printers PPD file
   tags: system,printer
