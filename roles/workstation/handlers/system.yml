@@ -9,9 +9,3 @@
   systemd:
     name: logid
     state: restarted
-
-- name: system | printer | restart CUPS systemd service
-  tags: printer,cups
-  systemd:
-    name: cups
-    state: restarted

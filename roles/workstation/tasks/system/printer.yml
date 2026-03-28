@@ -14,20 +14,6 @@
     state: started
     enabled: yes
 
-- name: system | printer | template CUPS printers config file
-  tags: system,printer
-  ansible.builtin.template:
-    src: /home/ansible/git/dotfiles/cups/printers.conf
-    dest: /etc/cups/printers.conf
-    owner: root
-    group: lp
-    mode: '0600'
-  vars:
-    ip_printer_lbic_laserjet_p3005dn: "{{ lookup('pipe', 'sudo -u rafael pass show ip/printer_lbic') | trim }}"
-  # hide the output to prevent the real IP address from being printed in the Ansible logs
-  no_log: true
-  notify: system | printer | restart CUPS systemd service
-
 - name: system | printer | copy CUPS printers PPD file
   tags: system,printer
   copy:
@@ -39,4 +25,26 @@
     mode: 0644
   loop:
     - HP-LaserJet-p3005.ppd
-  notify: system | printer | restart CUPS systemd service
+
+- name: system | printer | check if LBiC's printer is already configured
+  tags: system,printer
+  ansible.builtin.command: lpstat -v HP-LaserJet-p3005
+  register: printer_status
+  failed_when: false   # avoid errors if the printer doesn't exist yet
+  changed_when: false  # read-only task
+
+- name: system | printer | configure LBiC's printer via CUPS API
+  tags: system,printer
+  ansible.builtin.command: >
+    lpadmin -p HP-LaserJet-p3005
+    -v "hp:/net/HP_LaserJet_P3005?ip={{ ip_printer_lbic_laserjet_p3005dn }}"
+    -P /etc/cups/ppd/HP-LaserJet-p3005.ppd
+    -L "LBiC"
+    -E
+  vars:
+    ip_printer_lbic_laserjet_p3005dn: "{{ lookup('pipe', 'sudo -u rafael pass show ip/printer_lbic') | trim }}"
+  no_log: true
+  # run only if the printer is missing, or if the IP address is different from the password manager's one
+  when: >
+    printer_status.rc != 0 or
+    ("hp:/net/HP_LaserJet_P3005?ip=" ~ ip_printer_lbic_laserjet_p3005dn) not in printer_status.stdout
