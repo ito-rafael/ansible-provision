@@ -108,6 +108,7 @@
     owner: root
     group: root
     mode: 0644
+    force: false
 
 - name: software | display-manager | LightDM set default background image
   tags: display-manager,lightdm
