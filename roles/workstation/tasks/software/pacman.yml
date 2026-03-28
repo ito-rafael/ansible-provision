@@ -22,11 +22,13 @@
     path: /etc/pacman.conf
     regexp: '^#(\[multilib\]$\n)^#(Include.*)$'
     replace: '\g<1>\g<2>'
+  register: multilib_enabled
 
 - name: software | package-manager | update cache after enabling multilib
   tags: pacman
   pacman:
     update_cache: true
+  when: multilib_enabled.changed
 
 - name: software | package-manager | install rebuild-detector
   tags: pacman,rebuild-detector
