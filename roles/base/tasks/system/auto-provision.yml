@@ -9,11 +9,11 @@
     path: /etc/fcron/fcron.allow
     line: ansible
 
-- name: system | auto-provision | add cron job
-  tags: ansible,fcron
-  cron:
-    cron_file: 
-    name: ansible auto-provision
-    user: ansible
-    minute: "*/10"
-    job: ansible-pull --only-if-changed --url https://github.com/ito-rafael/ansible-provision.git
+#- name: system | auto-provision | add cron job
+#  tags: ansible,fcron
+#  cron:
+#    cron_file:
+#    name: ansible auto-provision
+#    user: ansible
+#    minute: "*/10"
+#    job: ansible-pull --only-if-changed --url https://github.com/ito-rafael/ansible-provision.git
