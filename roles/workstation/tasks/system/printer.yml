@@ -24,3 +24,16 @@
     group: lp
     mode: 0600
   notify: system | printer | restart CUPS systemd service
+
+- name: system | printer | copy CUPS printers PPD file
+  tags: system,printer
+  copy:
+    src: /home/ansible/git/dotfiles/cups/{{ item }}
+    dest: /etc/cups/ppd/{{ item }}
+    remote_src: true
+    owner: root
+    group: lp
+    mode: 0644
+  loop:
+    - HP-LaserJet-p3005.ppd
+  notify: system | printer | restart CUPS systemd service
