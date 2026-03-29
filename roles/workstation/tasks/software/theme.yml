@@ -55,6 +55,16 @@
     group: rafael
     mode: 0700
 
+- name: software | theme | copy systemd environment.d GTK env vars file
+  tags: theme
+  copy:
+    remote_src: true
+    src: /home/ansible/git/dotfiles/systemd/environment.d/gtk.conf
+    dest: /home/rafael/.config/environment.d/gtk.conf
+    owner: rafael
+    group: rafael
+    mode: 0600
+
 - name: software | theme | install Kvantum
   tags: theme,qt
   package:
