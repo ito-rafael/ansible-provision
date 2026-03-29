@@ -1,0 +1,11 @@
+- name: pre-run | update git repositories for ansible user
+  tags: pre-run,always
+  become_user: ansible
+  git:
+    clone: true
+    update: true
+    repo: "{{ item.repo }}"
+    dest: "{{ item.dest }}"
+  with_items:
+    - { repo: "https://github.com/ito-rafael/dotfiles.git", dest: "/home/ansible/git/dotfiles" }
+    - { repo: "https://github.com/ito-rafael/keebab.git",   dest: "/home/ansible/git/keebab" }

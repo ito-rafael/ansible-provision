@@ -16,6 +16,7 @@
   become: true
   pre_tasks:
     - import_tasks: tasks/update-cache.yml
+    - import_tasks: tasks/sync-git-repos.yml
   roles:
     - base
 
