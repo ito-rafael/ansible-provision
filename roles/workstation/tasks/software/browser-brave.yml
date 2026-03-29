@@ -66,3 +66,12 @@
     owner: root
     group: root
     mode: 0644
+
+- name: software | browser | ensure .desktop files dir exists
+  tags: browser,brave
+  file:
+    path: /home/rafael/.local/share/applications
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0755
