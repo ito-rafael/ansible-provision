@@ -7,15 +7,22 @@
   tags: dev,python
   package:
     name:
-      - twine         # PyPI interaction
-      - python-build  # PyPI build
-      - python-pip    # PyPA packages install
+      - twine                    # PyPI interaction
+      - python-build             # PyPI build
+      - python-pip               # PyPA packages install
+
+- name: development | python | install Python essential packages (AUR)
+  tags: dev,python
+  become_user: aurman
+  kewlfft.aur.aur:
+    name:
+      - python-selenium          # web browser automation
 
 - name: development | python | install Python miscellaneous packages
   tags: dev,python
   package:
     name:
-      - python-pyserial  # serial port module
+      - python-pyserial          # serial port module
 
 - name: development | python | install Python documentation packages
   tags: dev,python
