@@ -35,6 +35,7 @@
     - lightdm-outputs.sh
     - lightdm-lanmouse.sh
     - lightdm-script-wrapper.sh
+    - lightdm-cleanup.sh
 
 - name: software | display-manager | LightDM setup "logind-check-graphical"
   tags: display-manager,lightdm
