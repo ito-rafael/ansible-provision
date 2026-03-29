@@ -75,3 +75,13 @@
     owner: rafael
     group: rafael
     mode: 0755
+
+- name: software | browser | copy brave-browser desktop file
+  tags: browser,brave
+  copy:
+    src: /home/ansible/git/dotfiles/brave/brave-browser.desktop
+    dest: /home/rafael/.local/share/applications/brave-browser.desktop
+    remote_src: true
+    owner: rafael
+    group: rafael
+    mode: 0600
