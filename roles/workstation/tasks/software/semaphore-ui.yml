@@ -110,7 +110,7 @@
     - software | semaphore | restart user systemd service
 
 - name: software | semaphore | grant ansible user rights to ansible-provision test env
-  tags: users,ansible,acl
+  tags: semaphore-ui
   ansible.posix.acl:
     path: "{{ item }}"
     entity: ansible
@@ -120,3 +120,10 @@
   loop:
     - /home/rafael
     - /home/rafael/git
+
+- name: software | semaphore | grant ansible user rx permissions recursively to ansible-provision test env
+  tags: semaphore-ui
+  ansible.builtin.command: >
+    setfacl -R -m u:ansible:rx /home/rafael/git/ansible-provision
+  # suppress the "changed" status because checking ACL of many Git objects is computationally too expensive
+  changed_when: false
