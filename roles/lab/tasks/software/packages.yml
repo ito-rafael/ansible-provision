@@ -1,12 +1,17 @@
-- name: software | packages | install packages
+- name: software | packages | install general packages
   tags: software,packages
   package:
     name:
-      - vim           # terminal text editor
-      - tmux          # terminal multiplexer
-      - git           # version control
-      - python3       # Python programming language
-      - htop          # process viewer
-      - lshw          # show hw info
-      - iputils-ping  # network ping
-      - man-db        # tools for reading manual pages
+      - git            # version control
+      - htop           # process viewer
+      - lshw           # show hw info
+      - man-db         # tools for reading manual pages
+      - python3        # Python programming language
+      - tmux           # terminal multiplexer
+      - vim            # terminal text editor
+
+- name: software | packages | install monitoring packages
+  tags: software,packages
+  package:
+      - iputils-ping   # network ping
+      - speedtest-cli  # Internet bandwidth test with speedtest.net
