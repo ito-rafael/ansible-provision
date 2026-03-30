@@ -108,3 +108,15 @@
   notify:
     - reload user systemd services (ansible)
     - software | semaphore | restart user systemd service
+
+- name: software | semaphore | grant ansible user rights to ansible-provision test env
+  tags: users,ansible,acl
+  ansible.posix.acl:
+    path: "{{ item }}"
+    entity: ansible
+    etype: user
+    permissions: x
+    state: present
+  loop:
+    - /home/rafael
+    - /home/rafael/git
