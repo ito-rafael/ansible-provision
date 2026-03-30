@@ -7,15 +7,16 @@
   tags: sys-utils
   package:
     name:
-      - htop              # interactive process viewer
-      - usbutils          # lsusb
-      - dmidecode         # motherboard info
-      - lshw              # hardware info
-      - ncdu              # disk usage (TUI)
-      - lm_sensors        # temperatures, voltage, fans
       - brightnessctl     # screen brightness
-      - mission-center    # monitor CPU, Memory, Disk, Network and GPU usage
+      - dmidecode         # motherboard info
       #- glances          # htop alternative in Python
+      - htop              # interactive process viewer
+      - lm_sensors        # temperatures, voltage, fans
+      - lshw              # hardware info
+      - mission-center    # monitor CPU, Memory, Disk, Network and GPU usage
+      - ncdu              # disk usage (TUI)
+      - speedtest-cli     # Internet bandwidth test with speedtest.net
+      - usbutils          # lsusb
 
 - name: system | utils | set lm_sensors to monitor temp, voltage and fans
   tags: sys-utils
