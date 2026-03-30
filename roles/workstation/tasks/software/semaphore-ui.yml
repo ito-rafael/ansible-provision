@@ -147,3 +147,16 @@
   register: semaphore_login
   no_log: true
   when: not token_env_file.stat.exists
+
+- name: software | semaphore | generate permanent API token
+  tags: semaphore-ui,api
+  ansible.builtin.uri:
+    url: "http://localhost:3000/api/user/tokens"
+    method: POST
+    headers:
+      Cookie: "{{ semaphore_login.set_cookie }}"
+    status_code: [200, 201]
+    return_content: true
+  register: semaphore_token_response
+  no_log: true
+  when: not token_env_file.stat.exists
