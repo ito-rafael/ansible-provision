@@ -133,3 +133,17 @@
   ansible.builtin.stat:
     path: /home/ansible/git/ansible-provision/.env
   register: token_env_file
+
+- name: software | semaphore | login to API to get session cookie
+  tags: semaphore-ui,api
+  ansible.builtin.uri:
+    url: "http://localhost:3000/api/auth/login"
+    method: POST
+    body_format: json
+    body:
+      auth: "ansible"
+      password: "{{ lookup('pipe', 'sudo -u rafael pass show semaphore/admin_password') | trim }}"
+    status_code: 204
+  register: semaphore_login
+  no_log: true
+  when: not token_env_file.stat.exists
