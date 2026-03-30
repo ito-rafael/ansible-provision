@@ -1,0 +1,16 @@
+#- name: software | KDE wallet | install packages
+#  tags: kde,kwallet
+#  package:
+#    name:
+#      - kwallet            # KDE Wallet
+#      - kwalletmanager     # GUI wallet management tool
+#      - kwallet-pam        # unlock KDE wallet automatically on login
+#      - kleopatra          # install certificate manager and GUI for GnuPG (used to change the KWallet passphrase)
+
+- name: software | KDE Connect | install packages
+  tags: kde,kdeconnect
+  package:
+    name:
+      - kdeconnect         # KDE Connect
+      - breeze             # provides BreezeDark color scheme
+      - qqc2-breeze-style  # Qt Quick Controls 2: style for Qt Quick/Kirigami
