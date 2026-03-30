@@ -98,3 +98,13 @@
   register: brave_theme_check
   changed_when: false
   when: brave_prefs.stat.exists
+
+- name: software | browser | set Brave theme to dark mode
+  tags: browser,brave
+  ansible.builtin.shell: |
+    killall -q brave || true
+    jq '.browser.theme.color_scheme2 = 2' "{{ brave_prefs_path }}" > "{{ brave_prefs_path }}.tmp"
+    mv "{{ brave_prefs_path }}.tmp" "{{ brave_prefs_path }}"
+  when:
+    - brave_prefs.stat.exists
+    - brave_theme_check.stdout | default('') != "2"
