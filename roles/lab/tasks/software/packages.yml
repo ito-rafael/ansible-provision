@@ -13,5 +13,6 @@
 - name: software | packages | install monitoring packages
   tags: software,packages
   package:
+    name:
       - iputils-ping   # network ping
       - speedtest-cli  # Internet bandwidth test with speedtest.net
