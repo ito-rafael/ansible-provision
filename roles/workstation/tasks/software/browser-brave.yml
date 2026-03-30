@@ -91,3 +91,10 @@
   ansible.builtin.stat:
     path: "{{ brave_prefs_path }}"
   register: brave_prefs
+
+- name: software | browser | get current Brave theme setting
+  tags: browser,brave
+  ansible.builtin.command: "jq -r '.browser.theme.color_scheme2 // empty' {{ brave_prefs_path }}"
+  register: brave_theme_check
+  changed_when: false
+  when: brave_prefs.stat.exists
