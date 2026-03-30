@@ -14,3 +14,13 @@
       - kdeconnect         # KDE Connect
       - breeze             # provides BreezeDark color scheme
       - qqc2-breeze-style  # Qt Quick Controls 2: style for Qt Quick/Kirigami
+
+- name: software | KDE Connect | set theme to dark
+  tags: kde,kdeconnect
+  copy:
+    src: /usr/share/color-schemes/BreezeDark.colors
+    dest: /home/rafael/.config/kdeglobals
+    remote_src: true
+    owner: rafael
+    group: rafael
+    mode: 0600
