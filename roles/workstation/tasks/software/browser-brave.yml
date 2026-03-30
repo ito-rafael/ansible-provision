@@ -5,6 +5,7 @@
     name:
       - brave-bin
       - brave-beta-bin
+  when: ansible_facts['distribution'] == "Archlinux"
 
 - name: software | browser | copy Brave dotfiles
   tags: browser,brave
@@ -47,9 +48,8 @@
     group: root
     mode: 0755
 
-- name: software | browser | ensure Brave extensions dir exist
+- name: software | browser | ensure Brave & Brave Beta extensions dir exist
   tags: browser,brave
-  #become: yes
   file:
     path: /etc/brave/policies/managed
     state: directory
