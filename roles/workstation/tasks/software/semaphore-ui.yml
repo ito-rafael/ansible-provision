@@ -127,3 +127,9 @@
     setfacl -R -m u:ansible:rx /home/rafael/git/ansible-provision
   # suppress the "changed" status because checking ACL of many Git objects is computationally too expensive
   changed_when: false
+
+- name: software | semaphore | check if .env file exists (used by OpenTofu)
+  tags: semaphore-ui,api
+  ansible.builtin.stat:
+    path: /home/ansible/git/ansible-provision/.env
+  register: token_env_file
