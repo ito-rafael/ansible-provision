@@ -85,3 +85,9 @@
     owner: rafael
     group: rafael
     mode: 0600
+
+- name: software | browser | check if Brave Preferences file exists
+  tags: browser,brave
+  ansible.builtin.stat:
+    path: "{{ brave_prefs_path }}"
+  register: brave_prefs
