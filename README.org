@@ -25,7 +25,7 @@ Automagically configure your workstations, laptops, and servers from the ground 
 :END:
 ** Server
 Meant to be used for servers. Currently, I'm using to host all my =homelab= self-hosted applications. Please check my other [[https://github.com/ito-rafael/lacasanostra][git repo]] for more information.
-#+begin_src yml
+#+begin_src yaml
 server:
   hosts:
     srv1:
@@ -33,7 +33,7 @@ server:
 #+end_src
 ** Laptop
 Meant to be used for laptops. It includes all my [[https://github.com/ito-rafael/keebab?tab=readme-ov-file#built-in-laptop][keyboard customization]] stuff.
-#+begin_src yml
+#+begin_src yaml
 laptop:
   hosts:
     #y2p-archlinux:                        # RIP: Yoga 2 Pro
@@ -42,7 +42,7 @@ laptop:
 #+end_src
 ** Workstation
 Meant to be used for workstations. It includes the majority of tasks in this git repo (with exception of the keyboard customization, lab-specific tasks, and a few others).
-#+begin_src yml
+#+begin_src yaml
 workstation:
   hosts:
     dxt-archlinux:                         # used for tests
@@ -50,20 +50,20 @@ workstation:
 #+end_src
 ** Lab
 Meant to be used with standard =ansible= instead of =ansible-pull=. Configures the servers and workstations for the LBiC laboratory at University of Campinas.
-#+begin_src yml
+#+begin_src yaml
 lab:
   vars:
     ansible_user: lbic_user
   children:
 #+end_src
 *** Server
-#+begin_src yml :padline no
+#+begin_src yaml :padline no
     lab_server:
       hosts:
         paubrasil.lbic.fee.unicamp.br:    # xxx.xx.xx.179
 #+end_src
 *** Workstation
-#+begin_src yml :padline no
+#+begin_src yaml :padline no
     lab_workstation:
       hosts:
         andira.lbic.fee.unicamp.br:        # xxx.xx.xx.162
@@ -79,7 +79,7 @@ lab:
         gameleira.lbic.fee.unicamp.br:     # xxx.xx.xx.172
         imburana.lbic.fee.unicamp.br:      # xxx.xx.xx.173
         ipe.lbic.fee.unicamp.br:           # xxx.xx.xx.174
-        jacarada.lbic.fee.unicamp.br:      # xxx.xx.xx.175
+        jacaranda.lbic.fee.unicamp.br:     # xxx.xx.xx.175
         jatoba.lbic.fee.unicamp.br:        # xxx.xx.xx.176
         jequitiba.lbic.fee.unicamp.br:     # xxx.xx.xx.177
         mogno.lbic.fee.unicamp.br:         # xxx.xx.xx.178
@@ -91,7 +91,7 @@ lab:
 #+end_src
 ** Rootless
 Meant to be used with standard =ansible= instead of =ansible-pull=. Configures tools in rootless environmets.
-#+begin_src yml
+#+begin_src yaml
 rootless:
   hosts:
     ssh.recod.ic.unicamp.br:               # Recod.ai
