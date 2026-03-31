@@ -165,14 +165,10 @@
   no_log: true
   when: opentofu_token_check.rc != 0
 
-- name: software | semaphore | save token to local .env file (for OpenTofu)
-  tags: semaphore-ui,api
-  ansible.builtin.copy:
-    # Semaphore-UI returns the token string inside the 'id' JSON key
-    content: |
-      export SEMAPHORE_URL="http://localhost:3000"
-      export SEMAPHORE_TOKEN="{{ semaphore_token_response.json.id }}"
-    dest: "/home/ansible/git/ansible-provision/.env"
-    owner: ansible
-    mode: '0600'
-  when: not token_env_file.stat.exists
+- name: software | semaphore | save OpenTofu token using pass
+  tags: semaphore-ui,opentofu
+  become_user: rafael
+  ansible.builtin.shell: |
+    echo "{{ semaphore_token_response.json.id }}" | pass insert -e semaphore/opentofu_token
+  no_log: true
+  when: opentofu_token_check.rc != 0
