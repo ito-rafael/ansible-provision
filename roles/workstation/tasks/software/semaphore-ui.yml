@@ -5,12 +5,13 @@
     name: semaphore-bin
   when: ansible_facts['distribution'] == "Archlinux"
 
-- name: software | semaphore | ensure pass is installed
+- name: software | semaphore | ensure packages are installed
   tags: semaphore-ui
   package:
     name:
-      - pass    # password manager
-      - sqlite  # SQL database
+      - pass      # password manager
+      - sqlite    # SQL database
+      - opentofu  # infrastructure as code
 
 - name: software | semaphore | ensure semaphore dirs exist
   tags: semaphore-ui
