@@ -172,3 +172,16 @@
     echo "{{ semaphore_token_response.json.id }}" | pass insert -e semaphore/opentofu_token
   no_log: true
   when: opentofu_token_check.rc != 0
+
+- name: software | semaphore | apply config with OpenTofu
+  tags: semaphore-ui,tofu
+  become_user: ansible
+  community.general.terraform:
+    project_path: "/home/ansible/git/dotfiles/opentofu"
+    binary_path: "/usr/bin/tofu"
+    state: present
+    force_init: true
+  environment:
+    SEMAPHOREUI_API_BASE_URL: "http://localhost:3000/api"
+    SEMAPHOREUI_API_TOKEN: "{{ lookup('pipe', 'sudo -u rafael pass show semaphore/opentofu_token') | trim }}"
+  register: tofu_result
