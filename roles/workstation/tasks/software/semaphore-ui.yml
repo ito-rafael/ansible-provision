@@ -129,14 +129,17 @@
   # suppress the "changed" status because checking ACL of many Git objects is computationally too expensive
   changed_when: false
 
-- name: software | semaphore | check if .env file exists (used by OpenTofu)
-  tags: semaphore-ui,api
-  ansible.builtin.stat:
-    path: /home/ansible/git/ansible-provision/.env
-  register: token_env_file
+- name: software | semaphore | check if OpenTofu token already exists in pass
+  tags: semaphore-ui,opentofu
+  become_user: rafael
+  ansible.builtin.command: pass show semaphore/opentofu_token
+  failed_when: false
+  changed_when: false
+  no_log: true
+  register: opentofu_token_check
 
 - name: software | semaphore | login to API to get session cookie
-  tags: semaphore-ui,api
+  tags: semaphore-ui,opentofu
   ansible.builtin.uri:
     url: "http://localhost:3000/api/auth/login"
     method: POST
@@ -147,10 +150,10 @@
     status_code: 204
   register: semaphore_login
   no_log: true
-  when: not token_env_file.stat.exists
+  when: opentofu_token_check.rc != 0
 
 - name: software | semaphore | generate permanent API token
-  tags: semaphore-ui,api
+  tags: semaphore-ui,opentofu
   ansible.builtin.uri:
     url: "http://localhost:3000/api/user/tokens"
     method: POST
@@ -160,7 +163,7 @@
     return_content: true
   register: semaphore_token_response
   no_log: true
-  when: not token_env_file.stat.exists
+  when: opentofu_token_check.rc != 0
 
 - name: software | semaphore | save token to local .env file (for OpenTofu)
   tags: semaphore-ui,api
