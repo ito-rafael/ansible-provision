@@ -77,7 +77,7 @@
   tags: display-manager,lightdm
   lineinfile:
     path: /etc/lightdm/lightdm.conf
-    line: 'session-setup-script=pkill -u lightdm lan-mouse'
+    line: 'session-setup-script=/etc/lightdm/lightdm-cleanup.sh'
     state: present
     regexp: '^.*(session-setup-script=).*$'
     insertafter: '^\[Seat:\*\]$'
