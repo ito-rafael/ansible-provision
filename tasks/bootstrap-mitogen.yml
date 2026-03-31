@@ -29,7 +29,7 @@
   when: ansible_facts['distribution'] == "Archlinux"
 
 - name: pre-run | install mitogen strategy plugin
-  tags: always,pre-run,mitogen
+  tags: pre-run,mitogen
   become_user: aurman
   kewlfft.aur.aur:
     name: mitogen
