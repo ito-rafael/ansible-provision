@@ -1,3 +1,14 @@
+- name: software | media | install GStreamer codecs
+  tags: media,audio
+  package:
+    name:
+      - gst-plugins-good
+      - gst-plugins-bad
+      - gst-plugins-ugly
+      - gst-libav
+      - gst-plugin-pipewire
+      - gst-plugin-va
+
 #- name: software | media | install music streaming applications
 #  tags: media,spotify
 #  become_user: aurman
