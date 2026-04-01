@@ -167,6 +167,8 @@
   become_user: rafael
   ansible.builtin.shell: |
     echo "{{ semaphore_token_response.json.id }}" | pass insert -e semaphore/opentofu_token
+  args:
+    chdir: /home/rafael
   no_log: true
   when: not opentofu_token_file.stat.exists
 
