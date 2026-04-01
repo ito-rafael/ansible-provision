@@ -53,7 +53,7 @@ Meant to be used with standard =ansible= instead of =ansible-pull=. Configures t
 #+begin_src yaml
 lab:
   vars:
-    ansible_user: lbic_user
+    ansible_user: lbic-user
   children:
 #+end_src
 *** Server
