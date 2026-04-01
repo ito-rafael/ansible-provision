@@ -1,3 +1,15 @@
+- name: pre-run | ensure semaphore dirs for ansible user exist
+  tags: pre-run,mitogen,acl,semaphore-ui
+  ansible.builtin.file:
+    path: /home/ansible/{{ item }}
+    state: directory
+    owner: ansible
+    group: ansible
+    mode: '0700'
+  loop:
+    - tmp
+    - tmp/semaphore
+
 - name: pre-run | grant strict traversal rights to required users
   tags: pre-run,mitogen,acl
   ansible.posix.acl:
