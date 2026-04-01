@@ -131,12 +131,9 @@
 
 - name: software | semaphore | check if OpenTofu token already exists in pass
   tags: semaphore-ui,opentofu
-  become_user: rafael
-  ansible.builtin.command: pass show semaphore/opentofu_token
-  failed_when: false
-  changed_when: false
-  no_log: true
-  register: opentofu_token_check
+  ansible.builtin.stat:
+    path: /home/rafael/.password-store/semaphore/opentofu_token.gpg
+  register: opentofu_token_file
 
 - name: software | semaphore | login to API to get session cookie
   tags: semaphore-ui,opentofu
@@ -150,7 +147,7 @@
     status_code: 204
   register: semaphore_login
   no_log: true
-  when: opentofu_token_check.rc != 0
+  when: not opentofu_token_file.stat.exists
 
 - name: software | semaphore | generate permanent API token
   tags: semaphore-ui,opentofu
@@ -163,7 +160,7 @@
     return_content: true
   register: semaphore_token_response
   no_log: true
-  when: opentofu_token_check.rc != 0
+  when: not opentofu_token_file.stat.exists
 
 - name: software | semaphore | save OpenTofu token using pass
   tags: semaphore-ui,opentofu
@@ -171,7 +168,7 @@
   ansible.builtin.shell: |
     echo "{{ semaphore_token_response.json.id }}" | pass insert -e semaphore/opentofu_token
   no_log: true
-  when: opentofu_token_check.rc != 0
+  when: not opentofu_token_file.stat.exists
 
 - name: software | semaphore | apply config with OpenTofu
   tags: semaphore-ui,tofu
