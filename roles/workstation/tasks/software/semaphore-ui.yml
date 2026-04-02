@@ -180,6 +180,8 @@
     binary_path: "/usr/bin/tofu"
     state: present
     force_init: true
+    variables:
+      target_hostname: "{{ inventory_hostname }}"
   environment:
     SEMAPHOREUI_API_BASE_URL: "http://localhost:3000/api"
     SEMAPHOREUI_API_TOKEN: "{{ lookup('pipe', 'sudo -u rafael pass show semaphore/opentofu_token') | trim }}"
