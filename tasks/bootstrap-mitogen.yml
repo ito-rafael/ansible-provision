@@ -10,6 +10,17 @@
     - tmp
     - tmp/semaphore
 
+- name: pre-run | strip hidden base group permissions to prevent ACL mask conflicts
+  tags: pre-run,mitogen,acl
+  ansible.posix.acl:
+    path: /home/ansible/{{ item }}
+    etype: group
+    permissions: '---'
+    state: present
+  loop:
+    - tmp
+    - tmp/semaphore
+
 - name: pre-run | grant strict traversal rights to required users
   tags: pre-run,mitogen,acl
   ansible.posix.acl:
