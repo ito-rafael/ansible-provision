@@ -19,17 +19,17 @@
     system: false
     shell: /usr/bin/zsh
 
-- name: users | rafael | ensure home and cache dir ownership
-  tags: users,rafael
-  file:
-    path: "{{ item }}"
-    owner: rafael
-    group: rafael
-    mode: 0700
-    state: directory
-  with_items:
-    - /home/rafael
-    - /home/rafael/.cache
+#- name: users | rafael | ensure home and cache dir ownership
+#  tags: users,rafael
+#  file:
+#    path: "{{ item }}"
+#    owner: rafael
+#    group: rafael
+#    mode: 0700
+#    state: directory
+#  with_items:
+#    - /home/rafael
+#    - /home/rafael/.cache
 
 - name: users | rafael | add sudoers file
   tags: users,rafael,sudo
