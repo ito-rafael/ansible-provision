@@ -33,7 +33,7 @@
     - ['aurman', 'rafael']
     - [ '/home/ansible',
         '/home/ansible/tmp',
-        '/home/ansible/tmp/semaphore'
+        '/home/ansible/tmp/semaphore',
         '/home/ansible/git',
         '/home/ansible/git/ansible-provision' ]
   failed_when: false
