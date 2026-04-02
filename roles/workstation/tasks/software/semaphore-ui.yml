@@ -184,3 +184,12 @@
     SEMAPHOREUI_API_BASE_URL: "http://localhost:3000/api"
     SEMAPHOREUI_API_TOKEN: "{{ lookup('pipe', 'sudo -u rafael pass show semaphore/opentofu_token') | trim }}"
   register: tofu_result
+
+- name: software | semaphore | cleanup built-in auto-generated default resources
+  tags: semaphore-ui,tofu
+  become_user: ansible
+  ansible.builtin.script:
+    cmd: /home/ansible/git/dotfiles/semaphore/cleanup-builtin-vars.sh
+  environment:
+    SEMAPHOREUI_API_TOKEN: "{{ lookup('pipe', 'sudo -u rafael pass show semaphore/opentofu_token') | trim }}"
+  changed_when: false
