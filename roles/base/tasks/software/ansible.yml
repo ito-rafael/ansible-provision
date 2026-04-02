@@ -13,7 +13,7 @@
     state: directory
     owner: ansible
     group: ansible
-    mode: 0700
+    mode: '0710'
 
 - name: software | ansible | clone ansible-provision repo
   tags: ansible,ansible-provision
