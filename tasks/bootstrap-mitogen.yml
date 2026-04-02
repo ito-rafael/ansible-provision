@@ -27,13 +27,15 @@
     path: "{{ item[1] }}"
     entity: "{{ item[0] }}"
     etype: user
-    permissions: '--x'
+    permissions: x
     state: present
   with_nested:
     - ['aurman', 'rafael']
     - [ '/home/ansible',
         '/home/ansible/tmp',
-        '/home/ansible/tmp/semaphore']
+        '/home/ansible/tmp/semaphore'
+        '/home/ansible/git',
+        '/home/ansible/git/ansible-provision' ]
   failed_when: false
   when: ansible_facts['distribution'] == "Archlinux"
 
