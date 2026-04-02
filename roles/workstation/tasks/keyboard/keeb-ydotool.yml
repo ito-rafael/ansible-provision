@@ -21,13 +21,6 @@
     owner: rafael
     group: rafael
     mode: 0600
-
-- name: keyboard | ydotool | enable user ydotool daemon
-  tags: keyboard,ydotool
-  become_user: rafael
-  systemd:
-    name: ydotool
-    enabled: true
-    daemon_reload: true
-    state: stopped
-    scope: user
+  notify:
+    - reload user systemd services (rafael)
+    - keyboard | ydotool | restart user systemd service

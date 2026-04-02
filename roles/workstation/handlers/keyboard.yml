@@ -40,6 +40,15 @@
     enabled: false
     scope: user
 
+- name: keyboard | ydotool | restart user systemd service
+  tags: keyboard,ydotool
+  become_user: rafael
+  ansible.builtin.systemd:
+    name: ydotool
+    enabled: true
+    state: restarted
+    scope: user
+
 - name: keyboard | kanata | try-restart systemd user service
   tags: keyboard,kanata
   become_user: rafael
