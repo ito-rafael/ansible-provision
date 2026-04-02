@@ -5,7 +5,7 @@
     state: directory
     owner: ansible
     group: ansible
-    mode: '0700'
+    mode: '0710'
   loop:
     - tmp
     - tmp/semaphore
