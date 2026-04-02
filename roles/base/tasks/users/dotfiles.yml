@@ -5,11 +5,11 @@
     state: directory
     owner: "{{ item.user }}"
     group: "{{ item.user }}"
-    mode: 0700
+    mode: "{{ item.mode }}"
   with_items:
-    - { path: "/home/ansible/git",    user: "ansible" }
-    - { path: "/home/rafael/git",     user: "rafael" }
-    - { path: "/home/rafael/.config", user: "rafael" }
+    - { path: "/home/ansible/git",    user: "ansible", mode: '0700' }
+    - { path: "/home/rafael/git",     user: "rafael",  mode: '0710' }
+    - { path: "/home/rafael/.config", user: "rafael",  mode: '0700' }
 
 - name: users | dotfiles | clone dotfiles repo for ansible user
   tags: users,dotfiles,clone
