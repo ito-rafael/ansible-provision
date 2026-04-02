@@ -16,7 +16,7 @@
     path: "{{ item[1] }}"
     entity: "{{ item[0] }}"
     etype: user
-    permissions: x
+    permissions: '--x'
     state: present
   with_nested:
     - ['aurman', 'rafael']
