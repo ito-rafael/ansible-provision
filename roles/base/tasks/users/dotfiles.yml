@@ -7,7 +7,7 @@
     group: "{{ item.user }}"
     mode: "{{ item.mode }}"
   with_items:
-    - { path: "/home/ansible/git",    user: "ansible", mode: '0700' }
+    - { path: "/home/ansible/git",    user: "ansible", mode: '0710' }
     - { path: "/home/rafael/git",     user: "rafael",  mode: '0710' }
     - { path: "/home/rafael/.config", user: "rafael",  mode: '0700' }
 
