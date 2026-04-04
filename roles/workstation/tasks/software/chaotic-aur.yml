@@ -6,6 +6,11 @@
     state: present
     ensure_trusted: yes
 
+- name: software | package-manager | Chaotic-AUR check if keyring & mirror is installed
+  tags: chaotic-aur
+  ansible.builtin.package_facts:
+    manager: auto
+
 - name: software | package-manager | Chaotic-AUR install keyring & mirror
   tags: chaotic-aur
   community.general.pacman:
@@ -15,7 +20,6 @@
 
 - name: software | package-manager | Chaotic-AUR enable repository
   tags: chaotic-aur
-  become: true
   ansible.builtin.blockinfile:
     path: /etc/pacman.conf
     #marker: ""
