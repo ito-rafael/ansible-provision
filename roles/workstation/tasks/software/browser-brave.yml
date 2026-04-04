@@ -39,15 +39,6 @@
     regexp: '"\$USER_FLAGS"'
     replace: '$USER_FLAGS'
 
-- name: software | browser | ensure Brave dir exist
-  tags: browser,brave
-  file:
-    path: /etc/brave/policies/managed
-    state: directory
-    owner: root
-    group: root
-    mode: 0755
-
 - name: software | browser | ensure Brave & Brave Beta extensions dir exist
   tags: browser,brave
   file:
