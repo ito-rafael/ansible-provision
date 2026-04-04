@@ -6,9 +6,11 @@
     groups: lbic,{{ sudo_group }}
     append: true
     comment: "lbic-user"
+    password: "{{ lbic_passwd }}"
+    update_password: on_create
     createhome: yes
     state: present
-    system: no
+    system: false
     shell: /bin/bash
 
 - name: users | lbic-user | create ssh keys dir
