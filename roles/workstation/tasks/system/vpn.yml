@@ -14,6 +14,15 @@
       - stoken                      # RSA SecurID
       - vpnc                        # VPN client for Cisco
 
+- name: software | vpn | install packages for ProtonVPN
+  tags: vpn,proton
+  package:
+    name:
+      - wireguard-tools             # WireGuard
+      - systemd-resolvconf          # systemd resolvconf replacement
+      - proton-vpn-cli              # ProtonVPN client (CLI)
+      #- proton-vpn-gtk-app          # ProtonVPN client (GUI)
+
 - name: software | vpn | install packages for VPN launcher script
   tags: vpn
   package:
