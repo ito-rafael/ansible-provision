@@ -1,12 +1,12 @@
 - name: software | vpn | install packages for OpenVPN
-  tags: vpn
+  tags: vpn,openvpn
   package:
     name:
       - openvpn                 # OpenVPN daemon
       - networkmanager-openvpn  # NetworkManager plugin for OpenVPN
 
 - name: software | vpn | install packages for OpenConnect
-  tags: vpn
+  tags: vpn,openconnect
   package:
     name:
       - openconnect                 # client for Cisco's AnyConnect SSL VPN)
