@@ -30,6 +30,15 @@
     update_cache: true
   when: multilib_enabled.changed
 
+- name: software | package-manager | ensure pacman hooks dir exists
+  tags: pacman
+  file:
+    path: /etc/pacman.d/hooks
+    state: directory
+    owner: root
+    group: root
+    mode: 0700
+
 - name: software | package-manager | install rebuild-detector
   tags: pacman,rebuild-detector
   package:
