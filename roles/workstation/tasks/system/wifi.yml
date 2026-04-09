@@ -41,3 +41,19 @@
     group: rafael
     mode: '0700'
   when: wifi
+
+- name: system | Wi-Fi | eduroam install CA certificate
+  tags: wifi,eduroam
+  become_user: rafael
+  ansible.builtin.command:
+    argv:
+      - python
+      - "{{ filename }}"
+      - --username
+      - "{{ lookup('pipe', 'sudo -u rafael pass show eduroam/login') }}"
+      - --password
+      - "{{ lookup('pipe', 'sudo -u rafael pass show eduroam/password') }}"
+      - --silent
+    chdir: /home/rafael/.config/cat_installer
+    creates: /home/rafael/.config/cat_installer/ca.pem
+  when: wifi
