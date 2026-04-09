@@ -39,6 +39,19 @@
     group: root
     mode: 0700
 
+- name: software | package-manager | copy pacman hooks
+  tags: pacman
+  copy:
+    remote_src: true
+    src: /home/ansible/git/dotfiles/pacman/{{ item }}
+    dest: /etc/pacman.d/hooks/{{ item }}
+    owner: root
+    group: root
+    mode: 0600
+  with_items:
+    - 00-prevent-interruption-pre.hook
+    - 99-prevent-interruption-post.hook
+
 - name: software | package-manager | install rebuild-detector
   tags: pacman,rebuild-detector
   package:
