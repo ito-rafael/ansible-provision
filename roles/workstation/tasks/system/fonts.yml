@@ -27,3 +27,9 @@
   kewlfft.aur.aur:
     name: emote
   when: ansible_facts['distribution'] == "Archlinux"
+
+- name: system | icons | install icons
+  tags: system,icons
+  package:
+    name:
+      - papirus-icon-theme  # used by rofi
