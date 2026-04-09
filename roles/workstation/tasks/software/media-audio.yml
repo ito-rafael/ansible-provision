@@ -32,3 +32,8 @@
   kewlfft.aur.aur:
     name: puddletag
   when: ansible_facts['distribution'] == "Archlinux"
+
+- name: software | media | install Picard
+  tags: media,audio
+  package:
+    name: picard  # MusicBrainz tagger
