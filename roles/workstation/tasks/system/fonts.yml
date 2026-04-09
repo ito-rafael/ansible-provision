@@ -8,6 +8,7 @@
       - ttf-firacode-nerd               # Nerd Fonts: Fira (Fura) Code (used by Waybar)
       - ttf-ubuntu-font-family          # Ubuntu Font Family
       - noto-fonts                      # Google Noto TTF
+      - noto-fonts-emoji                # Google Noto Emoji
 
 - name: system | fonts | install fonts from AUR
   tags: system,fonts
