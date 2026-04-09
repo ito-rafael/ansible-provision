@@ -31,3 +31,13 @@
   set_fact:
     filename: "{{ (json_output['content_disposition'] | split('\"'))[1] }}"
   when: wifi
+
+- name: system | Wi-Fi | eduroam download eduroam script
+  tags: wifi,eduroam
+  ansible.builtin.get_url:
+    url: "https://cat.eduroam.org/user/API.php?action=downloadInstaller&lang=en&profile=1178&device=linux&generatedfor=user&openroaming=0"
+    dest: /home/rafael/.config/cat_installer/{{ filename }}
+    owner: rafael
+    group: rafael
+    mode: '0700'
+  when: wifi
