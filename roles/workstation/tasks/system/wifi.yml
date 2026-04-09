@@ -1,9 +1,19 @@
 - name: system | Wi-Fi | install Wi-Fi packages
-  tags: system,network
+  tags: system,wifi
   package:
     name:
       - iproute2                    # IP Routing Utilities
       - util-linux                  # provides rfkill (and much more)
       - "{{ wpa_supplicant_pkg }}"  # WPA Supplicant
       - iw                          # nl80211-based CLI config util
+  when: wifi
+
+- name: system | Wi-Fi | eduroam ensure dir exist
+  tags: wifi,eduroam
+  ansible.builtin.file:
+    path: /home/rafael/.config/cat_installer
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
   when: wifi
