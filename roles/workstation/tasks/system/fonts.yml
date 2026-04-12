@@ -9,6 +9,7 @@
       - ttf-ubuntu-font-family          # Ubuntu Font Family
       - noto-fonts                      # Google Noto TTF
       - noto-fonts-emoji                # Google Noto Emoji
+      - ttf-nerd-fonts-symbols-mono     # Nerd Fonts (monospace) --> used by Emacs doom-modeline
 
 - name: system | fonts | install fonts from AUR
   tags: system,fonts
