@@ -1,0 +1,4 @@
+- name: software | screen | install gammastep
+  tags: gamma
+  package:
+    name: gammastep
