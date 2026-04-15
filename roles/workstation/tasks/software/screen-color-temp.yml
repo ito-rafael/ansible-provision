@@ -2,3 +2,12 @@
   tags: gamma
   package:
     name: gammastep
+
+- name: software | screen | ensure gammastep dir exists
+  tags: gamma
+  file:
+    path: /home/rafael/.config/gammastep
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
