@@ -11,3 +11,13 @@
     owner: rafael
     group: rafael
     mode: 0700
+
+- name: software | screen | copy gammastep dotfile
+  tags: gamma
+  copy:
+    remote_src: true
+    src: /home/ansible/git/dotfiles/gammastep/config.ini
+    dest: /home/rafael/.config/gammastep/config.ini
+    owner: rafael
+    group: rafael
+    mode: 0600
