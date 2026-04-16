@@ -2,11 +2,12 @@
   tags: system,network
   package:
     name:
-      - net-tools   # collection of base networking utilities
-      - inetutils   # collection of common network programs
-      - nmap        # network discovery + security auditing
-      - ufw         # manage netfilter firewall
-      - openresolv  # resolv.conf management framework
+      - net-tools           # collection of base networking utilities
+      - inetutils           # collection of common network programs
+      - nmap                # network discovery + security auditing
+      - ufw                 # manage netfilter firewall
+      #- openresolv          # resolv.conf management framework
+      - systemd-resolvconf  # systemd resolvconf replacement
 
 - name: system | network | install NetworkManager
   tags: system,network
