@@ -26,3 +26,4 @@
     - { src: 'config',    dest: 'config',    mode: '0600' }  # config
     - { src: 'style.css', dest: 'style.css', mode: '0600' }  # CSS
     - { src: 'scripts',   dest: '',          mode: '0700' }  # scripts
+    - { src: 'icon',      dest: '',          mode: '0700' }  # icons
