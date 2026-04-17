@@ -1,0 +1,5 @@
+rafael ALL=(ALL) ALL
+%rafael ALL= NOPASSWD: /usr/bin/systemctl start kanata
+%rafael ALL= NOPASSWD: /usr/bin/systemctl stop kanata
+%rafael ALL= NOPASSWD: /usr/bin/systemctl restart kanata
+rafael ALL=(ansible) NOPASSWD: /home/ansible/git/dotfiles/waybar/scripts/ansible-check.sh
