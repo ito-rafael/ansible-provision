@@ -3,3 +3,13 @@
   command:
     cmd: loginctl enable-linger rafael
     creates: /var/lib/systemd/linger/rafael
+
+- name: users | rafael | add sudoers file
+  tags: users,rafael,sudo
+  copy:
+    src: files/users/sudoers_rafael
+    dest: /etc/sudoers.d/rafael
+    owner: root
+    group: root
+    mode: 0440
+    validate: "/usr/bin/visudo -cf %s"
