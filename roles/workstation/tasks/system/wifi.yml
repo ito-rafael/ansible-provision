@@ -18,29 +18,16 @@
     mode: 0700
   when: wifi
 
-- name: system | Wi-Fi | eduroam register the JSON response
-  tags: wifi,eduroam
-  ansible.builtin.uri:
-    url: "https://cat.eduroam.org/user/API.php?action=downloadInstaller&lang=en&profile=1178&device=linux&generatedfor=user&openroaming=0"
-    body_format: json
-  register: json_output
-  when: wifi
-
-- name: system | Wi-Fi | eduroam parse JSON and register filename
-  tags: wifi,eduroam
-  set_fact:
-    filename: "{{ (json_output['content_disposition'] | split('\"'))[1] }}"
-  when: wifi
-
 - name: system | Wi-Fi | eduroam download eduroam script
   tags: wifi,eduroam
   ansible.builtin.get_url:
     url: "https://cat.eduroam.org/user/API.php?action=downloadInstaller&lang=en&profile=1178&device=linux&generatedfor=user&openroaming=0"
-    dest: /home/rafael/.config/cat_installer/{{ filename }}
+    dest: /home/rafael/.config/cat_installer/
     owner: rafael
     group: rafael
     mode: '0700'
   when: wifi
+  register: eduroam_download
 
 - name: system | Wi-Fi | eduroam install CA certificate
   tags: wifi,eduroam
@@ -48,7 +35,7 @@
   ansible.builtin.command:
     argv:
       - python
-      - "{{ filename }}"
+      - "{{ eduroam_download.dest }}"
       - --username
       - "{{ lookup('pipe', 'sudo -u rafael pass show eduroam/login') }}"
       - --password
