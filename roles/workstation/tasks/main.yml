@@ -88,9 +88,10 @@
   - import_tasks: dev/emacs.yml                         # Emacs
   - import_tasks: dev/git.yml                           # Git
   - import_tasks: dev/iot.yml                           # IoT (esptool, Saleae, PlatformIO, etc)
-  - import_tasks: dev/machine-learning.yml              # PyTorch, TensorFlow, Jupyter
   - import_tasks: dev/latex.yml                         # LaTeX
+  - import_tasks: dev/machine-learning.yml              # PyTorch, TensorFlow, Jupyter
   - import_tasks: dev/python.yml                        # Python
   - import_tasks: dev/terminal-multiplexer.yml          # tmux
+  - import_tasks: dev/utils.yml                         # general utilities
   - import_tasks: dev/vm-qemu.yml                       # virual machine: QEMU
   #- import_tasks: dev/vm-virtualbox.yml                # [deprecated] virtual machine: VirtualBox

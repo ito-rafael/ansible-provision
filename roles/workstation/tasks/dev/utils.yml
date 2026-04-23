@@ -1,0 +1,7 @@
+- name: development | utils | install Claude Code
+  tags: dev,utils
+  become_user: aurman
+  kewlfft.aur.aur:
+    name:
+      - claude-code  # agentic coding tool that lives in your terminal
+  when: ansible_facts['distribution'] == "Archlinux"
