@@ -13,4 +13,4 @@
     state: directory
     owner: root
     group: lbic
-    mode: 1777
+    mode: '1777'
