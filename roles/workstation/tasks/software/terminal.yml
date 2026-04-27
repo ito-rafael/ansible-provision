@@ -24,10 +24,11 @@
   with_items:
     - kitty.conf
     - themes/default.conf
-    - themes/terminal.conf
+    - themes/pacman.conf
     - themes/python.conf
-    - themes/ssh.conf
     - themes/root.conf
+    - themes/ssh.conf
+    - themes/terminal.conf
 
 - name: software | terminal | [root] ensure kitty dir exist
   tags: terminal,kitty
