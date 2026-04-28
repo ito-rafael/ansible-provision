@@ -62,6 +62,7 @@
   - import_tasks: software/kde-apps.yml                 # KDE Connect, kWallet
   - import_tasks: software/media-audio.yml              # music-related
   - import_tasks: software/miscellaneous.yml            # IRPF, BB bank
+  - import_tasks: software/notification.yml             # dunst
   - import_tasks: software/office-suite.yml             # LibreOffice
   - import_tasks: software/pdf-viewer.yml               # Zathura
   - import_tasks: software/presentation.yml             # pdfpc
