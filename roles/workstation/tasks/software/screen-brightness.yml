@@ -1,0 +1,4 @@
+- name: software | brightness | brightnessctl
+  tags: software,brightness
+  package:
+    name: brightnessctl

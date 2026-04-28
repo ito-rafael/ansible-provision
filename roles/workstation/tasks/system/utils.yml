@@ -7,7 +7,6 @@
   tags: sys-utils
   package:
     name:
-      - brightnessctl     # screen brightness
       - dmidecode         # motherboard info
       #- glances          # htop alternative in Python
       - htop              # interactive process viewer
