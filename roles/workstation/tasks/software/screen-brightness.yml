@@ -19,3 +19,10 @@
   community.general.modprobe:
     name: i2c-dev
     state: present
+
+- name: software | brightness | add user to i2c group
+  tags: software,brightness,groups
+  user:
+    name: rafael
+    append: yes
+    groups: i2c
