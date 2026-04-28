@@ -5,6 +5,15 @@
       - brightnessctl  # screen brightness
       - ddcutil        # external monitor control
 
+- name: software | brightness | set i2c-dev kernel module to load on boot
+  tags: software,brightness
+  copy:
+    content: "i2c-dev\n"
+    dest: /etc/modules-load.d/i2c-dev.conf
+    owner: root
+    group: root
+    mode: 0644
+
 - name: software | brightness | load i2c-dev kernel module immediately
   tags: software,brightness
   community.general.modprobe:
