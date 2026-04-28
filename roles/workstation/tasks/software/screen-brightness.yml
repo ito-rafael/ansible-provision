@@ -1,4 +1,6 @@
-- name: software | brightness | brightnessctl
+- name: software | brightness | install DDC/CI tool & brightnessctl
   tags: software,brightness
   package:
-    name: brightnessctl
+    name:
+      - brightnessctl  # screen brightness
+      - ddcutil        # external monitor control
