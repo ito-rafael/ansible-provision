@@ -4,3 +4,9 @@
     name:
       - brightnessctl  # screen brightness
       - ddcutil        # external monitor control
+
+- name: software | brightness | load i2c-dev kernel module immediately
+  tags: software,brightness
+  community.general.modprobe:
+    name: i2c-dev
+    state: present
