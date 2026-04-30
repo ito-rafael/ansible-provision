@@ -18,3 +18,6 @@
 - import_tasks: keyboard.yml
 - import_tasks: software.yml
 - import_tasks: system.yml
+
+- name: update udev rules on the fly
+  command: udevadm trigger

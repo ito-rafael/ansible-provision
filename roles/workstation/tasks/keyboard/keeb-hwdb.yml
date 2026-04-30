@@ -9,7 +9,7 @@
     mode: 0644
   notify:
     - keyboard | udev/hwdb | rebuild the hardware database index (hwdb.bin)
-    - keyboard | udev/hwdb | update udev rules on the fly
+    - update udev rules on the fly
 
 - name: keyboard | udev/hwdb | copy systemd-hwdb-update service
   tags: keyboard,hwdb
