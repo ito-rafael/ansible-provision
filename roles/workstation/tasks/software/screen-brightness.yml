@@ -34,20 +34,27 @@
     group: root
     mode: '0644'
 
-- name: software | brightness | set i2c-dev kernel module to load on boot
+- name: software | brightness | set kernel modules to load on boot
   tags: software,brightness
   copy:
-    content: "i2c-dev\n"
-    dest: /etc/modules-load.d/i2c-dev.conf
+    content: "{{ item.driver }}\n"
+    dest: "/etc/modules-load.d/{{ item.filename }}"
     owner: root
     group: root
     mode: '0644'
+  loop:
+    - { driver: 'i2c-dev',               filename: 'i2c-dev.conf' }
+    - { driver: 'ddcci\nddcci_backlight', filename: 'ddcci.conf' }
 
-- name: software | brightness | load i2c-dev kernel module immediately
+- name: software | brightness | load kernel modules immediately
   tags: software,brightness
   community.general.modprobe:
-    name: i2c-dev
+    name: "{{ item }}"
     state: present
+  loop:
+    - i2c-dev
+    - ddcci
+    - ddcci_backlight
 
 - name: software | brightness | add user to i2c group
   tags: software,brightness,groups
