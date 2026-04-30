@@ -3,10 +3,11 @@
   package:
     name:
       - thunar                  # Xfce file manager
+      - thunar-volman           # automount removable drives
       - tumbler                 # thumbnail support
       - ffmpegthumbnailer       # video thumbnailing
-      - thunar-archive-plugin   # archive support frontend
       - xarchiver               # archive support backend
+      - thunar-archive-plugin   # archive support frontend
 
 - name: software | file manager | install terminal file manager
   tags: file-manager,ranger
