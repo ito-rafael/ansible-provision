@@ -40,7 +40,7 @@
     dest: /etc/modules-load.d/i2c-dev.conf
     owner: root
     group: root
-    mode: 0644
+    mode: 0600
 
 - name: software | brightness | load i2c-dev kernel module immediately
   tags: software,brightness

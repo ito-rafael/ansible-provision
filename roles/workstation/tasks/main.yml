@@ -67,6 +67,7 @@
   - import_tasks: software/pdf-viewer.yml               # Zathura
   - import_tasks: software/presentation.yml             # pdfpc
   - import_tasks: software/pomodoro-timer.yml           # tomat
+  - import_tasks: software/screen-brightness.yml        # brightnessctl, DDC/CI
   - import_tasks: software/screen-color-temp.yml        # screen gamma color temperature
   - import_tasks: software/screen-locker.yml            # hyprlock / swaylock
   - import_tasks: software/screenshot.yml               # screenshot tools
