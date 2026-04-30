@@ -5,6 +5,13 @@
       - brightnessctl  # screen brightness
       - ddcutil        # external monitor control
 
+- name: software | brightness | kernel driver for DDC/CI monitors
+  tags: software,brightness
+  become_user: aurman
+  kewlfft.aur.aur:
+    name:
+      - ddcci-driver-linux-dkms-git
+  when: ansible_facts['distribution'] == "Archlinux"
 - name: software | brightness | set i2c-dev kernel module to load on boot
   tags: software,brightness
   copy:
