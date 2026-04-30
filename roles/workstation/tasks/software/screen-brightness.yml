@@ -23,6 +23,16 @@
     group: root
     mode: 0600
   notify: update udev rules on the fly
+
+- name: software | brightness | setup DDC/CI for NVIDIA proprietary drivers
+  tags: software,brightness
+  copy:
+    content: "options nvidia NVreg_RegistryDwords=RMUseSwI2c=0x01;RMI2cSpeed=100\n"
+    dest: /etc/modprobe.d/nvidia-i2c.conf
+    owner: root
+    group: root
+    mode: 0600
+
 - name: software | brightness | set i2c-dev kernel module to load on boot
   tags: software,brightness
   copy:
