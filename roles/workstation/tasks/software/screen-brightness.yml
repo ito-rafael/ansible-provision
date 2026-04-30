@@ -12,6 +12,17 @@
     name:
       - ddcci-driver-linux-dkms-git
   when: ansible_facts['distribution'] == "Archlinux"
+
+- name: software | brightness | copy the udev rules for external monitors
+  tags: software,brightness
+  copy:
+    remote_src: true
+    src: /home/ansible/git/dotfiles/udev/rules.d/99-ddcci.rules
+    dest: /etc/udev/rules.d/99-ddcci.rules
+    owner: root
+    group: root
+    mode: 0600
+  notify: update udev rules on the fly
 - name: software | brightness | set i2c-dev kernel module to load on boot
   tags: software,brightness
   copy:
