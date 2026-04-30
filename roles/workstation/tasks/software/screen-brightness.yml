@@ -4,6 +4,7 @@
     name:
       - brightnessctl  # screen brightness
       - ddcutil        # external monitor control
+      - linux-headers  # DKMS dependency
 
 - name: software | brightness | kernel driver for DDC/CI monitors
   tags: software,brightness
@@ -21,7 +22,7 @@
     dest: /etc/udev/rules.d/99-ddcci.rules
     owner: root
     group: root
-    mode: 0600
+    mode: '0644'
   notify: update udev rules on the fly
 
 - name: software | brightness | setup DDC/CI for NVIDIA proprietary drivers
@@ -31,7 +32,7 @@
     dest: /etc/modprobe.d/nvidia-i2c.conf
     owner: root
     group: root
-    mode: 0600
+    mode: '0644'
 
 - name: software | brightness | set i2c-dev kernel module to load on boot
   tags: software,brightness
@@ -40,7 +41,7 @@
     dest: /etc/modules-load.d/i2c-dev.conf
     owner: root
     group: root
-    mode: 0600
+    mode: '0644'
 
 - name: software | brightness | load i2c-dev kernel module immediately
   tags: software,brightness
