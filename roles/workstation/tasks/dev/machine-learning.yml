@@ -33,6 +33,7 @@
       - onnxruntime-opt-cuda         # ONNX runtime C++ core lib
       - python-onnxruntime-opt-cuda  # ONNX runtime Python wrapper
   when:
+    - gpu_driver != "nouveau"
     - "'NVIDIA' in gpu_info.stdout"
     - avx2_support != ""
 
@@ -45,6 +46,7 @@
       - onnxruntime-cuda         # ONNX runtime C++ core lib
       - python-onnxruntime-cuda  # ONNX runtime Python wrapper
   when:
+    - gpu_driver != "nouveau"
     - "'NVIDIA' in gpu_info.stdout"
     - avx2_support == ""
 
@@ -108,10 +110,10 @@
   tags: dev,ml
   package:
     name:
-      - python-pytorch     # PyTorch
-      - python-tensorflow  # TensorFlow
+      - python-pytorch          # PyTorch
+      - python-tensorflow       # TensorFlow
       - onnxruntime-cpu         # ONNX runtime C++ core lib
       - python-onnxruntime-cpu  # ONNX runtime Python wrapper
-  when:
-    - "'Intel' in gpu_info.stdout"
-    - avx2_support == ""
+  when: >
+    ('Intel' in gpu_info.stdout and avx2_support == "") or
+    (gpu_driver == "nouveau")
