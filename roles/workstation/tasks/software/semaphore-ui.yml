@@ -181,7 +181,7 @@
     state: present
     force_init: true
     variables:
-      target_hostname: "{{ ansible_host }}"
+      target_hostname: "{{ ansible_hostname }}"
   environment:
     SEMAPHOREUI_API_BASE_URL: "http://localhost:3000/api"
     SEMAPHOREUI_API_TOKEN: "{{ lookup('pipe', 'sudo -u rafael pass show semaphore/opentofu_token') | trim }}"
