@@ -9,6 +9,13 @@
     name: archlinux-keyring
     force: yes
 
+- name: software | package-manager | enable colors
+  tags: pacman
+  replace:
+    path: /etc/pacman.conf
+    regexp: '^#\s*Color'
+    replace: 'Color'
+
 - name: software | package-manager | enable parallel downloads
   tags: pacman
   replace:
