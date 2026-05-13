@@ -23,6 +23,14 @@
     regexp: '^.*(ParallelDownloads).*$'
     replace: '\g<1> = 5'
 
+- name: software | package-manager | enable ILoveCandy
+  tags: pacman
+  lineinfile:
+    path: /etc/pacman.conf
+    regexp: '^ILoveCandy'
+    insertafter: '^#?\s*ParallelDownloads\s*=\s*\d+'
+    line: 'ILoveCandy'
+
 - name: software | package-manager | enable multilib repository
   tags: pacman
   replace:
