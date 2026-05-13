@@ -3,6 +3,13 @@
   package:
     name: waybar
 
+- name: software | statusline | waybar install wttrbar for weather forecasting
+  tags: statusline,waybar
+  become_user: aurman
+  kewlfft.aur.aur:
+    name: wttrbar
+  when: ansible_facts['distribution'] == "Archlinux"
+
 - name: software | statusline | ensure waybar dir exist
   tags: statusline,waybar
   file:
