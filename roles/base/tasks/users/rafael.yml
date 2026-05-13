@@ -34,8 +34,8 @@
 - name: users | rafael | add sudoers file
   tags: users,rafael,sudo
   copy:
-    src: files/users/sudoers_rafael
-    dest: /etc/sudoers.d/rafael
+    src: files/users/sudoers_rafael_base
+    dest: /etc/sudoers.d/10_rafael_base
     owner: root
     group: root
     mode: 0440
