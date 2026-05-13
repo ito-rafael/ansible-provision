@@ -7,8 +7,8 @@
 - name: users | rafael | add sudoers file
   tags: users,rafael,sudo
   copy:
-    src: files/users/sudoers_rafael
-    dest: /etc/sudoers.d/rafael
+    src: files/users/sudoers_rafael_workstation
+    dest: /etc/sudoers.d/20_rafael_workstation
     owner: root
     group: root
     mode: 0440
