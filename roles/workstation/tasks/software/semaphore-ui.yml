@@ -186,6 +186,7 @@
   environment:
     SEMAPHOREUI_API_BASE_URL: "http://localhost:3000/api"
     SEMAPHOREUI_API_TOKEN: "{{ lookup('pipe', 'sudo -u rafael pass show semaphore/opentofu_token') | trim }}"
+  no_log: true
   register: tofu_result
 
 - name: software | semaphore | cleanup built-in auto-generated default resources
