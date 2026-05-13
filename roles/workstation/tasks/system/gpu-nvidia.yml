@@ -45,6 +45,7 @@
       - nvidia-470xx-utils
       - lib32-nvidia-470xx-utils
   when:
+    - gpu_driver != "nouveau"
     - kepler.stdout != ""
     - ansible_facts['distribution'] == "Archlinux"
 
@@ -57,6 +58,7 @@
       - nvidia-utils        # drivers utilities (provides nvidia-smi, vulkan-driver)
       - lib32-nvidia-utils  # provides lib32-vulkan-driver
   when:
+    - gpu_driver != "nouveau"
     - maxwell_pascal_volta.stdout != ""
     - kernel == "linux"
 
@@ -68,6 +70,7 @@
       - nvidia-utils        # drivers utilities (provides nvidia-smi, vulkan-driver)
       - lib32-nvidia-utils  # provides lib32-vulkan-driver
   when:
+    - gpu_driver != "nouveau"
     - maxwell_pascal_volta.stdout != ""
     - kernel == "linux-lts"
 
@@ -80,6 +83,7 @@
       - nvidia-utils        # drivers utilities (provides nvidia-smi, vulkan-driver)
       - lib32-nvidia-utils  # provides lib32-vulkan-driver
   when:
+    - gpu_driver != "nouveau"
     - turing_ampere_adalovelace_blackwell.stdout != ""
     - kernel == "linux"
 
@@ -91,6 +95,7 @@
       - nvidia-utils         # drivers utilities (provides nvidia-smi)
       - lib32-nvidia-utils   # provides lib32-vulkan-driver
   when:
+    - gpu_driver != "nouveau"
     - turing_ampere_adalovelace_blackwell.stdout != ""
     - kernel == "linux-lts"
 
@@ -108,9 +113,12 @@
     name:
       - cuda        # NVIDIA's GPU programming toolkit
       #- cuda-tools  # extra tools: nsight, compute-sanitizer
+  when: gpu_driver != "nouveau"
 
 - name: system | GPU NVIDIA | install NVIDIA Container Toolkit
   tags: system,gpu,gpu-nvidia
   package:
     name: nvidia-container-toolkit
-  when: ansible_facts['distribution'] == "Archlinux"
+  when:
+    - gpu_driver != "nouveau"
+    - ansible_facts['distribution'] == "Archlinux"
