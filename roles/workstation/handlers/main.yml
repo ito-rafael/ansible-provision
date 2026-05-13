@@ -1,3 +1,8 @@
+- name: handler | get UID of the user
+  ansible.builtin.getent:
+    database: passwd
+    key: rafael
+
 - name: reload systemd services (system scope)
   systemd:
     daemon_reload: true

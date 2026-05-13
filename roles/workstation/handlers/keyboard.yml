@@ -53,6 +53,9 @@
   tags: keyboard,kanata
   become_user: rafael
   ansible.builtin.command: systemctl try-restart kanata.service --user
+  environment:
+    XDG_RUNTIME_DIR: "/run/user/{{ ansible_facts.getent_passwd['rafael'][1] }}"
+    DBUS_SESSION_BUS_ADDRESS: "unix:path=/run/user/{{ ansible_facts.getent_passwd['rafael'][1] }}/bus"
 
 - name: keyboard | kanata | try-restart systemd global service
   tags: keyboard,kanata
@@ -62,6 +65,9 @@
   tags: keyboard,xremap
   become_user: rafael
   ansible.builtin.command: systemctl try-restart xremap.service --user
+  environment:
+    XDG_RUNTIME_DIR: "/run/user/{{ ansible_facts.getent_passwd['rafael'][1] }}"
+    DBUS_SESSION_BUS_ADDRESS: "unix:path=/run/user/{{ ansible_facts.getent_passwd['rafael'][1] }}/bus"
 
 - name: keyboard | udev/hwdb | restart systemd-hwdb-update systemd service
   tags: keyboard,hwdb

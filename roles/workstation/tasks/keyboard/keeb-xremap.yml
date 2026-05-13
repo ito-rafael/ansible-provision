@@ -80,6 +80,7 @@
     mode: 0600
   when: inventory_hostname in groups['laptop']
   notify:
+    - handler | get UID of the user
     - reload user systemd services (rafael)
     - keyboard | xremap | disable user systemd service (to be started by XDG Autostart)
     - keyboard | xremap | try-restart xremap systemd user service
@@ -95,6 +96,7 @@
     mode: 0600
   when: inventory_hostname not in groups['laptop']
   notify:
+    - handler | get UID of the user
     - reload user systemd services (rafael)
     - keyboard | xremap | disable user systemd service (to be started by XDG Autostart)
     - keyboard | xremap | try-restart xremap systemd user service

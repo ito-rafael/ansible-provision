@@ -27,6 +27,7 @@
     group: rafael
     mode: 0600
   notify:
+    - handler | get UID of the user
     - keyboard | kanata | try-restart systemd user service
     - keyboard | kanata | try-restart systemd global service
 
