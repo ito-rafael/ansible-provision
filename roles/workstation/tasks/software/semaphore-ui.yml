@@ -181,7 +181,8 @@
     state: present
     force_init: true
     variables:
-      target_hostname: "{{ ansible_hostname }}"
+      target_hostname: "{{ ansible_facts['hostname'] }}"
+      vault_password_lbic: "{{ lookup('pipe', 'sudo -u rafael pass show semaphore/vault_password_lbic') | trim }}"
   environment:
     SEMAPHOREUI_API_BASE_URL: "http://localhost:3000/api"
     SEMAPHOREUI_API_TOKEN: "{{ lookup('pipe', 'sudo -u rafael pass show semaphore/opentofu_token') | trim }}"
