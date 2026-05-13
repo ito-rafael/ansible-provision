@@ -33,7 +33,7 @@
       - onnxruntime-opt-cuda         # ONNX runtime C++ core lib
       - python-onnxruntime-opt-cuda  # ONNX runtime Python wrapper
   when:
-    - gpu_driver != "nouveau"
+    - nvidia_driver != "nouveau"
     - "'NVIDIA' in gpu_info.stdout"
     - avx2_support != ""
 
@@ -46,7 +46,7 @@
       - onnxruntime-cuda         # ONNX runtime C++ core lib
       - python-onnxruntime-cuda  # ONNX runtime Python wrapper
   when:
-    - gpu_driver != "nouveau"
+    - nvidia_driver != "nouveau"
     - "'NVIDIA' in gpu_info.stdout"
     - avx2_support == ""
 
@@ -116,4 +116,4 @@
       - python-onnxruntime-cpu  # ONNX runtime Python wrapper
   when: >
     ('Intel' in gpu_info.stdout and avx2_support == "") or
-    (gpu_driver == "nouveau")
+    (nvidia_driver == "nouveau")

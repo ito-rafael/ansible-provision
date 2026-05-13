@@ -1,1 +1,1 @@
-gpu_driver: "nouveau"
+nvidia_driver: "nouveau"
