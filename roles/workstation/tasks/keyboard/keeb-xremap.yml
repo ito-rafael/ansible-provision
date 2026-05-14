@@ -57,7 +57,9 @@
     owner: rafael
     group: rafael
     mode: 0600
-  notify: keyboard | xremap | try-restart systemd user service
+  notify:
+    - handler | get UID of the user
+    - keyboard | xremap | try-restart systemd user service
 
 - name: keyboard | xremap | copy xremap desktop entry (for XDG Autostart)
   tags: keyboard,xremap
