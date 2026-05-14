@@ -1,7 +1,7 @@
-- name: keyboard | ZSA | install Wally CLI
-  tags: keyboard,zsa
-  package:
-    name: zsa-wally-cli
+#- name: keyboard | ZSA | install Wally CLI
+#  tags: keyboard,zsa
+#  package:
+#    name: zsa-wally-cli
 
 - name: keyboard | ZSA | install Keymapp & Kontroll
   tags: keyboard,zsa
@@ -10,6 +10,7 @@
     name:
       - zsa-keymapp-bin
       - zsa-kontroll-bin
+      - zsa-zapp
   when: ansible_facts['distribution'] == "Archlinux"
 
 - name: keyboard | ZSA | copy udev rules for ZSA keyboards
