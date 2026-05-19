@@ -16,3 +16,17 @@
   loop:
     - eww
     - icon
+
+- name: software | widget | copy eww dotfiles
+  tags: widget
+  copy:
+    remote_src: true
+    src: /home/ansible/git/dotfiles/eww/{{ item }}
+    dest: /home/rafael/.config/eww/{{ item }}
+    owner: rafael
+    group: rafael
+    mode: 0600
+  loop:
+    - eww.yuck
+    - eww.scss
+    - volume.sh
