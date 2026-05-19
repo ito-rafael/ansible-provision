@@ -4,3 +4,15 @@
   kewlfft.aur.aur:
     name: eww
   when: ansible_facts['distribution'] == "Archlinux"
+
+- name: software | widget | ensure eww dirs exists
+  tags: widget
+  file:
+    path: /home/rafael/.config/{{ item }}
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
+  loop:
+    - eww
+    - icon
