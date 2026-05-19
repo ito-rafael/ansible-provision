@@ -21,15 +21,15 @@
   tags: widget
   copy:
     remote_src: true
-    src: /home/ansible/git/dotfiles/eww/{{ item }}
-    dest: /home/rafael/.config/eww/{{ item }}
+    src: /home/ansible/git/dotfiles/eww/{{ item.name }}
+    dest: /home/rafael/.config/eww/{{ item.name }}
     owner: rafael
     group: rafael
-    mode: 0600
+    mode: "{{ item.mode }}"
   loop:
-    - eww.yuck
-    - eww.scss
-    - volume.sh
+    - { name: 'eww.yuck',  mode: '0600' }
+    - { name: 'eww.scss',  mode: '0600' }
+    - { name: 'volume.sh', mode: '0700' }
 
 - name: software | widget | copy eww icons
   tags: widget
