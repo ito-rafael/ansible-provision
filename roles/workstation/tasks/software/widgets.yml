@@ -30,3 +30,18 @@
     - eww.yuck
     - eww.scss
     - volume.sh
+
+- name: software | widget | copy eww icons
+  tags: widget
+  copy:
+    remote_src: true
+    src: /home/ansible/git/dotfiles/icon/{{ item }}
+    dest: /home/rafael/.config/icon/{{ item }}
+    owner: rafael
+    group: rafael
+    mode: 0600
+  loop:
+    - vol-mute.png
+    - vol-low.png
+    - vol-med.png
+    - vol-hight.png
