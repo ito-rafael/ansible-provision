@@ -1,0 +1,6 @@
+- name: software | widget | install eww
+  tags: widget
+  become_user: aurman
+  kewlfft.aur.aur:
+    name: eww
+  when: ansible_facts['distribution'] == "Archlinux"

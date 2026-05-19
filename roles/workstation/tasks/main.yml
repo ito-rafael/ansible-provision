@@ -84,6 +84,7 @@
   - import_tasks: software/vnc.yml                      # wayvnc
   - import_tasks: software/xdg-desktop-portal.yml       # XDG Desktop Portal
   - import_tasks: software/wallpaper.yml                # wallpaper
+  - import_tasks: software/widgets.yml                  # eww
   - import_tasks: software/window-manager.yml           # i3 / Sway
 
   # Development
