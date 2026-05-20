@@ -48,3 +48,6 @@
     - mic.svg
     - mic-mute.svg
     - brightness.svg
+    - kbd-backlit-off.svg
+    - kbd-backlit-low.svg
+    - kbd-backlit-high.svg
