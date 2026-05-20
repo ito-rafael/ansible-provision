@@ -22,14 +22,14 @@
   copy:
     remote_src: true
     src: /home/ansible/git/dotfiles/eww/{{ item.name }}
-    dest: /home/rafael/.config/eww/{{ item.name }}
+    dest: /home/rafael/.config/{{ item.path }}
     owner: rafael
     group: rafael
     mode: "{{ item.mode }}"
   loop:
-    - { name: 'eww.yuck',  mode: '0600' }
-    - { name: 'eww.scss',  mode: '0600' }
-    - { name: 'volume.sh', mode: '0700' }
+    - { name: 'eww.yuck', path: 'eww/eww.yuck',   mode: '0600' }
+    - { name: 'eww.scss', path: 'eww/eww.scss',   mode: '0600' }
+    - { name: 'osd.sh',   path: 'scripts/osd.sh', mode: '0700' }
 
 - name: software | widget | copy eww icons
   tags: widget
