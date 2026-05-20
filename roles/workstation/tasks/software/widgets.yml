@@ -35,19 +35,20 @@
   tags: widget
   copy:
     remote_src: true
-    src: /home/ansible/git/dotfiles/icon/{{ item }}
-    dest: /home/rafael/.config/icon/{{ item }}
+    src: /home/ansible/git/dotfiles/icon/{{ item.src }}
+    dest: /home/rafael/.config/icon/{{ item.dest }}
     owner: rafael
     group: rafael
-    mode: 0600
+    mode: "{{ item.mode }}"
   loop:
-    - vol-mute.png
-    - vol-low.png
-    - vol-med.png
-    - vol-high.png
-    - mic.svg
-    - mic-mute.svg
-    - brightness.svg
-    - kbd-backlit-off.svg
-    - kbd-backlit-low.svg
-    - kbd-backlit-high.svg
+    - { src: 'vol-mute.png',              dest: 'vol-mute.png',              mode: '0600' }
+    - { src: 'vol-low.png',               dest: 'vol-low.png',               mode: '0600' }
+    - { src: 'vol-med.png',               dest: 'vol-med.png',               mode: '0600' }
+    - { src: 'vol-high.png',              dest: 'vol-high.png',              mode: '0600' }
+    - { src: 'mic.svg',                   dest: 'mic.svg',                   mode: '0600' }
+    - { src: 'mic-mute.svg',              dest: 'mic-mute.svg',              mode: '0600' }
+    - { src: 'brightness.svg',            dest: 'brightness.svg',            mode: '0600' }
+    - { src: 'kbd-backlit-off.svg',       dest: 'kbd-backlit-off.svg',       mode: '0600' }
+    - { src: 'kbd-backlit-low.svg',       dest: 'kbd-backlit-low.svg',       mode: '0600' }
+    - { src: 'kbd-backlit-high.svg',      dest: 'kbd-backlit-high.svg',      mode: '0600' }
+    - { src: 'screen-color-temperature/', dest: 'screen-color-temperature/', mode: '0700' }
