@@ -51,6 +51,17 @@
     - extension_install_policy.json  # install extensions
     - dev_mode.json                  # ensure developer mode is available
 
+- name: software | browser | disable Brave hardware acceleration on ancient GPUs
+  tags: browser,brave
+  copy:
+    src: /home/ansible/git/dotfiles/brave/hardware_acceleration.json
+    dest: /etc/brave/policies/managed/hardware_acceleration.json
+    remote_src: true
+    owner: root
+    group: root
+    mode: 0644
+  when: nvidia_driver == "nouveau"
+
 - name: software | browser | ensure .desktop files dir exists
   tags: browser,brave
   file:
