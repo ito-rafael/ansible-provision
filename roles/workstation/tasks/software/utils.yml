@@ -45,6 +45,7 @@
     name:
       - ristretto    # image viewer
       - gimp         # image editor
+      - inkscape     # vector graphics editor
       - meld         # GUI diff
       - pdfpc        # slides presentation
       - yad          # GUI dialogs from CLI/scripts (zenity fork)
