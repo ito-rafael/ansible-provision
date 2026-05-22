@@ -3,8 +3,9 @@
   become_user: aurman
   kewlfft.aur.aur:
     name:
-      - brave-bin
-      - brave-beta-bin
+      #- brave-bin
+      #- brave-beta-bin
+      - brave-origin-beta-bin
   when: ansible_facts['distribution'] == "Archlinux"
 
 - name: software | browser | copy Brave & Brave Beta dotfiles
