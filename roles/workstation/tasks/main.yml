@@ -53,8 +53,9 @@
   - import_tasks: software/android.yml                  # Android
   - import_tasks: software/app-laucher.yml              # rofi
   - import_tasks: software/browser-brave.yml            # browser: Brave
+  - import_tasks: software/browser-chromium.yml         # browser: Ungoogled Chromium
   - import_tasks: software/browser-firefox.yml          # browser: Firefox
-  - import_tasks: software/browser-chromium.yml         # browser: Chromium
+  - import_tasks: software/browser-edge.yml             # browser: Microsoft Edge
   - import_tasks: software/display-manager.yml          # LightDM / SDDM
   - import_tasks: software/email-client.yml             # Thunderbird
   - import_tasks: software/ebook.yml                    # calibre, KOReader

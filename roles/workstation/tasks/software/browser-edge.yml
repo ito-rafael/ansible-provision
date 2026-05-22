@@ -1,0 +1,6 @@
+- name: software | browser | install Microsoft Edge
+  tags: browser,edge
+  become_user: aurman
+  kewlfft.aur.aur:
+    name: microsoft-edge-stable-bin
+  when: ansible_facts['distribution'] == "Archlinux"
