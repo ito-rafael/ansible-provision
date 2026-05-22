@@ -15,13 +15,11 @@
 #    - display_manager == "wayland"
 #    - ansible_facts['distribution'] == "Archlinux"
 
-- name: keyboard | utils | install keyboard tools (AUR)
+- name: keyboard | utils | install keyboard tools
   tags: keyboard,utils
-  become_user: aurman
-  kewlfft.aur.aur:
+  package:
     name:
       - showmethekey     # screencast tool for both X11/Wayland
-  when: ansible_facts['distribution'] == "Archlinux"
 
 - name: keyboard | utils | install keyboard tools for X11
   tags: keyboard,utils
