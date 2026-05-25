@@ -57,6 +57,7 @@
   package:
     name:
       - xorg-xwayland  # run X clients under Wayland
+      - xorg-xeyes     # follow the mouse in X11/Xwayland windows
       - wl-clipboard   # clipboard utils
       - waycheck       # Wayland protocols implementation status
       - wtype          # "xdotool type" for Wayland
