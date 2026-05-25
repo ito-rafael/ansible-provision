@@ -56,6 +56,7 @@
   - import_tasks: software/browser-chromium.yml         # browser: Ungoogled Chromium
   - import_tasks: software/browser-firefox.yml          # browser: Firefox
   - import_tasks: software/browser-edge.yml             # browser: Microsoft Edge
+  - import_tasks: software/browser-extensions.yml       # browser: Surfingkeys
   - import_tasks: software/display-manager.yml          # LightDM / SDDM
   - import_tasks: software/email-client.yml             # Thunderbird
   - import_tasks: software/ebook.yml                    # calibre, KOReader

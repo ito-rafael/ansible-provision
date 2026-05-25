@@ -1,0 +1,7 @@
+- name: software | browser | allow user scripts for Surfingkeys
+  tags: browser,brave,surfingkeys
+  become_user: rafael
+  ansible.builtin.command: /home/ansible/git/dotfiles/web-browser-extension/allow_user_scripts.py
+  register: brave_toggle_result
+  changed_when: "'Success: Toggled ON' in brave_toggle_result.stdout"
+  failed_when: brave_toggle_result.rc != 0
