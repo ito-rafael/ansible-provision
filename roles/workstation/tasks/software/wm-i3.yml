@@ -22,6 +22,7 @@
     name:
       - xclip               # clipboard utils
       - imagemagick         # used by i3lock scripts
+      - xorg-xeyes          # follow the mouse in X11/Xwayland windows
 
 - name: software | window-manager | ensure i3wm dirs exist
   tags: X11,i3
