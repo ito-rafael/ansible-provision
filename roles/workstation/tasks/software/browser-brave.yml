@@ -59,6 +59,16 @@
     mode: 0644
   when: nvidia_driver == "nouveau"
 
+- name: software | browser | copy Brave initial_preferences file
+  tags: browser,brave
+  copy:
+    src: /home/ansible/git/dotfiles/brave/initial_preferences
+    dest: /opt/brave.com/initial_preferences
+    remote_src: true
+    owner: root
+    group: root
+    mode: 0644
+
 - name: software | browser | ensure .desktop files dir exists
   tags: browser,brave
   file:
