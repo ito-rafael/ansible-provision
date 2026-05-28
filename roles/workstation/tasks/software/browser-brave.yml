@@ -43,7 +43,7 @@
 - name: software | browser | disable Brave hardware acceleration on ancient GPUs
   tags: browser,brave
   copy:
-    src: /home/ansible/git/dotfiles/brave/hardware_acceleration.json
+    src: /home/ansible/git/dotfiles/brave/json/hardware_acceleration.json
     dest: /etc/brave/policies/managed/hardware_acceleration.json
     remote_src: true
     owner: root
@@ -54,7 +54,7 @@
 - name: software | browser | copy Brave initial_preferences file
   tags: browser,brave
   copy:
-    src: /home/ansible/git/dotfiles/brave/initial_preferences
+    src: /home/ansible/git/dotfiles/brave/config/initial_preferences
     dest: /opt/brave.com/initial_preferences
     remote_src: true
     owner: root
