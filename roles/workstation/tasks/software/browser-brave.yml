@@ -8,18 +8,15 @@
       - brave-origin-beta-bin
   when: ansible_facts['distribution'] == "Archlinux"
 
-- name: software | browser | copy Brave & Brave Beta dotfiles
+- name: software | browser | copy Brave dotfiles
   tags: browser,brave
   copy:
-    src: /home/ansible/git/dotfiles/{{ item.src }}
-    dest: /home/rafael/.config/{{ item.dest }}
+    src: /home/ansible/git/dotfiles/brave/config/brave-flags.conf
+    dest: /home/rafael/.config/brave-flags.conf
     remote_src: true
     owner: rafael
     group: rafael
     mode: 0600
-  with_items:
-    - { src: 'brave/brave-flags.conf',           dest: 'brave-flags.conf' }
-    - { src: 'brave-beta/brave-beta-flags.conf', dest: 'brave-beta-flags.conf' }
 
 - name: software | browser | fix brave-beta shell script
   tags: browser,brave
@@ -29,7 +26,7 @@
     regexp: '"\$USER_FLAGS"'
     replace: '$USER_FLAGS'
 
-- name: software | browser | ensure Brave & Brave Beta extensions dir exist
+- name: software | browser | ensure Brave extensions dir exist
   tags: browser,brave
   file:
     path: /etc/brave/policies/managed
