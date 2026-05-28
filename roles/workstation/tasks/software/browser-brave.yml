@@ -8,24 +8,6 @@
       - brave-origin-beta-bin
   when: ansible_facts['distribution'] == "Archlinux"
 
-- name: software | browser | copy Brave dotfiles
-  tags: browser,brave
-  copy:
-    src: /home/ansible/git/dotfiles/brave/config/brave-flags.conf
-    dest: /home/rafael/.config/brave-flags.conf
-    remote_src: true
-    owner: rafael
-    group: rafael
-    mode: 0600
-
-- name: software | browser | fix brave-beta shell script
-  tags: browser,brave
-  become: yes
-  ansible.builtin.replace:
-    path: /usr/bin/brave-beta
-    regexp: '"\$USER_FLAGS"'
-    replace: '$USER_FLAGS'
-
 - name: software | browser | ensure Brave extensions dir exist
   tags: browser,brave
   file:
@@ -47,6 +29,16 @@
   loop:
     - extension_install_policy.json  # install extensions
     - dev_mode.json                  # ensure developer mode is available
+
+- name: software | browser | copy Brave flags file
+  tags: browser,brave
+  copy:
+    src: /home/ansible/git/dotfiles/brave/config/brave-flags.conf
+    dest: /home/rafael/.config/brave-flags.conf
+    remote_src: true
+    owner: rafael
+    group: rafael
+    mode: 0600
 
 - name: software | browser | disable Brave hardware acceleration on ancient GPUs
   tags: browser,brave
