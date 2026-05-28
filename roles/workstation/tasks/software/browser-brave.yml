@@ -55,7 +55,7 @@
   tags: browser,brave
   copy:
     src: /home/ansible/git/dotfiles/brave/config/initial_preferences
-    dest: /opt/brave.com/initial_preferences
+    dest: /opt/brave.com/brave-origin-beta/initial_preferences
     remote_src: true
     owner: root
     group: root
