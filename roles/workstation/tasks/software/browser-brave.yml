@@ -38,7 +38,7 @@
 - name: software | browser | copy Brave dotfiles
   tags: browser,brave
   copy:
-    src: /home/ansible/git/dotfiles/brave/{{ item }}
+    src: /home/ansible/git/dotfiles/brave/json/{{ item }}
     dest: /etc/brave/policies/managed/{{ item }}
     remote_src: true
     owner: root
