@@ -1,4 +1,4 @@
-- name: software | browser | install Brave
+- name: software | browser Brave | install Brave Origin
   tags: browser,brave
   become_user: aurman
   kewlfft.aur.aur:
@@ -8,7 +8,7 @@
       - brave-origin-beta-bin
   when: ansible_facts['distribution'] == "Archlinux"
 
-- name: software | browser | ensure Brave extensions dir exist
+- name: software | browser Brave | ensure extensions dir exist
   tags: browser,brave
   file:
     path: /etc/brave/policies/managed
@@ -17,7 +17,7 @@
     group: root
     mode: 0755
 
-- name: software | browser | copy Brave dotfiles
+- name: software | browser Brave | copy dotfiles
   tags: browser,brave
   copy:
     src: /home/ansible/git/dotfiles/brave/json/{{ item }}
@@ -30,7 +30,7 @@
     - extension_install_policy.json  # install extensions
     - dev_mode.json                  # ensure developer mode is available
 
-- name: software | browser | copy Brave flags file
+- name: software | browser Brave | copy flags file
   tags: browser,brave
   copy:
     src: /home/ansible/git/dotfiles/brave/config/brave-flags.conf
@@ -40,7 +40,7 @@
     group: rafael
     mode: 0600
 
-- name: software | browser | disable Brave hardware acceleration on ancient GPUs
+- name: software | browser Brave | disable hardware acceleration on ancient GPUs
   tags: browser,brave
   copy:
     src: /home/ansible/git/dotfiles/brave/json/hardware_acceleration.json
@@ -51,7 +51,7 @@
     mode: 0644
   when: nvidia_driver == "nouveau"
 
-- name: software | browser | copy Brave initial_preferences file
+- name: software | browser Brave | copy initial_preferences file
   tags: browser,brave
   copy:
     src: /home/ansible/git/dotfiles/brave/config/initial_preferences
@@ -61,7 +61,7 @@
     group: root
     mode: 0644
 
-- name: software | browser | ensure .desktop files dir exists
+- name: software | browser Brave | ensure .desktop files dir exists
   tags: browser,brave
   file:
     path: /home/rafael/.local/share/applications
@@ -70,7 +70,7 @@
     group: rafael
     mode: 0755
 
-- name: software | browser | copy brave-origin-beta desktop file
+- name: software | browser Brave | copy brave-origin-beta desktop file
   tags: browser,brave
   copy:
     src: /home/ansible/git/dotfiles/brave/brave-origin-beta.desktop
@@ -80,7 +80,7 @@
     group: rafael
     mode: 0600
 
-- name: software | browser | check if Brave Preferences file exists
+- name: software | browser Brave | check if Preferences file exists
   tags: browser,brave
   ansible.builtin.stat:
     path: "{{ brave_prefs_path }}"
