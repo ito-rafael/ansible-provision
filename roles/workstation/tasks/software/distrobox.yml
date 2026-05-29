@@ -10,3 +10,13 @@
     dockerfile_path: "/home/ansible/git/dotfiles/distrobox/brave-origin-beta/Dockerfile"
     build_context_dir: "/home/ansible/git/dotfiles/brave"
     brave_host_dir: "/home/rafael/.config/BraveSoftware/Brave-Distrobox"
+
+- name: software | scratchpad | build Brave Origin image with podman
+  tags: scratchpad,distrobox
+  become_user: rafael
+  containers.podman.podman_image:
+    name: "{{ container_name }}"
+    path: "{{ build_context_dir }}"
+    build:
+      file: "{{ dockerfile_path }}"
+  register: image_build
