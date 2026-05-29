@@ -20,3 +20,11 @@
     build:
       file: "{{ dockerfile_path }}"
   register: image_build
+
+- name: software | scratchpad | check if Brave Origin container exists with podman
+  tags: scratchpad,distrobox
+  become_user: rafael
+  ansible.builtin.command: "podman container exists {{ container_name }}"
+  failed_when: container_check.rc not in [0, 1]
+  changed_when: false
+  register: container_check
