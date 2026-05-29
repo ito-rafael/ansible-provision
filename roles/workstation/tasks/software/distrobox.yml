@@ -72,3 +72,13 @@
     - name: software | distrobox | set Brave Origin dark theme
       ansible.builtin.shell: |
         distrobox enter {{ container_name }} -- sh -c 'jq ".browser.theme.color_scheme2 = 2" ~/.config/BraveSoftware/Brave-Origin-Beta/Default/Preferences > tmp.json && mv tmp.json ~/.config/BraveSoftware/Brave-Origin-Beta/Default/Preferences'
+
+    - name: software | distrobox | run Python scripts to configure preferences & extensions
+      #ansible.builtin.command: "distrobox enter {{ container_name }} -- python3 /usr/local/bin/{{ item }}"
+      ansible.builtin.command: "distrobox enter {{ container_name }} -- xvfb-run -a python3 /usr/local/bin/{{ item }}"
+      loop:
+        - preferences_developer_mode.py
+        - preferences_block_translations.py
+        - surfingkeys_allow_user_scripts.py
+        - surfingkeys_advanced_mode.py
+        - surfingkeys_load_settings.py
