@@ -82,3 +82,6 @@
         - surfingkeys_allow_user_scripts.py
         - surfingkeys_advanced_mode.py
         - surfingkeys_load_settings.py
+
+    - name: software | distrobox | delete old Distrobox desktop entries
+      ansible.builtin.shell: "rm -rf /home/rafael/.local/share/applications/{{ container_name }}*"
