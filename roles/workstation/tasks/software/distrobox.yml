@@ -68,3 +68,7 @@
     - name: software | distrobox | wait for Brave Origin saving the profile
       ansible.builtin.pause:
         seconds: 3
+
+    - name: software | distrobox | set Brave Origin dark theme
+      ansible.builtin.shell: |
+        distrobox enter {{ container_name }} -- sh -c 'jq ".browser.theme.color_scheme2 = 2" ~/.config/BraveSoftware/Brave-Origin-Beta/Default/Preferences > tmp.json && mv tmp.json ~/.config/BraveSoftware/Brave-Origin-Beta/Default/Preferences'
