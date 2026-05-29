@@ -28,3 +28,14 @@
   failed_when: container_check.rc not in [0, 1]
   changed_when: false
   register: container_check
+
+# runs only if the image was updated, or the container is missing
+- name: software | scratchpad | setup and configure Distrobox
+  tags: scratchpad,distrobox
+  become_user: rafael
+  when: image_build.changed or container_check.rc != 0
+  block:
+    - name: software | scratchpad | delete Brave-Distrobox directory
+      ansible.builtin.file:
+        path: "{{ brave_host_dir }}"
+        state: absent
