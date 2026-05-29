@@ -2,3 +2,11 @@
   tags: scratchpad,distrobox
   package:
     name: distrobox
+
+- name: software | scratchpad | set variables for Brave Distrobox build
+  tags: scratchpad,distrobox
+  ansible.builtin.set_fact:
+    container_name: "brave-origin-beta"
+    dockerfile_path: "/home/ansible/git/dotfiles/distrobox/brave-origin-beta/Dockerfile"
+    build_context_dir: "/home/ansible/git/dotfiles/brave"
+    brave_host_dir: "/home/rafael/.config/BraveSoftware/Brave-Distrobox"
