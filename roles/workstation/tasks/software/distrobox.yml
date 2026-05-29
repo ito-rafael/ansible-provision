@@ -45,3 +45,8 @@
         path: "{{ brave_host_dir }}"
         state: directory
         mode: '0755'
+
+    - name: software | distrobox | delete brave-origin-beta container
+      ansible.builtin.command: "distrobox rm -f {{ container_name }}"
+      # Only runs if container exists but needs recreation due to an image update
+      when: container_check.rc == 0
