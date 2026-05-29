@@ -1,0 +1,4 @@
+- name: software | scratchpad | install Distrobox
+  tags: scratchpad,distrobox
+  package:
+    name: distrobox
