@@ -93,6 +93,13 @@
   register: brave_prefs_initial
 
   tags: browser,brave
+- name: software | browser Brave | check if Brave is running
+  tags: browser,brave
+  ansible.builtin.command: pgrep -f brave-origin-beta
+  failed_when: brave_running_check.rc not in [0, 1]
+  changed_when: false
+  register: brave_running
+
 - name: software | browser Brave | get current theme
   become_user: rafael
   ansible.builtin.command: "jq -r '.browser.theme.color_scheme2 // empty' {{ brave_prefs_path }}"
