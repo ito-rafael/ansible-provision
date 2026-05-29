@@ -57,3 +57,6 @@
         --name {{ container_name }}
         --image {{ container_name }}
         --volume {{ brave_host_dir }}:/home/rafael/.config/BraveSoftware
+
+    - name: software | distrobox | pre-warm distrobox container
+      ansible.builtin.command: "distrobox enter {{ container_name }} -- echo 'Container is ready!'"
