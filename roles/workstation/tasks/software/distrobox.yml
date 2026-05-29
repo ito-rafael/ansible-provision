@@ -64,3 +64,7 @@
     - name: software | distrobox | generate Brave Origin profile (via Xvfb)
       ansible.builtin.shell: |
         distrobox enter {{ container_name }} -- sh -c 'xvfb-run -a brave-origin-beta --skip-origin-startup-dialog --no-first-run --disable-gpu --disable-dev-shm-usage --ozone-platform=x11 https://example.com > /dev/null 2>&1 & sleep 15 && pkill -15 brave'
+
+    - name: software | distrobox | wait for Brave Origin saving the profile
+      ansible.builtin.pause:
+        seconds: 3
