@@ -50,3 +50,10 @@
       ansible.builtin.command: "distrobox rm -f {{ container_name }}"
       # Only runs if container exists but needs recreation due to an image update
       when: container_check.rc == 0
+
+    - name: software | distrobox | recreate brave-origin-beta container
+      ansible.builtin.command: >
+        distrobox create
+        --name {{ container_name }}
+        --image {{ container_name }}
+        --volume {{ brave_host_dir }}:/home/rafael/.config/BraveSoftware
