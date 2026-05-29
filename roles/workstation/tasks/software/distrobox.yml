@@ -1,9 +1,9 @@
-- name: software | scratchpad | install Distrobox
+- name: software | distrobox | install Distrobox
   tags: scratchpad,distrobox
   package:
     name: distrobox
 
-- name: software | scratchpad | set variables for Brave Distrobox build
+- name: software | distrobox | set variables for Brave Distrobox build
   tags: scratchpad,distrobox
   ansible.builtin.set_fact:
     container_name: "brave-origin-beta"
@@ -11,7 +11,7 @@
     build_context_dir: "/home/ansible/git/dotfiles/brave"
     brave_host_dir: "/home/rafael/.config/BraveSoftware/Brave-Distrobox"
 
-- name: software | scratchpad | build Brave Origin image with podman
+- name: software | distrobox | build Brave Origin image with podman
   tags: scratchpad,distrobox
   become_user: rafael
   containers.podman.podman_image:
@@ -21,7 +21,7 @@
       file: "{{ dockerfile_path }}"
   register: image_build
 
-- name: software | scratchpad | check if Brave Origin container exists with podman
+- name: software | distrobox | check if Brave Origin container exists with podman
   tags: scratchpad,distrobox
   become_user: rafael
   ansible.builtin.command: "podman container exists {{ container_name }}"
@@ -30,12 +30,18 @@
   register: container_check
 
 # runs only if the image was updated, or the container is missing
-- name: software | scratchpad | setup and configure Distrobox
+- name: software | distrobox | setup and configure Distrobox
   tags: scratchpad,distrobox
   become_user: rafael
   when: image_build.changed or container_check.rc != 0
   block:
-    - name: software | scratchpad | delete Brave-Distrobox directory
+    - name: software | distrobox | delete Brave-Distrobox directory
       ansible.builtin.file:
         path: "{{ brave_host_dir }}"
         state: absent
+
+    - name: software | distrobox | recreate fresh Brave-Distrobox directory
+      ansible.builtin.file:
+        path: "{{ brave_host_dir }}"
+        state: directory
+        mode: '0755'
