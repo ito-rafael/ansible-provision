@@ -85,3 +85,8 @@
 
     - name: software | distrobox | delete old Distrobox desktop entries
       ansible.builtin.shell: "rm -rf /home/rafael/.local/share/applications/{{ container_name }}*"
+
+    - name: software | distrobox | generate Distrobox desktop file
+      ansible.builtin.command: >
+        distrobox enter {{ container_name }} -- 
+        distrobox-export --app {{ container_name }} --extra-flags "--no-default-browser-check"
