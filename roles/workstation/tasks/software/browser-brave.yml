@@ -91,9 +91,15 @@
   become_user: rafael
   ansible.builtin.stat:
     path: "{{ brave_prefs_path }}"
-  register: brave_prefs_initial
+  register: brave_prefs
 
+- name: software | browser Brave | initial profile generation and script execution
   tags: browser,brave
+  when: not brave_prefs.stat.exists
+  block:
+    - name: software | browser Brave | install Xvfb for headless run
+      ansible.builtin.package:
+        name: xorg-server-xvfb
 - name: software | browser Brave | check if Brave is running
   tags: browser,brave
   ansible.builtin.command: pgrep -f brave-origin-beta
