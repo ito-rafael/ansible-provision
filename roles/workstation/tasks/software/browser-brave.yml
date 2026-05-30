@@ -116,7 +116,7 @@
 - name: software | browser Brave | check if Brave is running
   tags: browser,brave
   ansible.builtin.command: pgrep -f brave-origin-beta
-  failed_when: brave_running_check.rc not in [0, 1]
+  failed_when: brave_running.rc not in [0, 1]
   changed_when: false
   register: brave_running
 
