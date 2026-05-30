@@ -11,6 +11,7 @@
       #- brave-bin
       #- brave-beta-bin
       - brave-origin-beta-bin
+      - python-webdriver-manager  # used by Selenium for automated config
   when: ansible_facts['distribution'] == "Archlinux"
 
 - name: software | browser Brave | ensure extensions dir exist
