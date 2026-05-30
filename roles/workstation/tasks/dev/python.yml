@@ -7,38 +7,39 @@
   tags: dev,python
   package:
     name:
-      - twine                    # PyPI interaction
-      - python-build             # PyPI build
-      - python-pip               # PyPA packages install
+      - twine                     # PyPI interaction
+      - python-build              # PyPI build
+      - python-pip                # PyPA packages install
 
 - name: development | python | install Python essential packages (AUR)
   tags: dev,python
   become_user: aurman
   kewlfft.aur.aur:
     name:
-      - python-selenium          # web browser automation
+      - python-selenium           # web browser automation
+      - python-webdriver-manager  # browser drivers for Selenium
 
 - name: development | python | install Python miscellaneous packages
   tags: dev,python
   package:
     name:
-      - python-pyserial          # serial port module
+      - python-pyserial           # serial port module
 
 - name: development | python | install Python documentation packages
   tags: dev,python
   package:
     name:
-      - python-sphinx            # Sphinx: documentation generator
-      - python-sphinx_rtd_theme  # Read the Docs Sphinx theme
-      - python-recommonmark      # markdown parser for docutils & Sphinx
+      - python-sphinx             # Sphinx: documentation generator
+      - python-sphinx_rtd_theme   # Read the Docs Sphinx theme
+      - python-recommonmark       # markdown parser for docutils & Sphinx
 
 - name: development | python | install Python data science packages
   tags: dev,python
   package:
     name:
-      - python-numpy             # NumPy: arrays support
-      - python-pandas            # pandas: data analysis (DataFrame object)
-      - python-matplotlib        # Matplotlib: plot & visualization
-      - python-scipy             # SciPy: scientific computing
-      - python-scikit-learn      # scikit-learn: machine learning lib
-      - python-seaborn           # seaborn: statistical data visualization
+      - python-numpy              # NumPy: arrays support
+      - python-pandas             # pandas: data analysis (DataFrame object)
+      - python-matplotlib         # Matplotlib: plot & visualization
+      - python-scipy              # SciPy: scientific computing
+      - python-scikit-learn       # scikit-learn: machine learning lib
+      - python-seaborn            # seaborn: statistical data visualization
