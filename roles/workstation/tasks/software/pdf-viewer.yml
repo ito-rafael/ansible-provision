@@ -3,6 +3,11 @@
   package:
     name: evince
 
+- name: software | pdf viewer | install other packages
+  tags: pdf,evince
+  package:
+    name: qpdf  # content-preserving PDF transformation system
+
 - name: software | pdf viewer | install Zathura
   tags: pdf,zathura
   package:
