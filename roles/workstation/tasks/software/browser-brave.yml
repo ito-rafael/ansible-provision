@@ -1,6 +1,7 @@
 - name: software | browser Brave | set variables
   tags: browser,brave
   ansible.builtin.set_fact:
+    brave_prefs_path: "/home/rafael/.config/BraveSoftware/Brave-Origin-Beta/Default/Preferences"
     brave_dotfiles_dir: "/home/ansible/git/dotfiles/brave"
 
 - name: software | browser Brave | install Brave Origin
@@ -141,3 +142,15 @@
     jq '.browser.theme.color_scheme2 = 2' "{{ brave_prefs_path }}" > "{{ brave_prefs_path }}.tmp" &&
     mv "{{ brave_prefs_path }}.tmp" "{{ brave_prefs_path }}"
   when: brave_theme.stdout | default('') != "2"
+
+- name: software | browser Brave | run Python scripts to configure preferences & extensions
+  tags: browser,brave
+  become_user: rafael
+  #ansible.builtin.command: "python3 {{ brave_dotfiles_dir }}/scripts/{{ item }}"
+  ansible.builtin.shell: "xvfb-run -a python3 {{ brave_dotfiles_dir }}/scripts/{{ item }}"
+  loop:
+    - preferences_developer_mode.py
+    - preferences_block_translations.py
+    - surfingkeys_allow_user_scripts.py
+    - surfingkeys_advanced_mode.py
+    - surfingkeys_load_settings.py
