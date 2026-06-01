@@ -15,6 +15,11 @@
       - python-webdriver-manager  # used by Selenium for automated config
   when: ansible_facts['distribution'] == "Archlinux"
 
+- name: software | browser Brave | install Xvfb for headless run
+  tags: browser,brave
+  ansible.builtin.package:
+    name: xorg-server-xvfb
+
 - name: software | browser Brave | ensure extensions dir exist
   tags: browser,brave
   file:
@@ -98,10 +103,6 @@
   tags: browser,brave
   when: not brave_prefs.stat.exists
   block:
-    - name: software | browser Brave | install Xvfb for headless run
-      ansible.builtin.package:
-        name: xorg-server-xvfb
-
     - name: software | browser Brave | generate Brave Origin profile (via Xvfb)
       become_user: rafael
       ansible.builtin.shell: |
