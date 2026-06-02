@@ -94,8 +94,8 @@
 
 - name: software | browser Brave | check if Brave is running
   tags: browser,brave
-  ansible.builtin.command: pgrep -f brave-origin-beta
-  failed_when: brave_running.rc not in [0, 1]
+  ansible.builtin.command: set -o pipefail && pgrep -a -f "[o]pt/brave.com/brave-origin-beta/brave" | grep -v " --type=" | grep -v " --app="
+  failed_when: false
   changed_when: false
   register: brave_running
 
@@ -104,7 +104,7 @@
   ansible.builtin.fail:
     msg: >
       [ABORTED] Brave is currently running and configuration updates are pending!
-      Please close the browser manually and re-run the playbook to apply the changes safely.
+      Please close the browser manually (Web Apps are fine) and re-run the playbook to apply the changes safely.
   when: brave_running.rc == 0
 
 - name: software | browser Brave | check if Preferences file exists
