@@ -92,6 +92,21 @@
     group: rafael
     mode: 0600
 
+- name: software | browser Brave | check if Brave is running
+  tags: browser,brave
+  ansible.builtin.command: pgrep -f brave-origin-beta
+  failed_when: brave_running.rc not in [0, 1]
+  changed_when: false
+  register: brave_running
+
+- name: software | browser Brave | abort if Brave is currently open
+  tags: browser,brave
+  ansible.builtin.fail:
+    msg: >
+      [ABORTED] Brave is currently running and configuration updates are pending!
+      Please close the browser manually and re-run the playbook to apply the changes safely.
+  when: brave_running.rc == 0
+
 - name: software | browser Brave | check if Preferences file exists
   tags: browser,brave
   become_user: rafael
@@ -114,20 +129,6 @@
       ansible.builtin.pause:
         seconds: 3
 
-- name: software | browser Brave | check if Brave is running
-  tags: browser,brave
-  ansible.builtin.command: pgrep -f brave-origin-beta
-  failed_when: brave_running.rc not in [0, 1]
-  changed_when: false
-  register: brave_running
-
-- name: software | browser Brave | abort if Brave is currently open
-  tags: browser,brave
-  ansible.builtin.fail:
-    msg: >
-      [ABORTED] Brave is currently running and configuration updates are pending!
-      Please close the browser manually and re-run the playbook to apply the changes safely.
-  when: brave_running.rc == 0
 
 - name: software | browser Brave | get current theme
   tags: browser,brave
