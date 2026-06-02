@@ -47,7 +47,7 @@
   tags: browser,brave
   copy:
     src: "{{ brave_dotfiles_dir }}/config/brave-flags.conf"
-    dest: /home/rafael/.config/brave-flags.conf
+    dest: /home/rafael/.config/brave-origin-beta-flags.conf
     remote_src: true
     owner: rafael
     group: rafael
