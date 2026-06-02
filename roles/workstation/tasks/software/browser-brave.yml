@@ -93,6 +93,13 @@
     group: rafael
     mode: 0600
 
+- name: software | browser Brave | check if Preferences file exists
+  tags: browser,brave
+  become_user: rafael
+  ansible.builtin.stat:
+    path: "{{ brave_prefs_path }}"
+  register: brave_prefs
+
 - name: software | browser Brave | check if Brave is running
   tags: browser,brave
   ansible.builtin.command: set -o pipefail && pgrep -a -f "[o]pt/brave.com/brave-origin-beta/brave" | grep -v " --type=" | grep -v " --app="
@@ -106,18 +113,12 @@
     msg: >
       [ABORTED] Brave is currently running and configuration updates are pending!
       Please close the browser manually (Web Apps are fine) and re-run the playbook to apply the changes safely.
-  when: brave_running.rc == 0
-
-- name: software | browser Brave | check if Preferences file exists
-  tags: browser,brave
-  become_user: rafael
-  ansible.builtin.stat:
-    path: "{{ brave_prefs_path }}"
-  register: brave_prefs
+  when:
+    - not brave_prefs.stat.exists
+    - brave_running.rc == 0
 
 - name: software | browser Brave | initial profile generation and script execution
   tags: browser,brave
-  when: not brave_prefs.stat.exists
   block:
     - name: software | browser Brave | generate Brave Origin profile (via Xvfb)
       become_user: rafael
@@ -130,6 +131,9 @@
       become_user: rafael
       ansible.builtin.pause:
         seconds: 3
+  when:
+    - not brave_prefs.stat.exists
+    - brave_running.rc == 0
 
 - name: software | browser Brave | get current theme
   tags: browser,brave
