@@ -41,6 +41,7 @@
   loop:
     - extension_install_policy.json  # install extensions
     - dev_mode.json                  # ensure developer mode is available
+    - default_browser.json           # disable default browser check
 
 - name: software | browser Brave | copy flags file
   tags: browser,brave
