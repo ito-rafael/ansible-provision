@@ -1,4 +1,4 @@
-- name: software | browser | install Microsoft Edge
+- name: software | browser Edge | install Microsoft Edge
   tags: browser,edge
   become_user: aurman
   kewlfft.aur.aur:
