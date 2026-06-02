@@ -129,7 +129,6 @@
       ansible.builtin.pause:
         seconds: 3
 
-
 - name: software | browser Brave | get current theme
   tags: browser,brave
   become_user: rafael
@@ -156,3 +155,5 @@
     - surfingkeys_allow_user_scripts.py
     - surfingkeys_advanced_mode.py
     - surfingkeys_load_settings.py
+  register: python_execution
+  changed_when: "'Success' in python_execution.stdout"
