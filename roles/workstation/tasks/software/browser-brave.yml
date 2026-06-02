@@ -122,8 +122,9 @@
     - name: software | browser Brave | generate Brave Origin profile (via Xvfb)
       become_user: rafael
       ansible.builtin.shell: |
-        timeout 15 xvfb-run -a brave-origin-beta --skip-origin-startup-dialog --no-first-run --disable-gpu --disable-dev-shm-usage --ozone-platform=x11 https://example.com > /dev/null 2>&1 || true
-        pkill -15 -x brave-origin-beta || true
+        xvfb-run -a brave-origin-beta --skip-origin-startup-dialog --no-first-run --disable-gpu --disable-dev-shm-usage --ozone-platform=x11 --ansible-burn-in https://example.com > /dev/null 2>&1 &
+        sleep 120
+        pkill -15 -f "--ansible-burn-in" || true
 
     - name: software | browser Brave | wait for profile IO completion
       become_user: rafael
@@ -148,7 +149,6 @@
 - name: software | browser Brave | run Python scripts to configure preferences & extensions
   tags: browser,brave
   become_user: rafael
-  #ansible.builtin.command: "python3 {{ brave_dotfiles_dir }}/scripts/{{ item }}"
   ansible.builtin.shell: "xvfb-run -a python3 {{ brave_dotfiles_dir }}/scripts/{{ item }}"
   loop:
     - preferences_developer_mode.py
