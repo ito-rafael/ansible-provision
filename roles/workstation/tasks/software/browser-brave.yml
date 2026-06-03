@@ -93,6 +93,10 @@
     group: rafael
     mode: 0600
 
+#----------------------------------
+# read-only block
+#----------------------------------
+
 - name: software | browser Brave | check if Preferences file exists
   tags: browser,brave
   become_user: rafael
@@ -115,6 +119,10 @@
   changed_when: false
   register: brave_running
 
+#----------------------------------
+# gatekeeper: abort if needed
+#----------------------------------
+
 - name: software | browser Brave | abort if Brave is currently open
   tags: browser,brave
   ansible.builtin.fail:
@@ -124,6 +132,10 @@
   when:
     - not brave_prefs.stat.exists
     - brave_running.rc == 0
+
+#----------------------------------
+# write block
+#----------------------------------
 
 - name: software | browser Brave | initial profile generation and script execution
   tags: browser,brave
