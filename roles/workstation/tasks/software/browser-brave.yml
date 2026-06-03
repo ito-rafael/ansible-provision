@@ -100,6 +100,14 @@
     path: "{{ brave_prefs_path }}"
   register: brave_prefs
 
+- name: software | browser Brave | get current theme
+  tags: browser,brave
+  become_user: rafael
+  ansible.builtin.command: "jq -r '.browser.theme.color_scheme2 // empty' {{ brave_prefs_path }}"
+  changed_when: false
+  register: brave_theme
+  when: brave_prefs.stat.exists
+
 - name: software | browser Brave | check if Brave is running
   tags: browser,brave
   ansible.builtin.command: set -o pipefail && pgrep -a -f "[o]pt/brave.com/brave-origin-beta/brave" | grep -v " --type=" | grep -v " --app="
@@ -134,13 +142,6 @@
   when:
     - not brave_prefs.stat.exists
     - brave_running.rc == 0
-
-- name: software | browser Brave | get current theme
-  tags: browser,brave
-  become_user: rafael
-  ansible.builtin.command: "jq -r '.browser.theme.color_scheme2 // empty' {{ brave_prefs_path }}"
-  changed_when: false
-  register: brave_theme
 
 - name: software | browser Brave | set dark theme
   tags: browser,brave
