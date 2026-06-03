@@ -130,8 +130,8 @@
       [ABORTED] Brave is currently running and configuration updates are pending!
       Please close the browser manually (Web Apps are fine) and re-run the playbook to apply the changes safely.
   when:
-    - not brave_prefs.stat.exists
     - brave_running.rc == 0
+    - (not brave_prefs.stat.exists) or (brave_theme.stdout | default('') != "2")
 
 #----------------------------------
 # write block
@@ -153,7 +153,6 @@
         seconds: 3
   when:
     - not brave_prefs.stat.exists
-    - brave_running.rc == 0
 
 - name: software | browser Brave | set dark theme
   tags: browser,brave
