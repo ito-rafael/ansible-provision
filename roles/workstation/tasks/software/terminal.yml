@@ -24,6 +24,7 @@
   with_items:
     - kitty.conf
     - themes/default.conf
+    - themes/midnight_press.conf
     - themes/pacman.conf
     - themes/python.conf
     - themes/root.conf
