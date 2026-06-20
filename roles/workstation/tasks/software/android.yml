@@ -14,3 +14,8 @@
   kewlfft.aur.aur:
     name: waydroid            # Android emulator for Wayland
   when: ansible_facts['distribution'] == "Archlinux"
+
+- name: software | android | install udev rules
+  tags: android,scrcpy
+  package:
+    name: android-udev
