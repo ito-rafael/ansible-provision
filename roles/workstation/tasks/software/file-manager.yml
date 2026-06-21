@@ -4,6 +4,7 @@
     name:
       - thunar                  # Xfce file manager
       - thunar-volman           # automount removable drives
+      - gvfs                    # GVfs: virtual fs for GIO
       - tumbler                 # thumbnail support
       - ffmpegthumbnailer       # video thumbnailing
       - xarchiver               # archive support backend
