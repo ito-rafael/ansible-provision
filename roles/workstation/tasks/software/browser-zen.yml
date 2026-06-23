@@ -10,3 +10,13 @@
   kewlfft.aur.aur:
     name: zen-browser-bin
   when: ansible_facts['distribution'] == "Archlinux"
+
+- name: software | browser Zen | install extensions
+  tags: browser,zen
+  copy:
+    src: "{{ zen_dotfiles_dir }}/policies.json"
+    dest: "{{ zen_distrib_path }}/policies.json"
+    remote_src: true
+    owner: root
+    group: root
+    mode: 0644
