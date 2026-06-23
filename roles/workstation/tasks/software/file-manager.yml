@@ -5,6 +5,7 @@
       - thunar                  # Xfce file manager
       - thunar-volman           # automount removable drives
       - gvfs                    # GVfs: virtual fs for GIO
+      - gvfs-mtp                # GVfs MTP backend
       - tumbler                 # thumbnail support
       - ffmpegthumbnailer       # video thumbnailing
       - xarchiver               # archive support backend
