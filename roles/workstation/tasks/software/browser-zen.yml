@@ -1,3 +1,9 @@
+- name: software | browser Zen | set variables
+  tags: browser,zen
+  ansible.builtin.set_fact:
+    zen_distrib_path: "/opt/zen-browser-bin/distribution"
+    zen_dotfiles_dir: "/home/ansible/git/dotfiles/zen"
+
 - name: software | browser Zen | install Zen Browser
   tags: browser,zen
   become_user: aurman
