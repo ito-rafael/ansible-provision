@@ -1,0 +1,6 @@
+- name: software | browser Zen | install Zen Browser
+  tags: browser,zen
+  become_user: aurman
+  kewlfft.aur.aur:
+    name: zen-browser-bin
+  when: ansible_facts['distribution'] == "Archlinux"
