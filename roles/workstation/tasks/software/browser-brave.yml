@@ -42,6 +42,7 @@
     - extension_install_policy.json  # install extensions
     - dev_mode.json                  # ensure developer mode is available
     - default_browser.json           # disable default browser check
+    - search_engine.json             # set Startpage as the search engine
 
 - name: software | browser Brave | copy flags file
   tags: browser,brave
