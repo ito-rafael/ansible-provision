@@ -37,3 +37,8 @@
   tags: media,audio
   package:
     name: picard  # MusicBrainz tagger
+
+- name: software | media | install MPD
+  tags: media,audio
+  package:
+    name: mpd
