@@ -11,3 +11,13 @@
     owner: rafael
     group: rafael
     mode: 0700
+
+- name: software | email | copy static Thunderbird dotfiles
+  tags: email,thunderbird
+  copy:
+    remote_src: true
+    src: /home/ansible/git/dotfiles/thunderbird/profiles.ini
+    dest: /home/rafael/.thunderbird/profiles.ini
+    owner: rafael
+    group: rafael
+    mode: 0600
