@@ -2,3 +2,12 @@
   tags: email,thunderbird
   package:
     name: thunderbird
+
+- name: software | email | ensure Thunderbird dir exists
+  tags: email,thunderbird
+  file:
+    path: /home/rafael/.thunderbird/default
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
