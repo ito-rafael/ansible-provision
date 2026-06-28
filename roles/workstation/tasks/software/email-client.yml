@@ -21,3 +21,18 @@
     owner: rafael
     group: rafael
     mode: 0600
+
+- name: software | email | template Thunderbird user.js
+  tags: email,thunderbird
+  template:
+    src: /home/ansible/git/dotfiles/thunderbird/user.js.j2
+    dest: /home/rafael/.thunderbird/default/user.js
+    owner: rafael
+    group: rafael
+    mode: 0600
+  vars:
+    email_personal_gmail:       "{{ lookup('pipe', 'sudo -u rafael pass show email/personal_gmail') | trim }}"
+    email_academic_unicamp:     "{{ lookup('pipe', 'sudo -u rafael pass show email/academic_unicamp') | trim }}"
+    email_personal_promotional: "{{ lookup('pipe', 'sudo -u rafael pass show email/personal_promotional') | trim }}"
+    email_personal_outlook:     "{{ lookup('pipe', 'sudo -u rafael pass show email/personal_outlook') | trim }}"
+  no_log: true
