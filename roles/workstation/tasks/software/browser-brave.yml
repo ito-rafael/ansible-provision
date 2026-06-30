@@ -39,9 +39,10 @@
     group: root
     mode: 0644
   loop:
-    - extension_install_policy.json  # install extensions
+    - bookmarks_bar.json             # enable bookmarks bar
     - dev_mode.json                  # ensure developer mode is available
     - default_browser.json           # disable default browser check
+    - extension_install_policy.json  # install extensions
     - password_manager.json          # disable password manager
     - search_engine.json             # set Startpage as the search engine
 
