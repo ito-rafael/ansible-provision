@@ -1,7 +1,7 @@
 - name: software | browser Brave | set variables
   tags: browser,brave
   ansible.builtin.set_fact:
-    brave_prefs_path: "/home/rafael/.config/BraveSoftware/Brave-Origin-Beta/Default/Preferences"
+    brave_prefs_path: "/home/rafael/.config/BraveSoftware/Brave-Origin/Default/Preferences"
     brave_dotfiles_dir: "/home/ansible/git/dotfiles/brave"
 
 - name: software | browser Brave | install Brave Origin
@@ -51,7 +51,7 @@
   tags: browser,brave
   copy:
     src: "{{ brave_dotfiles_dir }}/config/brave-flags.conf"
-    dest: /home/rafael/.config/brave-origin-beta-flags.conf
+    dest: /home/rafael/.config/brave-origin-flags.conf
     remote_src: true
     owner: rafael
     group: rafael
@@ -72,7 +72,7 @@
   tags: browser,brave
   copy:
     src: "{{ brave_dotfiles_dir }}/config/initial_preferences"
-    dest: /opt/brave.com/brave-origin-beta/initial_preferences
+    dest: /opt/brave-origin-bin/initial_preferences
     remote_src: true
     owner: root
     group: root
@@ -87,11 +87,11 @@
     group: rafael
     mode: 0755
 
-- name: software | browser Brave | copy brave-origin-beta desktop file
+- name: software | browser Brave | copy brave-origin desktop file
   tags: browser,brave
   copy:
-    src: "{{ brave_dotfiles_dir }}/brave-origin-beta.desktop"
-    dest: /home/rafael/.local/share/applications/brave-origin-beta.desktop
+    src: "{{ brave_dotfiles_dir }}/brave-origin.desktop"
+    dest: /home/rafael/.local/share/applications/brave-origin.desktop
     remote_src: true
     owner: rafael
     group: rafael
@@ -118,7 +118,7 @@
 
 - name: software | browser Brave | check if Brave is running
   tags: browser,brave
-  ansible.builtin.command: set -o pipefail && pgrep -a -f "[o]pt/brave.com/brave-origin-beta/brave" | grep -v " --type=" | grep -v " --app="
+  ansible.builtin.command: set -o pipefail && pgrep -a -f "[o]pt/brave.com/brave-origin/brave" | grep -v " --type=" | grep -v " --app="
   failed_when: false
   changed_when: false
   register: brave_running
@@ -147,7 +147,7 @@
     - name: software | browser Brave | generate Brave Origin profile (via Xvfb)
       become_user: rafael
       ansible.builtin.shell: |
-        xvfb-run -a brave-origin-beta --skip-origin-startup-dialog --no-first-run --disable-gpu --disable-dev-shm-usage --ozone-platform=x11 --ansible-burn-in https://example.com > /dev/null 2>&1 &
+        xvfb-run -a brave-origin --skip-origin-startup-dialog --no-first-run --disable-gpu --disable-dev-shm-usage --ozone-platform=x11 --ansible-burn-in https://example.com > /dev/null 2>&1 &
         sleep 120
         pkill -15 -f "--ansible-burn-in" || true
 
