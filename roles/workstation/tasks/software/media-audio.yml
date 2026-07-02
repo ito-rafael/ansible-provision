@@ -72,3 +72,12 @@
     name:
       - mpc
       - ncmpcpp
+
+- name: software | media | ensure ncmpcpp dir exists
+  tags: media,audio
+  file:
+    path: /home/rafael/.config/ncmpcpp
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
