@@ -100,6 +100,16 @@
     group: rafael
     mode: 0600
 
+- name: software | browser Brave | copy brave-origin wrapper script
+  tags: browser,brave
+  copy:
+    src: "{{ brave_dotfiles_dir }}/scripts/brave-origin-wrapper"
+    dest: /home/rafael/.local/bin/brave-origin-wrapper
+    remote_src: true
+    owner: rafael
+    group: rafael
+    mode: 0700
+
 #----------------------------------
 # read-only block
 #----------------------------------
