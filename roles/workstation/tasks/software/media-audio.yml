@@ -41,9 +41,7 @@
 - name: software | media | install MPD
   tags: media,audio
   package:
-    name:
-      - mpd
-      - mpc
+    name: mpd
 
 - name: software | media | ensure MPD dirs exist
   tags: media,audio
@@ -67,3 +65,10 @@
     group: rafael
     mode: 0600
   notify: software | media | restart MPD user systemd service
+
+- name: software | media | install MPD clients
+  tags: media,audio
+  package:
+    name:
+      - mpc
+      - ncmpcpp
