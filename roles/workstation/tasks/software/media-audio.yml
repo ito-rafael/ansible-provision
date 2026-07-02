@@ -81,3 +81,13 @@
     owner: rafael
     group: rafael
     mode: 0700
+
+- name: software | media | copy ncmpcpp dotfile
+  tags: media,audio
+  copy:
+    src: /home/ansible/git/ncmpcpp/config
+    dest: /home/rafael/.config/ncmpcpp/config
+    remote_src: true
+    owner: rafael
+    group: rafael
+    mode: 0600
