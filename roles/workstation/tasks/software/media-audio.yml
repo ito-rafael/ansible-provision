@@ -44,3 +44,15 @@
     name:
       - mpd
       - mpc
+
+- name: software | media | ensure MPD dirs exist
+  tags: media,audio
+  file:
+    path: /home/rafael/{{ item }}
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
+  with_items:
+    - .config/mpd
+    - .local/share/mpd/playlists
