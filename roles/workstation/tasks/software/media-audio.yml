@@ -41,4 +41,6 @@
 - name: software | media | install MPD
   tags: media,audio
   package:
-    name: mpd
+    name:
+      - mpd
+      - mpc
