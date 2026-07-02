@@ -56,3 +56,14 @@
   with_items:
     - .config/mpd
     - .local/share/mpd/playlists
+
+- name: software | media | copy MPD dotfile
+  tags: media,audio
+  copy:
+    src: /home/ansible/git/mpd/mpd.conf
+    dest: /home/rafael/.config/mpd/mpd.conf
+    remote_src: true
+    owner: rafael
+    group: rafael
+    mode: 0600
+  notify: software | media | restart MPD user systemd service
