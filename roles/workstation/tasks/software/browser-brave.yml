@@ -78,14 +78,17 @@
     group: root
     mode: 0644
 
-- name: software | browser Brave | ensure .desktop files dir exists
+- name: software | browser Brave | ensure directories exist
   tags: browser,brave
   file:
-    path: /home/rafael/.local/share/applications
+    path: /home/rafael/.local/{{ item }}
     state: directory
     owner: rafael
     group: rafael
     mode: 0755
+  loop:
+    - share/applications
+    - bin
 
 - name: software | browser Brave | copy brave-origin desktop file
   tags: browser,brave
