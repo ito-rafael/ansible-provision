@@ -11,6 +11,7 @@
       - podman          # tool and library to run OCI-based containers in pods
       - podman-compose  # script to run docker-compose.yml
       - podman-docker   # aliases to emulate Docker CLI
+  notify: development | container-podman | enable user-level socket via systemd service
 
 - name: development | container-podman | configure unqualified-search-registries
   tags: system,podman

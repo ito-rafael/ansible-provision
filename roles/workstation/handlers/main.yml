@@ -24,5 +24,6 @@
   command: udevadm control --reload-rules
 
 - import_tasks: keyboard.yml
+- import_tasks: development.yml
 - import_tasks: software.yml
 - import_tasks: system.yml

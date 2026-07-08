@@ -1,0 +1,8 @@
+- name: development | container-podman | enable user-level socket via systemd service
+  tags: dev,container,podman
+  become_user: rafael
+  systemd:
+    name: podman.socket
+    state: started
+    enabled: true
+    scope: user
