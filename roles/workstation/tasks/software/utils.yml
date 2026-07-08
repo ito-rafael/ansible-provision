@@ -6,7 +6,6 @@
       - curl            # transfer data
       - dex             # DesktopEntry Execution
       - expect          # automate interactive applications
-      - fzf             # fuzzy finder
       - imagemagick     # image manipulation with ImageMagick
       - libinput-tools  # input device mgmt + event lib (debug)
       - lsof            # lists open files for Unix processes
@@ -30,19 +29,12 @@
       - pandoc-bin      # conversion between documentation formats
   when: ansible_facts['distribution'] == "Archlinux"
 
-- name: software | utils | modern-unix
-  tags: utils,modern-unix
-  package:
-    name:            # replacement for:
-      - bat          # cat
-      - eza          # ls
-      - zoxide       # cd
-  # https://github.com/ibraheemdev/modern-unix
 - name: software | utils | install TUI tools (AUR)
   tags: utils,general
   become_user: aurman
   kewlfft.aur.aur:
     name:
+      - fzf             # fuzzy finder
       - lazyssh         # SSH manager
   when: ansible_facts['distribution'] == "Archlinux"
 
@@ -76,3 +68,12 @@
     group: rafael
     mode: 0600
   when: ansible_facts['distribution'] == "Archlinux"
+
+- name: software | utils | modern-unix
+  tags: utils,modern-unix
+  package:
+    name:            # replacement for:
+      - bat          # cat
+      - eza          # ls
+      - zoxide       # cd
+  # https://github.com/ibraheemdev/modern-unix
