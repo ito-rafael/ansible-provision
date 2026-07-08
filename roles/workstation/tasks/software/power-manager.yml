@@ -1,0 +1,5 @@
+- name: software | power manager | install PowerTOP package
+  tags: power,powertop
+  ansible.builtin.package:
+    name:
+      - powertop  # tool to diagnose power consumption/management
