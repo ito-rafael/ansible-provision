@@ -28,3 +28,4 @@
   ansible.builtin.package:
     name:
       - tlp       # Linux Advanced Power Management
+      - tlpui     # TLP GTK front-end
