@@ -1,3 +1,8 @@
+- name: software | power manager | install ACPI package
+  tags: power,acpi
+  ansible.builtin.package:
+    name: acpi
+
 - name: software | power manager | install PowerTOP package
   tags: power,powertop
   ansible.builtin.package:
