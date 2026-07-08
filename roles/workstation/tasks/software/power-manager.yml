@@ -22,3 +22,9 @@
     - reload systemd services (system scope)
     - handler | get UID of the user
     - software | power manager | enable PowerTOP systemd service
+
+- name: software | power manager | install TLP packages
+  tags: power,tlp
+  ansible.builtin.package:
+    name:
+      - tlp       # Linux Advanced Power Management
