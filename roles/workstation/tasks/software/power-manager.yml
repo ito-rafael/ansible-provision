@@ -3,25 +3,25 @@
   ansible.builtin.package:
     name: acpi
 
-- name: software | power manager | install PowerTOP package
-  tags: power,powertop
-  ansible.builtin.package:
-    name:
-      - powertop  # tool to diagnose power consumption/management
+#- name: software | power manager | install PowerTOP package
+#  tags: power,powertop
+#  ansible.builtin.package:
+#    name:
+#      - powertop  # tool to diagnose power consumption/management
 
-- name: software | power manager | copy PowerTOP systemd service
-  tags: power,powertop
-  copy:
-    src: /home/ansible/git/dotfiles/systemd/system/powertop.service
-    dest: /etc/systemd/system/powertop.service
-    remote_src: true
-    owner: root
-    group: root
-    mode: 0600
-  notify:
-    - reload systemd services (system scope)
-    - handler | get UID of the user
-    - software | power manager | enable PowerTOP systemd service
+#- name: software | power manager | copy PowerTOP systemd service
+#  tags: power,powertop
+#  copy:
+#    src: /home/ansible/git/dotfiles/systemd/system/powertop.service
+#    dest: /etc/systemd/system/powertop.service
+#    remote_src: true
+#    owner: root
+#    group: root
+#    mode: 0600
+#  notify:
+#    - reload systemd services (system scope)
+#    - handler | get UID of the user
+#    - software | power manager | enable PowerTOP systemd service
 
 - name: software | power manager | install TLP packages
   tags: power,tlp
