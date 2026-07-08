@@ -29,3 +29,13 @@
     name:
       - tlp       # Linux Advanced Power Management
       - tlpui     # TLP GTK front-end
+
+- name: software | power manager | copy TLP dotfile
+  tags: power,tlp
+  copy:
+    src: /home/ansible/git/dotfiles/tlp/tlp.conf
+    dest: /etc/tlp.conf
+    remote_src: true
+    owner: root
+    group: root
+    mode: 0600
