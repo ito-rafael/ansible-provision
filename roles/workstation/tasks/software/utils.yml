@@ -38,6 +38,13 @@
       - eza          # ls
       - zoxide       # cd
   # https://github.com/ibraheemdev/modern-unix
+- name: software | utils | install TUI tools (AUR)
+  tags: utils,general
+  become_user: aurman
+  kewlfft.aur.aur:
+    name:
+      - lazyssh         # SSH manager
+  when: ansible_facts['distribution'] == "Archlinux"
 
 - name: software | utils | install GUI tools
   tags: utils,tools
