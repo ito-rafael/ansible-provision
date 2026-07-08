@@ -26,3 +26,8 @@
     name: rafael
     append: yes
     groups: docker
+
+- name: development | container-docker | Docker install manager
+  tags: dev,container,docker
+  package:
+    name: lazydocker
