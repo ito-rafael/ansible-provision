@@ -1,5 +1,5 @@
 - name: development | container-podman | prevent packages conflict
-  tags: system,podman
+  tags: dev,container,podman
   package:
     name: docker
     state: absent
@@ -14,7 +14,7 @@
   notify: development | container-podman | enable user-level socket via systemd service
 
 - name: development | container-podman | configure unqualified-search-registries
-  tags: system,podman
+  tags: dev,container,podman
   ansible.builtin.lineinfile:
     path: /etc/containers/registries.conf
     regexp: 'unqualified-search-registries ='
@@ -22,7 +22,7 @@
     state: present
 
 #- name: development | container-podman | configure short-name-mode
-#  tags: system,podman
+#  tags: dev,container,podman
 #  ansible.builtin.lineinfile:
 #    path: /etc/containers/registries.conf
 #    regexp: 'short-name-mode ='
