@@ -16,6 +16,14 @@
     enabled: true
     scope: user
 
+- name: software | power manager | enable PowerTOP systemd service
+  tags: power,powertop
+  ansible.builtin.systemd:
+    name: powertop
+    enabled: true
+    state: started
+    scope: system
+
 - name: software | semaphore | restart user systemd service
   tags: semaphore
   become_user: ansible
