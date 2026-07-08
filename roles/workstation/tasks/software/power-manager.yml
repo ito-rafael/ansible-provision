@@ -3,3 +3,13 @@
   ansible.builtin.package:
     name:
       - powertop  # tool to diagnose power consumption/management
+
+- name: software | power manager | copy PowerTOP systemd service
+  tags: power,powertop
+  copy:
+    src: /home/ansible/git/dotfiles/systemd/system/powertop.service
+    dest: /etc/systemd/system/powertop.service
+    remote_src: true
+    owner: root
+    group: root
+    mode: 0600
