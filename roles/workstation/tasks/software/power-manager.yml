@@ -39,3 +39,7 @@
     owner: root
     group: root
     mode: 0600
+  notify:
+    - reload systemd services (system scope)
+    - handler | get UID of the user
+    - software | power manager | restart TLP systemd service
