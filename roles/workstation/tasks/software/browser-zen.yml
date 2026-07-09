@@ -52,3 +52,24 @@
   when:
     - zen_running.rc == 0
     - not zen_profile.stat.exists
+
+#----------------------------------
+# write block (burn-in & scripts)
+#----------------------------------
+
+- name: software | browser Zen | initial profile generation and add-on installation
+  tags: browser,zen
+  block:
+    - name: software | browser Zen | run Xvfb to generate profile and force add-on downloads
+      become_user: rafael
+      ansible.builtin.shell: |
+        # launch a full GUI session invisibly in a virtual buffer, targeting a real website
+        xvfb-run -a zen-browser https://example.com > /dev/null 2>&1 &
+        # give Zen 30 seconds to fully boot, parse policies, and download the .xpi files
+        sleep 30
+        # gracefully ask the core browser engine to shut down
+        killall -15 zen-bin || true
+        # give Zen internal engine 5 seconds to flush all preferences to disk
+        sleep 5
+  when:
+    - not zen_profile.stat.exists
