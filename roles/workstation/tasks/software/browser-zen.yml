@@ -11,7 +11,7 @@
     name: zen-browser-bin
   when: ansible_facts['distribution'] == "Archlinux"
 
-- name: software | browser Zen | install extensions
+- name: software | browser Zen | install add-ons & apply policy
   tags: browser,zen
   copy:
     src: "{{ zen_dotfiles_dir }}/policies.json"
@@ -20,3 +20,14 @@
     owner: root
     group: root
     mode: 0644
+
+#----------------------------------
+# read-only block
+#----------------------------------
+
+- name: software | browser Zen | check if profiles.ini exists
+  tags: browser,zen
+  become_user: rafael
+  ansible.builtin.stat:
+    path: "/home/rafael/.config/zen/profiles.ini"
+  register: zen_profile
