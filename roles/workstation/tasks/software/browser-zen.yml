@@ -38,3 +38,17 @@
   failed_when: false
   changed_when: false
   register: zen_running
+
+#----------------------------------
+# gatekeeper: abort if needed
+#----------------------------------
+
+- name: software | browser Zen | abort if Zen is currently open
+  tags: browser,zen
+  ansible.builtin.fail:
+    msg: >
+      [ABORTED] Zen Browser is currently running and an initial burn-in is pending!
+      Please close the browser manually and re-run the playbook to apply the changes safely.
+  when:
+    - zen_running.rc == 0
+    - not zen_profile.stat.exists
