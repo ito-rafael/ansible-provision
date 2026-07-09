@@ -71,5 +71,10 @@
         killall -15 zen-bin || true
         # give Zen internal engine 5 seconds to flush all preferences to disk
         sleep 5
+
+    - name: software | browser Zen | wait for OS to release profile file locks
+      become_user: rafael
+      ansible.builtin.pause:
+        seconds: 3
   when:
     - not zen_profile.stat.exists
