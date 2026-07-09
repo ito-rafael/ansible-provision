@@ -78,3 +78,12 @@
         seconds: 3
   when:
     - not zen_profile.stat.exists
+
+- name: software | browser Zen | run Python script to configure Surfingkeys
+  tags: browser,zen
+  become_user: rafael
+  ansible.builtin.command: "python3 {{ zen_dotfiles_dir }}/scripts/{{ item }}"
+  loop:
+    - surfingkeys_advanced_mode.py
+  register: python_execution
+  changed_when: "'Success' in python_execution.stdout"
