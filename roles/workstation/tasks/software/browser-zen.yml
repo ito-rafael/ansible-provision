@@ -31,3 +31,10 @@
   ansible.builtin.stat:
     path: "/home/rafael/.config/zen/profiles.ini"
   register: zen_profile
+
+- name: software | browser Zen | check if Zen is running
+  tags: browser,zen
+  ansible.builtin.command: set -o pipefail && pgrep -a -i "zen-bin"
+  failed_when: false
+  changed_when: false
+  register: zen_running
