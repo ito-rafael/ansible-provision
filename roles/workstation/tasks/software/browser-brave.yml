@@ -40,12 +40,12 @@
     group: root
     mode: 0644
   loop:
-    - bookmarks_bar.json             # enable bookmarks bar
-    - dev_mode.json                  # ensure developer mode is available
-    - default_browser.json           # disable default browser check
-    - extension_install_policy.json  # install extensions
-    - password_manager.json          # disable password manager
-    - search_engine.json             # set Startpage as the search engine
+    - bookmarks_bar.json                  # enable bookmarks bar
+    - dev_mode.json                       # ensure developer mode is available
+    - default_browser.json                # disable default browser check
+    - extension_install_policy_full.json  # install extensions
+    - password_manager.json               # disable password manager
+    - search_engine.json                  # set Startpage as the search engine
 
 - name: software | browser Brave | copy flags file
   tags: browser,brave
