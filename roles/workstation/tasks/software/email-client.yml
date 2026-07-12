@@ -12,6 +12,15 @@
     group: rafael
     mode: 0700
 
+- name: software | email | ensure Thunderbird policies dir exists
+  tags: email,thunderbird
+  file:
+    path: /etc/thunderbird/policies
+    state: directory
+    owner: root
+    group: root
+    mode: 0700
+
 - name: software | email | copy static Thunderbird dotfiles
   tags: email,thunderbird
   copy:
