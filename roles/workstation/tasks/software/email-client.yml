@@ -31,6 +31,16 @@
     group: rafael
     mode: 0600
 
+- name: software | email | set Thunderbird policies
+  tags: email,thunderbird
+  copy:
+    remote_src: true
+    src: /home/ansible/git/dotfiles/thunderbird/policies.json
+    dest: /etc/thunderbird/policies/policies.json
+    owner: root
+    group: root
+    mode: 0600
+
 - name: software | email | template Thunderbird user.js
   tags: email,thunderbird
   template:
