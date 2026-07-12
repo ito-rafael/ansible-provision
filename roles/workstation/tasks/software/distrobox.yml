@@ -79,7 +79,7 @@
       loop:
         - preferences_developer_mode.py
         - preferences_block_translations.py
-        - surfingkeys_allow_user_scripts.py
+        - surfingkeys_allow-user-scripts_allow-in-private.py
         - surfingkeys_advanced_mode.py
         - surfingkeys_load_settings.py
 
