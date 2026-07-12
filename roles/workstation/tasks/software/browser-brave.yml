@@ -192,6 +192,7 @@
     - surfingkeys_advanced_mode.py
     - surfingkeys_load_settings.py
     - tab-session-manager_theme_dark.py
+    - ubol_allow_user_scripts.py
     - video-speed-controller_import_settings.py
   register: python_execution
   changed_when: "'Success' in python_execution.stdout"
