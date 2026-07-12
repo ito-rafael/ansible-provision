@@ -185,13 +185,13 @@
   ansible.builtin.shell: "xvfb-run -a python3 {{ brave_dotfiles_dir }}/scripts/{{ item }}"
   loop:
     - content_font_and_zoom.py
+    - extensions_keyboard_shortcuts.py
     - preferences_developer_mode.py
     - preferences_block_translations.py
-    - surfingkeys_allow_user_scripts.py
+    - surfingkeys_allow-user-scripts_allow-in-private.py
     - surfingkeys_advanced_mode.py
     - surfingkeys_load_settings.py
     - tab-session-manager_theme_dark.py
     - video-speed-controller_import_settings.py
-    - extensions_keyboard_shortcuts.py
   register: python_execution
   changed_when: "'Success' in python_execution.stdout"
