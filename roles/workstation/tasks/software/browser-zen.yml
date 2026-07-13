@@ -102,5 +102,6 @@
     - tab-session-manager_keybindings.py
     - tab-session-manager_theme_dark.py
     - video-speed-controller_keybindings.py
+    - zoom.py
   register: python_execution
   changed_when: "'Success' in python_execution.stdout"
