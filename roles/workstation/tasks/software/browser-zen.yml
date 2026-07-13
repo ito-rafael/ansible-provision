@@ -21,6 +21,16 @@
     group: root
     mode: 0644
 
+- name: software | browser Zen | copy launcher for Tab Session Manager
+  tags: browser,zen
+  copy:
+    src: "{{ zen_dotfiles_dir }}/scripts/zen-tsm-launcher.py"
+    dest: "/home/rafael/.local/bin/zen-tsm-launcher.py"
+    remote_src: true
+    owner: root
+    group: root
+    mode: 0700
+
 #----------------------------------
 # read-only block
 #----------------------------------
