@@ -185,6 +185,7 @@
   ansible.builtin.shell: "xvfb-run -a python3 {{ brave_dotfiles_dir }}/scripts/{{ item }}"
   loop:
     - content_font_and_zoom.py
+    - disable_extensions.py
     - extensions_keyboard_shortcuts.py
     - preferences_developer_mode.py
     - preferences_block_translations.py
