@@ -99,5 +99,6 @@
   loop:
     - surfingkeys_advanced_mode.py
     - surfingkeys_load_settings.py
+    - tab-session-manager_keybindings.py
   register: python_execution
   changed_when: "'Success' in python_execution.stdout"
