@@ -41,6 +41,7 @@
     mode: 0644
   loop:
     - bookmarks_bar.json                  # enable bookmarks bar
+    - crash_reports.json                  # enable diagnostic crash reports
     - dev_mode.json                       # ensure developer mode is available
     - default_browser.json                # disable default browser check
     - extension_install_policy_full.json  # install extensions
