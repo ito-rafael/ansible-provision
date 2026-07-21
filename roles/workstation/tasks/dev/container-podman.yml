@@ -25,8 +25,10 @@
 
 #- name: development | container-podman | configure short-name-mode
 #  tags: dev,container,podman
-#  ansible.builtin.lineinfile:
-#    path: /etc/containers/registries.conf
-#    regexp: 'short-name-mode ='
-#    line: 'short-name-mode = "disabled"'
-#    state: present
+#  ansible.builtin.copy:
+#    dest: /etc/containers/registries.conf.d/01-short-name-mode.conf
+#    content: |
+#      short-name-mode = "disabled"
+#    owner: root
+#    group: root
+#    mode: '0644'
