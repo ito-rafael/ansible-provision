@@ -11,6 +11,11 @@
     name: zen-browser-bin
   when: ansible_facts['distribution'] == "Archlinux"
 
+- name: software | browser Zen | install Geckodriver
+  tags: browser,zen
+  ansible.builtin.package:
+    name: geckodriver
+
 - name: software | browser Zen | install add-ons & apply policy
   tags: browser,zen
   copy:
