@@ -95,7 +95,7 @@
 - name: software | browser Brave | run Python scripts to configure preferences & extensions
   tags: browser,zen
   become_user: rafael
-  ansible.builtin.command: "python3 {{ zen_dotfiles_dir }}/scripts/{{ item }}"
+  ansible.builtin.command: "xvfb-run -a python3 {{ zen_dotfiles_dir }}/scripts/{{ item }}"
   loop:
     - surfingkeys_advanced_mode.py
     - surfingkeys_load_settings.py
