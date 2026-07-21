@@ -58,7 +58,7 @@
 - name: software | media | copy MPD dotfile
   tags: media,audio
   copy:
-    src: /home/ansible/git/mpd/mpd.conf
+    src: /home/ansible/git/dotfiles/mpd/mpd.conf
     dest: /home/rafael/.config/mpd/mpd.conf
     remote_src: true
     owner: rafael
