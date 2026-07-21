@@ -92,7 +92,7 @@
   when:
     - not zen_profile.stat.exists
 
-- name: software | browser Brave | run Python scripts to configure preferences & extensions
+- name: software | browser Zen | run Python scripts to configure preferences & extensions
   tags: browser,zen
   become_user: rafael
   ansible.builtin.command: "xvfb-run -a python3 {{ zen_dotfiles_dir }}/scripts/{{ item }}"
