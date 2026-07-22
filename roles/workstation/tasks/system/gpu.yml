@@ -7,6 +7,16 @@
       - mesa        # open-source OpenGL drivers
       - lib32-mesa  # open-source OpenGL drivers for 32-bit
 
+- name: system | GPU NVIDIA | install Nouveau open source driver
+  tags: system,gpu,gpu-nvidia
+  become_user: aurman
+  kewlfft.aur.aur:
+    name:
+      - nouveau-fw  # video & pgraph firmwares
+  when:
+    - nvidia_driver == "nouveau"
+    - ansible_facts['distribution'] == "Archlinux"
+
 - name: system | GPU | identify GPU manufacturer
   tags: system,gpu
   shell: lspci | grep -i 'vga'
