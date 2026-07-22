@@ -44,3 +44,7 @@
     owner: rafael
     group: rafael
     mode: 0600
+  notify:
+    - handler | get UID of the user
+    - reload user systemd services (rafael)
+    - software | statusline | restart Waybar user systemd service
