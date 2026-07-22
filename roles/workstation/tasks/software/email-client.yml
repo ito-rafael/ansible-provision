@@ -19,7 +19,7 @@
     state: directory
     owner: root
     group: root
-    mode: 0700
+    mode: 0755
 
 - name: software | email | copy static Thunderbird dotfiles
   tags: email,thunderbird
