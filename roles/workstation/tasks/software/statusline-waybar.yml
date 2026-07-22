@@ -34,3 +34,13 @@
     - { src: 'style.css', dest: 'style.css', mode: '0600' }  # CSS
     - { src: 'scripts',   dest: '',          mode: '0700' }  # scripts
     - { src: 'icon',      dest: '',          mode: '0700' }  # icons
+
+- name: software | statusline | copy Waybar user systemd service
+  tags: statusline,waybar
+  copy:
+    remote_src: true
+    src: /home/ansible/git/dotfiles/systemd/user/waybar.service
+    dest: /home/rafael/.config/systemd/user/waybar.service
+    owner: rafael
+    group: rafael
+    mode: 0600
