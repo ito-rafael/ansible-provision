@@ -50,6 +50,15 @@
     enabled: true
     scope: user
 
+- name: software | statusline | reload Waybar via systemd service
+  tags: statusline,waybar
+  become_user: rafael
+  systemd:
+    name: waybar
+    state: reloaded
+    enabled: true
+    scope: user
+
 - name: software | xdg-desktop-portal | restart xdg-desktop-portals user systemd services
   tags: wayland,portals
   become_user: rafael

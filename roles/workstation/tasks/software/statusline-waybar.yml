@@ -34,6 +34,8 @@
     - { src: 'style.css', dest: 'style.css', mode: '0600' }  # CSS
     - { src: 'scripts',   dest: '',          mode: '0700' }  # scripts
     - { src: 'icon',      dest: '',          mode: '0700' }  # icons
+  notify:
+    - software | statusline | reload Waybar via systemd service
 
 - name: software | statusline | copy Waybar user systemd service
   tags: statusline,waybar
