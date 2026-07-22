@@ -27,6 +27,7 @@
     - { name: 'dunstrc',           mode: '0600' }
     - { name: 'sound-dispatch.sh', mode: '0700' }
     - { name: 'whatsapp.mp3',      mode: '0600' }
+  notify: software | notification | reload dunst settings
 
 - name: software | notification | install fping
   tags: notification

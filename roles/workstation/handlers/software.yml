@@ -7,6 +7,15 @@
     state: restarted
     scope: user
 
+- name: software | notification | reload dunst settings
+  tags: notification,dunst
+  become_user: rafael
+  ansible.builtin.shell: |
+    export XDG_RUNTIME_DIR="/run/user/$(id -u)"
+    export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$(id -u)/bus"
+    dunstctl reload
+  changed_when: true
+
 - name: software | pomodoro | restart tomat user systemd service
   tags: pomodoro
   become_user: rafael
