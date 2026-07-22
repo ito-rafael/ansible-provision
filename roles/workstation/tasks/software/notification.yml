@@ -5,6 +5,15 @@
       - dunst      # customizable and lightweight notification-daemon
       - libnotify  # dunstify: notify-send replacement with extra features
 
+- name: software | notification | ensure dunst dir exists
+  tags: notification,dunst
+  file:
+    path: /home/rafael/.config/dunst
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
+
 - name: software | notification | install fping
   tags: notification
   package:
