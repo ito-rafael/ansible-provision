@@ -23,6 +23,7 @@
     mode: 0600
   with_items:
     - kitty.conf
+    - themes/ansible-provision.conf
     - themes/default.conf
     - themes/midnight_press.conf
     - themes/pacman.conf
