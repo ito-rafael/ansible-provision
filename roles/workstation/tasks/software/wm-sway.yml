@@ -77,3 +77,13 @@
   kewlfft.aur.aur:
     name: autotiling  # script to switch h/v window orientation
   when: ansible_facts['distribution'] == "Archlinux"
+
+- name: software | window-manager | copy systemd sway-session.target
+  tags: wayland,sway
+  copy:
+    src: /home/ansible/git/dotfiles/systemd/user/sway-session.target
+    dest: /home/rafael/.config/systemd/user/sway-session.target
+    remote_src: true
+    owner: rafael
+    group: rafael
+    mode: 0600
