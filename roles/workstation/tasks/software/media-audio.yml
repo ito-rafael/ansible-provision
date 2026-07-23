@@ -7,7 +7,12 @@
       - gst-plugins-ugly
       - gst-libav
       - gst-plugin-pipewire
-      - gst-plugin-va
+
+- name: software | media | install GStreamer codecs (hw video decoding)
+  tags: media,audio
+  package:
+    name: gst-plugin-va
+  when: nvidia_driver != "nouveau"
 
 #- name: software | media | install music streaming applications
 #  tags: media,spotify
