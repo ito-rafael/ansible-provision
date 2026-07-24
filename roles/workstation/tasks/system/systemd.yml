@@ -1,0 +1,12 @@
+- name: system | systemd | ensure systemd dirs exist
+  tags: systemd
+  file:
+    path: /home/rafael/.config/{{ item }}
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
+  loop:
+    - systemd
+    - systemd/user
+    - environment.d

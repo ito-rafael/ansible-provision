@@ -45,6 +45,7 @@
   - import_tasks: system/mouse.yml                      # LogiOps driver
   - import_tasks: system/network.yml                    # NetworkManager
   - import_tasks: system/printer.yml                    # CUPS, driver, GUI
+  - import_tasks: system/systemd.yml                    # systemd
   - import_tasks: system/utils.yml                      # general utilities
   - import_tasks: system/vpn.yml                        # VPN
   - import_tasks: system/wifi.yml                       # eduroam
