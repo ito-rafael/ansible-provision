@@ -10,3 +10,13 @@
     - systemd
     - systemd/user
     - environment.d
+
+- name: system | systemd | copy systemd environment.d env vars
+  tags: systemd
+  copy:
+    remote_src: true
+    src: /home/ansible/git/dotfiles/systemd/environment.d/env-vars.conf
+    dest: /home/rafael/.config/environment.d/env-vars.conf
+    owner: rafael
+    group: rafael
+    mode: 0600
