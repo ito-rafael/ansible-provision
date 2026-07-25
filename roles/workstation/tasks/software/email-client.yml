@@ -55,3 +55,9 @@
     email_personal_promotional: "{{ lookup('pipe', 'sudo -u rafael pass show email/personal_promotional') | trim }}"
     email_personal_outlook:     "{{ lookup('pipe', 'sudo -u rafael pass show email/personal_outlook') | trim }}"
   no_log: true
+
+#- name: software | email | install External Editor Revived for Thunderbird
+#  tags: email,thunderbird
+#  ansible.builtin.package:
+#    name: external-editor-revived
+#  when: ansible_facts['distribution'] == "Archlinux"
