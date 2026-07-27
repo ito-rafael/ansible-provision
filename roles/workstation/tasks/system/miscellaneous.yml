@@ -2,3 +2,11 @@
   tags: system,at
   package:
     name: at
+
+- name: system | miscellaneous | start AT systemd service
+  tags: system,at
+  ansible.builtin.systemd:
+    name: atd
+    enabled: true
+    state: started
+    scope: system
