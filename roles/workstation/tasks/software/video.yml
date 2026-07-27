@@ -15,15 +15,21 @@
       - mkvtoolnix-cli
       - mkvtoolnix-gui
 
-#- name: software | video | install VLC
+#- name: software | video | install VLC (3.x)
 #  tags: video,vlc
 #  package:
+#    state: absent
 #    name:
 #      - vlc
-#      - zvbi    # for recording with VLC
 #      - vlc-plugins-base   # essential basic plugins
 #      - vlc-plugins-extra  # FFmpeg, H.264/H.265, VA-API, MPEG
 #      - zvbi               # for recording with VLC
+
+#- name: software | video | install VLC (4.x) from AUR (Wayland support)
+#  tags: video,vlc
+#  ansible.builtin.package:
+#    name: vlc-git
+#  when: ansible_facts['distribution'] == "Archlinux"
 
 - name: software | video | install other applications
   tags: video
