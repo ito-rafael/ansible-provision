@@ -31,6 +31,15 @@
 #    name: vlc-git
 #  when: ansible_facts['distribution'] == "Archlinux"
 
+#- name: software | video | ensure VLC dir exists
+#  tags: video,vlc
+#  file:
+#    path: /home/rafael/.config/vlc
+#    state: directory
+#    owner: rafael
+#    group: rafael
+#    mode: 0700
+
 - name: software | video | install other applications
   tags: video
   package:
