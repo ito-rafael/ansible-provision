@@ -40,6 +40,19 @@
 #    group: rafael
 #    mode: 0700
 
+#- name: software | video | copy VLC dotfile & desktop file
+#  tags: video,vlc
+#  copy:
+#    remote_src: true
+#    src: /home/ansible/git/dotfiles/vlc/{{ item.src }}
+#    dest: /home/rafael/{{ item.dest }}
+#    owner: rafael
+#    group: rafael
+#    mode: 0600
+#  loop:
+#    - { src: 'vlcrc',       dest: '.config/vlc/vlcrc' }
+#    - { src: 'vlc.desktop', dest: '.local/share/applications/vlc.desktop }
+
 - name: software | video | install other applications
   tags: video
   package:
