@@ -42,6 +42,7 @@
   - import_tasks: system/gpg.yml                        # GnuPG keys
   - import_tasks: system/gpu.yml                        # NVIDIA / AMD
   - import_tasks: system/grub.yml                       # GRUB
+  - import_tasks: system/miscellaneous.yml              # AT service
   - import_tasks: system/mouse.yml                      # LogiOps driver
   - import_tasks: system/network.yml                    # NetworkManager
   - import_tasks: system/printer.yml                    # CUPS, driver, GUI

@@ -1,0 +1,4 @@
+- name: system | miscellaneous | install AT command
+  tags: system,at
+  package:
+    name: at
