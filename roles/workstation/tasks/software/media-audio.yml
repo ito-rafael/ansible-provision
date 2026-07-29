@@ -96,3 +96,8 @@
     owner: rafael
     group: rafael
     mode: 0600
+
+- name: software | media | install Audacity
+  tags: media,audio
+  package:
+    name: audacity
