@@ -6,6 +6,7 @@
       - curl            # transfer data
       - dex             # DesktopEntry Execution
       - expect          # automate interactive applications
+      - hunspell        # spell checker
       - imagemagick     # image manipulation with ImageMagick
       - libinput-tools  # input device mgmt + event lib (debug)
       - lsof            # lists open files for Unix processes
