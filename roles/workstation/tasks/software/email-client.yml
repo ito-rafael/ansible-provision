@@ -32,7 +32,7 @@
   tags: email,betterbird
   copy:
     remote_src: true
-    src: /home/ansible/git/dotfiles/thunderbird/profiles.ini
+    src: /home/ansible/git/dotfiles/thunderbird/profiles_betterbird.ini
     dest: /home/rafael/.thunderbird/profiles.ini
     owner: rafael
     group: rafael
