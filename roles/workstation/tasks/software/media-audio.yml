@@ -97,7 +97,11 @@
     group: rafael
     mode: 0600
 
-- name: software | media | install Audacity
+- name: software | media | install Tenacity
   tags: media,audio
   package:
-    name: audacity
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+  loop:
+    - { name: 'audacity', state: 'absent' }
+    - { name: 'tenacity', state: 'present' }
