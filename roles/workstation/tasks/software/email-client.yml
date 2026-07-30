@@ -46,7 +46,7 @@
     dest: /etc/betterbird/policies/policies.json
     owner: root
     group: root
-    mode: 0600
+    mode: 0644
 
 - name: software | email | template Betterbird user.js
   tags: email,betterbird
