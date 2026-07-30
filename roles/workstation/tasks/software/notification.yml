@@ -8,7 +8,7 @@
 - name: software | notification | ensure dunst dir exists
   tags: notification,dunst
   file:
-    path: /home/rafael/.config/dunst
+    path: /home/rafael/.config/dunst/sound
     state: directory
     owner: rafael
     group: rafael
@@ -24,9 +24,15 @@
     group: rafael
     mode: "{{ item.mode }}"
   with_items:
-    - { name: 'dunstrc',           mode: '0600' }
-    - { name: 'sound-dispatch.sh', mode: '0700' }
-    - { name: 'whatsapp.mp3',      mode: '0600' }
+    - { name: 'dunstrc',               mode: '0600' }
+    - { name: 'sound-dispatch.sh',     mode: '0700' }
+    - { name: 'sound/bell.mp3',        mode: '0600' }
+    - { name: 'sound/complete.mp3',    mode: '0600' }
+    - { name: 'sound/message.mp3',     mode: '0600' }
+    - { name: 'sound/pacman_waka.mp3', mode: '0600' }
+    - { name: 'sound/r2d2.mp3',        mode: '0600' }
+    - { name: 'sound/tomato.mp3',      mode: '0600' }
+    - { name: 'sound/whatsapp.mp3',    mode: '0600' }
   notify: software | notification | reload dunst settings
 
 - name: software | notification | install fping
