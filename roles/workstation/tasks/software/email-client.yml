@@ -71,3 +71,10 @@
 #  ansible.builtin.package:
 #    name: external-editor-revived
 #  when: ansible_facts['distribution'] == "Archlinux"
+
+- name: software | email | check if tbkeys is already configured
+  tags: email,betterbird
+  become_user: rafael
+  ansible.builtin.stat:
+    path: "/home/rafael/.thunderbird/default/.tbkeys_configured"
+  register: tbkeys_marker
