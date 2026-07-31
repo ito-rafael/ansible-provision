@@ -89,3 +89,17 @@
   failed_when: false
   changed_when: false
   register: betterbird_running
+
+#----------------------------------
+# gatekeeper: abort if needed
+#----------------------------------
+
+- name: software | email | abort if Betterbird is currently open
+  tags: email,betterbird
+  ansible.builtin.fail:
+    msg: >
+      [ABORTED] Betterbird is currently running and tbkeys configuration is pending!
+      Please close the application manually and re-run the playbook to apply the changes safely.
+  when:
+    - betterbird_running.rc == 0
+    - not tbkeys_marker.stat.exists
