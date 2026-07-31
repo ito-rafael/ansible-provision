@@ -103,3 +103,22 @@
   when:
     - betterbird_running.rc == 0
     - not tbkeys_marker.stat.exists
+
+#----------------------------------
+# write block (burn-in & scripts)
+#----------------------------------
+
+- name: software | email | initial burn-in and add-on configuration
+  tags: email,betterbird
+  block:
+    - name: software | email | run Xvfb to burn-in profile and force add-on downloads
+      become_user: rafael
+      ansible.builtin.shell: |
+        # launch a full GUI session invisibly in a virtual buffer
+        xvfb-run -a betterbird > /dev/null 2>&1 &
+        # give Betterbird 20 seconds to boot, parse policies.json, and download tbkeys
+        sleep 20
+        # gracefully ask the core engine to shut down
+        killall -15 betterbird-bin || killall -15 betterbird || true
+        # give Betterbird internal engine 5 seconds to flush preferences to disk
+        sleep 5
