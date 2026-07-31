@@ -72,9 +72,20 @@
 #    name: external-editor-revived
 #  when: ansible_facts['distribution'] == "Archlinux"
 
+#----------------------------------
+# read-only block
+#----------------------------------
+
 - name: software | email | check if tbkeys is already configured
   tags: email,betterbird
   become_user: rafael
   ansible.builtin.stat:
     path: "/home/rafael/.thunderbird/default/.tbkeys_configured"
   register: tbkeys_marker
+
+- name: software | email | check if Betterbird is running
+  tags: email,betterbird
+  ansible.builtin.command: set -o pipefail && pgrep -a -i "betterbird"
+  failed_when: false
+  changed_when: false
+  register: betterbird_running
