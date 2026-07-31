@@ -13,7 +13,7 @@
 - name: software | email | ensure Betterbird dir exists
   tags: email,betterbird
   file:
-    path: /home/rafael/.thunderbird/default
+    path: /home/rafael/.thunderbird/default/chrome
     state: directory
     owner: rafael
     group: rafael
@@ -32,11 +32,14 @@
   tags: email,betterbird
   copy:
     remote_src: true
-    dest: /home/rafael/.thunderbird/profiles.ini
-    src: /home/ansible/git/dotfiles/betterbird/profiles_betterbird.ini
+    src: /home/ansible/git/dotfiles/betterbird/{{ item.src }}
+    dest: /home/rafael/.thunderbird/{{ item.dest }}
     owner: rafael
     group: rafael
     mode: 0600
+  loop:
+    - { src: 'profiles_betterbird.ini', dest: 'profiles.ini' }
+    - { src: 'userChrome.css', dest: 'default/chrome/userChrome.css' }
 
 - name: software | email | set Betterbird policies
   tags: email,betterbird
