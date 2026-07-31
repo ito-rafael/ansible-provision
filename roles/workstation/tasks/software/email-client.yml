@@ -32,8 +32,8 @@
   tags: email,betterbird
   copy:
     remote_src: true
-    src: /home/ansible/git/dotfiles/thunderbird/profiles_betterbird.ini
     dest: /home/rafael/.thunderbird/profiles.ini
+    src: /home/ansible/git/dotfiles/betterbird/profiles_betterbird.ini
     owner: rafael
     group: rafael
     mode: 0600
@@ -42,7 +42,7 @@
   tags: email,betterbird
   copy:
     remote_src: true
-    src: /home/ansible/git/dotfiles/thunderbird/policies.json
+    src: /home/ansible/git/dotfiles/betterbird/policies.json
     dest: /etc/betterbird/policies/policies.json
     owner: root
     group: root
@@ -51,7 +51,7 @@
 - name: software | email | template Betterbird user.js
   tags: email,betterbird
   template:
-    src: /home/ansible/git/dotfiles/thunderbird/user.js.j2
+    src: /home/ansible/git/dotfiles/betterbird/user.js.j2
     dest: /home/rafael/.thunderbird/default/user.js
     owner: rafael
     group: rafael
