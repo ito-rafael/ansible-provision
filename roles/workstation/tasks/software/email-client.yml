@@ -127,3 +127,13 @@
       become_user: rafael
       ansible.builtin.pause:
         seconds: 3
+
+    - name: software | email | run Python script to configure tbkeys via IPC
+      become_user: rafael
+      # the Python script already uses xvfb-run natively via Selenium,
+      # but running it inside xvfb-run here ensures absolute headlessness in Ansible.
+      ansible.builtin.command: "xvfb-run -a python3 /home/ansible/git/dotfiles/betterbird/script_config_tbkeys.py"
+      register: python_execution
+      changed_when: "'Success' in python_execution.stdout"
+  when:
+    - not tbkeys_marker.stat.exists
