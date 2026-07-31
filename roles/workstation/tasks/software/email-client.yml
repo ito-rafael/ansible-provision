@@ -122,3 +122,8 @@
         killall -15 betterbird-bin || killall -15 betterbird || true
         # give Betterbird internal engine 5 seconds to flush preferences to disk
         sleep 5
+
+    - name: software | email | wait for OS to release profile file locks
+      become_user: rafael
+      ansible.builtin.pause:
+        seconds: 3
