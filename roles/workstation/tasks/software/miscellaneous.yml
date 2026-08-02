@@ -51,3 +51,11 @@
   changed_when: false
   # diff returns 0 if identical, 1 if different, >1 if there is an error (eg: file missing)
   failed_when: mousam_dconf_diff.rc not in [0, 1]
+
+- name: software | miscellaneous | copy Mousam dconf settings
+  tags: misc,weather
+  become_user: rafael
+  ansible.builtin.shell: |
+    export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$(id -u)/bus"
+    dconf load /io/github/amit9838/mousam/ < /home/ansible/git/dotfiles/mousam/dconf-settings.ini
+  when: mousam_dconf_diff.rc == 1
