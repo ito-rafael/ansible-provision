@@ -1,13 +1,32 @@
 - name: software | miscellaneous | IRPF Brazilian income tax program
-  tags: miscellaneous,irpf
+  tags: misc,irpf
   become_user: aurman
   kewlfft.aur.aur:
     name: irpf
   when: ansible_facts['distribution'] == "Archlinux"
 
 - name: software | miscellaneous | bank BB
-  tags: miscellaneous,bank
+  tags: misc,bank
   become_user: aurman
   kewlfft.aur.aur:
     name: warsaw-bin
+  when: ansible_facts['distribution'] == "Archlinux"
+
+- name: software | miscellaneous | install LocalSend
+  tags: misc,tools
+  become_user: aurman
+  kewlfft.aur.aur:
+    name:
+      - localsend-bin  # share files/messages over LAN
+  when: ansible_facts['distribution'] == "Archlinux"
+
+- name: software | miscellaneous | copy LocalSend dotfile
+  tags: misc,localsend,tools
+  copy:
+    remote_src: true
+    src: /home/ansible/git/dotfiles/localsend/settings.json
+    dest: /opt/localsend/settings.json
+    owner: rafael
+    group: rafael
+    mode: 0600
   when: ansible_facts['distribution'] == "Archlinux"
