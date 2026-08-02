@@ -7,7 +7,9 @@
 - name: software | email | install Betterbird
   tags: email,betterbird
   ansible.builtin.package:
-    name: betterbird-bin
+    name:
+      - betterbird-bin
+      - birdtray
   when: ansible_facts['distribution'] == "Archlinux"
 
 - name: software | email | ensure Betterbird dir exists
