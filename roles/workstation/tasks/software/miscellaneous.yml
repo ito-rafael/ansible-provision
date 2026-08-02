@@ -30,3 +30,11 @@
     group: rafael
     mode: 0600
   when: ansible_facts['distribution'] == "Archlinux"
+
+- name: software | miscellaneous | install Mousam weather app
+  tags: misc,weather
+  become_user: aurman
+  kewlfft.aur.aur:
+    name:
+      - mousam         # weather forecast
+  when: ansible_facts['distribution'] == "Archlinux"
