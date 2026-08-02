@@ -7,3 +7,29 @@
   tags: X11,i3
   import_tasks: wm-i3.yml
   when: window_manager == "i3"
+
+- name: software | window-manager | install flashfocus
+  tags: X11,i3,wayland,sway
+  become_user: aurman
+  kewlfft.aur.aur:
+    name: flashfocus-git
+  when: ansible_facts['distribution'] == "Archlinux"
+
+- name: software | window-manager | ensure flashfocus dir exists
+  tags: X11,i3,wayland,sway
+  file:
+    path: /home/rafael/.config/flashfocus
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
+
+- name: software | window-manager | copy flashfocus dotfile
+  tags: X11,i3
+  copy:
+    src: /home/ansible/git/dotfiles/flashfocus/flashfocus.yml
+    dest: /home/rafael/.config/flashfocus/flashfocus.yml
+    remote_src: true
+    owner: rafael
+    group: rafael
+    mode: 0600
