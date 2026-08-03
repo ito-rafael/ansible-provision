@@ -20,6 +20,7 @@
     group: rafael
     mode: 0600
   with_items:
-    - { src: 'rules/evdev', dest: 'rules/evdev' }
-    - { src: 'symbols/fn-keys', dest: 'symbols/fn-keys' }
-    - { src: 'symbols/modifiers', dest: 'symbols/modifiers' }
+    - { src: 'compat/capslock-led-decouple', dest: 'compat/capslock-led-decouple' }
+    - { src: 'rules/evdev',                  dest: 'rules/evdev' }
+    - { src: 'symbols/fn-keys',              dest: 'symbols/fn-keys' }
+    - { src: 'symbols/modifiers',            dest: 'symbols/modifiers' }
