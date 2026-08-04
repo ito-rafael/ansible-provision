@@ -17,7 +17,9 @@
   tags: system,fonts
   become_user: aurman
   kewlfft.aur.aur:
-    name: ttf-all-the-icons  # used by Emacs
+    name:
+      - ttf-all-the-icons  # used by Emacs
+      - ttf-fast-font-git  # bionic reading like open fonts
   when: ansible_facts['distribution'] == "Archlinux"
 
 - name: system | fonts | install Font Manager
