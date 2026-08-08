@@ -66,3 +66,11 @@
   package:
     name: iio-sensor-proxy
   when: inventory_hostname in groups['laptop']
+
+# automatic screen rotation daemon
+- name: software | miscellaneous | install rot8 for display & touchscreen auto rotation
+  tags: misc,2-in-1
+  become_user: aurman
+  kewlfft.aur.aur:
+    name: rot8-git
+  when: ansible_facts['distribution'] == "Archlinux"
