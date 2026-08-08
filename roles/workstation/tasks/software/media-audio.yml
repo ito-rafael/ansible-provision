@@ -105,3 +105,12 @@
   loop:
     - { name: 'audacity', state: 'absent' }
     - { name: 'tenacity', state: 'present' }
+
+- name: software | media | install OpenSCQ30 for Anker Soundcore devices
+  tags: media,audio,anker,soundcore
+  become_user: aurman
+  kewlfft.aur.aur:
+    name:
+      - openscq30-cli
+      - openscq30-gui
+  when: ansible_facts['distribution'] == "Archlinux"
