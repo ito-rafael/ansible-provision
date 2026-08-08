@@ -28,6 +28,7 @@
     - 'navigate2ws.sh'         # go to workspace, and start application if empty
     - 'nmap.sh'                # scan devices IP with nmap
     - 'opacity.sh'             # control windows opacity/transparency
+    - 'pdfjs-server.py'        # self-hosted PDF.js to use browser extensions in localhost
     - 'rofi.sh'                # launch Rofi in specific mode
     - 'scratchpad-temp.sh'     # show temporary scratchpad or move window to it, if empty
     - 'screencast.sh'          # control screencast application
