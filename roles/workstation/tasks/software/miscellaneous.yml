@@ -59,3 +59,10 @@
     export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$(id -u)/bus"
     dconf load /io/github/amit9838/mousam/ < /home/ansible/git/dotfiles/mousam/dconf-settings.ini
   when: mousam_dconf_diff.rc == 1
+
+# IIO accelerometer sensor to input device proxy
+- name: software | miscellaneous | install iio-sensor-proxy acc sensor
+  tags: misc,2-in-1
+  package:
+    name: iio-sensor-proxy
+  when: inventory_hostname in groups['laptop']
