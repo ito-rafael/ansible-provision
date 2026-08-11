@@ -26,10 +26,10 @@
   with_items:
     - { name: 'dunstrc',               mode: '0600' }
     - { name: 'sound-dispatch.sh',     mode: '0700' }
-    - { name: 'sound/bell.mp3',        mode: '0600' }
-    - { name: 'sound/complete.mp3',    mode: '0600' }
-    - { name: 'sound/message.mp3',     mode: '0600' }
-    - { name: 'sound/pacman_waka.mp3', mode: '0600' }
+    - { name: 'sound/bell.oga',        mode: '0600' }
+    - { name: 'sound/complete.oga',    mode: '0600' }
+    - { name: 'sound/message.oga',     mode: '0600' }
+    - { name: 'sound/pacman-waka.mp3', mode: '0600' }
     - { name: 'sound/r2d2.mp3',        mode: '0600' }
     - { name: 'sound/tomato.mp3',      mode: '0600' }
     - { name: 'sound/whatsapp.mp3',    mode: '0600' }
