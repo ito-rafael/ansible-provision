@@ -73,4 +73,6 @@
   become_user: aurman
   kewlfft.aur.aur:
     name: rot8-git
-  when: ansible_facts['distribution'] == "Archlinux"
+  when:
+    - ansible_facts['distribution'] == "Archlinux"
+    - inventory_hostname in groups['laptop']
