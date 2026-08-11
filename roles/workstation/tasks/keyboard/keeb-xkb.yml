@@ -21,7 +21,7 @@
     group: rafael
     mode: 0600
   with_items:
-    - { src: 'compat/capslock',   dest: 'compat/capslock' }
-    - { src: 'rules/evdev',       dest: 'rules/evdev' }
-    - { src: 'symbols/fnkeys',    dest: 'symbols/fnkeys' }
-    - { src: 'symbols/modifiers', dest: 'symbols/modifiers' }
+    - { src: 'compat/capslockled', dest: 'compat/capslockled' }
+    - { src: 'rules/evdev',        dest: 'rules/evdev' }
+    - { src: 'symbols/fnkeys',     dest: 'symbols/fnkeys' }
+    - { src: 'symbols/modifiers',  dest: 'symbols/modifiers' }
