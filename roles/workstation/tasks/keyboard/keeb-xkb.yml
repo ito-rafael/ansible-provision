@@ -7,8 +7,9 @@
     group: rafael
     mode: 0700
   with_items:
-    - xkb/symbols
+    - xkb/compat
     - xkb/rules
+    - xkb/symbols
 
 - name: keyboard | XKB | copy xkb dotfiles
   tags: keyboard,xkb
