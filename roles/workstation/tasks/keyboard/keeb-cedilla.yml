@@ -27,5 +27,12 @@
       - fcitx5-configtool  # configuration tool for fcitx5
       - fcitx5-gtk         # fcitx5 GTK IM module and D-Bus client lib
       - fcitx5-qt          # fcitx5 Qt library (Qt5 & Qt6)
+
+#- name: keyboard | cedilla | fix cedilla using input method (fcitx5)
+#  tags: keyboard,cedilla
+#  become_user: aurman
+#  kewlfft.aur.aur:
+#    name: wayland-cedilla-fix
+#  when: ansible_facts['distribution'] == "Archlinux"
   tags: keyboard,cedilla
   with_items:
