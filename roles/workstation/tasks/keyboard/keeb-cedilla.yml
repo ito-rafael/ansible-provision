@@ -18,5 +18,14 @@
 #    - 'XMODIFIERS=@im=fcitx'
 #    - 'GTK_IM_MODULE=fcitx'
 #    - 'QT_IM_MODULE=fcitx'
+
+- name: keyboard | cedilla | install fcitx5
+  tags: keyboard,cedilla
+  package:
+    name:
+      - fcitx5             # input method framework
+      - fcitx5-configtool  # configuration tool for fcitx5
+      - fcitx5-gtk         # fcitx5 GTK IM module and D-Bus client lib
+      - fcitx5-qt          # fcitx5 Qt library (Qt5 & Qt6)
   tags: keyboard,cedilla
   with_items:
