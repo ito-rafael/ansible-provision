@@ -8,12 +8,15 @@
     - { find: 'ć', replace: 'ç' }
     - { find: 'Ć', replace: 'Ç' }
 
-- name: keyboard | cedilla | export cedilla env vars
+#- name: keyboard | cedilla | export cedilla env vars
+#  tags: keyboard,cedilla
+#  lineinfile:
+#    path: /etc/environment
+#    line: "{{ item }}"
+#    state: present
+#  with_items:
+#    - 'XMODIFIERS=@im=fcitx'
+#    - 'GTK_IM_MODULE=fcitx'
+#    - 'QT_IM_MODULE=fcitx'
   tags: keyboard,cedilla
-  lineinfile:
-    path: /etc/environment
-    line: "{{ item }}"
-    state: present
   with_items:
-    - 'GTK_IM_MODULE=cedilla'
-    - 'QT_IM_MODULE=cedilla'
