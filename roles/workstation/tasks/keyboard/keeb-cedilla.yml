@@ -46,5 +46,16 @@
   with_items:
     - fcitx5
     - environment.d
+
+- name: keyboard | cedilla | copy fcitx5 dotfiles
   tags: keyboard,cedilla
+  copy:
+    src: /home/ansible/git/keebab/fcitx5/{{ item.src }}
+    dest: /home/rafael/.config/{{ item.dest }}
+    remote_src: true
+    owner: rafael
+    group: rafael
+    mode: 0600
   with_items:
+    - { src: fcitx5.conf, dest: fcitx5/fcitx5.conf }
+    - { src: profile,     dest: environment.d/profile }
