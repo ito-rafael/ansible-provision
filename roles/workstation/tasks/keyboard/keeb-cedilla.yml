@@ -34,5 +34,17 @@
 #  kewlfft.aur.aur:
 #    name: wayland-cedilla-fix
 #  when: ansible_facts['distribution'] == "Archlinux"
+
+- name: keyboard | cedilla | ensure fcitx5 dirs exist
+  tags: keyboard,cedilla
+  file:
+    path: /home/rafael/.config/{{ item }}
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
+  with_items:
+    - fcitx5
+    - environment.d
   tags: keyboard,cedilla
   with_items:
