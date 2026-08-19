@@ -64,8 +64,8 @@
     group: rafael
     mode: "{{ item.mode }}"
   loop:
-    - { src: 'scripts/pdfjs-server.py',    dest: 'scripts/pdfjs-server.py' }
-    - { src: 'systemd/user/pdfjs.service', dest: 'systemd/user/pdfjs.service' }
+    - { src: 'scripts/pdfjs-server.py',    dest: 'scripts/pdfjs-server.py',    mode: "0700" }
+    - { src: 'systemd/user/pdfjs.service', dest: 'systemd/user/pdfjs.service', mode: "0600" }
   notify:
     - handler | get UID of the user
     - reload user systemd services (rafael)
