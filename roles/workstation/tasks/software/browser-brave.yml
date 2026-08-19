@@ -23,11 +23,6 @@
       - python-webdriver-manager  # used by Selenium for automated config
   when: ansible_facts['distribution'] == "Archlinux"
 
-- name: software | browser Brave | install PDF.js
-  tags: browser,brave
-  ansible.builtin.package:
-    name: pdfjs
-
 - name: software | browser Brave | install Xvfb for headless run
   tags: browser,brave
   ansible.builtin.package:

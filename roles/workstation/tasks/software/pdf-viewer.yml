@@ -36,3 +36,8 @@
     owner: rafael
     group: rafael
     mode: 0600
+
+- name: software | pdf viewer | install PDF.js
+  tags: pdf,pdfjs
+  ansible.builtin.package:
+    name: pdfjs
