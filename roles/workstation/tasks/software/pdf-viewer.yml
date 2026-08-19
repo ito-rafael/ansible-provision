@@ -41,3 +41,15 @@
   tags: pdf,pdfjs
   ansible.builtin.package:
     name: pdfjs
+
+- name: software | pdf viewer | ensure PDF.js dirs exist
+  tags: pdf,pdfjs
+  file:
+    path: /home/rafael/.config/{{ item }}
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
+  loop:
+    - scripts
+    - systemd/user
