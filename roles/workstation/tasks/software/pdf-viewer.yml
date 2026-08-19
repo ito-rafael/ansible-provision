@@ -54,29 +54,18 @@
     - scripts
     - systemd/user
 
-- name: software | pdf viewer | copy script to start PDF.js server
+- name: software | pdf viewer | copy PDF.js dotfiles
   tags: pdf,pdfjs
   copy:
     remote_src: yes
-    src: /home/ansible/git/dotfiles/scripts/pdfjs-server.py
-    dest: /home/rafael/.config/scripts/pdfjs-server.py
+    src: /home/ansible/git/dotfiles/{{ item.src }}
+    dest: /home/rafael/.config/{{ item.dest }}
     owner: rafael
     group: rafael
-    mode: 0700
-  notify:
-    - handler | get UID of the user
-    - reload user systemd services (rafael)
-    - software | pdf viewer | restart user PDF.js systemd service
-
-- name: software | pdf viewer | copy PDF.js user systemd service
-  tags: pdf,pdfjs
-  copy:
-    src: /home/ansible/git/dotfiles/systemd/user/pdfjs.service
-    dest: /home/rafael/.config/systemd/user/pdfjs.service
-    remote_src: true
-    owner: rafael
-    group: rafael
-    mode: 0600
+    mode: "{{ item.mode }}"
+  loop:
+    - { src: 'scripts/pdfjs-server.py',    dest: 'scripts/pdfjs-server.py' }
+    - { src: 'systemd/user/pdfjs.service', dest: 'systemd/user/pdfjs.service' }
   notify:
     - handler | get UID of the user
     - reload user systemd services (rafael)
