@@ -16,6 +16,15 @@
     dunstctl reload
   changed_when: true
 
+- name: software | pdf viewer | restart user PDF.js systemd service
+  tags: pdf,pdfjs
+  become_user: rafael
+  ansible.builtin.systemd:
+    name: pdfjs-server
+    enabled: true
+    state: restarted
+    scope: user
+
 - name: software | pomodoro | restart tomat user systemd service
   tags: pomodoro
   become_user: rafael
