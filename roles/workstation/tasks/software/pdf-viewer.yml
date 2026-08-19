@@ -67,3 +67,17 @@
     - handler | get UID of the user
     - reload user systemd services (rafael)
     - software | pdf viewer | restart user PDF.js systemd service
+
+- name: software | pdf viewer | copy PDF.js user systemd service
+  tags: pdf,pdfjs
+  copy:
+    src: /home/ansible/git/dotfiles/systemd/user/pdfjs.service
+    dest: /home/rafael/.config/systemd/user/pdfjs.service
+    remote_src: true
+    owner: rafael
+    group: rafael
+    mode: 0600
+  notify:
+    - handler | get UID of the user
+    - reload user systemd services (rafael)
+    - software | pdf viewer | restart user PDF.js systemd service
