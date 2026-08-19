@@ -53,3 +53,17 @@
   loop:
     - scripts
     - systemd/user
+
+- name: software | pdf viewer | copy script to start PDF.js server
+  tags: pdf,pdfjs
+  copy:
+    remote_src: yes
+    src: /home/ansible/git/dotfiles/scripts/pdfjs-server.py
+    dest: /home/rafael/.config/scripts/pdfjs-server.py
+    owner: rafael
+    group: rafael
+    mode: 0700
+  notify:
+    - handler | get UID of the user
+    - reload user systemd services (rafael)
+    - software | pdf viewer | restart user PDF.js systemd service
