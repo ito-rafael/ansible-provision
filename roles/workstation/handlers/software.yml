@@ -20,7 +20,7 @@
   tags: pdf,pdfjs
   become_user: rafael
   ansible.builtin.systemd:
-    name: pdfjs-server
+    name: pdfjs
     enabled: true
     state: restarted
     scope: user
