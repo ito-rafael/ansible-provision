@@ -33,7 +33,18 @@
     - { src: 'config',    dest: 'config',    mode: '0600' }  # config
     - { src: 'style.css', dest: 'style.css', mode: '0600' }  # CSS
     - { src: 'scripts',   dest: '',          mode: '0700' }  # scripts
-    - { src: 'icon',      dest: '',          mode: '0700' }  # icons
+  notify:
+    - software | statusline | reload Waybar via systemd service
+
+- name: software | statusline | sync waybar icon directory
+  tags: statusline,waybar
+  ansible.posix.synchronize:
+    src: /home/ansible/git/dotfiles/waybar/icon/
+    dest: /home/rafael/.config/waybar/icon/
+    links: yes
+    archive: no
+    recursive: yes
+  delegate_to: "{{ inventory_hostname }}"
   notify:
     - software | statusline | reload Waybar via systemd service
 

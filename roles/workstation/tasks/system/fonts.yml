@@ -40,3 +40,17 @@
   package:
     name:
       - papirus-icon-theme  # used by rofi
+
+- name: system | icons | copy icon directory
+  tags:
+    - eww
+    - icon
+    - waybar
+    - widgets
+  copy:
+    remote_src: yes
+    src: /home/ansible/git/dotfiles/icon/
+    dest: /home/rafael/.config/icon/
+    owner: rafael
+    group: rafael
+    mode: 0700
