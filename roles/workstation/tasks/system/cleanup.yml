@@ -13,3 +13,25 @@
     state: absent
   when: orphans.rc == 0
   when: ansible_facts['distribution'] == "Archlinux"
+
+- name: systemd | cleanup | graveyard: ensure deprecated packages are uninstalled
+  tags: system,cleanup,graveyard
+  community.general.pacman:
+    name:
+      # package name:              # deprecated in favour of:
+      - audacity                   # tenacity
+      - brave-bin                  # [AUR] brave-origin-bin
+      - brave-beta-bin             # [AUR] brave-origin-bin
+      - brave-origin-beta-bin      # [AUR] brave-origin-bin
+      - docker                     # podman
+      - emacs                      # emacs-wayland
+      - firefox-developer-edition  # [AUR] zen-browser-bin
+      - slack-desktop              # [AUR] slack-desktop-wayland
+      - sway                       # [AUR] swayfx-git
+      - swaylock                   # hyprlock
+      - swaylock-effects           # hyprlock
+      - thunderbird                # [AUR] betterbird-bin
+      - vlc                        # [AUR] vlc-git (version 4.x)
+      - vlc-plugins-base           # [AUR] vlc-git (version 4.x)
+      - vlc-plugins-extra          # [AUR] vlc-git (version 4.x)
+    state: absent
