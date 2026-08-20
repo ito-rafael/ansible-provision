@@ -5,3 +5,11 @@
   changed_when: false
   failed_when: orphans.rc not in [0, 1]  # 1 means no orphans found
   when: ansible_facts['distribution'] == "Archlinux"
+
+- name: systemd | cleanup | remove orphan packages
+  tags: system,cleanup,pacman
+  community.general.pacman:
+    name: "{{ orphans.stdout_lines }}"
+    state: absent
+  when: orphans.rc == 0
+  when: ansible_facts['distribution'] == "Archlinux"
