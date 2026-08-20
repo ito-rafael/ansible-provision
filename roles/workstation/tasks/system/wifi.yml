@@ -6,6 +6,7 @@
       - util-linux                  # provides rfkill (and much more)
       - "{{ wpa_supplicant_pkg }}"  # WPA Supplicant
       - iw                          # nl80211-based CLI config util
+      - wireless-regdb              # regulatory database
   when: wifi
 
 - name: system | Wi-Fi | eduroam ensure dir exist
