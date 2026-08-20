@@ -1,12 +1,12 @@
 - name: software | widget | install eww
-  tags: widget
+  tags: widgets,eww
   become_user: aurman
   kewlfft.aur.aur:
     name: eww
   when: ansible_facts['distribution'] == "Archlinux"
 
 - name: software | widget | ensure eww dirs exists
-  tags: widget
+  tags: widgets,eww
   file:
     path: /home/rafael/.config/{{ item }}
     state: directory
@@ -18,7 +18,7 @@
     - icon
 
 - name: software | widget | copy eww dotfiles
-  tags: widget
+  tags: widgets,eww
   copy:
     remote_src: true
     src: /home/ansible/git/dotfiles/eww/{{ item.name }}
@@ -32,7 +32,7 @@
     - { name: 'osd.sh',   path: 'scripts/osd.sh', mode: '0700' }
 
 - name: software | widget | copy eww icons
-  tags: widget
+  tags: widgets,eww
   copy:
     remote_src: true
     src: /home/ansible/git/dotfiles/icon/{{ item.src }}
