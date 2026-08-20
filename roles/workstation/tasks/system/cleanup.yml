@@ -35,3 +35,15 @@
       - vlc-plugins-base           # [AUR] vlc-git (version 4.x)
       - vlc-plugins-extra          # [AUR] vlc-git (version 4.x)
     state: absent
+
+ - name: system | grub | remove kernel parameters
+   tags: system,cleanup,grub
+   replace:
+     path: /etc/default/grub
+     # matches the parameter and any preceding/trailing spaces, up to the next space or quote
+     regexp: '\s*{{ item | regex_escape }}(?=\s|")'
+     replace: ''
+   loop:
+     - splash     # used for splash screen during boot
+     - nomodeset  # used for GPU troubleshooting by disabling KMS
+   notify: regenerate grub config
