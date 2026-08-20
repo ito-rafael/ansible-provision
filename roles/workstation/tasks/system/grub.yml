@@ -44,11 +44,4 @@
     - { line: "GRUB_DEFAULT=0",            regex: "^GRUB_DEFAULT=.*$" }
     - { line: "GRUB_TIMEOUT=0",            regex: "^GRUB_TIMEOUT=.*$" }
     - { line: "GRUB_TIMEOUT_STYLE=hidden", regex: "^GRUB_TIMEOUT_STYLE=.*$" }
-  register: grub
-
-- name: system | grub | regenerate GRUB config file
-  tags: system,grub
-  become: yes
-  shell:
-    cmd: grub-mkconfig -o /efi/EFI/arch/grub/grub.cfg
-  when: grub.changed
+  notify: system | grub | regenerate GRUB config file

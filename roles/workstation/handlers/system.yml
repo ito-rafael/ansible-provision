@@ -1,3 +1,8 @@
+- name: system | grub | regenerate GRUB config file
+  tags: system,grub
+  shell:
+    cmd: grub-mkconfig -o /efi/EFI/arch/grub/grub.cfg
+
 - name: system | power | restart logind service
   tags: power
   systemd:
