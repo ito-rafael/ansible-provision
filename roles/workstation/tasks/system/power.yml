@@ -1,5 +1,5 @@
 - name: system | power | disable power button
-  tags: power
+  tags: system,power
   lineinfile:
     path: /etc/systemd/logind.conf
     line: "{{ item.line }}"
@@ -9,3 +9,21 @@
     - { line: 'HandlePowerKey=ignore', regexp: '^.*(HandlePowerKey=).*$' }
     - { line: 'HandlePowerKeyLongPress=poweroff', regexp: '^.*(HandlePowerKeyLongPress=).*$' }
   notify: system | power | restart logind service
+
+# explanation:
+# - ^(GRUB_CMDLINE_LINUX_DEFAULT=": matches the start of the line
+# - (?!.*{{ item }}): negative lookahead (aborts if the parameter exists)
+# - .*?): matches everything else up to the final quote
+# - capture matched regex into group \1 up until "$
+- name: system | grub | disable USB autosuspend
+  tags: system,power,grub
+  become: yes
+  lineinfile:
+    path: /etc/default/grub
+    backrefs: yes
+    regexp: '^(GRUB_CMDLINE_LINUX_DEFAULT="(?!.*{{ item | regex_escape }}).*?)"$'
+    # injects the captured string (\1); adds space; new parameter; closes the quote
+    line: '\1 {{ item }}"'
+  loop:
+    - usbcore.autosuspend=-1
+  notify: system | grub | regenerate GRUB config file
