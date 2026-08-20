@@ -8,7 +8,7 @@
   - import_tasks: software/ansible.yml       # clone ansible-provision repo
   - import_tasks: software/cron.yml          # install & setup cron/fcron
   - import_tasks: system/auto-provision.yml  # Ansible auto-provision
-  
+
   # system setup
   - import_tasks: users/rafael.yml           # create regular user
   - import_tasks: users/dotfiles.yml         # clone dotfiles repo
