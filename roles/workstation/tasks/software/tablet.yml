@@ -14,3 +14,17 @@
   when:
     - ansible_facts['distribution'] == "Archlinux"
     - inventory_hostname in groups['laptop']
+
+- name: software | tablet | copy autorotate (rot8) user systemd service
+  tags: tablet,2-in-1,autorotate
+  copy:
+    remote_src: true
+    src: /home/ansible/git/dotfiles/systemd/user/autorotate.service
+    dest: /home/rafael/.config/systemd/user/autorotate.service
+    owner: rafael
+    group: rafael
+    mode: 0600
+  when: inventory_hostname in groups['laptop']
+  notify:
+    - handler | get UID of the user
+    - reload user systemd services (rafael)
