@@ -84,6 +84,7 @@
   - import_tasks: software/social.yml                   # Slack, WhatsApp, Discord, Zoom
   - import_tasks: software/statusline.yml               # Waybar / Polybar
   - import_tasks: software/syncthing.yml                # Syncthing
+  - import_tasks: software/tablet.yml                   # 2-in-1 laptop
   - import_tasks: software/terminal.yml                 # kitty
   - import_tasks: software/theme.yml                    # GTK-{3,4}
   - import_tasks: software/utils.yml                    # general utilities

@@ -1,0 +1,16 @@
+# IIO accelerometer sensor to input device proxy
+- name: software | tablet | install iio-sensor-proxy acc sensor
+  tags: tablet,2-in-1,autorotate
+  package:
+    name: iio-sensor-proxy
+  when: inventory_hostname in groups['laptop']
+
+# automatic screen rotation daemon
+- name: software | tablet | install rot8 for display & touchscreen auto rotation
+  tags: tablet,2-in-1,autorotate
+  become_user: aurman
+  kewlfft.aur.aur:
+    name: rot8-git
+  when:
+    - ansible_facts['distribution'] == "Archlinux"
+    - inventory_hostname in groups['laptop']
