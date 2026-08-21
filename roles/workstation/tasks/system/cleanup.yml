@@ -14,7 +14,7 @@
   when: orphans.rc == 0
   when: ansible_facts['distribution'] == "Archlinux"
 
-- name: systemd | cleanup | graveyard: ensure deprecated packages are uninstalled
+- name: systemd | cleanup | ensure deprecated packages are uninstalled
   tags: system,cleanup,graveyard
   community.general.pacman:
     name:
