@@ -49,6 +49,27 @@
     - kepler.stdout != ""
     - ansible_facts['distribution'] == "Archlinux"
 
+# explanation:
+# - ^(GRUB_CMDLINE_LINUX_DEFAULT=": matches the start of the line
+# - (?!.*{{ item }}): negative lookahead (aborts if the parameter exists)
+# - .*?): matches everything else up to the final quote
+# - capture matched regex into group \1 up until "$
+- name: system | GPU NVIDIA | disable MSI & set highest clock for Kepler architecture
+  tags: system,gpu,gpu-nvidia,grub
+  lineinfile:
+    path: /etc/default/grub
+    backrefs: yes
+    regexp: '^(GRUB_CMDLINE_LINUX_DEFAULT="(?!.*{{ item | regex_escape }}).*?)"$'
+    # injects the captured string (\1); adds space; new parameter; closes the quote
+    line: '\1 {{ item }}"'
+  loop:
+    - nouveau.config=NvMSI=0       # disable MSI (Message Signaled Interrupts)
+    - nouveau.config=NvClkMode=15  # switch to the highest performance profile (pstate)
+  notify: system | grub | regenerate GRUB config file
+  when:
+    - nvidia_driver != "nouveau"
+    - kepler.stdout != ""
+
 # Maxwell, Pascal, and Volta
 - name: system | GPU NVIDIA | install driver for Maxwell, Pascal and Volta architectures (linux kernel)
   tags: system,gpu,gpu-nvidia
