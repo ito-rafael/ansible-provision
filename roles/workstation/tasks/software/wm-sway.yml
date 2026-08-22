@@ -65,8 +65,8 @@
   tags: wayland,sway
   package:
     name:
-      - kanshi        # daemon for dynamic automatic output profile for Wayland
       - nwg-displays  # GUI for output management in Sway/Hyprland
+      - kanshi        # daemon for dynamic automatic output profile for Wayland
       - #wdisplays    # GUI for configuring Wayland outputs
       - #wlr-randr    # CLI for managing outputs in Wayland
 

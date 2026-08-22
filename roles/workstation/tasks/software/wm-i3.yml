@@ -74,3 +74,9 @@
     owner: rafael
     group: rafael
     mode: 0600
+
+- name: software | window-manager | install applications to manage displays/outputs in X11
+  tags: X11,i3
+  package:
+    name:
+      - xorg-xrandr  # CLI to RandR extension
