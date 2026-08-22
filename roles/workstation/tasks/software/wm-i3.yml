@@ -80,3 +80,4 @@
   package:
     name:
       - xorg-xrandr  # CLI to RandR extension
+      - arandr       # GUI for XRandR
