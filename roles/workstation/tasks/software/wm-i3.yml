@@ -81,3 +81,4 @@
     name:
       - xorg-xrandr  # CLI to RandR extension
       - arandr       # GUI for XRandR
+      - autorandr    # auto-detect displays and loads setup with xrandr
