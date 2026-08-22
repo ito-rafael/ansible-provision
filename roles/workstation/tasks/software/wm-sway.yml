@@ -61,6 +61,10 @@
     cmd: ruby /home/rafael/.config/sway/i3bang.rb
     creates: /home/rafael/.config/sway/config
 
+- name: software | window-manager | install wlr-randr for managing outputs in Wayland
+  tags: wayland,sway
+  package:
+    name: wlr-randr
 - name: software | window-manager | install general packages
   tags: wayland,sway
   package:
