@@ -25,6 +25,7 @@
   become_user: aurman
   kewlfft.aur.aur:
     name:
+      - drm_info-git    # dump info about DRM devices (Direct Rendering Manager)
       - ventoy-bin      # bootable USB stick with multiple ISO
       #- forx            # currencies exchange rates
       - pandoc-bin      # conversion between documentation formats
