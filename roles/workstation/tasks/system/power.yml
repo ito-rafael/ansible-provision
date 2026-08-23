@@ -17,7 +17,6 @@
 # - capture matched regex into group \1 up until "$
 - name: system | grub | disable USB autosuspend
   tags: system,power,grub
-  become: yes
   lineinfile:
     path: /etc/default/grub
     backrefs: yes
