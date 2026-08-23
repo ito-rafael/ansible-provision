@@ -18,3 +18,20 @@
   with_items:
     - kanshi
     - systemd/user
+
+- name: software | output profile | copy kanshi dotfiles
+  tags: output,kanshi
+  copy:
+    remote_src: true
+    src: /home/ansible/git/dotfiles/kanshi/{{ item.src }}
+    dest: /home/rafael/.config/{{ item.dest }}
+    owner: rafael
+    group: rafael
+    mode: "{{ item.mode }}"
+  loop:
+    - { src: 'config',         dest: 'kanshi/config',               mode: "0700" }
+    - { src: 'kanshi.service', dest: 'systemd/user/kanshi.service', mode: "0600" }
+  notify:
+    - handler | get UID of the user
+    - reload user systemd services (rafael)
+    - software | output profile | restart kanshi systemd user service
