@@ -26,3 +26,4 @@
   loop:
     - usbcore.autosuspend=-1
   notify: system | grub | regenerate GRUB config file
+  when: inventory_hostname not in groups['laptop']
