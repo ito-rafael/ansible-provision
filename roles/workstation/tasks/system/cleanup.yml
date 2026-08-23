@@ -11,8 +11,9 @@
   community.general.pacman:
     name: "{{ orphans.stdout_lines }}"
     state: absent
-  when: orphans.rc == 0
-  when: ansible_facts['distribution'] == "Archlinux"
+  when:
+    - ansible_facts['distribution'] == "Archlinux"
+    - orphans.rc == 0
 
 - name: systemd | cleanup | ensure deprecated packages are uninstalled
   tags: system,cleanup,graveyard
