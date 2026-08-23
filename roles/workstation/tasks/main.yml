@@ -70,6 +70,7 @@
   - import_tasks: software/miscellaneous.yml            # IRPF, BB bank
   - import_tasks: software/notification.yml             # dunst
   - import_tasks: software/office-suite.yml             # LibreOffice
+  - import_tasks: software/output-profiles.yml          # kanshi
   - import_tasks: software/pdf-viewer.yml               # Zathura
   - import_tasks: software/presentation.yml             # pdfpc
   - import_tasks: software/pomodoro-timer.yml           # tomat
