@@ -64,6 +64,7 @@
   package:
     name:            # replacement for:
       - bat          # cat
+      - btop         # htop
       - eza          # ls
       - zoxide       # cd
   # https://github.com/ibraheemdev/modern-unix
