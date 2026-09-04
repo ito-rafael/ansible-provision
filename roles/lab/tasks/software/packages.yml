@@ -11,6 +11,7 @@
       - unrar          # RAR uncompression
       - unzip          # zip archives extraction
       - vim            # terminal text editor
+      - zip            # zip archives compressor
 
 - name: software | packages | install monitoring packages
   tags: software,packages
