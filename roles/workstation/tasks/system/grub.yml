@@ -33,7 +33,6 @@
 
 - name: system | grub | set GRUB options
   tags: system,grub
-  become: yes
   lineinfile:
     backup: true
     path: /etc/default/grub
