@@ -30,9 +30,10 @@
     group: rafael
     mode: "{{ item.mode }}"
   loop:
-    - { src: 'config',                  dest: 'kanshi/config',                   mode: "0700" }
-    - { src: 'kanshi.service',          dest: 'systemd/user/kanshi.service',     mode: "0600" }
-    - { src: 'kanshi-profile-setup.sh', dest: 'scripts/kanshi-profile-setup.sh', mode: "0700" }
+    - { src: 'config',            dest: 'kanshi/config',                   mode: "0700" }
+    - { src: 'kanshi.service',    dest: 'systemd/user/kanshi.service',     mode: "0600" }
+    - { src: 'profile-setup.sh',  dest: 'scripts/kanshi-profile-setup.sh', mode: "0700" }
+    - { src: 'map-workspaces.sh', dest: 'scripts/map-workspaces.sh',       mode: "0700" }
   notify:
     - handler | get UID of the user
     - reload user systemd services (rafael)
