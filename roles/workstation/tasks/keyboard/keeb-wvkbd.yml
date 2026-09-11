@@ -43,3 +43,13 @@
   when:
     - ansible_facts['distribution'] == "Archlinux"
     - (wvkbd_repo.changed) or (not wvkbd_bin.stat.exists)
+
+- name: keyboard | virtual kbd | build and install wvkbd-deskintl
+  tags: keyboard,wvkbd
+  become_user: aurman
+  ansible.builtin.command:
+    cmd: makepkg -siCf --noconfirm
+    chdir: ~/.cache/paru/clone/wvkbd
+  when:
+    - ansible_facts['distribution'] == "Archlinux"
+    - (wvkbd_repo.changed) or (not wvkbd_bin.stat.exists)
