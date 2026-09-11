@@ -53,3 +53,13 @@
   when:
     - ansible_facts['distribution'] == "Archlinux"
     - (wvkbd_repo.changed) or (not wvkbd_bin.stat.exists)
+
+- name: keyboard | virtual kbd | restore PKGBUILD to prevent dirty git tree
+  tags: keyboard,wvkbd
+  become_user: aurman
+  ansible.builtin.command:
+    cmd: git checkout PKGBUILD
+    chdir: ~/.cache/paru/clone/wvkbd
+  when:
+    - ansible_facts['distribution'] == "Archlinux"
+    - (wvkbd_repo.changed) or (not wvkbd_bin.stat.exists)
