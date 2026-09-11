@@ -11,3 +11,13 @@
     path: /usr/bin/wvkbd-deskintl
   register: wvkbd_bin
   when: ansible_facts['distribution'] == "Archlinux"
+
+- name: keyboard | virtual kbd | clone wvkbd to persistent Paru cache
+  tags: keyboard,wvkbd
+  become_user: aurman
+  ansible.builtin.git:
+    repo: 'https://aur.archlinux.org/wvkbd.git'
+    dest: ~/.cache/paru/clone/wvkbd
+    update: yes
+  register: wvkbd_repo
+  when: ansible_facts['distribution'] == "Archlinux"
