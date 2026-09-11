@@ -1,0 +1,6 @@
+- name: keyboard | virtual kbd | install wvkbd
+  tags: keyboard,wvkbd
+  become_user: aurman
+  kewlfft.aur.aur:
+    name: wvkbd
+  when: ansible_facts['distribution'] == "Archlinux"
