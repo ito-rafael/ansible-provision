@@ -32,3 +32,14 @@
   when:
     - ansible_facts['distribution'] == "Archlinux"
     - (wvkbd_repo.changed) or (not wvkbd_bin.stat.exists)
+
+- name: keyboard | virtual kbd | inject deskintl into wvkbd's PKGBUILD package()
+  tags: keyboard,wvkbd
+  become_user: aurman
+  ansible.builtin.replace:
+    path: ~/.cache/paru/clone/wvkbd/PKGBUILD
+    regexp: '^(\s*)make (-C "\$pkgname-v\$pkgver" PREFIX=/usr DESTDIR="\$pkgdir" install)$'
+    replace: '\1make LAYOUT=deskintl \2'
+  when:
+    - ansible_facts['distribution'] == "Archlinux"
+    - (wvkbd_repo.changed) or (not wvkbd_bin.stat.exists)
