@@ -78,3 +78,9 @@
 #  ansible.builtin.command: /opt/mamba/bin/mamba init bash"
 #  register: mamba_init
 #  changed_when: "'no change' not in mamba_init.stdout"
+
+#- name: system | mamba | clean up the installer script
+#  tags: system,mamba
+#  ansible.builtin.file:
+#    path: "/tmp/Miniforge3.sh"
+#    state: absent
