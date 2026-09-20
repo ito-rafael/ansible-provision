@@ -56,17 +56,23 @@ lab:
     ansible_user: ansible
   children:
 #+end_src
+*** Experiments
+#+begin_src yaml :padline no
+    lab_experiments:
+      hosts:
+        paubrasil:    # xxx.xxx.xx.179
+#+end_src
 *** Server
 #+begin_src yaml :padline no
     lab_server:
       hosts:
-        paubrasil:    # xxx.xxx.xx.179
+        andira:       # xxx.xxx.xx.162
 #+end_src
 *** Workstation
 #+begin_src yaml :padline no
     lab_workstation:
       hosts:
-        andira:       # xxx.xxx.xx.162
+        #andira:      # xxx.xxx.xx.162
         aroeira:      # xxx.xxx.xx.163
         baoba:        # xxx.xxx.xx.164
         barauna:      # xxx.xxx.xx.165
