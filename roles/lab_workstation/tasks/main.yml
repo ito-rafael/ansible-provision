@@ -13,5 +13,6 @@
     - import_tasks: software/packages.yml    # install Vim
     # users & groups
     - import_tasks: users/ansible.yml        # set system user to run ansible automations
+    - import_tasks: users/lbic-user.yml      # generic universal LBiC user
     # system
     - import_tasks: system/ssh.yml           # OpenSSH
