@@ -72,3 +72,9 @@
   loop:
     - /opt/mamba/pkgs/pkgs.lock
     - /opt/mamba/pkgs/urls.txt
+
+#- name: system | mamba | initialize mamba for bash
+#  tags: system,mamba
+#  ansible.builtin.command: /opt/mamba/bin/mamba init bash"
+#  register: mamba_init
+#  changed_when: "'no change' not in mamba_init.stdout"
