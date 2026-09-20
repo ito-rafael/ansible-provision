@@ -11,5 +11,7 @@
 - block:
     # software
     - import_tasks: software/packages.yml    # install Vim
+    # users & groups
+    - import_tasks: users/ansible.yml        # set system user to run ansible automations
     # system
     - import_tasks: system/ssh.yml           # OpenSSH
