@@ -7,3 +7,7 @@
     - "default.yml"
     skip: true  # prevents crashing if absolutely no matching files exist
   tags: always
+
+- block:
+    # software
+    - import_tasks: software/packages.yml    # install Vim
