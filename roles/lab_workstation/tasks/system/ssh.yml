@@ -1,0 +1,5 @@
+- name: system | ssh | install OpenSSH packages
+  tags: ssh
+  package:
+    name: "{{ ssh_packages }}"
+    state: present

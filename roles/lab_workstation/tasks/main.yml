@@ -11,3 +11,5 @@
 - block:
     # software
     - import_tasks: software/packages.yml    # install Vim
+    # system
+    - import_tasks: system/ssh.yml           # OpenSSH
