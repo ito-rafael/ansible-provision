@@ -48,7 +48,6 @@
 - name: users | lbic-user | copy ssh keys
   tags: ssh,ssh-keys
   ansible.posix.authorized_key:
-
     user: lbic-user
     state: present
     manage_dir: true
