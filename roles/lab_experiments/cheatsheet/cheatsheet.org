@@ -9,7 +9,7 @@
 #+LATEX_CLASS_OPTIONS: [a4paper, landscape]
 
 # set version
-#+LATEX_HEADER: \newcommand{\docversion}{v1.2}
+#+LATEX_HEADER: \newcommand{\docversion}{v1.3}
 
 # # manually place the title
 # #+LATEX: \begin{center}
@@ -95,7 +95,7 @@
 # configure source code blocks
 #+LATEX_HEADER: \lstset{basicstyle=\ttfamily\small, backgroundcolor=\color{gray!10}, frame=single, rulecolor=\color{gray!40}, framesep=5pt, frameround=tttt, breaklines=true, columns=flexible, keepspaces=true, keywordstyle=\normalfont\ttfamily, commentstyle=\normalfont\ttfamily, stringstyle=\normalfont\ttfamily, literate={-}{{-}}1}
 
-# adjust hyperlink style 
+# adjust hyperlink style
 #+LATEX_HEADER: \hypersetup{
 #+LATEX_HEADER:     hidelinks,         % remove colored boxes and borders
 #+LATEX_HEADER:     colorlinks=false,  % ensures hyperref doesn't try to color the text itself
@@ -141,23 +141,34 @@
 
 * Accessing the lab
 # * Accessing the lab @@latex:\hfill\raisebox{-0.2\height}{\includegraphics[height=1em]{figure/student-id.png}}\hspace{0.25cm}\raisebox{-0.2\height}{\includegraphics[height=1em]{figure/key.png}}@@
-#+LATEX: \vspace{-0.1cm}
+#+LATEX: \vspace{-2mm}
 - *Building*: Access to the G2 block (LBiC's location) requires student ID ("RA"). If your ID fails, please contact prof. Von Zuben\textsuperscript{*} for authorization (@@latex:\href{https://site.fee.unicamp.br/ctic/faq\detokenize{#}acesso_laboratorio}{\textcolor{blue}{\uline{CTIC}}}@@).
 - *LBiC*: The lab access control is done through a regular key. If you plan to use the physical space, kindly ask Prof. Von Zuben for a copy of the lab key.
-#+LATEX: \vspace{-1em}\noindent\rule{\linewidth}{0.4pt}\vspace{-1em}
+# +LATEX: \vspace{-1em}\noindent\rule{\linewidth}{0.4pt}\vspace{-1em}
+#+LATEX: \vspace{-1em}\noindent\rule{\linewidth}{0.4pt}\vspace{-1.25em}
 * Accessing the computers
 # * Accessing the computers @@latex:\hfill\raisebox{-0.2\height}{\includegraphics[height=1.25em]{figure/openvpn.png}}\hspace{0.25cm}\raisebox{-0.2\height}{\includegraphics[height=1.25em]{figure/openssh.png}}@@
-#+LATEX: \vspace{-0.1cm}
-If you don't have your credentials yet, send an email\textsuperscript{\dag}  requesting it. To access hosts remotely, connect via VPN then SSH into the host. If you are locally connected to the lab's network, only an SSH connection needed.
-- *VPN*: Connect to the lab VPN using your assigned credentials. A comprehensive setup guide was included in your credential email for reference.
+#+LATEX: \vspace{-2mm}
+If you don't have your credentials yet, send an email\textsuperscript{\dag}  requesting it. To access hosts remotely, connect via VPN then SSH into the host, or use the FEEC server alternative. If you are locally connected to the lab's network, simply skip to the final SSH.
+- *VPN*: Download and install @@latex:\href{https://tailscale.com/download}{\textcolor{blue}{\uline{Tailscale}}}@@. Then, run this to join the lab's Tailnet:
+  #+ATTR_LATEX: :options basicstyle=\fontsize{7pt}{8.5pt}\ttfamily
+  #+begin_src sh
+sudo tailscale up --login-server https://andira.lbic.fee.unicamp.br --accept-routes --authkey <KEY>
+  #+end_src
+  \vspace{-1mm}
 - *SSH:* After establishing the VPN connection, log in to the PC and/or server:
   #+begin_src sh
-  ssh username@ip_address
+ssh username@ip_address
   #+end_src
-#+LATEX: \vspace{-1em}\noindent\rule{\linewidth}{0.4pt}\vspace{-1em}
+  \vspace{-1mm}
+- *FEEC server* (alternative): FEEC hosts an SSH server node. This method does not require a VPN. One can find more information on this CTIC @@latex:\href{https://site.fee.unicamp.br/ctic/configuracao-de-sshfeeunicampbr-como-jump-host}{\textcolor{blue}{\uline{page}}}@@.
+  #+begin_src sh
+ssh -J email@dac.unicamp.br@ssh.fee.unicamp.br username@ip_address
+  #+end_src
+#+LATEX: \vspace{-0.75em}\noindent\rule{\linewidth}{0.4pt}\vspace{-1.25em}
 * Hosts
 # * Hosts @@latex:\hfill\raisebox{-0.2\height}{\includegraphics[height=1em]{figure/server.png}}\hspace{0.25cm}\raisebox{-0.2\height}{\includegraphics[height=1em]{figure/computer.png}}@@
-#+LATEX: \vspace{-0.1cm}
+#+LATEX: \vspace{-2mm}
 - *Workstations*: There are a few dedicated PCs available for local or remote research. Please contact us\textsuperscript{\dag} to request a machine for your project's duration.
 - *Servers*: Experiments are currently hosted on a shared primary server. Please schedule your sessions in advance via the resource reservation @@latex:\href{https://docs.google.com/spreadsheets/d/1Lhi5pEze4d4Z4oHMksUpD3k6n5Hp26gXtOMGz6sXr9A/edit?usp=sharing}{\textcolor{blue}{\uline{spreadsheet}}}@@.
 
@@ -172,9 +183,9 @@ If you don't have your credentials yet, send an email\textsuperscript{\dag}  req
 On workstations, =root= privileges are granted (and recommended), and users are responsible for system maintenance. On servers, =root= access is restricted; please contact us\textsuperscript{\dag} for any required system-wide package installations.
 
 #+LATEX: \vfill
-#+LATEX: \noindent \scriptsize \textsuperscript{*} vonzuben[at]unicamp[dot]br
-#+LATEX: \newline
-#+LATEX: \noindent \scriptsize \textsuperscript{\dag} vonzuben[at]unicamp[dot]br, with copy to ito[dot]rafael[at]gmail[dot]com
+#+LATEX: \noindent \fontsize{7}{7.2}\selectfont \textsuperscript{*} vonzuben[at]unicamp[dot]br
+#+LATEX: \hfill
+#+LATEX: \noindent \fontsize{7}{7.2}\selectfont \textsuperscript{\dag} vonzuben[at]unicamp[dot]br, with copy to itorafael[at]gmail[dot]com
 #+LATEX: \normalsize
 #+LATEX: \columnbreak
 ** Future server :noexport:
