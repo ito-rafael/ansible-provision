@@ -17,27 +17,28 @@
     group: rafael
     mode: 0700
   with_items:
-    - 'adb-mdns-pair.sh'       # detect ADB pair IP:port with mDNS start pairing
-    - 'adb-mdns-scrcpy.sh'     # detect ADB IP:port and show/start scrcpy scratchpad
-    - 'darth_bright.sh'        # toggle GTK light/dark theme
-    - 'emacs-respawn.sh'       # hard restart of Emacs daemon
-    - 'emote-paste.sh'         # paste emoji according to window context
-    - 'hide-or-kill.sh'        # hide scratchpads, kill other windows
-    - 'kill-window.sh'         # kill window + if scratchpad, clean PID temp file
+    - 'adb-mdns-pair.sh'        # detect ADB pair IP:port with mDNS start pairing
+    - 'adb-mdns-scrcpy.sh'      # detect ADB IP:port and show/start scrcpy scratchpad
+    - 'darth_bright.sh'         # toggle GTK light/dark theme
+    - 'emacs-respawn.sh'        # hard restart of Emacs daemon
+    - 'emote-paste.sh'          # paste emoji according to window context
+    - 'hide-or-kill.sh'         # hide scratchpads, kill other windows
+    - 'kill-window.sh'          # kill window + if scratchpad, clean PID temp file
     - 'kanshi-profile-setup.sh' # output profile: Waybar, workspaces, and backgrounds
-    - 'mouse-warp.sh'          # for i3wm: focus adjacent window and centralize cursor
-    - 'navigate2ws.sh'         # go to workspace, and start application if empty
-    - 'nmap.sh'                # scan devices IP with nmap
-    - 'opacity.sh'             # control windows opacity/transparency
-    - 'pdfjs-server.py'        # self-hosted PDF.js to use browser extensions in localhost
-    - 'rofi.sh'                # launch Rofi in specific mode
-    - 'scratchpad-temp.sh'     # show temporary scratchpad or move window to it, if empty
-    - 'screencast.sh'          # control screencast application
-    - 'show-or-launch.sh'      # show scratchpad, or launch it if it doesn't exist
-    - 'sway-scale.sh'          # adjust scale in Sway (zoom-{in,out})
-    - 'sway-test.sh'           # test Sway bindsyms via script with alt+ctrl+t
-    - 'theme-toggle.sh'        # toggle gsettings theme to prefer-{light,dark}
-    - 'volume-control.sh'      # adjust volume in fixed step sizes (used with mouse)
-    - 'vpn-connect.sh'         # GUI to connect/disconnect VPN
-    - 'wait-host-up.sh'        # fping host and send notification when it's up
-    - 'wlprop.sh'              # get window properties in Wayland (Sway)
+    - 'map-workspaces.sh'       # output profile: dynamically assign workspaces to outputs
+    - 'mouse-warp.sh'           # for i3wm: focus adjacent window and centralize cursor
+    - 'navigate2ws.sh'          # go to workspace, and start application if empty
+    - 'nmap.sh'                 # scan devices IP with nmap
+    - 'opacity.sh'              # control windows opacity/transparency
+    - 'pdfjs-server.py'         # self-hosted PDF.js to use browser extensions in localhost
+    - 'rofi.sh'                 # launch Rofi in specific mode
+    - 'scratchpad-temp.sh'      # show temporary scratchpad or move window to it, if empty
+    - 'screencast.sh'           # control screencast application
+    - 'show-or-launch.sh'       # show scratchpad, or launch it if it doesn't exist
+    - 'sway-scale.sh'           # adjust scale in Sway (zoom-{in,out})
+    - 'sway-test.sh'            # test Sway bindsyms via script with alt+ctrl+t
+    - 'theme-toggle.sh'         # toggle gsettings theme to prefer-{light,dark}
+    - 'volume-control.sh'       # adjust volume in fixed step sizes (used with mouse)
+    - 'vpn-connect.sh'          # GUI to connect/disconnect VPN
+    - 'wait-host-up.sh'         # fping host and send notification when it's up
+    - 'wlprop.sh'               # get window properties in Wayland (Sway)
