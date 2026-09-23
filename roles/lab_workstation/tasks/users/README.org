@@ -39,3 +39,15 @@
     system: yes
     shell: /bin/bash
 #+end_src
+*** Add sudoers file
+#+begin_src yaml
+- name: users | ansible | add sudoers file
+  tags: ansible,users,sudo
+  copy:
+    src: files/users/sudoers_ansible
+    dest: /etc/sudoers.d/ansible
+    owner: root
+    group: root
+    mode: 0440
+    validate: "/usr/bin/visudo -cf %s"
+#+end_src
