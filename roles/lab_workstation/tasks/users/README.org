@@ -24,3 +24,18 @@
     name: ansible
     state: present
 #+end_src
+*** Create user
+#+begin_src yaml
+- name: users | ansible | create user
+  tags: ansible,users
+  user:
+    name: ansible
+    group: ansible
+    groups: "{{ sudo_group }}"
+    append: yes
+    createhome: yes
+    state: present
+    comment: "Ansible"
+    system: yes
+    shell: /bin/bash
+#+end_src

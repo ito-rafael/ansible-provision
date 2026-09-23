@@ -4,3 +4,16 @@
   group:
     name: ansible
     state: present
+
+- name: users | ansible | create user
+  tags: ansible,users
+  user:
+    name: ansible
+    group: ansible
+    groups: "{{ sudo_group }}"
+    append: yes
+    createhome: yes
+    state: present
+    comment: "Ansible"
+    system: yes
+    shell: /bin/bash
