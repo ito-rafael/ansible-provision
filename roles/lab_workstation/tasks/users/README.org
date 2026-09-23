@@ -1,0 +1,26 @@
+#+TITLE: Ansible Users Configuration for Lab Workstations
+#+AUTHOR: Rafael Ito
+#+PROPERTY: header-args:yaml
+#+STARTUP: showeverything
+#+auto_tangle: t
+
+* Table of Contents :toc:
+- [[#users-tasks][Users tasks]]
+  - [[#ansible][ansible]]
+
+* Users tasks
+** ansible
+:PROPERTIES:
+:header-args+: :tangle ansible.yml
+:END:
+#+begin_src yaml
+---
+#+end_src
+*** Create group
+#+begin_src yaml :padline no
+- name: users | ansible | create group
+  tags: ansible,groups,users
+  group:
+    name: ansible
+    state: present
+#+end_src

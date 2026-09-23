@@ -1,3 +1,4 @@
+---
 - name: users | ansible | create group
   tags: ansible,groups,users
   group:
