@@ -6,13 +6,13 @@
       - ddcutil        # external monitor control
       - linux-headers  # DKMS dependency
 
-- name: software | brightness | kernel driver for DDC/CI monitors
-  tags: software,brightness
-  become_user: aurman
-  kewlfft.aur.aur:
-    name:
-      - ddcci-driver-linux-dkms-git
-  when: ansible_facts['distribution'] == "Archlinux"
+#- name: software | brightness | kernel driver for DDC/CI monitors
+#  tags: software,brightness
+#  become_user: aurman
+#  kewlfft.aur.aur:
+#    name:
+#      - ddcci-driver-linux-dkms-git
+#  when: ansible_facts['distribution'] == "Archlinux"
 
 - name: software | brightness | copy the udev rules for external monitors
   tags: software,brightness
@@ -44,7 +44,7 @@
     mode: '0644'
   loop:
     - { driver: 'i2c-dev',               filename: 'i2c-dev.conf' }
-    - { driver: 'ddcci\nddcci_backlight', filename: 'ddcci.conf' }
+    #- { driver: 'ddcci\nddcci_backlight', filename: 'ddcci.conf' }
 
 - name: software | brightness | load kernel modules immediately
   tags: software,brightness
@@ -53,8 +53,8 @@
     state: present
   loop:
     - i2c-dev
-    - ddcci
-    - ddcci_backlight
+    #- ddcci
+    #- ddcci_backlight
 
 - name: software | brightness | add user to i2c group
   tags: software,brightness,groups
