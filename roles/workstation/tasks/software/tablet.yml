@@ -6,25 +6,23 @@
   when: inventory_hostname in groups['laptop']
 
 # automatic screen rotation daemon
-- name: software | tablet | install rot8 for display & touchscreen auto rotation
+- name: software | tablet | check if rot8 is installed
   tags: tablet,2-in-1,autorotate
-  become_user: aurman
-  kewlfft.aur.aur:
-    name: rot8-git
+  ansible.builtin.stat:
+    path: /usr/bin/rot8
+  register: rot8_bin
   when:
     - ansible_facts['distribution'] == "Archlinux"
     - inventory_hostname in groups['laptop']
 
-- name: software | tablet | copy autorotate (rot8) user systemd service
+- name: software | tablet | clone rot8-git to persistent cache
   tags: tablet,2-in-1,autorotate
-  copy:
-    remote_src: true
-    src: /home/ansible/git/dotfiles/systemd/user/autorotate.service
-    dest: /home/rafael/.config/systemd/user/autorotate.service
-    owner: rafael
-    group: rafael
-    mode: 0600
-  when: inventory_hostname in groups['laptop']
-  notify:
-    - handler | get UID of the user
-    - reload user systemd services (rafael)
+  become_user: aurman
+  ansible.builtin.git:
+    repo: 'https://aur.archlinux.org/rot8-git.git'
+    dest: ~/.cache/paru/clone/rot8-git
+    update: yes
+  register: rot8_repo
+  when:
+    - ansible_facts['distribution'] == "Archlinux"
+    - inventory_hostname in groups['laptop']
