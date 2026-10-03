@@ -39,3 +39,14 @@
     - ansible_facts['distribution'] == "Archlinux"
     - inventory_hostname in groups['laptop']
     - (rot8_repo.changed) or (not rot8_bin.stat.exists)
+
+- name: software | tablet | build and install patched rot8-git
+  tags: tablet,2-in-1,autorotate
+  become_user: aurman
+  ansible.builtin.command:
+    cmd: makepkg -siCf --noconfirm
+    chdir: ~/.cache/paru/clone/rot8-git
+  when:
+    - ansible_facts['distribution'] == "Archlinux"
+    - inventory_hostname in groups['laptop']
+    - (rot8_repo.changed) or (not rot8_bin.stat.exists)
