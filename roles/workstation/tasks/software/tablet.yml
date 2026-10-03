@@ -26,3 +26,16 @@
   when:
     - ansible_facts['distribution'] == "Archlinux"
     - inventory_hostname in groups['laptop']
+
+# custom build to bypass --locked flag error
+- name: software | tablet | patch rot8-git PKGBUILD to remove --locked flag
+  tags: tablet,2-in-1,autorotate
+  become_user: aurman
+  ansible.builtin.replace:
+    path: ~/.cache/paru/clone/rot8-git/PKGBUILD
+    regexp: '--locked\s*'
+    replace: ''
+  when:
+    - ansible_facts['distribution'] == "Archlinux"
+    - inventory_hostname in groups['laptop']
+    - (rot8_repo.changed) or (not rot8_bin.stat.exists)
