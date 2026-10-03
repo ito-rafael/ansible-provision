@@ -31,10 +31,4 @@
   become: true
   roles:
     - role: server
-
-- hosts: lab_experiments
-  connection: ssh
-  become: true
-  roles:
-    - role: lab_experiments
 ...
