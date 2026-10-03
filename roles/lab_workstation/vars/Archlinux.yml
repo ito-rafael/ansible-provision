@@ -1,4 +1,0 @@
-sudo_group: wheel
-ssh_packages:
-  - openssh
-ssh_service: sshd
