@@ -26,5 +26,5 @@
   tags: presentation,projecteur
   become_user: aurman
   kewlfft.aur.aur:
-    name: projecteur-git
+    name: projecteur
   when: ansible_facts['distribution'] == "Archlinux"
