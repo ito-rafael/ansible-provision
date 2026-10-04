@@ -10,6 +10,7 @@
       - systemd-resolvconf  # systemd resolvconf replacement
       - ethtool             # utility for controlling network drivers and hardware
       - lldpd               # LLDP to help locate network neighbors
+      - tcpdump             # CLI packet analyzer
 
 - name: system | network | install NetworkManager
   tags: system,network
