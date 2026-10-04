@@ -206,6 +206,7 @@
     - video-speed-controller_allow-in-private.py
     - video-speed-controller_import_settings.py
     - violentmonkey_allow_user_scripts.py
+    - widevine_opt_in.py
   register: python_execution
   changed_when: "'Success' in python_execution.stdout"
   # natively skip the task if the previous gatekeeper check saw Brave was open
