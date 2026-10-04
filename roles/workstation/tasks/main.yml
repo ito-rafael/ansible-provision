@@ -2,7 +2,8 @@
 - include_vars: "{{ ansible_facts['distribution'] }}.yml"
   tags: always
 
-- block:
+- name: User tasks
+  block:
   # Users
   - import_tasks: users/ansible.yml                     # enable lingering for systemd
   - import_tasks: users/rafael.yml                      # enable lingering for systemd
@@ -13,7 +14,8 @@
   - import_tasks: software/chaotic-aur.yml              # Chaotic-AUR
   when: ansible_facts['distribution'] == "Archlinux"
 
-- block:
+- name: Keyboard tasks for laptops
+  block:
   # Keyboard: laptop only
   - import_tasks: system/power.yml                      # disable power button
   - import_tasks: keyboard/keeb-kanata.yml              # QMK-like layers
@@ -22,7 +24,8 @@
   #- import_tasks: keyboard/keeb-kmonad.yml             # [deprecated] QMK-like layers
   when: inventory_hostname in groups['laptop']
 
-- block:
+- name: Keyboard tasks for workstation and laptops
+  block:
   # Keyboard: workstation + laptop
   - import_tasks: keyboard/keeb-cedilla.yml             # fix cedilla
   - import_tasks: keyboard/keeb-hwdb.yml                # hardware mod
@@ -34,6 +37,8 @@
   - import_tasks: keyboard/keeb-ydotool.yml             # command-line automation
   - import_tasks: keyboard/keeb-zsa.yml                 # ZSA's Keymapp & Kontroll
 
+- name: System settings tasks
+  block:
   # System settings
   - import_tasks: system/audio.yml                      # PipeWire
   - import_tasks: system/bluetooth.yml                  # BlueZ
@@ -53,6 +58,8 @@
   - import_tasks: system/vpn.yml                        # VPN
   - import_tasks: system/wifi.yml                       # eduroam
 
+- name: Applications tasks
+  block:
   # Applications
   - import_tasks: software/android.yml                  # Android
   - import_tasks: software/app-launcher.yml             # rofi
@@ -97,6 +104,8 @@
   - import_tasks: software/widgets.yml                  # eww
   - import_tasks: software/window-manager.yml           # i3 / Sway
 
+- name: Development tasks
+  block:
   # Development
   - import_tasks: dev/container.yml                     # Podman, Docker, LXC
   - import_tasks: dev/emacs.yml                         # Emacs
