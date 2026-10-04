@@ -36,15 +36,13 @@
   notify:
     - software | statusline | reload Waybar via systemd service
 
-- name: software | statusline | sync waybar icon directory
+- name: software | statusline | copy waybar icon dir with symlinks
   tags: statusline,waybar
-  ansible.posix.synchronize:
-    src: /home/ansible/git/dotfiles/waybar/icon/
-    dest: /home/rafael/.config/waybar/icon/
-    links: yes
-    archive: no
-    recursive: yes
-  delegate_to: "{{ inventory_hostname }}"
+  become_user: rafael
+  ansible.builtin.shell: >
+    rsync -rlc --out-format="%n" /home/ansible/git/dotfiles/waybar/icon/ /home/rafael/.config/waybar/icon/
+  register: rsync_icon
+  changed_when: rsync_icon.stdout != ""
   notify:
     - software | statusline | reload Waybar via systemd service
 
