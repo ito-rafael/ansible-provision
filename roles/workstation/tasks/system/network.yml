@@ -8,6 +8,7 @@
       - ufw                 # manage netfilter firewall
       #- openresolv          # resolv.conf management framework
       - systemd-resolvconf  # systemd resolvconf replacement
+      - ethtool             # utility for controlling network drivers and hardware
 
 - name: system | network | install NetworkManager
   tags: system,network
