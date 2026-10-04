@@ -12,6 +12,7 @@
       - lldpd               # LLDP to help locate network neighbors
       - tcpdump             # CLI packet analyzer
       - sshuttle            # proxy server to forward TCP packets over SSH
+      - bind                # dnsutils (provides nslookup)
 
 - name: system | network | install NetworkManager
   tags: system,network
