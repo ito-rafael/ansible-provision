@@ -1,0 +1,4 @@
+- name: software | usbguard | install USBGuard
+  tags: usbguard
+  package:
+    name: usbguard

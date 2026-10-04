@@ -17,3 +17,4 @@
   - import_tasks: system/ntp.yml             # synchronize time
   - import_tasks: software/shell.yml         # Zsh
   - import_tasks: software/text-editor.yml   # Neovim
+  - import_tasks: software/usbguard.yml      # USB auth policies
