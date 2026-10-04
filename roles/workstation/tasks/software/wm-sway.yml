@@ -51,8 +51,8 @@
     group: rafael
     mode: "{{ item.mode }}"
   with_items:
-    - { src: 'i3bang.rb',    dest: 'i3bang.rb', mode: '0700' }
-    - { src: '_config_sway', dest: '_config',   mode: '0600' }
+    - { src: 'i3bang.rb',      dest: 'i3bang.rb', mode: '0700' }
+    - { src: '_config_swayfx', dest: '_config',   mode: '0600' }
 
 - name: software | window-manager | generate Sway config from Ruby script
   tags: wayland,sway
