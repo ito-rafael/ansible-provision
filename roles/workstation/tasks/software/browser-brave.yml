@@ -208,3 +208,9 @@
     - violentmonkey_allow_user_scripts.py
   register: python_execution
   changed_when: "'Success' in python_execution.stdout"
+  # natively skip the task if the previous gatekeeper check saw Brave was open
+  when: brave_running.rc != 0
+  # bulletproof fallback: ignore failures triggered by the internal safety abort
+  failed_when:
+    - python_execution.rc != 0
+    - "'Aborting to protect active session' not in python_execution.stdout"
