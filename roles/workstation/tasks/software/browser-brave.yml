@@ -48,6 +48,7 @@
     mode: 0644
   loop:
     - bookmarks_bar.json                  # enable bookmarks bar
+    - ca_trust.json                       # trust system root CA
     - crash_reports.json                  # enable diagnostic crash reports
     - dev_mode.json                       # ensure developer mode is available
     - default_browser.json                # disable default browser check
