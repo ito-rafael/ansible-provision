@@ -57,5 +57,5 @@
     group: rafael
     mode: 0600
   with_items:
-    - { src: env.conf, dest: environment.d/env.conf }
+    - { src: env.conf, dest: environment.d/fcitx5.conf }
     - { src: profile,  dest: fcitx5/profile }
