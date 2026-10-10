@@ -3,6 +3,15 @@
   package:
     name: python
 
+- name: development | python | create $HOME/venvs dir
+  tags: dev,python
+  file:
+    path: /home/rafael/venvs
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
+
 - name: development | python | install Python essential packages
   tags: dev,python
   package:
