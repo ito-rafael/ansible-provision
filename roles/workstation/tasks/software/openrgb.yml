@@ -1,0 +1,6 @@
+- name: software | openrgb | install OpenRGB
+  tags: software,openrgb
+  pacman:
+    name:
+      - openrgb
+    state: present
