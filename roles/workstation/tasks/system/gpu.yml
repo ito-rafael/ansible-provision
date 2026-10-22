@@ -35,6 +35,6 @@
   when: "'AMD' in gpu_info.stdout"
 
 - name: include Intel GPU tasks
-  tags: system,gpu,amd
-  import_tasks: gpu-amd.yml
+  tags: system,gpu,intel
+  import_tasks: gpu-intel.yml
   when: "'Intel' in gpu_info.stdout"

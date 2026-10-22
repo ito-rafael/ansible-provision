@@ -10,7 +10,7 @@
 
 # Intel iGPU identification
 - name: system | GPU Intel | check CPU model
-  tags: system,gpu,gpu-nvidia
+  tags: system,gpu,gpu-intel
   shell: "awk -F': +' '/model[[:space:]]+:/{print $2; exit}' /proc/cpuinfo"
   changed_when: false
   failed_when: false
