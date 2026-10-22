@@ -61,3 +61,12 @@
   with_items:
     - early-init.el
     - init.el
+
+- name: development | emacs | ensure systemd user dir exists
+  tags: emacs
+  file:
+    path: /home/rafael/.config/systemd/user
+    state: directory
+    owner: rafael
+    group: rafael
+    mode: 0700
