@@ -53,6 +53,7 @@
     - dev_mode.json                       # ensure developer mode is available
     - default_browser.json                # disable default browser check
     - extension_install_policy_full.json  # install extensions
+    - memory_management.json              # enable memory saver
     - password_manager.json               # disable password manager
     - search_engine.json                  # set Startpage as the search engine
 
