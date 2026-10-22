@@ -6,3 +6,7 @@
     state: started
     enabled: true
     scope: user
+
+- name: development | emacs | try-restart systemd global service
+  tags: emacs
+  ansible.builtin.command: systemctl try-restart emacs.service --user

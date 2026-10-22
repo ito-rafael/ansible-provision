@@ -83,3 +83,4 @@
   notify:
     - handler | get UID of the user
     - reload user systemd services (rafael)
+    - development | emacs | try-restart systemd user service
