@@ -35,3 +35,10 @@
   become_user: aurman
   kewlfft.aur.aur:
     name: igt-gpu-tools
+
+- name: system | GPU Intel | set cap_perfmon for intel_gpu_top
+  tags: system,gpu,gpu-intel
+  community.general.capabilities:
+    path: /usr/bin/intel_gpu_top
+    capability: cap_perfmon=ep
+    state: present
