@@ -65,14 +65,6 @@ local:
   vars:
     ansible_host: "{{ inventory_hostname }}.internal"
 #+end_src
-*** LBiC
-Group created with the only purpose to share the same "secret_domain" =vault.yml=.
-#+begin_src yaml
-lbic:
-  children:
-    lab:
-  hosts:
-    catuaba:
   vars:
     ansible_host: "{{ inventory_hostname }}.{{ secret_domain }}"
 #+end_src
