@@ -42,3 +42,8 @@
     path: /usr/bin/intel_gpu_top
     capability: cap_perfmon=ep
     state: present
+
+- name: system | GPU Intel | install Compute Runtime
+  tags: system,gpu,gpu-intel
+  package:
+    name: intel-compute-runtime
