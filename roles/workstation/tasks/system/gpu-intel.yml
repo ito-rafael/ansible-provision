@@ -29,3 +29,9 @@
   package:
     name: intel-media-driver
   when: (intel_cpu_model.stdout | int) >= 61
+
+- name: system | GPU Intel | install igt-gpu-tools to monitor iGPU usage
+  tags: system,gpu,gpu-intel
+  become_user: aurman
+  kewlfft.aur.aur:
+    name: igt-gpu-tools
