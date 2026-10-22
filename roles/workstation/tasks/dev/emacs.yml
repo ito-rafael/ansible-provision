@@ -70,3 +70,16 @@
     owner: rafael
     group: rafael
     mode: 0700
+
+- name: development | emacs | copy systemd user service
+  tags: emacs
+  copy:
+    remote_src: yes
+    src: /home/ansible/git/dotfiles/emacs/emacs.service
+    dest: /home/rafael/.config/systemd/user/emacs.service
+    owner: rafael
+    group: rafael
+    mode: "0600"
+  notify:
+    - handler | get UID of the user
+    - reload user systemd services (rafael)
